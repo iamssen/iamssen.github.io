@@ -1,1 +1,0 @@
-/Users/ssen/Workspace/ssen.name-data/src/service/activity.model.ts
