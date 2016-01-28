@@ -138,7 +138,9 @@ System.register("app/impl.web/context.ts", ["angular2/core", "angular2-reflow", 
   };
 });
 
-System.register("app/app/index/index.ts", ["angular2/core"], function(exports_1) {
+System.register("app/app/index/index.css!github:systemjs/plugin-css@0.1.20", [], function() { return { setters: [], execute: function() {} } });
+
+System.register("app/app/index/index.ts", ["angular2/core", "moment", "./index.css!"], function(exports_1) {
   var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
     var c = arguments.length,
         r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -160,17 +162,31 @@ System.register("app/app/index/index.ts", ["angular2/core"], function(exports_1)
       decorator(target, key, paramIndex);
     };
   };
-  var core_1;
+  var core_1,
+      moment_1;
   var Index;
   return {
     setters: [function(core_1_1) {
       core_1 = core_1_1;
-    }],
+    }, function(moment_1_1) {
+      moment_1 = moment_1_1;
+    }, function(_1) {}],
     execute: function() {
       Index = (function() {
         function Index(service) {
           this.service = service;
         }
+        Index.prototype.chooseBehanceCover = function(activity) {
+          var sizes = ['404', '230', '202', '115'];
+          var f = -1;
+          var fmax = sizes.length;
+          while (++f < fmax) {
+            var size = sizes[f];
+            if (typeof activity.behance.covers[size] === 'string')
+              return activity.behance.covers[size];
+          }
+          return '';
+        };
         Index.prototype.hasGhPages = function(activity) {
           return activity.github.branches.filter(function(branch) {
             return branch.name === 'gh-pages';
@@ -179,8 +195,54 @@ System.register("app/app/index/index.ts", ["angular2/core"], function(exports_1)
         Index.prototype.ngOnInit = function() {
           var _this = this;
           this.service.getActivity().subscribe(function(activities) {
-            _this.activities = activities.sort(function(a, b) {
+            _this.items = activities.sort(function(a, b) {
               return (a.date > b.date) ? -1 : 1;
+            }).map(function(activity) {
+              var name = activity.name;
+              var date = moment_1.default(activity.date).format('YYYY-MM-DD');
+              var preview;
+              var links = [];
+              switch (activity.from) {
+                case 'github':
+                  preview = 'app/app/index/github.svg';
+                  links.push({
+                    name: 'github',
+                    url: activity.github.html_url
+                  });
+                  if (_this.hasGhPages(activity))
+                    links.push({
+                      name: 'gh-pages',
+                      url: "http://iamssen.github.io/" + activity.github.name
+                    });
+                  break;
+                case 'gist':
+                  preview = 'app/app/index/gist.svg';
+                  links.push({
+                    name: 'gist',
+                    url: activity.gist.html_url
+                  });
+                  break;
+                case 'jsfiddle':
+                  preview = 'app/app/index/jsfiddle.svg';
+                  links.push({
+                    name: 'jsfiddle',
+                    url: activity.jsfiddle.url
+                  });
+                  break;
+                case 'behance':
+                  preview = _this.chooseBehanceCover(activity);
+                  links.push({
+                    name: 'behance',
+                    url: activity.behance.url
+                  });
+                  break;
+              }
+              return {
+                name: name,
+                preview: preview,
+                links: links,
+                date: date
+              };
             });
           }, function(error) {
             console.log('Error!!!', error);
@@ -188,7 +250,7 @@ System.register("app/app/index/index.ts", ["angular2/core"], function(exports_1)
         };
         Index = __decorate([core_1.Component({
           selector: 'content-index',
-          template: "\n  <h1>hello {{message}}</h1>\n  <ul>\n    <li *ngFor=\"#activity of activities\">\n      {{activity.name}}\n      <span [ngSwitch]=\"activity.from\">\n        <template ngSwitchWhen=\"github\">\n          <a [attr.href]=\"activity.github.html_url\" target=\"_blank\">github</a>\n          <template [ngIf]=\"hasGhPages(activity)\">\n            <a href=\"http://iamssen.github.io/{{activity.github.name}}\" target=\"_blank\">gist</a>\n          </template>\n        </template>\n        <template ngSwitchWhen=\"jsfiddle\">\n          <a [attr.href]=\"activity.jsfiddle.url\" target=\"_blank\">jsfiddle</a>\n        </template>\n        <template ngSwitchWhen=\"gist\">\n          <a [attr.href]=\"activity.gist.html_url\" target=\"_blank\">gist</a>\n        </template>\n        <template ngSwitchWhen=\"behance\">\n          <a [attr.href]=\"activity.behance.url\" target=\"_blank\">behance</a>\n        </template>\n      </span>\n    </li>\n  </ul>\n  "
+          templateUrl: 'app/app/index/index.html'
         }), __param(0, core_1.Inject('service')), __metadata('design:paramtypes', [Object])], Index);
         return Index;
       })();
@@ -350,4 +412,5 @@ System.register("app/app/boot.ts", ["angular2/platform/browser", "./main/main"],
   };
 });
 
+System.register('app/app/index/index.css!github:systemjs/plugin-css@0.1.20', [], false, function() {});
 System.register('app/app/main/main.css!github:systemjs/plugin-css@0.1.20', [], false, function() {});

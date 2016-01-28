@@ -1,16 +1,19 @@
-<div class="navbar-fixed main-menu">
-  <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <a [routerLink]="['Index']" class="brand-logo left">LOGO</a>
-      <ul class="right">
-        <li *ngFor="#route of routeConfig" [class.main-menu-active]="isActive(route.path)">
-          <a [routerLink]="[route.name]">{{route.name}}</a>
+<div class="main-menu">
+  <nav class="navbar navbar-fixed-top navbar-light bg-faded">
+    <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar">
+      &#9776;
+    </button>
+    <div class="collapse navbar-toggleable-xs" id="navbar">
+      <a class="navbar-brand" href="#">SSEN</a>
+      <ul class="nav navbar-nav">
+        <li *ngFor="#route of routeConfig" class="nav-item" [class.active]="isActive(route.path)">
+          <a class="nav-link" [routerLink]="[route.name]">{{route.name}}</a>
         </li>
       </ul>
     </div>
   </nav>
 </div>
 
-<div class="container">
+<div class="container main-content">
   <router-outlet></router-outlet>
 </div>

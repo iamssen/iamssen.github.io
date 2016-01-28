@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit} from 'angular2/core';
 import {EVENT_BUS, EventBus} from 'angular2-reflow';
 import {Activity} from '../service/activity.model';
+import moment from 'moment';
 import './index.css!';
 
 interface Link {
@@ -10,32 +11,14 @@ interface Link {
 
 interface Item {
   name:string;
+  date:string;
   preview:string;
   links:Link[];
 }
 
 @Component({
   selector: 'content-index',
-  template: `
-  <h1 class="content-index">ACTIVITIES</h1>
-  <div class="row content-index">
-    <div class="col s12 m4" *ngFor="#item of items">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="{{item.preview}}"/>
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">{{item.name}}.</span>
-          <p><a *ngFor="#link of item.links" href="{{link.url}}" target="_blank">{{link.name}}</a></p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">{{item.name}}<i class="material-icons right">close</i></span>
-          <p>{{item.name}}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  `
+  templateUrl: 'app/app/index/index.html'
 })
 export class Index implements OnInit {
   items:Item[];
@@ -67,12 +50,13 @@ export class Index implements OnInit {
                   .sort((a, b) => (a.date > b.date) ? -1 : 1)
                   .map(activity => {
                     let name:string = activity.name;
+                    let date:string = moment(activity.date).format('YYYY-MM-DD');
                     let preview:string;
                     let links:Link[] = [];
 
                     switch (activity.from) {
                       case 'github':
-                        preview = 'app/app/index/index.png';
+                        preview = 'app/app/index/github.svg';
                         links.push({name: 'github', url: activity.github.html_url});
                         if (this.hasGhPages(activity)) links.push({
                           name: 'gh-pages',
@@ -80,11 +64,11 @@ export class Index implements OnInit {
                         });
                         break;
                       case 'gist':
-                        preview = 'app/app/index/index.png';
+                        preview = 'app/app/index/gist.svg';
                         links.push({name: 'gist', url: activity.gist.html_url});
                         break;
                       case 'jsfiddle':
-                        preview = 'app/app/index/index.png';
+                        preview = 'app/app/index/jsfiddle.svg';
                         links.push({name: 'jsfiddle', url: activity.jsfiddle.url});
                         break;
                       case 'behance':
@@ -92,7 +76,7 @@ export class Index implements OnInit {
                         links.push({name: 'behance', url: activity.behance.url});
                         break;
                     }
-                    return {name, preview, links};
+                    return {name, preview, links, date};
                   });
             },
             (error:Error) => {

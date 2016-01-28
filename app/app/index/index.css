@@ -2,26 +2,18 @@ h1.content-index {
   font-weight: 200;
 }
 
-div.content-index div.card {
-
+div.content-index h4 {
+  font-weight: 500;
 }
 
-div.content-index div.card-content {
-  padding: 5px 25px 15px 15px;
+div.content-index div.card-block {
+  padding: 0.8rem;
 }
 
-div.content-index div.card-content, div.content-index div.card-reveal {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -ms-text-overflow: ellipsis;
+div.content-index div.card p.card-text {
+  line-height: 130%;
 }
 
-div.content-index span.card-title {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  -ms-text-overflow: ellipsis;
-}
-
-div.content-index div.card-content p a {
-  margin-right: 10px;
+div.content-index div.card a.btn {
+  margin-right: 4px;
 }

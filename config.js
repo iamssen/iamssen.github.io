@@ -60,6 +60,7 @@ System.config({
     "es6-promise": "npm:es6-promise@3.0.2",
     "es6-shim": "github:es-shims/es6-shim@0.34.2",
     "jquery": "npm:jquery@2.2.0",
+    "moment": "npm:moment@2.11.1",
     "rxjs": "npm:rxjs@5.0.0-beta.1",
     "ts": "github:frankwallis/plugin-typescript@2.5.1",
     "github:frankwallis/plugin-typescript@2.5.1": {
@@ -532,6 +533,9 @@ System.config({
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "minimist": "npm:minimist@0.0.8",
       "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:moment@2.11.1": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:os-browserify@0.1.2": {
