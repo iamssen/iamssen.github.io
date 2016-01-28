@@ -5,7 +5,7 @@ System.register("app/app/service/service.ts", [], function(exports_1) {
   };
 });
 
-System.register("app/impl.web/context.ts", ["angular2/core", "angular2-reflow", "../app/service/service"], function(exports_1) {
+System.register("app/impl.web/context.ts", ["angular2/core", "angular2-reflow", "../app/service/service", "rxjs", "angular2/http"], function(exports_1) {
   var __extends = (this && this.__extends) || function(d, b) {
     for (var p in b)
       if (b.hasOwnProperty(p))
@@ -38,7 +38,9 @@ System.register("app/impl.web/context.ts", ["angular2/core", "angular2-reflow", 
   };
   var core_1,
       reflow,
-      service;
+      service,
+      Rx,
+      http_1;
   var Service,
       Command1,
       Command2,
@@ -51,10 +53,16 @@ System.register("app/impl.web/context.ts", ["angular2/core", "angular2-reflow", 
       reflow = reflow_1;
     }, function(service_1) {
       service = service_1;
+    }, function(Rx_1) {
+      Rx = Rx_1;
+    }, function(http_1_1) {
+      http_1 = http_1_1;
     }],
     execute: function() {
       Service = (function() {
-        function Service() {}
+        function Service(http) {
+          this.http = http;
+        }
         Service.prototype.hello = function() {
           return new Promise(function(resolve, reject) {
             setTimeout(function() {
@@ -62,7 +70,12 @@ System.register("app/impl.web/context.ts", ["angular2/core", "angular2-reflow", 
             }, 1000);
           });
         };
+        Service.prototype.getActivity = function() {
+          return Rx.Observable.fromPromise($.getJSON('store/activity.json'));
+        };
+        Service = __decorate([core_1.Injectable(), __metadata('design:paramtypes', [(typeof(_a = typeof http_1.Http !== 'undefined' && http_1.Http) === 'function' && _a) || Object])], Service);
         return Service;
+        var _a;
       })();
       Command1 = (function() {
         function Command1(service) {
@@ -125,7 +138,7 @@ System.register("app/impl.web/context.ts", ["angular2/core", "angular2-reflow", 
   };
 });
 
-System.register("app/app/index/index.ts", ["angular2/core", "angular2-reflow"], function(exports_1) {
+System.register("app/app/index/index.ts", ["angular2/core"], function(exports_1) {
   var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
     var c = arguments.length,
         r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -147,36 +160,30 @@ System.register("app/app/index/index.ts", ["angular2/core", "angular2-reflow"], 
       decorator(target, key, paramIndex);
     };
   };
-  var core_1,
-      angular2_reflow_1;
+  var core_1;
   var Index;
   return {
     setters: [function(core_1_1) {
       core_1 = core_1_1;
-    }, function(angular2_reflow_1_1) {
-      angular2_reflow_1 = angular2_reflow_1_1;
     }],
     execute: function() {
       Index = (function() {
-        function Index(service, eventBus) {
+        function Index(service) {
           this.service = service;
-          this.eventBus = eventBus;
-          this.message = 'Test';
         }
         Index.prototype.ngOnInit = function() {
           var _this = this;
-          this.service.hello().then(function(result) {
-            _this.message = result;
-            _this.eventBus.fire(new Event('eventBusTest'));
-            _this.eventBus.fire(new Event('execute-commands'));
+          this.service.getActivity().subscribe(function(activities) {
+            _this.activities = activities;
+          }, function(error) {
+            console.log('Error!!!', error);
           });
         };
         Index = __decorate([core_1.Component({
           selector: 'content-index',
-          template: "<h1>hello {{message}}</h1>"
-        }), __param(0, core_1.Inject('service')), __param(1, core_1.Inject(angular2_reflow_1.EVENT_BUS)), __metadata('design:paramtypes', [Object, (typeof(_a = typeof angular2_reflow_1.EventBus !== 'undefined' && angular2_reflow_1.EventBus) === 'function' && _a) || Object])], Index);
+          template: "\n  <h1>hello {{message}}</h1>\n  <ul>\n    <li *ngFor=\"#activity of activities\">{{activity.name}}</li>\n  </ul>\n  "
+        }), __param(0, core_1.Inject('service')), __metadata('design:paramtypes', [Object])], Index);
         return Index;
-        var _a;
       })();
       exports_1("Index", Index);
     }
@@ -222,7 +229,7 @@ System.register("app/app/sample/sample.ts", ["angular2/core"], function(exports_
 
 System.register("app/app/main/main.css!github:systemjs/plugin-css@0.1.20", [], function() { return { setters: [], execute: function() {} } });
 
-System.register("app/app/main/main.ts", ["angular2/core", "angular2/router", "angular2-reflow", "impl:context", "../index/index", "../sample/sample", "./main.css!"], function(exports_1) {
+System.register("app/app/main/main.ts", ["angular2/core", "angular2/router", "angular2/http", "angular2-reflow", "impl:context", "../index/index", "../sample/sample", "./main.css!"], function(exports_1) {
   var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
     var c = arguments.length,
         r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -246,6 +253,7 @@ System.register("app/app/main/main.ts", ["angular2/core", "angular2/router", "an
   };
   var core_1,
       router_1,
+      http_1,
       rf,
       impl_context_1,
       index_1,
@@ -258,6 +266,8 @@ System.register("app/app/main/main.ts", ["angular2/core", "angular2/router", "an
       core_1 = core_1_1;
     }, function(router_1_1) {
       router_1 = router_1_1;
+    }, function(http_1_1) {
+      http_1 = http_1_1;
     }, function(rf_1) {
       rf = rf_1;
     }, function(impl_context_1_1) {
@@ -306,7 +316,7 @@ System.register("app/app/main/main.ts", ["angular2/core", "angular2/router", "an
         };
         Main = __decorate([core_1.Component({
           selector: 'app-main',
-          providers: [context.providers, router_1.ROUTER_PROVIDERS, core_1.provide(router_1.LocationStrategy, {useClass: router_1.HashLocationStrategy})],
+          providers: [context.providers, http_1.HTTP_PROVIDERS, router_1.ROUTER_PROVIDERS, core_1.provide(router_1.LocationStrategy, {useClass: router_1.HashLocationStrategy})],
           templateUrl: 'app/app/main/main.html',
           directives: [router_1.ROUTER_DIRECTIVES]
         }), router_1.RouteConfig(routeConfig), __param(0, core_1.Inject(router_1.Location)), __param(1, core_1.Inject(rf.CONTEXT)), __param(2, core_1.Inject(rf.EVENT_BUS)), __metadata('design:paramtypes', [(typeof(_a = typeof router_1.Location !== 'undefined' && router_1.Location) === 'function' && _a) || Object, Object, Object])], Main);

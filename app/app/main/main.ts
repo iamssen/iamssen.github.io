@@ -14,6 +14,9 @@ import {
     Location,
     RouteDefinition
 } from 'angular2/router';
+import {
+    HTTP_PROVIDERS
+} from 'angular2/http';
 import * as rf from 'angular2-reflow';
 import {ContextFactory} from 'impl:context';
 import {Index} from "../index/index";
@@ -30,6 +33,7 @@ let routeConfig:RouteDefinition[] = [
   selector: 'app-main',
   providers: [
     context.providers,
+    HTTP_PROVIDERS,
     ROUTER_PROVIDERS,
     provide(LocationStrategy, {useClass: HashLocationStrategy})
   ],

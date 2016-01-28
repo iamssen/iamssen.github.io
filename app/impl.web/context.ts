@@ -1,12 +1,25 @@
-import {Provider, Inject} from 'angular2/core';
+import {Provider, Inject, Injectable} from 'angular2/core';
+import {Activity} from '../app/service/activity.model';
 import * as reflow from 'angular2-reflow';
 import * as service from '../app/service/service';
+import * as Rx from 'rxjs';
+import {Http, Response} from 'angular2/http';
 
+@Injectable()
 class Service implements service.Service {
+  constructor(private http:Http) {
+  }
+
   hello():Promise<string> {
     return new Promise(function (resolve, reject) {
       setTimeout(() => resolve('web service'), 1000);
     });
+  }
+
+  getActivity():Rx.Observable<Activity[]> {
+    return Rx
+        .Observable
+        .fromPromise($.getJSON('store/activity.json') as Promise);
   }
 }
 

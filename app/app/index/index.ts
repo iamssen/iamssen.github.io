@@ -1,24 +1,32 @@
 import {Component, Inject, OnInit} from 'angular2/core';
 import {EVENT_BUS, EventBus} from 'angular2-reflow';
+import {Activity} from '../service/activity.model';
 
 @Component({
   selector: 'content-index',
-  template: `<h1>hello {{message}}</h1>`
+  template: `
+  <h1>hello {{message}}</h1>
+  <ul>
+    <li *ngFor="#activity of activities">{{activity.name}}</li>
+  </ul>
+  `
 })
 export class Index implements OnInit {
-  message:string = 'Test';
+  activities:Activity[];
 
-  constructor(@Inject('service') private service,
-              @Inject(EVENT_BUS) private eventBus:EventBus) {
+  constructor(@Inject('service') private service) {
   }
 
   ngOnInit() {
     this.service
-        .hello()
-        .then(result => {
-          this.message = result;
-          this.eventBus.fire(new Event('eventBusTest'));
-          this.eventBus.fire(new Event('execute-commands'));
-        });
+        .getActivity()
+        .subscribe(
+            (activities:Activity[]) => {
+              this.activities = activities;
+            },
+            (error:Error) => {
+              console.log('Error!!!', error)
+            }
+        );
   }
 }
