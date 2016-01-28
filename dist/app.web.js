@@ -199,7 +199,7 @@ System.register("app/app/index/index.ts", ["angular2/core", "moment", "./index.c
               return (a.date > b.date) ? -1 : 1;
             }).map(function(activity) {
               var name = activity.name;
-              var date = moment_1.default(activity.date).format('YYYY-MM-DD');
+              var date = moment_1.default(activity.date).format('MMM D, YYYY');
               var preview;
               var links = [];
               switch (activity.from) {

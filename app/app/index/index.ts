@@ -50,7 +50,7 @@ export class Index implements OnInit {
                   .sort((a, b) => (a.date > b.date) ? -1 : 1)
                   .map(activity => {
                     let name:string = activity.name;
-                    let date:string = moment(activity.date).format('YYYY-MM-DD');
+                    let date:string = moment(activity.date).format('MMM D, YYYY');
                     let preview:string;
                     let links:Link[] = [];
 
