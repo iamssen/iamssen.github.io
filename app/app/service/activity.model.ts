@@ -12,6 +12,7 @@ export module github {
   export interface Gist {
     id: string;
     description: string;
+    html_url: string;
     url:string;
     created_at:string;
     updated_at:string;

@@ -1,0 +1,27 @@
+h1.content-index {
+  font-weight: 200;
+}
+
+div.content-index div.card {
+
+}
+
+div.content-index div.card-content {
+  padding: 5px 25px 15px 15px;
+}
+
+div.content-index div.card-content, div.content-index div.card-reveal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+}
+
+div.content-index span.card-title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+}
+
+div.content-index div.card-content p a {
+  margin-right: 10px;
+}

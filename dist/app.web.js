@@ -171,17 +171,24 @@ System.register("app/app/index/index.ts", ["angular2/core"], function(exports_1)
         function Index(service) {
           this.service = service;
         }
+        Index.prototype.hasGhPages = function(activity) {
+          return activity.github.branches.filter(function(branch) {
+            return branch.name === 'gh-pages';
+          }).length > 0;
+        };
         Index.prototype.ngOnInit = function() {
           var _this = this;
           this.service.getActivity().subscribe(function(activities) {
-            _this.activities = activities;
+            _this.activities = activities.sort(function(a, b) {
+              return (a.date > b.date) ? -1 : 1;
+            });
           }, function(error) {
             console.log('Error!!!', error);
           });
         };
         Index = __decorate([core_1.Component({
           selector: 'content-index',
-          template: "\n  <h1>hello {{message}}</h1>\n  <ul>\n    <li *ngFor=\"#activity of activities\">{{activity.name}}</li>\n  </ul>\n  "
+          template: "\n  <h1>hello {{message}}</h1>\n  <ul>\n    <li *ngFor=\"#activity of activities\">\n      {{activity.name}}\n      <span [ngSwitch]=\"activity.from\">\n        <template ngSwitchWhen=\"github\">\n          <a [attr.href]=\"activity.github.html_url\" target=\"_blank\">github</a>\n          <template [ngIf]=\"hasGhPages(activity)\">\n            <a href=\"http://iamssen.github.io/{{activity.github.name}}\" target=\"_blank\">gist</a>\n          </template>\n        </template>\n        <template ngSwitchWhen=\"jsfiddle\">\n          <a [attr.href]=\"activity.jsfiddle.url\" target=\"_blank\">jsfiddle</a>\n        </template>\n        <template ngSwitchWhen=\"gist\">\n          <a [attr.href]=\"activity.gist.html_url\" target=\"_blank\">gist</a>\n        </template>\n        <template ngSwitchWhen=\"behance\">\n          <a [attr.href]=\"activity.behance.url\" target=\"_blank\">behance</a>\n        </template>\n      </span>\n    </li>\n  </ul>\n  "
         }), __param(0, core_1.Inject('service')), __metadata('design:paramtypes', [Object])], Index);
         return Index;
       })();

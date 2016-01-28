@@ -1,9 +1,16 @@
-<ul class="main-menu">
-  <li *ngFor="#route of routeConfig">
-    <a [class.main-menu-active]="isActive(route.path)" [routerLink]="[route.name]">{{route.name}}</a>
-  </li>
-</ul>
+<div class="navbar-fixed main-menu">
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a [routerLink]="['Index']" class="brand-logo left">LOGO</a>
+      <ul class="right">
+        <li *ngFor="#route of routeConfig" [class.main-menu-active]="isActive(route.path)">
+          <a [routerLink]="[route.name]">{{route.name}}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
 
-<div>
+<div class="container">
   <router-outlet></router-outlet>
 </div>

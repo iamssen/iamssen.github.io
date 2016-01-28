@@ -1,18 +1,18 @@
-ul.main-menu {
-  padding-left: 0;
+.navbar-fixed, .navbar-fixed nav, .navbar-fixed nav ul, .navbar-fixed nav ul li {
+  height: 50px;
+  line-height: 50px;
 }
 
-ul.main-menu li {
-  display: inline;
-  list-style-type: none;
-  margin-right: 4px;
-  font-size: 0.85rem;
+div.main-menu a {
+  font-weight: 300;
+  color: #444444;
 }
 
-ul.main-menu li a {
-  text-decoration: none;
+div.main-menu li {
+  transition: border-bottom 0.4s;
+  border-bottom: 2px solid white;
 }
 
-ul.main-menu li a.main-menu-active {
-  text-decoration: underline;
+div.main-menu li.main-menu-active {
+  border-bottom: 2px solid black;
 }
