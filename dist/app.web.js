@@ -259,36 +259,11 @@ System.register("app/app/index/index.ts", ["angular2/core", "moment", "./index.c
             return console.log('Error!!!', error);
           });
         };
-        Index.prototype.ngAfterViewInit = function() {
-          this.cards.changes.subscribe(function(q) {
-            setTimeout(function() {
-              q.toArray().map(function(elementRef) {
-                return elementRef.nativeElement;
-              }).forEach(function(element) {
-                var el = $(element);
-                if (el.offset().top < $(window).height() + 200) {
-                  el.css('opacity', 1);
-                } else {
-                  var wp = new Waypoint({
-                    element: element,
-                    handler: function() {
-                      el.css('opacity', 1);
-                      wp.destroy();
-                    },
-                    offset: 'bottom-in-view'
-                  });
-                }
-              });
-            }, 1);
-          });
-        };
-        __decorate([core_1.ViewChildren('card'), __metadata('design:type', (typeof(_a = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _a) || Object)], Index.prototype, "cards", void 0);
         Index = __decorate([core_1.Component({
           selector: 'content-index',
           templateUrl: 'app/app/index/index.html'
         }), __param(0, core_1.Inject('service')), __metadata('design:paramtypes', [Object])], Index);
         return Index;
-        var _a;
       })();
       exports_1("Index", Index);
     }

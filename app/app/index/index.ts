@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit, AfterViewInit, ElementRef, ViewChildren, QueryList} from 'angular2/core';
+import {Component, Inject, OnInit} from 'angular2/core';
 import {EVENT_BUS, EventBus} from 'angular2-reflow';
 import {Activity} from '../service/activity.model';
 import moment from 'moment';
@@ -20,8 +20,8 @@ interface Item {
   selector: 'content-index',
   templateUrl: 'app/app/index/index.html'
 })
-export class Index implements OnInit, AfterViewInit {
-  @ViewChildren('card') cards:QueryList<ElementRef>;
+export class Index implements OnInit {
+  //@ViewChildren('card') cards:QueryList<ElementRef>;
   items:Item[];
 
   constructor(@Inject('service') private service) {
@@ -85,28 +85,28 @@ export class Index implements OnInit, AfterViewInit {
       );
   }
 
-  ngAfterViewInit() {
-    this.cards.changes.subscribe((q:QueryList) => {
-      setTimeout(() => {
-        q
-          .toArray()
-          .map<Element>((elementRef:ElementRef) => elementRef.nativeElement)
-          .forEach(element => {
-            let el = $(element);
-            if (el.offset().top < $(window).height() + 200) {
-              el.css('opacity', 1);
-            } else {
-              let wp:Waypoint = new Waypoint({
-                element: element,
-                handler: () => {
-                  el.css('opacity', 1);
-                  wp.destroy();
-                },
-                offset: 'bottom-in-view'
-              })
-            }
-          })
-      }, 1);
-    })
-  }
+  //ngAfterViewInit() {
+  //  this.cards.changes.subscribe((q:QueryList) => {
+  //    setTimeout(() => {
+  //      q
+  //        .toArray()
+  //        .map<Element>((elementRef:ElementRef) => elementRef.nativeElement)
+  //        .forEach(element => {
+  //          let el = $(element);
+  //          if (el.offset().top < $(window).height() + 200) {
+  //            el.css('opacity', 1);
+  //          } else {
+  //            let wp:Waypoint = new Waypoint({
+  //              element: element,
+  //              handler: () => {
+  //                el.css('opacity', 1);
+  //                wp.destroy();
+  //              },
+  //              offset: 'bottom-in-view'
+  //            })
+  //          }
+  //        })
+  //    }, 1);
+  //  })
+  //}
 }
