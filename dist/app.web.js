@@ -1,11 +1,4 @@
-System.register("app/app/service/service.ts", [], function(exports_1) {
-  return {
-    setters: [],
-    execute: function() {}
-  };
-});
-
-System.register("app/impl.web/context.ts", ["angular2/core", "angular2-reflow", "../app/service/service", "rxjs", "angular2/http"], function(exports_1) {
+System.register("app/impl.web/context.ts", ["angular2/core", "angular2/router", "angular2-reflow", "../app/service/service", "rxjs", "angular2/http"], function(exports_1) {
   var __extends = (this && this.__extends) || function(d, b) {
     for (var p in b)
       if (b.hasOwnProperty(p))
@@ -37,11 +30,13 @@ System.register("app/impl.web/context.ts", ["angular2/core", "angular2-reflow", 
     };
   };
   var core_1,
+      router_1,
       reflow,
       service,
       Rx,
       http_1;
   var Service,
+      Analytics,
       Command1,
       Command2,
       Command3,
@@ -49,6 +44,8 @@ System.register("app/impl.web/context.ts", ["angular2/core", "angular2-reflow", 
   return {
     setters: [function(core_1_1) {
       core_1 = core_1_1;
+    }, function(router_1_1) {
+      router_1 = router_1_1;
     }, function(reflow_1) {
       reflow = reflow_1;
     }, function(service_1) {
@@ -75,6 +72,17 @@ System.register("app/impl.web/context.ts", ["angular2/core", "angular2-reflow", 
         };
         Service = __decorate([core_1.Injectable(), __metadata('design:paramtypes', [(typeof(_a = typeof http_1.Http !== 'undefined' && http_1.Http) === 'function' && _a) || Object])], Service);
         return Service;
+        var _a;
+      })();
+      Analytics = (function() {
+        function Analytics(router) {
+          this.router = router;
+          router.subscribe(function(path) {
+            return ga('send', 'preview', "/" + path);
+          });
+        }
+        Analytics = __decorate([core_1.Injectable(), __metadata('design:paramtypes', [(typeof(_a = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _a) || Object])], Analytics);
+        return Analytics;
         var _a;
       })();
       Command1 = (function() {
@@ -129,6 +137,7 @@ System.register("app/impl.web/context.ts", ["angular2/core", "angular2-reflow", 
         }
         ContextFactory.prototype.mapDependency = function() {
           this.provide(new core_1.Provider('service', {useClass: Service}));
+          this.provide(new core_1.Provider('analytics', {useClass: Analytics}));
           this.mapCommand('execute-commands', [Command1, Command2, Command3]);
         };
         return ContextFactory;
@@ -211,7 +220,7 @@ System.register("app/app/index/index.ts", ["angular2/core", "moment", "./index.c
                   });
                   if (_this.hasGhPages(activity))
                     links.push({
-                      name: 'gh-pages',
+                      name: 'pages',
                       url: "http://iamssen.github.io/" + activity.github.name
                     });
                   break;
@@ -296,9 +305,16 @@ System.register("app/app/sample/sample.ts", ["angular2/core"], function(exports_
   };
 });
 
+System.register("app/app/service/service.ts", [], function(exports_1) {
+  return {
+    setters: [],
+    execute: function() {}
+  };
+});
+
 System.register("app/app/main/main.css!github:systemjs/plugin-css@0.1.20", [], function() { return { setters: [], execute: function() {} } });
 
-System.register("app/app/main/main.ts", ["angular2/core", "angular2/router", "angular2/http", "angular2-reflow", "impl:context", "../index/index", "../sample/sample", "./main.css!"], function(exports_1) {
+System.register("app/app/main/main.ts", ["angular2/core", "angular2/router", "angular2/http", "angular2-reflow", "impl:context", "../index/index", "../sample/sample", "../service/service", "./main.css!"], function(exports_1) {
   var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
     var c = arguments.length,
         r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -326,7 +342,8 @@ System.register("app/app/main/main.ts", ["angular2/core", "angular2/router", "an
       rf,
       impl_context_1,
       index_1,
-      sample_1;
+      sample_1,
+      service_1;
   var context,
       routeConfig,
       Main;
@@ -345,12 +362,14 @@ System.register("app/app/main/main.ts", ["angular2/core", "angular2/router", "an
       index_1 = index_1_1;
     }, function(sample_1_1) {
       sample_1 = sample_1_1;
+    }, function(service_1_1) {
+      service_1 = service_1_1;
     }, function(_1) {}],
     execute: function() {
       context = new impl_context_1.ContextFactory;
       routeConfig = [{
         path: '/',
-        name: 'Index',
+        name: 'ACTIVITIES',
         component: index_1.Index
       }, {
         path: '/sample',
@@ -358,10 +377,11 @@ System.register("app/app/main/main.ts", ["angular2/core", "angular2/router", "an
         component: sample_1.Sample
       }];
       Main = (function() {
-        function Main(location, context, eventBus) {
+        function Main(location, context, eventBus, analytics) {
           this.location = location;
           this.context = context;
           this.eventBus = eventBus;
+          this.analytics = analytics;
           this.routeConfig = routeConfig;
           eventBus.on('eventBusTest', this.eventHandler);
         }
@@ -388,9 +408,10 @@ System.register("app/app/main/main.ts", ["angular2/core", "angular2/router", "an
           providers: [context.providers, http_1.HTTP_PROVIDERS, router_1.ROUTER_PROVIDERS, core_1.provide(router_1.LocationStrategy, {useClass: router_1.HashLocationStrategy})],
           templateUrl: 'app/app/main/main.html',
           directives: [router_1.ROUTER_DIRECTIVES]
-        }), router_1.RouteConfig(routeConfig), __param(0, core_1.Inject(router_1.Location)), __param(1, core_1.Inject(rf.CONTEXT)), __param(2, core_1.Inject(rf.EVENT_BUS)), __metadata('design:paramtypes', [(typeof(_a = typeof router_1.Location !== 'undefined' && router_1.Location) === 'function' && _a) || Object, Object, Object])], Main);
+        }), router_1.RouteConfig(routeConfig), __param(0, core_1.Inject(router_1.Location)), __param(1, core_1.Inject(rf.CONTEXT)), __param(2, core_1.Inject(rf.EVENT_BUS)), __param(3, core_1.Inject('analytics')), __metadata('design:paramtypes', [(typeof(_a = typeof router_1.Location !== 'undefined' && router_1.Location) === 'function' && _a) || Object, Object, Object, (typeof(_b = typeof service_1.Analytics !== 'undefined' && service_1.Analytics) === 'function' && _b) || Object])], Main);
         return Main;
-        var _a;
+        var _a,
+            _b;
       })();
       exports_1("Main", Main);
     }

@@ -21,11 +21,12 @@ import * as rf from 'angular2-reflow';
 import {ContextFactory} from 'impl:context';
 import {Index} from "../index/index";
 import {Sample} from "../sample/sample";
+import {Analytics} from '../service/service';
 import './main.css!';
 
 let context:rf.ContextFactory = new ContextFactory;
 let routeConfig:RouteDefinition[] = [
-  {path: '/', name: 'Index', component: Index},
+  {path: '/', name: 'ACTIVITIES', component: Index},
   {path: '/sample', name: 'Sample', component: Sample}
 ];
 
@@ -46,7 +47,8 @@ export class Main implements OnInit, OnDestroy {
 
   constructor(@Inject(Location) private location:Location,
               @Inject(rf.CONTEXT) private context:rf.Context,
-              @Inject(rf.EVENT_BUS) private eventBus:rf.EventBus) {
+              @Inject(rf.EVENT_BUS) private eventBus:rf.EventBus,
+              @Inject('analytics') private analytics:Analytics) {
     this.routeConfig = routeConfig;
     eventBus.on('eventBusTest', this.eventHandler);
   }

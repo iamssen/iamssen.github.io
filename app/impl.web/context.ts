@@ -1,4 +1,5 @@
 import {Provider, Inject, Injectable} from 'angular2/core';
+import {Router} from 'angular2/router';
 import {Activity} from '../app/service/activity.model';
 import * as reflow from 'angular2-reflow';
 import * as service from '../app/service/service';
@@ -20,6 +21,15 @@ class Service implements service.Service {
     return Rx
         .Observable
         .fromPromise($.getJSON('store/activity.json') as Promise);
+  }
+}
+
+declare function ga(send:string, preview:string, path:string);
+
+@Injectable()
+class Analytics implements service.Analytics {
+  constructor(private router:Router) {
+    router.subscribe(path => ga('send', 'preview', `/${path}`));
   }
 }
 
@@ -71,6 +81,7 @@ class Command3 implements reflow.Command {
 export class ContextFactory extends reflow.ContextFactory {
   mapDependency() {
     this.provide(new Provider('service', {useClass: Service}));
+    this.provide(new Provider('analytics', {useClass: Analytics}));
     this.mapCommand('execute-commands', [Command1, Command2, Command3]);
   }
 }

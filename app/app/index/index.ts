@@ -59,7 +59,7 @@ export class Index implements OnInit {
                         preview = 'app/app/index/github.svg';
                         links.push({name: 'github', url: activity.github.html_url});
                         if (this.hasGhPages(activity)) links.push({
-                          name: 'gh-pages',
+                          name: 'pages',
                           url: `http://iamssen.github.io/${activity.github.name}`
                         });
                         break;

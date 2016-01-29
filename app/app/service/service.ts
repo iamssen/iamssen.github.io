@@ -5,3 +5,6 @@ export interface Service {
   hello():Promise<string>;
   getActivity():Rx.Observable<Activity[]>;
 }
+
+export interface Analytics {
+}
