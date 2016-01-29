@@ -203,8 +203,8 @@ System.register("app/app/index/index.ts", ["angular2/core", "moment", "./index.c
         };
         Index.prototype.ngOnInit = function() {
           var _this = this;
-          this.service.getActivity().subscribe(function(activities) {
-            _this.items = activities.sort(function(a, b) {
+          this.service.getActivity().map(function(activities) {
+            return activities.sort(function(a, b) {
               return (a.date > b.date) ? -1 : 1;
             }).map(function(activity) {
               var name = activity.name;
@@ -213,7 +213,7 @@ System.register("app/app/index/index.ts", ["angular2/core", "moment", "./index.c
               var links = [];
               switch (activity.from) {
                 case 'github':
-                  preview = 'app/app/index/github.svg';
+                  preview = 'assets/github.svg';
                   links.push({
                     name: 'github',
                     url: activity.github.html_url
@@ -225,14 +225,14 @@ System.register("app/app/index/index.ts", ["angular2/core", "moment", "./index.c
                     });
                   break;
                 case 'gist':
-                  preview = 'app/app/index/gist.svg';
+                  preview = 'assets/gist.svg';
                   links.push({
                     name: 'gist',
                     url: activity.gist.html_url
                   });
                   break;
                 case 'jsfiddle':
-                  preview = 'app/app/index/jsfiddle.svg';
+                  preview = 'assets/jsfiddle.svg';
                   links.push({
                     name: 'jsfiddle',
                     url: activity.jsfiddle.url
@@ -253,15 +253,42 @@ System.register("app/app/index/index.ts", ["angular2/core", "moment", "./index.c
                 date: date
               };
             });
+          }).subscribe(function(items) {
+            return _this.items = items;
           }, function(error) {
-            console.log('Error!!!', error);
+            return console.log('Error!!!', error);
           });
         };
+        Index.prototype.ngAfterViewInit = function() {
+          this.cards.changes.subscribe(function(q) {
+            setTimeout(function() {
+              q.toArray().map(function(elementRef) {
+                return elementRef.nativeElement;
+              }).forEach(function(element) {
+                var el = $(element);
+                if (el.offset().top < $(window).height() + 200) {
+                  el.css('opacity', 1);
+                } else {
+                  var wp = new Waypoint({
+                    element: element,
+                    handler: function() {
+                      el.css('opacity', 1);
+                      wp.destroy();
+                    },
+                    offset: 'bottom-in-view'
+                  });
+                }
+              });
+            }, 1);
+          });
+        };
+        __decorate([core_1.ViewChildren('card'), __metadata('design:type', (typeof(_a = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _a) || Object)], Index.prototype, "cards", void 0);
         Index = __decorate([core_1.Component({
           selector: 'content-index',
           templateUrl: 'app/app/index/index.html'
         }), __param(0, core_1.Inject('service')), __metadata('design:paramtypes', [Object])], Index);
         return Index;
+        var _a;
       })();
       exports_1("Index", Index);
     }
@@ -418,11 +445,11 @@ System.register("app/app/main/main.ts", ["angular2/core", "angular2/router", "an
   };
 });
 
-System.register("app/app/boot.ts", ["angular2/platform/browser", "./main/main"], function(exports_1) {
+System.register("app/app/boot.ts", ["d3", "angular2/platform/browser", "./main/main"], function(exports_1) {
   var browser_1,
       main_1;
   return {
-    setters: [function(browser_1_1) {
+    setters: [function(_1) {}, function(browser_1_1) {
       browser_1 = browser_1_1;
     }, function(main_1_1) {
       main_1 = main_1_1;

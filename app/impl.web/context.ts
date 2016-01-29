@@ -24,8 +24,6 @@ class Service implements service.Service {
   }
 }
 
-declare function ga(send:string, preview:string, path:string);
-
 @Injectable()
 class Analytics implements service.Analytics {
   constructor(private router:Router) {

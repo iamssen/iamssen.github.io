@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from 'angular2/core';
+import {Component, Inject, OnInit, AfterViewInit, ElementRef, ViewChildren, QueryList} from 'angular2/core';
 import {EVENT_BUS, EventBus} from 'angular2-reflow';
 import {Activity} from '../service/activity.model';
 import moment from 'moment';
@@ -20,7 +20,8 @@ interface Item {
   selector: 'content-index',
   templateUrl: 'app/app/index/index.html'
 })
-export class Index implements OnInit {
+export class Index implements OnInit, AfterViewInit {
+  @ViewChildren('card') cards:QueryList<ElementRef>;
   items:Item[];
 
   constructor(@Inject('service') private service) {
@@ -43,45 +44,69 @@ export class Index implements OnInit {
 
   ngOnInit() {
     this.service
-        .getActivity()
-        .subscribe(
-            (activities:Activity[]) => {
-              this.items = activities
-                  .sort((a, b) => (a.date > b.date) ? -1 : 1)
-                  .map(activity => {
-                    let name:string = activity.name;
-                    let date:string = moment(activity.date).format('MMM D, YYYY');
-                    let preview:string;
-                    let links:Link[] = [];
+      .getActivity()
+      .map<Item[]>((activities:Activity[]) => {
+        return activities
+          .sort((a, b) => (a.date > b.date) ? -1 : 1)
+          .map(activity => {
+            let name:string = activity.name;
+            let date:string = moment(activity.date).format('MMM D, YYYY');
+            let preview:string;
+            let links:Link[] = [];
 
-                    switch (activity.from) {
-                      case 'github':
-                        preview = 'app/app/index/github.svg';
-                        links.push({name: 'github', url: activity.github.html_url});
-                        if (this.hasGhPages(activity)) links.push({
-                          name: 'pages',
-                          url: `http://iamssen.github.io/${activity.github.name}`
-                        });
-                        break;
-                      case 'gist':
-                        preview = 'app/app/index/gist.svg';
-                        links.push({name: 'gist', url: activity.gist.html_url});
-                        break;
-                      case 'jsfiddle':
-                        preview = 'app/app/index/jsfiddle.svg';
-                        links.push({name: 'jsfiddle', url: activity.jsfiddle.url});
-                        break;
-                      case 'behance':
-                        preview = this.chooseBehanceCover(activity);
-                        links.push({name: 'behance', url: activity.behance.url});
-                        break;
-                    }
-                    return {name, preview, links, date};
-                  });
-            },
-            (error:Error) => {
-              console.log('Error!!!', error)
+            switch (activity.from) {
+              case 'github':
+                preview = 'assets/github.svg';
+                links.push({name: 'github', url: activity.github.html_url});
+                if (this.hasGhPages(activity)) links.push({
+                  name: 'pages',
+                  url: `http://iamssen.github.io/${activity.github.name}`
+                });
+                break;
+              case 'gist':
+                preview = 'assets/gist.svg';
+                links.push({name: 'gist', url: activity.gist.html_url});
+                break;
+              case 'jsfiddle':
+                preview = 'assets/jsfiddle.svg';
+                links.push({name: 'jsfiddle', url: activity.jsfiddle.url});
+                break;
+              case 'behance':
+                preview = this.chooseBehanceCover(activity);
+                links.push({name: 'behance', url: activity.behance.url});
+                break;
             }
-        );
+            return {name, preview, links, date};
+          })
+      })
+      .subscribe(
+        (items:Item[]) => this.items = items,
+        (error:Error) => console.log('Error!!!', error)
+      );
+  }
+
+  ngAfterViewInit() {
+    this.cards.changes.subscribe((q:QueryList) => {
+      setTimeout(() => {
+        q
+          .toArray()
+          .map<Element>((elementRef:ElementRef) => elementRef.nativeElement)
+          .forEach(element => {
+            let el = $(element);
+            if (el.offset().top < $(window).height() + 200) {
+              el.css('opacity', 1);
+            } else {
+              let wp:Waypoint = new Waypoint({
+                element: element,
+                handler: () => {
+                  el.css('opacity', 1);
+                  wp.destroy();
+                },
+                offset: 'bottom-in-view'
+              })
+            }
+          })
+      }, 1);
+    })
   }
 }
