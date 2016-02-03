@@ -1,8 +1,9 @@
-import {Component, Inject, OnInit} from 'angular2/core';
-import {EVENT_BUS, EventBus} from 'angular2-reflow';
-import {Activity} from '../service/activity.model';
+import * as ng from 'angular2/core';
+import * as rx from 'rxjs';
 import moment from 'moment';
-import './index.css!';
+import {Activity} from '../models';
+import {ACTIVITY_SERVICE, ActivityService} from '../services';
+import './activity.css!';
 
 interface Link {
   name:string;
@@ -16,15 +17,14 @@ interface Item {
   links:Link[];
 }
 
-@Component({
-  selector: 'content-index',
-  templateUrl: 'app/app/index/index.html'
+@ng.Component({
+  selector: 'content-activity',
+  templateUrl: 'app/components/activity.html'
 })
-export class Index implements OnInit {
-  //@ViewChildren('card') cards:QueryList<ElementRef>;
-  items:Item[];
+export class Activity implements ng.OnInit {
+  private items:Item[];
 
-  constructor(@Inject('service') private service) {
+  constructor(@ng.Inject(ACTIVITY_SERVICE) private activityService:ActivityService) {
   }
 
   chooseBehanceCover(activity:Activity):string {
@@ -43,9 +43,9 @@ export class Index implements OnInit {
   }
 
   ngOnInit() {
-    this.service
-      .getActivity()
-      .map<Item[]>((activities:Activity[]) => {
+    let subscription = this.activityService
+      .activities()
+      .map((activities:Activity[]) => {
         return activities
           .sort((a, b) => (a.date > b.date) ? -1 : 1)
           .map(activity => {
@@ -80,33 +80,9 @@ export class Index implements OnInit {
           })
       })
       .subscribe(
-        (items:Item[]) => this.items = items,
-        (error:Error) => console.log('Error!!!', error)
-      );
+        x => this.items = x,
+        e => console.log(e),
+        () => subscription && subscription.unsubscribe()
+      )
   }
-
-  //ngAfterViewInit() {
-  //  this.cards.changes.subscribe((q:QueryList) => {
-  //    setTimeout(() => {
-  //      q
-  //        .toArray()
-  //        .map<Element>((elementRef:ElementRef) => elementRef.nativeElement)
-  //        .forEach(element => {
-  //          let el = $(element);
-  //          if (el.offset().top < $(window).height() + 200) {
-  //            el.css('opacity', 1);
-  //          } else {
-  //            let wp:Waypoint = new Waypoint({
-  //              element: element,
-  //              handler: () => {
-  //                el.css('opacity', 1);
-  //                wp.destroy();
-  //              },
-  //              offset: 'bottom-in-view'
-  //            })
-  //          }
-  //        })
-  //    }, 1);
-  //  })
-  //}
 }
