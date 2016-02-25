@@ -2,19 +2,12 @@ import * as ng from 'angular2/core';
 import * as router from 'angular2/router';
 import * as rf from 'angular2-reflow';
 import {ContextFactory} from 'contexts:main';
-import {Github} from "./github";
-import {JsFiddle} from './jsfiddle';
-import {Activity} from './activity';
+import {routeConfig} from './main-route-config';
 import {ANALYTICS_SERVICE, AnalyticsService} from '../services';
 import {EventBusListener} from './event-bus-listener';
 import './main.css!';
 
 let context:rf.ContextFactory = new ContextFactory;
-let routeConfig:router.RouteDefinition[] = [
-  {path: '/', name: 'Activities', component: Activity},
-  {path: '/github', name: 'Github', component: Github},
-  {path: '/jsfiddle', name: 'JS Fiddle', component: JsFiddle}
-];
 
 @ng.Component({
   selector: 'app-main',

@@ -10,7 +10,7 @@ import {GITHUB_SERVICE, GithubService} from '../services';
   template: `
   <h1>Github Repositories</h1>
   <ul>
-    <li *ngFor="#repository of repositories">
+    <li template="ngFor #repository of repositories">
       <a href="{{repository.html_url}}" target="_blank">
         {{repository.name}}
       </a>
@@ -18,7 +18,7 @@ import {GITHUB_SERVICE, GithubService} from '../services';
   </ul>
   <h1>Github Gists</h1>
   <ul>
-    <li *ngFor="#gist of gists">
+    <li template="ngFor #gist of gists">
       <a (click)="openLink(gist.html_url)">
         {{gist.description}}
       </a>

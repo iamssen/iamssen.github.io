@@ -1,0 +1,11 @@
+<div>
+  <ul class="nav nav-tabs">
+    <li template="ngFor #route of routeConfig" class="nav-item">
+      <a class="nav-link" [class.active]="isActive(route.path)" [routerLink]="[route.name]">{{route.name}}</a>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <router-outlet></router-outlet>
+</div>

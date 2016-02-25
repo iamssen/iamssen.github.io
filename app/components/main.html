@@ -6,8 +6,8 @@
     <div class="collapse navbar-toggleable-xs" id="navbar">
       <a class="navbar-brand" href="#">SSEN</a>
       <ul class="nav navbar-nav">
-        <li *ngFor="#route of routeConfig" class="nav-item" [class.active]="isActive(route.path)">
-          <a class="nav-link" [routerLink]="[route.name]">{{route.name}}</a>
+        <li template="ngFor #route of routeConfig" class="nav-item" [class.active]="isActive(route.path)">
+          <a class="nav-link" [routerLink]="route.link">{{route.name}}</a>
         </li>
       </ul>
     </div>

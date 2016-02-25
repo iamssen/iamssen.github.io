@@ -10,7 +10,7 @@ import {JSFIDDLE_SERVICE, JsFiddleService} from '../services';
   template: `
   <h1>Js Fiddle</h1>
   <ul>
-    <li *ngFor="#fiddle of fiddles">
+    <li template="ngFor #fiddle of fiddles">
       <a (click)="openLink(fiddle.url)">
         {{fiddle.title}}
       </a>

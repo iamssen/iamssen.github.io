@@ -27545,7 +27545,7 @@ System.registerDynamic("npm:rxjs@5.0.0-beta.1.js", ["npm:rxjs@5.0.0-beta.1/Rx.js
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2-reflow@0.0.12/dist/angular2-reflow.core.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2-reflow@0.0.13/dist/angular2-reflow.core.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -27557,7 +27557,7 @@ System.registerDynamic("npm:angular2-reflow@0.0.12/dist/angular2-reflow.core.js"
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2-reflow@0.0.12/dist/angular2-reflow.js", ["angular2/core", "rxjs", "./angular2-reflow.core"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2-reflow@0.0.13/dist/angular2-reflow.js", ["angular2/core", "rxjs", "./angular2-reflow.core"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -27649,7 +27649,7 @@ System.registerDynamic("npm:angular2-reflow@0.0.12/dist/angular2-reflow.js", ["a
       this.commandMap = null;
       this.eventBus = null;
     };
-    Context = __decorate([__param(0, core_1.Inject(core_1.Injector)), __param(1, core_1.Inject(rf.EVENT_BUS)), __param(2, core_1.Inject(COMMAND_MAP_SETTINGS)), __param(3, core_1.Inject(PROVIDER_TOKENS)), __metadata('design:paramtypes', [core_1.Injector, EventBus, Array, Array])], Context);
+    Context = __decorate([core_1.Injectable(), __param(0, core_1.Inject(core_1.Injector)), __param(1, core_1.Inject(rf.EVENT_BUS)), __param(2, core_1.Inject(COMMAND_MAP_SETTINGS)), __param(3, core_1.Inject(PROVIDER_TOKENS)), __metadata('design:paramtypes', [core_1.Injector, EventBus, Array, Array])], Context);
     return Context;
   }());
   var Commands = (function() {
@@ -27830,6 +27830,7 @@ System.registerDynamic("npm:angular2-reflow@0.0.12/dist/angular2-reflow.js", ["a
       this.dispatcher = null;
     };
     EventBus.dispatchers = new Set();
+    EventBus = __decorate([core_1.Injectable(), __metadata('design:paramtypes', [])], EventBus);
     return EventBus;
   }());
   var EventDispatcher = (function() {
@@ -27983,17 +27984,17 @@ System.registerDynamic("npm:angular2-reflow@0.0.12/dist/angular2-reflow.js", ["a
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2-reflow@0.0.12.js", ["npm:angular2-reflow@0.0.12/dist/angular2-reflow.js"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2-reflow@0.0.13.js", ["npm:angular2-reflow@0.0.13/dist/angular2-reflow.js"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  module.exports = $__require('npm:angular2-reflow@0.0.12/dist/angular2-reflow.js');
+  module.exports = $__require('npm:angular2-reflow@0.0.13/dist/angular2-reflow.js');
   global.define = __define;
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/http.js", ["../facade/lang", "../facade/exceptions", "../../core", "./interfaces", "./static_request", "./base_request_options", "./enums"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/http/http.js", ["../facade/lang", "../facade/exceptions", "../../core", "./interfaces", "./static_request", "./base_request_options", "./enums"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -28120,7 +28121,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/http.js", ["../facade
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/backends/xhr_backend.js", ["../enums", "../static_response", "../headers", "../base_response_options", "../../../core", "./browser_xhr", "../../facade/lang", "rxjs/Observable", "../http_utils"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/http/backends/xhr_backend.js", ["../enums", "../static_response", "../headers", "../base_response_options", "../../../core", "./browser_xhr", "../../facade/lang", "rxjs/Observable", "../http_utils"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -28227,7 +28228,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/backends/xhr_backend.
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/backends/jsonp_backend.js", ["../interfaces", "../enums", "../static_response", "../base_response_options", "../../../core", "./browser_jsonp", "../../facade/exceptions", "../../facade/lang", "rxjs/Observable"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/http/backends/jsonp_backend.js", ["../interfaces", "../enums", "../static_response", "../base_response_options", "../../../core", "./browser_jsonp", "../../facade/exceptions", "../../facade/lang", "rxjs/Observable"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -28388,7 +28389,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/backends/jsonp_backen
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/backends/browser_xhr.js", ["../../../core"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/http/backends/browser_xhr.js", ["../../../core"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -28424,7 +28425,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/backends/browser_xhr.
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/backends/browser_jsonp.js", ["../../../core", "../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/http/backends/browser_jsonp.js", ["../../../core", "../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -28494,7 +28495,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/backends/browser_json
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/base_request_options.js", ["../facade/lang", "./headers", "./enums", "../../core", "./url_search_params", "./http_utils"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/http/base_request_options.js", ["../facade/lang", "./headers", "./enums", "../../core", "./url_search_params", "./http_utils"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -28573,7 +28574,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/base_request_options.
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/base_response_options.js", ["../../core", "../facade/lang", "./headers", "./enums"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/http/base_response_options.js", ["../../core", "../facade/lang", "./headers", "./enums"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -28655,7 +28656,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/base_response_options
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/static_request.js", ["./headers", "./http_utils", "../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/http/static_request.js", ["./headers", "./http_utils", "../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -28692,7 +28693,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/static_request.js", [
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/http_utils.js", ["../facade/lang", "./enums", "../facade/exceptions"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/http/http_utils.js", ["../facade/lang", "./enums", "../facade/exceptions"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -28733,7 +28734,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/http_utils.js", ["../
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/static_response.js", ["../facade/lang", "../facade/exceptions", "./http_utils"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/http/static_response.js", ["../facade/lang", "../facade/exceptions", "./http_utils"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -28776,7 +28777,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/static_response.js", 
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/interfaces.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/http/interfaces.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -28796,7 +28797,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/interfaces.js", [], t
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/headers.js", ["../facade/lang", "../facade/exceptions", "../facade/collection"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/http/headers.js", ["../facade/lang", "../facade/exceptions", "../facade/collection"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -28884,7 +28885,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/headers.js", ["../fac
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/enums.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/http/enums.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -28921,7 +28922,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/enums.js", [], true, 
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/url_search_params.js", ["../facade/lang", "../facade/collection"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/http/url_search_params.js", ["../facade/lang", "../facade/collection"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -29040,7 +29041,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/http/url_search_params.js"
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/http.js", ["./core", "./src/http/http", "./src/http/backends/xhr_backend", "./src/http/backends/jsonp_backend", "./src/http/backends/browser_xhr", "./src/http/backends/browser_jsonp", "./src/http/base_request_options", "./src/http/base_response_options", "./src/http/static_request", "./src/http/static_response", "./src/http/interfaces", "./src/http/headers", "./src/http/enums", "./src/http/url_search_params"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/http.js", ["./core", "./src/http/http", "./src/http/backends/xhr_backend", "./src/http/backends/jsonp_backend", "./src/http/backends/browser_xhr", "./src/http/backends/browser_jsonp", "./src/http/base_request_options", "./src/http/base_response_options", "./src/http/static_request", "./src/http/static_response", "./src/http/interfaces", "./src/http/headers", "./src/http/enums", "./src/http/url_search_params"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -29104,7 +29105,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/http.js", ["./core", "./src/ht
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/angular_entrypoint.js", ["../facade/lang", "process"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/angular_entrypoint.js", ["../facade/lang", "process"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -29141,7 +29142,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/angular_entrypoint.js
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/pipes/async_pipe.js", ["../../facade/lang", "../../facade/async", "../../../core", "./invalid_pipe_argument_exception"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/pipes/async_pipe.js", ["../../facade/lang", "../../facade/async", "../../../core", "./invalid_pipe_argument_exception"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -29266,7 +29267,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/pipes/async_pipe.js
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/pipes/uppercase_pipe.js", ["../../facade/lang", "../../../core", "./invalid_pipe_argument_exception"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/pipes/uppercase_pipe.js", ["../../facade/lang", "../../../core", "./invalid_pipe_argument_exception"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -29312,7 +29313,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/pipes/uppercase_pip
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/pipes/lowercase_pipe.js", ["../../facade/lang", "../../../core", "./invalid_pipe_argument_exception"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/pipes/lowercase_pipe.js", ["../../facade/lang", "../../../core", "./invalid_pipe_argument_exception"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -29358,7 +29359,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/pipes/lowercase_pip
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/pipes/json_pipe.js", ["../../facade/lang", "../../../core"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/pipes/json_pipe.js", ["../../facade/lang", "../../../core"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -29401,7 +29402,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/pipes/json_pipe.js"
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/pipes/slice_pipe.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/collection", "../../../core", "./invalid_pipe_argument_exception"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/pipes/slice_pipe.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/collection", "../../../core", "./invalid_pipe_argument_exception"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -29463,7 +29464,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/pipes/slice_pipe.js
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/pipes/date_pipe.js", ["../../facade/lang", "../../facade/intl", "../../../core", "../../facade/collection", "./invalid_pipe_argument_exception"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/pipes/date_pipe.js", ["../../facade/lang", "../../facade/intl", "../../../core", "../../facade/collection", "./invalid_pipe_argument_exception"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -29532,7 +29533,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/pipes/date_pipe.js"
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/facade/intl.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/facade/intl.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -29653,7 +29654,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/facade/intl.js", [], true,
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/pipes/invalid_pipe_argument_exception.js", ["../../facade/lang", "../../facade/exceptions"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/pipes/invalid_pipe_argument_exception.js", ["../../facade/lang", "../../facade/exceptions"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -29682,7 +29683,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/pipes/invalid_pipe_
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/pipes/number_pipe.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/intl", "../../../core", "../../facade/collection", "./invalid_pipe_argument_exception"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/pipes/number_pipe.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/intl", "../../../core", "../../facade/collection", "./invalid_pipe_argument_exception"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -29810,7 +29811,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/pipes/number_pipe.j
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/pipes.js", ["./pipes/async_pipe", "./pipes/uppercase_pipe", "./pipes/lowercase_pipe", "./pipes/json_pipe", "./pipes/slice_pipe", "./pipes/date_pipe", "./pipes/number_pipe", "../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/pipes.js", ["./pipes/async_pipe", "./pipes/uppercase_pipe", "./pipes/lowercase_pipe", "./pipes/json_pipe", "./pipes/slice_pipe", "./pipes/date_pipe", "./pipes/number_pipe", "../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -29846,7 +29847,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/pipes.js", ["./pipe
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/ng_control_name.js", ["../../../facade/lang", "../../../facade/async", "../../../../core", "./control_container", "./ng_control", "./control_value_accessor", "./shared", "../validators"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives/ng_control_name.js", ["../../../facade/lang", "../../../facade/async", "../../../../core", "./control_container", "./ng_control", "./control_value_accessor", "./shared", "../validators"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -29970,7 +29971,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/ng
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/ng_form_control.js", ["../../../facade/lang", "../../../facade/collection", "../../../facade/async", "../../../../core", "./ng_control", "../validators", "./control_value_accessor", "./shared"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives/ng_form_control.js", ["../../../facade/lang", "../../../facade/collection", "../../../facade/async", "../../../../core", "./ng_control", "../validators", "./control_value_accessor", "./shared"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -30085,7 +30086,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/ng
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/ng_model.js", ["../../../facade/lang", "../../../facade/async", "../../../../core", "./control_value_accessor", "./ng_control", "../model", "../validators", "./shared"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives/ng_model.js", ["../../../facade/lang", "../../../facade/async", "../../../../core", "./control_value_accessor", "./ng_control", "../model", "../validators", "./shared"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -30200,7 +30201,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/ng
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/ng_control_group.js", ["../../../../core", "../../../facade/lang", "./control_container", "./shared", "../validators"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives/ng_control_group.js", ["../../../../core", "../../../facade/lang", "./control_container", "./shared", "../validators"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -30306,7 +30307,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/ng
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/ng_form_model.js", ["../../../facade/lang", "../../../facade/collection", "../../../facade/async", "../../../../core", "./control_container", "./shared", "../validators"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives/ng_form_model.js", ["../../../facade/lang", "../../../facade/collection", "../../../facade/async", "../../../../core", "./control_container", "./shared", "../validators"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -30447,7 +30448,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/ng
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/control_container.js", ["./abstract_control_directive"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives/control_container.js", ["./abstract_control_directive"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -30489,7 +30490,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/co
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/normalize_validator.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives/normalize_validator.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -30509,7 +30510,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/no
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/shared.js", ["../../../facade/collection", "../../../facade/lang", "../../../facade/exceptions", "../validators", "./default_value_accessor", "./number_value_accessor", "./checkbox_value_accessor", "./select_control_value_accessor", "./normalize_validator"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives/shared.js", ["../../../facade/collection", "../../../facade/lang", "../../../facade/exceptions", "../validators", "./default_value_accessor", "./number_value_accessor", "./checkbox_value_accessor", "./select_control_value_accessor", "./normalize_validator"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -30612,7 +30613,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/sh
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/ng_form.js", ["../../../facade/async", "../../../facade/collection", "../../../facade/lang", "../../../../core", "./control_container", "../model", "./shared", "../validators"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives/ng_form.js", ["../../../facade/async", "../../../facade/collection", "../../../facade/lang", "../../../../core", "./control_container", "../model", "./shared", "../validators"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -30769,7 +30770,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/ng
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/default_value_accessor.js", ["../../../../core", "./control_value_accessor", "../../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives/default_value_accessor.js", ["../../../../core", "./control_value_accessor", "../../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -30832,7 +30833,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/de
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/checkbox_value_accessor.js", ["../../../../core", "./control_value_accessor", "../../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives/checkbox_value_accessor.js", ["../../../../core", "./control_value_accessor", "../../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -30894,7 +30895,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/ch
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/number_value_accessor.js", ["../../../../core", "./control_value_accessor", "../../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives/number_value_accessor.js", ["../../../../core", "./control_value_accessor", "../../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -30959,7 +30960,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/nu
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/ng_control_status.js", ["../../../../core", "./ng_control", "../../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives/ng_control_status.js", ["../../../../core", "./ng_control", "../../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -31053,7 +31054,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/ng
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/control_value_accessor.js", ["../../../../core", "../../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives/control_value_accessor.js", ["../../../../core", "../../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -31066,7 +31067,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/co
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/select_control_value_accessor.js", ["../../../../core", "../../../facade/async", "./control_value_accessor", "../../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives/select_control_value_accessor.js", ["../../../../core", "../../../facade/async", "./control_value_accessor", "../../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -31148,7 +31149,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/se
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/abstract_control_directive.js", ["../../../facade/lang", "../../../facade/exceptions"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives/abstract_control_directive.js", ["../../../facade/lang", "../../../facade/exceptions"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -31228,7 +31229,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/ab
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/ng_control.js", ["./abstract_control_directive", "../../../facade/exceptions"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives/ng_control.js", ["./abstract_control_directive", "../../../facade/exceptions"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -31273,7 +31274,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/ng
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives.js", ["../../facade/lang", "./directives/ng_control_name", "./directives/ng_form_control", "./directives/ng_model", "./directives/ng_control_group", "./directives/ng_form_model", "./directives/ng_form", "./directives/default_value_accessor", "./directives/checkbox_value_accessor", "./directives/number_value_accessor", "./directives/ng_control_status", "./directives/select_control_value_accessor", "./directives/validators", "./directives/ng_control"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives.js", ["../../facade/lang", "./directives/ng_control_name", "./directives/ng_form_control", "./directives/ng_model", "./directives/ng_control_group", "./directives/ng_form_model", "./directives/ng_form", "./directives/default_value_accessor", "./directives/checkbox_value_accessor", "./directives/number_value_accessor", "./directives/ng_control_status", "./directives/select_control_value_accessor", "./directives/validators", "./directives/ng_control"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -31326,7 +31327,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives.js
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/validators.js", ["../../facade/lang", "../../facade/promise", "../../facade/async", "../../facade/collection", "../../../core", "process"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/validators.js", ["../../facade/lang", "../../facade/promise", "../../facade/async", "../../facade/collection", "../../../core", "process"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -31413,7 +31414,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/validators.js
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/validators.js", ["../../../../core", "../../../facade/lang", "../validators"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/directives/validators.js", ["../../../../core", "../../../facade/lang", "../validators"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -31501,7 +31502,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/directives/va
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/model.js", ["../../facade/lang", "../../facade/async", "../../facade/promise", "../../facade/collection"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/model.js", ["../../facade/lang", "../../facade/async", "../../facade/promise", "../../facade/collection"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -31941,7 +31942,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/model.js", ["
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/form_builder.js", ["../../../core", "../../facade/collection", "../../facade/lang", "./model"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms/form_builder.js", ["../../../core", "../../facade/collection", "../../facade/lang", "./model"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -32031,7 +32032,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms/form_builder.
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms.js", ["./forms/model", "./forms/directives/abstract_control_directive", "./forms/directives/control_container", "./forms/directives/ng_control_name", "./forms/directives/ng_form_control", "./forms/directives/ng_model", "./forms/directives/ng_control", "./forms/directives/ng_control_group", "./forms/directives/ng_form_model", "./forms/directives/ng_form", "./forms/directives/control_value_accessor", "./forms/directives/default_value_accessor", "./forms/directives/ng_control_status", "./forms/directives/checkbox_value_accessor", "./forms/directives/select_control_value_accessor", "./forms/directives", "./forms/validators", "./forms/directives/validators", "./forms/form_builder"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/forms.js", ["./forms/model", "./forms/directives/abstract_control_directive", "./forms/directives/control_container", "./forms/directives/ng_control_name", "./forms/directives/ng_form_control", "./forms/directives/ng_model", "./forms/directives/ng_control", "./forms/directives/ng_control_group", "./forms/directives/ng_form_model", "./forms/directives/ng_form", "./forms/directives/control_value_accessor", "./forms/directives/default_value_accessor", "./forms/directives/ng_control_status", "./forms/directives/checkbox_value_accessor", "./forms/directives/select_control_value_accessor", "./forms/directives", "./forms/validators", "./forms/directives/validators", "./forms/form_builder"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -32089,7 +32090,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/forms.js", ["./form
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives/observable_list_diff.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/directives/observable_list_diff.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -32100,7 +32101,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives/observab
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives/ng_class.js", ["../../facade/lang", "../../../core", "../../facade/collection"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/directives/ng_class.js", ["../../facade/lang", "../../../core", "../../facade/collection"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -32257,7 +32258,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives/ng_class
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives/ng_for.js", ["../../../core", "../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/directives/ng_for.js", ["../../../core", "../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -32292,7 +32293,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives/ng_for.j
       set: function(value) {
         this._ngForOf = value;
         if (lang_1.isBlank(this._differ) && lang_1.isPresent(value)) {
-          this._differ = this._iterableDiffers.find(value).create(this._cdr);
+          this._differ = this._iterableDiffers.find(value).create(this._cdr, this._ngForTrackBy);
         }
       },
       enumerable: true,
@@ -32303,6 +32304,13 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives/ng_for.j
         if (lang_1.isPresent(value)) {
           this._templateRef = value;
         }
+      },
+      enumerable: true,
+      configurable: true
+    });
+    Object.defineProperty(NgFor.prototype, "ngForTrackBy", {
+      set: function(value) {
+        this._ngForTrackBy = value;
       },
       enumerable: true,
       configurable: true
@@ -32374,7 +32382,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives/ng_for.j
     };
     NgFor = __decorate([core_1.Directive({
       selector: '[ngFor][ngForOf]',
-      inputs: ['ngForOf', 'ngForTemplate']
+      inputs: ['ngForTrackBy', 'ngForOf', 'ngForTemplate']
     }), __metadata('design:paramtypes', [core_1.ViewContainerRef, core_1.TemplateRef, core_1.IterableDiffers, core_1.ChangeDetectorRef])], NgFor);
     return NgFor;
   })();
@@ -32390,7 +32398,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives/ng_for.j
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives/ng_if.js", ["../../../core", "../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/directives/ng_if.js", ["../../../core", "../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -32444,7 +32452,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives/ng_if.js
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives/ng_style.js", ["../../../core", "../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/directives/ng_style.js", ["../../../core", "../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -32518,7 +32526,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives/ng_style
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives/ng_switch.js", ["../../../core", "../../facade/lang", "../../facade/collection"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/directives/ng_switch.js", ["../../../core", "../../facade/lang", "../../facade/collection"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -32676,7 +32684,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives/ng_switc
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives/core_directives.js", ["../../facade/lang", "./ng_class", "./ng_for", "./ng_if", "./ng_style", "./ng_switch"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/directives/core_directives.js", ["../../facade/lang", "./ng_class", "./ng_for", "./ng_if", "./ng_style", "./ng_switch"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -32693,7 +32701,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives/core_dir
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives.js", ["./directives/ng_class", "./directives/ng_for", "./directives/ng_if", "./directives/ng_style", "./directives/ng_switch", "./directives/observable_list_diff", "./directives/core_directives"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/directives.js", ["./directives/ng_class", "./directives/ng_for", "./directives/ng_if", "./directives/ng_style", "./directives/ng_switch", "./directives/observable_list_diff", "./directives/core_directives"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -32723,7 +32731,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/directives.js", [".
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/common_directives.js", ["../facade/lang", "./forms", "./directives"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/common/common_directives.js", ["../facade/lang", "./forms", "./directives"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -32737,7 +32745,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/common/common_directives.j
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/common.js", ["./src/common/pipes", "./src/common/directives", "./src/common/forms", "./src/common/common_directives"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/common.js", ["./src/common/pipes", "./src/common/directives", "./src/common/forms", "./src/common/common_directives"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -32756,7 +32764,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/common.js", ["./src/common/pip
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/dom/events/key_events.js", ["../dom_adapter", "../../../facade/lang", "../../../facade/collection", "./event_manager", "../../../core/di", "process"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/dom/events/key_events.js", ["../dom_adapter", "../../../facade/lang", "../../../facade/collection", "./event_manager", "../../../core/di", "process"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -32892,7 +32900,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/dom/events/key_ev
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/dom/events/hammer_common.js", ["./event_manager", "../../../facade/collection"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/dom/events/hammer_common.js", ["./event_manager", "../../../facade/collection"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -32956,7 +32964,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/dom/events/hammer
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/dom/events/hammer_gestures.js", ["./hammer_common", "../../../facade/lang", "../../../facade/exceptions", "../../../core/di"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/dom/events/hammer_gestures.js", ["./hammer_common", "../../../facade/lang", "../../../facade/exceptions", "../../../core/di"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -33030,7 +33038,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/dom/events/hammer
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/browser/generic_browser_adapter.js", ["../../facade/collection", "../../facade/lang", "../dom/dom_adapter", "./xhr_impl"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/browser/generic_browser_adapter.js", ["../../facade/collection", "../../facade/lang", "../dom/dom_adapter", "./xhr_impl"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -33116,7 +33124,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/browser/generic_b
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/browser/browser_adapter.js", ["../../facade/collection", "../../facade/lang", "../dom/dom_adapter", "./generic_browser_adapter"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/browser/browser_adapter.js", ["../../facade/collection", "../../facade/lang", "../dom/dom_adapter", "./generic_browser_adapter"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -33645,7 +33653,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/browser/browser_a
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/browser/testability.js", ["../../facade/collection", "../../facade/lang", "../dom/dom_adapter", "../../../core"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/browser/testability.js", ["../../facade/collection", "../../facade/lang", "../dom/dom_adapter", "../../../core"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -33737,7 +33745,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/browser/testabili
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/profile/wtf_init.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/profile/wtf_init.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -33749,29 +33757,112 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/profile/wtf_init.js",
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/browser/title.js", ["../dom/dom_adapter"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/dom/events/dom_events.js", ["../dom_adapter", "../../../../core", "./event_manager"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  var dom_adapter_1 = $__require('../dom/dom_adapter');
-  var Title = (function() {
-    function Title() {}
-    Title.prototype.getTitle = function() {
-      return dom_adapter_1.DOM.getTitle();
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var dom_adapter_1 = $__require('../dom_adapter');
+  var core_1 = $__require('../../../../core');
+  var event_manager_1 = $__require('./event_manager');
+  var DomEventsPlugin = (function(_super) {
+    __extends(DomEventsPlugin, _super);
+    function DomEventsPlugin() {
+      _super.apply(this, arguments);
+    }
+    DomEventsPlugin.prototype.supports = function(eventName) {
+      return true;
     };
-    Title.prototype.setTitle = function(newTitle) {
-      dom_adapter_1.DOM.setTitle(newTitle);
+    DomEventsPlugin.prototype.addEventListener = function(element, eventName, handler) {
+      var zone = this.manager.getZone();
+      var outsideHandler = function(event) {
+        return zone.run(function() {
+          return handler(event);
+        });
+      };
+      return this.manager.getZone().runOutsideAngular(function() {
+        return dom_adapter_1.DOM.onAndCancel(element, eventName, outsideHandler);
+      });
     };
-    return Title;
-  })();
-  exports.Title = Title;
+    DomEventsPlugin.prototype.addGlobalEventListener = function(target, eventName, handler) {
+      var element = dom_adapter_1.DOM.getGlobalEventTarget(target);
+      var zone = this.manager.getZone();
+      var outsideHandler = function(event) {
+        return zone.run(function() {
+          return handler(event);
+        });
+      };
+      return this.manager.getZone().runOutsideAngular(function() {
+        return dom_adapter_1.DOM.onAndCancel(element, eventName, outsideHandler);
+      });
+    };
+    DomEventsPlugin = __decorate([core_1.Injectable(), __metadata('design:paramtypes', [])], DomEventsPlugin);
+    return DomEventsPlugin;
+  })(event_manager_1.EventManagerPlugin);
+  exports.DomEventsPlugin = DomEventsPlugin;
   global.define = __define;
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/animate/css_animation_options.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/dom/debug/by.js", ["../../../facade/lang", "../dom_adapter"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var lang_1 = $__require('../../../facade/lang');
+  var dom_adapter_1 = $__require('../dom_adapter');
+  var By = (function() {
+    function By() {}
+    By.all = function() {
+      return function(debugElement) {
+        return true;
+      };
+    };
+    By.css = function(selector) {
+      return function(debugElement) {
+        return lang_1.isPresent(debugElement.nativeElement) ? dom_adapter_1.DOM.elementMatches(debugElement.nativeElement, selector) : false;
+      };
+    };
+    By.directive = function(type) {
+      return function(debugElement) {
+        return debugElement.providerTokens.indexOf(type) !== -1;
+      };
+    };
+    return By;
+  })();
+  exports.By = By;
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/animate/css_animation_options.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -33790,7 +33881,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/animate/css_animation_opti
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/animate/animation.js", ["../facade/lang", "../facade/math", "../platform/dom/util", "../facade/collection", "../platform/dom/dom_adapter"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/animate/animation.js", ["../facade/lang", "../facade/math", "../platform/dom/util", "../facade/collection", "../platform/dom/dom_adapter"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -33934,7 +34025,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/animate/animation.js", [".
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/animate/css_animation_builder.js", ["./css_animation_options", "./animation"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/animate/css_animation_builder.js", ["./css_animation_options", "./animation"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -33988,7 +34079,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/animate/css_animation_buil
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/facade/math.js", ["./lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/facade/math.js", ["./lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -34001,7 +34092,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/facade/math.js", ["./lang"
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/animate/browser_details.js", ["../core/di", "../facade/math", "../platform/dom/dom_adapter"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/animate/browser_details.js", ["../core/di", "../facade/math", "../platform/dom/dom_adapter"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -34087,7 +34178,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/animate/browser_details.js
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/animate/animation_builder.js", ["../core/di", "./css_animation_builder", "./browser_details"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/animate/animation_builder.js", ["../core/di", "./css_animation_builder", "./browser_details"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -34127,7 +34218,204 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/animate/animation_builder.
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/dom/util.js", ["../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/dom/shared_styles_host.js", ["./dom_adapter", "../../core/di", "../../facade/collection", "./dom_tokens"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var dom_adapter_1 = $__require('./dom_adapter');
+  var di_1 = $__require('../../core/di');
+  var collection_1 = $__require('../../facade/collection');
+  var dom_tokens_1 = $__require('./dom_tokens');
+  var SharedStylesHost = (function() {
+    function SharedStylesHost() {
+      this._styles = [];
+      this._stylesSet = new Set();
+    }
+    SharedStylesHost.prototype.addStyles = function(styles) {
+      var _this = this;
+      var additions = [];
+      styles.forEach(function(style) {
+        if (!collection_1.SetWrapper.has(_this._stylesSet, style)) {
+          _this._stylesSet.add(style);
+          _this._styles.push(style);
+          additions.push(style);
+        }
+      });
+      this.onStylesAdded(additions);
+    };
+    SharedStylesHost.prototype.onStylesAdded = function(additions) {};
+    SharedStylesHost.prototype.getAllStyles = function() {
+      return this._styles;
+    };
+    SharedStylesHost = __decorate([di_1.Injectable(), __metadata('design:paramtypes', [])], SharedStylesHost);
+    return SharedStylesHost;
+  })();
+  exports.SharedStylesHost = SharedStylesHost;
+  var DomSharedStylesHost = (function(_super) {
+    __extends(DomSharedStylesHost, _super);
+    function DomSharedStylesHost(doc) {
+      _super.call(this);
+      this._hostNodes = new Set();
+      this._hostNodes.add(doc.head);
+    }
+    DomSharedStylesHost.prototype._addStylesToHost = function(styles, host) {
+      for (var i = 0; i < styles.length; i++) {
+        var style = styles[i];
+        dom_adapter_1.DOM.appendChild(host, dom_adapter_1.DOM.createStyleElement(style));
+      }
+    };
+    DomSharedStylesHost.prototype.addHost = function(hostNode) {
+      this._addStylesToHost(this._styles, hostNode);
+      this._hostNodes.add(hostNode);
+    };
+    DomSharedStylesHost.prototype.removeHost = function(hostNode) {
+      collection_1.SetWrapper.delete(this._hostNodes, hostNode);
+    };
+    DomSharedStylesHost.prototype.onStylesAdded = function(additions) {
+      var _this = this;
+      this._hostNodes.forEach(function(hostNode) {
+        _this._addStylesToHost(additions, hostNode);
+      });
+    };
+    DomSharedStylesHost = __decorate([di_1.Injectable(), __param(0, di_1.Inject(dom_tokens_1.DOCUMENT)), __metadata('design:paramtypes', [Object])], DomSharedStylesHost);
+    return DomSharedStylesHost;
+  })(SharedStylesHost);
+  exports.DomSharedStylesHost = DomSharedStylesHost;
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/dom/events/event_manager.js", ["../../../facade/lang", "../../../facade/exceptions", "../../../core/di", "../../../core/zone/ng_zone", "../../../facade/collection"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var lang_1 = $__require('../../../facade/lang');
+  var exceptions_1 = $__require('../../../facade/exceptions');
+  var di_1 = $__require('../../../core/di');
+  var ng_zone_1 = $__require('../../../core/zone/ng_zone');
+  var collection_1 = $__require('../../../facade/collection');
+  exports.EVENT_MANAGER_PLUGINS = lang_1.CONST_EXPR(new di_1.OpaqueToken("EventManagerPlugins"));
+  var EventManager = (function() {
+    function EventManager(plugins, _zone) {
+      var _this = this;
+      this._zone = _zone;
+      plugins.forEach(function(p) {
+        return p.manager = _this;
+      });
+      this._plugins = collection_1.ListWrapper.reversed(plugins);
+    }
+    EventManager.prototype.addEventListener = function(element, eventName, handler) {
+      var plugin = this._findPluginFor(eventName);
+      return plugin.addEventListener(element, eventName, handler);
+    };
+    EventManager.prototype.addGlobalEventListener = function(target, eventName, handler) {
+      var plugin = this._findPluginFor(eventName);
+      return plugin.addGlobalEventListener(target, eventName, handler);
+    };
+    EventManager.prototype.getZone = function() {
+      return this._zone;
+    };
+    EventManager.prototype._findPluginFor = function(eventName) {
+      var plugins = this._plugins;
+      for (var i = 0; i < plugins.length; i++) {
+        var plugin = plugins[i];
+        if (plugin.supports(eventName)) {
+          return plugin;
+        }
+      }
+      throw new exceptions_1.BaseException("No event manager plugin found for event " + eventName);
+    };
+    EventManager = __decorate([di_1.Injectable(), __param(0, di_1.Inject(exports.EVENT_MANAGER_PLUGINS)), __metadata('design:paramtypes', [Array, ng_zone_1.NgZone])], EventManager);
+    return EventManager;
+  })();
+  exports.EventManager = EventManager;
+  var EventManagerPlugin = (function() {
+    function EventManagerPlugin() {}
+    EventManagerPlugin.prototype.supports = function(eventName) {
+      return false;
+    };
+    EventManagerPlugin.prototype.addEventListener = function(element, eventName, handler) {
+      throw "not implemented";
+    };
+    EventManagerPlugin.prototype.addGlobalEventListener = function(element, eventName, handler) {
+      throw "not implemented";
+    };
+    return EventManagerPlugin;
+  })();
+  exports.EventManagerPlugin = EventManagerPlugin;
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/dom/dom_tokens.js", ["../../core/di", "../../facade/lang"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var di_1 = $__require('../../core/di');
+  var lang_1 = $__require('../../facade/lang');
+  exports.DOCUMENT = lang_1.CONST_EXPR(new di_1.OpaqueToken('DocumentToken'));
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/dom/util.js", ["../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -34152,7 +34440,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/dom/util.js", [".
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/dom/dom_renderer.js", ["../../core/di", "../../animate/animation_builder", "../../facade/lang", "../../facade/exceptions", "./shared_styles_host", "./events/event_manager", "./dom_tokens", "../../core/metadata", "./dom_adapter", "./util"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/dom/dom_renderer.js", ["../../core/di", "../../animate/animation_builder", "../../facade/lang", "../../facade/exceptions", "./shared_styles_host", "./events/event_manager", "./dom_tokens", "../../core/metadata", "./dom_adapter", "./util"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -34359,6 +34647,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/dom/dom_renderer.
         this.setElementAttribute(renderElement, propertyName, propertyValue);
       }
     };
+    DomRenderer.prototype.setElementDebugInfo = function(renderElement, info) {};
     DomRenderer.prototype.setElementClass = function(renderElement, className, isAdd) {
       if (isAdd) {
         dom_adapter_1.DOM.addClass(renderElement, className);
@@ -34463,397 +34752,190 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/dom/dom_renderer.
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/dom/dom_tokens.js", ["../../core/di", "../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/debug/debug_renderer.js", ["../../facade/lang", "./debug_node"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  var di_1 = $__require('../../core/di');
   var lang_1 = $__require('../../facade/lang');
-  exports.DOCUMENT = lang_1.CONST_EXPR(new di_1.OpaqueToken('DocumentToken'));
-  global.define = __define;
-  return module.exports;
-});
-
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/dom/shared_styles_host.js", ["./dom_adapter", "../../core/di", "../../facade/collection", "./dom_tokens"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var __extends = (this && this.__extends) || function(d, b) {
-    for (var p in b)
-      if (b.hasOwnProperty(p))
-        d[p] = b[p];
-    function __() {
-      this.constructor = d;
+  var debug_node_1 = $__require('./debug_node');
+  var DebugDomRootRenderer = (function() {
+    function DebugDomRootRenderer(_delegate) {
+      this._delegate = _delegate;
     }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
-      r = Reflect.decorate(decorators, target, key, desc);
-    else
-      for (var i = decorators.length - 1; i >= 0; i--)
-        if (d = decorators[i])
-          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-  };
-  var __metadata = (this && this.__metadata) || function(k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
-      return Reflect.metadata(k, v);
-  };
-  var __param = (this && this.__param) || function(paramIndex, decorator) {
-    return function(target, key) {
-      decorator(target, key, paramIndex);
+    DebugDomRootRenderer.prototype.renderComponent = function(componentProto) {
+      return new DebugDomRenderer(this, this._delegate.renderComponent(componentProto));
     };
-  };
-  var dom_adapter_1 = $__require('./dom_adapter');
-  var di_1 = $__require('../../core/di');
-  var collection_1 = $__require('../../facade/collection');
-  var dom_tokens_1 = $__require('./dom_tokens');
-  var SharedStylesHost = (function() {
-    function SharedStylesHost() {
-      this._styles = [];
-      this._stylesSet = new Set();
+    return DebugDomRootRenderer;
+  })();
+  exports.DebugDomRootRenderer = DebugDomRootRenderer;
+  var DebugDomRenderer = (function() {
+    function DebugDomRenderer(_rootRenderer, _delegate) {
+      this._rootRenderer = _rootRenderer;
+      this._delegate = _delegate;
     }
-    SharedStylesHost.prototype.addStyles = function(styles) {
-      var _this = this;
-      var additions = [];
-      styles.forEach(function(style) {
-        if (!collection_1.SetWrapper.has(_this._stylesSet, style)) {
-          _this._stylesSet.add(style);
-          _this._styles.push(style);
-          additions.push(style);
+    DebugDomRenderer.prototype.renderComponent = function(componentType) {
+      return this._rootRenderer.renderComponent(componentType);
+    };
+    DebugDomRenderer.prototype.selectRootElement = function(selector) {
+      var nativeEl = this._delegate.selectRootElement(selector);
+      var debugEl = new debug_node_1.DebugElement(nativeEl, null);
+      debug_node_1.indexDebugNode(debugEl);
+      return nativeEl;
+    };
+    DebugDomRenderer.prototype.createElement = function(parentElement, name) {
+      var nativeEl = this._delegate.createElement(parentElement, name);
+      var debugEl = new debug_node_1.DebugElement(nativeEl, debug_node_1.getDebugNode(parentElement));
+      debugEl.name = name;
+      debug_node_1.indexDebugNode(debugEl);
+      return nativeEl;
+    };
+    DebugDomRenderer.prototype.createViewRoot = function(hostElement) {
+      return this._delegate.createViewRoot(hostElement);
+    };
+    DebugDomRenderer.prototype.createTemplateAnchor = function(parentElement) {
+      var comment = this._delegate.createTemplateAnchor(parentElement);
+      var debugEl = new debug_node_1.DebugNode(comment, debug_node_1.getDebugNode(parentElement));
+      debug_node_1.indexDebugNode(debugEl);
+      return comment;
+    };
+    DebugDomRenderer.prototype.createText = function(parentElement, value) {
+      var text = this._delegate.createText(parentElement, value);
+      var debugEl = new debug_node_1.DebugNode(text, debug_node_1.getDebugNode(parentElement));
+      debug_node_1.indexDebugNode(debugEl);
+      return text;
+    };
+    DebugDomRenderer.prototype.projectNodes = function(parentElement, nodes) {
+      var debugParent = debug_node_1.getDebugNode(parentElement);
+      if (lang_1.isPresent(debugParent) && debugParent instanceof debug_node_1.DebugElement) {
+        nodes.forEach(function(node) {
+          debugParent.addChild(debug_node_1.getDebugNode(node));
+        });
+      }
+      return this._delegate.projectNodes(parentElement, nodes);
+    };
+    DebugDomRenderer.prototype.attachViewAfter = function(node, viewRootNodes) {
+      var debugNode = debug_node_1.getDebugNode(node);
+      if (lang_1.isPresent(debugNode)) {
+        var debugParent = debugNode.parent;
+        if (viewRootNodes.length > 0 && lang_1.isPresent(debugParent)) {
+          var debugViewRootNodes = [];
+          viewRootNodes.forEach(function(rootNode) {
+            return debugViewRootNodes.push(debug_node_1.getDebugNode(rootNode));
+          });
+          debugParent.insertChildrenAfter(debugNode, debugViewRootNodes);
+        }
+      }
+      return this._delegate.attachViewAfter(node, viewRootNodes);
+    };
+    DebugDomRenderer.prototype.detachView = function(viewRootNodes) {
+      viewRootNodes.forEach(function(node) {
+        var debugNode = debug_node_1.getDebugNode(node);
+        if (lang_1.isPresent(debugNode) && lang_1.isPresent(debugNode.parent)) {
+          debugNode.parent.removeChild(debugNode);
         }
       });
-      this.onStylesAdded(additions);
+      return this._delegate.detachView(viewRootNodes);
     };
-    SharedStylesHost.prototype.onStylesAdded = function(additions) {};
-    SharedStylesHost.prototype.getAllStyles = function() {
-      return this._styles;
-    };
-    SharedStylesHost = __decorate([di_1.Injectable(), __metadata('design:paramtypes', [])], SharedStylesHost);
-    return SharedStylesHost;
-  })();
-  exports.SharedStylesHost = SharedStylesHost;
-  var DomSharedStylesHost = (function(_super) {
-    __extends(DomSharedStylesHost, _super);
-    function DomSharedStylesHost(doc) {
-      _super.call(this);
-      this._hostNodes = new Set();
-      this._hostNodes.add(doc.head);
-    }
-    DomSharedStylesHost.prototype._addStylesToHost = function(styles, host) {
-      for (var i = 0; i < styles.length; i++) {
-        var style = styles[i];
-        dom_adapter_1.DOM.appendChild(host, dom_adapter_1.DOM.createStyleElement(style));
-      }
-    };
-    DomSharedStylesHost.prototype.addHost = function(hostNode) {
-      this._addStylesToHost(this._styles, hostNode);
-      this._hostNodes.add(hostNode);
-    };
-    DomSharedStylesHost.prototype.removeHost = function(hostNode) {
-      collection_1.SetWrapper.delete(this._hostNodes, hostNode);
-    };
-    DomSharedStylesHost.prototype.onStylesAdded = function(additions) {
-      var _this = this;
-      this._hostNodes.forEach(function(hostNode) {
-        _this._addStylesToHost(additions, hostNode);
+    DebugDomRenderer.prototype.destroyView = function(hostElement, viewAllNodes) {
+      viewAllNodes.forEach(function(node) {
+        debug_node_1.removeDebugNodeFromIndex(debug_node_1.getDebugNode(node));
       });
+      return this._delegate.destroyView(hostElement, viewAllNodes);
     };
-    DomSharedStylesHost = __decorate([di_1.Injectable(), __param(0, di_1.Inject(dom_tokens_1.DOCUMENT)), __metadata('design:paramtypes', [Object])], DomSharedStylesHost);
-    return DomSharedStylesHost;
-  })(SharedStylesHost);
-  exports.DomSharedStylesHost = DomSharedStylesHost;
+    DebugDomRenderer.prototype.listen = function(renderElement, name, callback) {
+      var debugEl = debug_node_1.getDebugNode(renderElement);
+      if (lang_1.isPresent(debugEl)) {
+        debugEl.listeners.push(new debug_node_1.EventListener(name, callback));
+      }
+      return this._delegate.listen(renderElement, name, callback);
+    };
+    DebugDomRenderer.prototype.listenGlobal = function(target, name, callback) {
+      return this._delegate.listenGlobal(target, name, callback);
+    };
+    DebugDomRenderer.prototype.setElementProperty = function(renderElement, propertyName, propertyValue) {
+      var debugEl = debug_node_1.getDebugNode(renderElement);
+      if (lang_1.isPresent(debugEl) && debugEl instanceof debug_node_1.DebugElement) {
+        debugEl.properties.set(propertyName, propertyValue);
+      }
+      return this._delegate.setElementProperty(renderElement, propertyName, propertyValue);
+    };
+    DebugDomRenderer.prototype.setElementAttribute = function(renderElement, attributeName, attributeValue) {
+      var debugEl = debug_node_1.getDebugNode(renderElement);
+      if (lang_1.isPresent(debugEl) && debugEl instanceof debug_node_1.DebugElement) {
+        debugEl.attributes.set(attributeName, attributeValue);
+      }
+      return this._delegate.setElementAttribute(renderElement, attributeName, attributeValue);
+    };
+    DebugDomRenderer.prototype.setBindingDebugInfo = function(renderElement, propertyName, propertyValue) {
+      return this._delegate.setBindingDebugInfo(renderElement, propertyName, propertyValue);
+    };
+    DebugDomRenderer.prototype.setElementDebugInfo = function(renderElement, info) {
+      var debugEl = debug_node_1.getDebugNode(renderElement);
+      debugEl.setDebugInfo(info);
+      return this._delegate.setElementDebugInfo(renderElement, info);
+    };
+    DebugDomRenderer.prototype.setElementClass = function(renderElement, className, isAdd) {
+      return this._delegate.setElementClass(renderElement, className, isAdd);
+    };
+    DebugDomRenderer.prototype.setElementStyle = function(renderElement, styleName, styleValue) {
+      return this._delegate.setElementStyle(renderElement, styleName, styleValue);
+    };
+    DebugDomRenderer.prototype.invokeElementMethod = function(renderElement, methodName, args) {
+      return this._delegate.invokeElementMethod(renderElement, methodName, args);
+    };
+    DebugDomRenderer.prototype.setText = function(renderNode, text) {
+      return this._delegate.setText(renderNode, text);
+    };
+    return DebugDomRenderer;
+  })();
+  exports.DebugDomRenderer = DebugDomRenderer;
   global.define = __define;
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/dom/events/dom_events.js", ["../dom_adapter", "../../../../core", "./event_manager"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/dom/debug/ng_probe.js", ["../../../facade/lang", "../../../core/di", "../dom_adapter", "../../../core/debug/debug_node", "../dom_renderer", "../../../../core", "../../../core/debug/debug_renderer"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  var __extends = (this && this.__extends) || function(d, b) {
-    for (var p in b)
-      if (b.hasOwnProperty(p))
-        d[p] = b[p];
-    function __() {
-      this.constructor = d;
-    }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
-      r = Reflect.decorate(decorators, target, key, desc);
-    else
-      for (var i = decorators.length - 1; i >= 0; i--)
-        if (d = decorators[i])
-          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-  };
-  var __metadata = (this && this.__metadata) || function(k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
-      return Reflect.metadata(k, v);
-  };
+  var lang_1 = $__require('../../../facade/lang');
+  var di_1 = $__require('../../../core/di');
   var dom_adapter_1 = $__require('../dom_adapter');
+  var debug_node_1 = $__require('../../../core/debug/debug_node');
+  var dom_renderer_1 = $__require('../dom_renderer');
   var core_1 = $__require('../../../../core');
-  var event_manager_1 = $__require('./event_manager');
-  var DomEventsPlugin = (function(_super) {
-    __extends(DomEventsPlugin, _super);
-    function DomEventsPlugin() {
-      _super.apply(this, arguments);
-    }
-    DomEventsPlugin.prototype.supports = function(eventName) {
-      return true;
-    };
-    DomEventsPlugin.prototype.addEventListener = function(element, eventName, handler) {
-      var zone = this.manager.getZone();
-      var outsideHandler = function(event) {
-        return zone.run(function() {
-          return handler(event);
-        });
-      };
-      return this.manager.getZone().runOutsideAngular(function() {
-        return dom_adapter_1.DOM.onAndCancel(element, eventName, outsideHandler);
-      });
-    };
-    DomEventsPlugin.prototype.addGlobalEventListener = function(target, eventName, handler) {
-      var element = dom_adapter_1.DOM.getGlobalEventTarget(target);
-      var zone = this.manager.getZone();
-      var outsideHandler = function(event) {
-        return zone.run(function() {
-          return handler(event);
-        });
-      };
-      return this.manager.getZone().runOutsideAngular(function() {
-        return dom_adapter_1.DOM.onAndCancel(element, eventName, outsideHandler);
-      });
-    };
-    DomEventsPlugin = __decorate([core_1.Injectable(), __metadata('design:paramtypes', [])], DomEventsPlugin);
-    return DomEventsPlugin;
-  })(event_manager_1.EventManagerPlugin);
-  exports.DomEventsPlugin = DomEventsPlugin;
-  global.define = __define;
-  return module.exports;
-});
-
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/dom/events/event_manager.js", ["../../../facade/lang", "../../../facade/exceptions", "../../../core/di", "../../../core/zone/ng_zone", "../../../facade/collection"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
-      r = Reflect.decorate(decorators, target, key, desc);
-    else
-      for (var i = decorators.length - 1; i >= 0; i--)
-        if (d = decorators[i])
-          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-  };
-  var __metadata = (this && this.__metadata) || function(k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
-      return Reflect.metadata(k, v);
-  };
-  var __param = (this && this.__param) || function(paramIndex, decorator) {
-    return function(target, key) {
-      decorator(target, key, paramIndex);
-    };
-  };
-  var lang_1 = $__require('../../../facade/lang');
-  var exceptions_1 = $__require('../../../facade/exceptions');
-  var di_1 = $__require('../../../core/di');
-  var ng_zone_1 = $__require('../../../core/zone/ng_zone');
-  var collection_1 = $__require('../../../facade/collection');
-  exports.EVENT_MANAGER_PLUGINS = lang_1.CONST_EXPR(new di_1.OpaqueToken("EventManagerPlugins"));
-  var EventManager = (function() {
-    function EventManager(plugins, _zone) {
-      var _this = this;
-      this._zone = _zone;
-      plugins.forEach(function(p) {
-        return p.manager = _this;
-      });
-      this._plugins = collection_1.ListWrapper.reversed(plugins);
-    }
-    EventManager.prototype.addEventListener = function(element, eventName, handler) {
-      var plugin = this._findPluginFor(eventName);
-      return plugin.addEventListener(element, eventName, handler);
-    };
-    EventManager.prototype.addGlobalEventListener = function(target, eventName, handler) {
-      var plugin = this._findPluginFor(eventName);
-      return plugin.addGlobalEventListener(target, eventName, handler);
-    };
-    EventManager.prototype.getZone = function() {
-      return this._zone;
-    };
-    EventManager.prototype._findPluginFor = function(eventName) {
-      var plugins = this._plugins;
-      for (var i = 0; i < plugins.length; i++) {
-        var plugin = plugins[i];
-        if (plugin.supports(eventName)) {
-          return plugin;
-        }
-      }
-      throw new exceptions_1.BaseException("No event manager plugin found for event " + eventName);
-    };
-    EventManager = __decorate([di_1.Injectable(), __param(0, di_1.Inject(exports.EVENT_MANAGER_PLUGINS)), __metadata('design:paramtypes', [Array, ng_zone_1.NgZone])], EventManager);
-    return EventManager;
-  })();
-  exports.EventManager = EventManager;
-  var EventManagerPlugin = (function() {
-    function EventManagerPlugin() {}
-    EventManagerPlugin.prototype.supports = function(eventName) {
-      return false;
-    };
-    EventManagerPlugin.prototype.addEventListener = function(element, eventName, handler) {
-      throw "not implemented";
-    };
-    EventManagerPlugin.prototype.addGlobalEventListener = function(element, eventName, handler) {
-      throw "not implemented";
-    };
-    return EventManagerPlugin;
-  })();
-  exports.EventManagerPlugin = EventManagerPlugin;
-  global.define = __define;
-  return module.exports;
-});
-
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/dom/debug/by.js", ["../../../facade/lang", "../dom_adapter"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var lang_1 = $__require('../../../facade/lang');
-  var dom_adapter_1 = $__require('../dom_adapter');
-  var By = (function() {
-    function By() {}
-    By.all = function() {
-      return function(debugElement) {
-        return true;
-      };
-    };
-    By.css = function(selector) {
-      return function(debugElement) {
-        return lang_1.isPresent(debugElement.nativeElement) ? dom_adapter_1.DOM.elementMatches(debugElement.nativeElement, selector) : false;
-      };
-    };
-    By.directive = function(type) {
-      return function(debugElement) {
-        return debugElement.hasDirective(type);
-      };
-    };
-    return By;
-  })();
-  exports.By = By;
-  global.define = __define;
-  return module.exports;
-});
-
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/dom/debug/debug_element_view_listener.js", ["../../../facade/lang", "../../../facade/collection", "../../../core/di", "../../../core/linker/view_listener", "../dom_adapter", "../../../core/debug/debug_element"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
-      r = Reflect.decorate(decorators, target, key, desc);
-    else
-      for (var i = decorators.length - 1; i >= 0; i--)
-        if (d = decorators[i])
-          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-  };
-  var __metadata = (this && this.__metadata) || function(k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
-      return Reflect.metadata(k, v);
-  };
-  var lang_1 = $__require('../../../facade/lang');
-  var collection_1 = $__require('../../../facade/collection');
-  var di_1 = $__require('../../../core/di');
-  var view_listener_1 = $__require('../../../core/linker/view_listener');
-  var dom_adapter_1 = $__require('../dom_adapter');
-  var debug_element_1 = $__require('../../../core/debug/debug_element');
-  var NG_ID_PROPERTY = 'ngid';
+  var debug_renderer_1 = $__require('../../../core/debug/debug_renderer');
   var INSPECT_GLOBAL_NAME = 'ng.probe';
-  var NG_ID_SEPARATOR = '#';
-  var _allIdsByView = new collection_1.Map();
-  var _allViewsById = new collection_1.Map();
-  var _nextId = 0;
-  function _setElementId(element, indices) {
-    if (lang_1.isPresent(element) && dom_adapter_1.DOM.isElementNode(element)) {
-      dom_adapter_1.DOM.setData(element, NG_ID_PROPERTY, indices.join(NG_ID_SEPARATOR));
-    }
-  }
-  function _getElementId(element) {
-    var elId = dom_adapter_1.DOM.getData(element, NG_ID_PROPERTY);
-    if (lang_1.isPresent(elId)) {
-      return elId.split(NG_ID_SEPARATOR).map(function(partStr) {
-        return lang_1.NumberWrapper.parseInt(partStr, 10);
-      });
-    } else {
-      return null;
-    }
-  }
   function inspectNativeElement(element) {
-    var elId = _getElementId(element);
-    if (lang_1.isPresent(elId)) {
-      var view = _allViewsById.get(elId[0]);
-      if (lang_1.isPresent(view)) {
-        return new debug_element_1.DebugElement_(view.appElements[elId[1]]);
-      }
-    }
-    return null;
+    return debug_node_1.getDebugNode(element);
   }
   exports.inspectNativeElement = inspectNativeElement;
-  var DebugElementViewListener = (function() {
-    function DebugElementViewListener() {
-      dom_adapter_1.DOM.setGlobalVar(INSPECT_GLOBAL_NAME, inspectNativeElement);
+  function _createConditionalRootRenderer(rootRenderer) {
+    if (lang_1.assertionsEnabled()) {
+      return _createRootRenderer(rootRenderer);
     }
-    DebugElementViewListener.prototype.onViewCreated = function(view) {
-      var viewId = _nextId++;
-      _allViewsById.set(viewId, view);
-      _allIdsByView.set(view, viewId);
-      for (var i = 0; i < view.appElements.length; i++) {
-        var el = view.appElements[i];
-        _setElementId(el.nativeElement, [viewId, i]);
-      }
-    };
-    DebugElementViewListener.prototype.onViewDestroyed = function(view) {
-      var viewId = _allIdsByView.get(view);
-      _allIdsByView.delete(view);
-      _allViewsById.delete(viewId);
-    };
-    DebugElementViewListener = __decorate([di_1.Injectable(), __metadata('design:paramtypes', [])], DebugElementViewListener);
-    return DebugElementViewListener;
-  })();
-  exports.DebugElementViewListener = DebugElementViewListener;
-  exports.ELEMENT_PROBE_PROVIDERS = lang_1.CONST_EXPR([DebugElementViewListener, lang_1.CONST_EXPR(new di_1.Provider(view_listener_1.AppViewListener, {useExisting: DebugElementViewListener}))]);
-  exports.ELEMENT_PROBE_BINDINGS = exports.ELEMENT_PROBE_PROVIDERS;
+    return rootRenderer;
+  }
+  function _createRootRenderer(rootRenderer) {
+    dom_adapter_1.DOM.setGlobalVar(INSPECT_GLOBAL_NAME, inspectNativeElement);
+    return new debug_renderer_1.DebugDomRootRenderer(rootRenderer);
+  }
+  exports.ELEMENT_PROBE_PROVIDERS = lang_1.CONST_EXPR([new di_1.Provider(core_1.RootRenderer, {
+    useFactory: _createConditionalRootRenderer,
+    deps: [dom_renderer_1.DomRootRenderer]
+  })]);
+  exports.ELEMENT_PROBE_PROVIDERS_PROD_MODE = lang_1.CONST_EXPR([new di_1.Provider(core_1.RootRenderer, {
+    useFactory: _createRootRenderer,
+    deps: [dom_renderer_1.DomRootRenderer]
+  })]);
   global.define = __define;
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/platform/common_dom.js", ["../src/platform/dom/dom_adapter", "../src/platform/dom/dom_renderer", "../src/platform/dom/dom_tokens", "../src/platform/dom/shared_styles_host", "../src/platform/dom/events/dom_events", "../src/platform/dom/events/event_manager", "../src/platform/dom/debug/by", "../src/platform/dom/debug/debug_element_view_listener"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/platform/common_dom.js", ["../src/platform/dom/dom_adapter", "../src/platform/dom/dom_renderer", "../src/platform/dom/dom_tokens", "../src/platform/dom/shared_styles_host", "../src/platform/dom/events/dom_events", "../src/platform/dom/events/event_manager", "../src/platform/dom/debug/by", "../src/platform/dom/debug/ng_probe"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -34882,12 +34964,34 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/platform/common_dom.js", ["../
   exports.EventManager = event_manager_1.EventManager;
   exports.EventManagerPlugin = event_manager_1.EventManagerPlugin;
   __export($__require('../src/platform/dom/debug/by'));
-  __export($__require('../src/platform/dom/debug/debug_element_view_listener'));
+  __export($__require('../src/platform/dom/debug/ng_probe'));
   global.define = __define;
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/facade/browser.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/browser/title.js", ["../dom/dom_adapter"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var dom_adapter_1 = $__require('../dom/dom_adapter');
+  var Title = (function() {
+    function Title() {}
+    Title.prototype.getTitle = function() {
+      return dom_adapter_1.DOM.getTitle();
+    };
+    Title.prototype.setTitle = function(newTitle) {
+      dom_adapter_1.DOM.setTitle(newTitle);
+    };
+    return Title;
+  })();
+  exports.Title = Title;
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/facade/browser.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -34914,7 +35018,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/facade/browser.js", [], tr
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/browser/tools/common_tools.js", ["../../../core/application_ref", "../../../facade/lang", "../../../facade/browser", "../../dom/dom_adapter"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/browser/tools/common_tools.js", ["../../../core/application_ref", "../../../facade/lang", "../../../facade/browser", "../../dom/dom_adapter"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -34963,7 +35067,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/browser/tools/com
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/browser/tools/tools.js", ["../../../facade/lang", "./common_tools"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/browser/tools/tools.js", ["../../../facade/lang", "./common_tools"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -34984,7 +35088,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/browser/tools/too
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/browser_common.js", ["../facade/lang", "../core/di", "../../core", "../../common", "../core/testability/testability", "./dom/dom_adapter", "./dom/events/dom_events", "./dom/events/key_events", "./dom/events/hammer_gestures", "./dom/dom_tokens", "./dom/dom_renderer", "./dom/shared_styles_host", "../animate/browser_details", "../animate/animation_builder", "./browser/browser_adapter", "./browser/testability", "../core/profile/wtf_init", "./dom/events/event_manager", "./browser/title", "../../platform/common_dom", "./browser/tools/tools"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/browser_common.js", ["../facade/lang", "../core/di", "../../core", "../../common", "../core/testability/testability", "./dom/dom_adapter", "./dom/events/dom_events", "./dom/events/key_events", "./dom/events/hammer_gestures", "./dom/dom_tokens", "./dom/dom_renderer", "./dom/shared_styles_host", "../animate/browser_details", "../animate/animation_builder", "./browser/browser_adapter", "./browser/testability", "../core/profile/wtf_init", "./dom/events/event_manager", "../../platform/common_dom", "./browser/title", "./browser/tools/tools"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -35009,16 +35113,16 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/browser_common.js
   var testability_2 = $__require('./browser/testability');
   var wtf_init_1 = $__require('../core/profile/wtf_init');
   var event_manager_1 = $__require('./dom/events/event_manager');
+  var common_dom_1 = $__require('../../platform/common_dom');
   var dom_tokens_2 = $__require('./dom/dom_tokens');
   exports.DOCUMENT = dom_tokens_2.DOCUMENT;
   var title_1 = $__require('./browser/title');
   exports.Title = title_1.Title;
-  var common_dom_1 = $__require('../../platform/common_dom');
-  exports.DebugElementViewListener = common_dom_1.DebugElementViewListener;
-  exports.ELEMENT_PROBE_PROVIDERS = common_dom_1.ELEMENT_PROBE_PROVIDERS;
-  exports.ELEMENT_PROBE_BINDINGS = common_dom_1.ELEMENT_PROBE_BINDINGS;
-  exports.inspectNativeElement = common_dom_1.inspectNativeElement;
-  exports.By = common_dom_1.By;
+  var common_dom_2 = $__require('../../platform/common_dom');
+  exports.ELEMENT_PROBE_PROVIDERS = common_dom_2.ELEMENT_PROBE_PROVIDERS;
+  exports.ELEMENT_PROBE_PROVIDERS_PROD_MODE = common_dom_2.ELEMENT_PROBE_PROVIDERS_PROD_MODE;
+  exports.inspectNativeElement = common_dom_2.inspectNativeElement;
+  exports.By = common_dom_2.By;
   var browser_adapter_2 = $__require('./browser/browser_adapter');
   exports.BrowserDomAdapter = browser_adapter_2.BrowserDomAdapter;
   var tools_1 = $__require('./browser/tools/tools');
@@ -35055,7 +35159,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/browser_common.js
   }), new di_1.Provider(event_manager_1.EVENT_MANAGER_PLUGINS, {
     useClass: hammer_gestures_1.HammerGesturesPlugin,
     multi: true
-  }), new di_1.Provider(dom_renderer_1.DomRootRenderer, {useClass: dom_renderer_1.DomRootRenderer_}), new di_1.Provider(core_1.RootRenderer, {useExisting: dom_renderer_1.DomRootRenderer}), new di_1.Provider(shared_styles_host_2.SharedStylesHost, {useExisting: shared_styles_host_1.DomSharedStylesHost}), shared_styles_host_1.DomSharedStylesHost, testability_1.Testability, browser_details_1.BrowserDetails, animation_builder_1.AnimationBuilder, event_manager_1.EventManager]);
+  }), new di_1.Provider(dom_renderer_1.DomRootRenderer, {useClass: dom_renderer_1.DomRootRenderer_}), new di_1.Provider(core_1.RootRenderer, {useExisting: dom_renderer_1.DomRootRenderer}), new di_1.Provider(shared_styles_host_2.SharedStylesHost, {useExisting: shared_styles_host_1.DomSharedStylesHost}), shared_styles_host_1.DomSharedStylesHost, testability_1.Testability, browser_details_1.BrowserDetails, animation_builder_1.AnimationBuilder, event_manager_1.EventManager, common_dom_1.ELEMENT_PROBE_PROVIDERS]);
   function initDomAdapter() {
     browser_adapter_1.BrowserDomAdapter.makeCurrent();
     wtf_init_1.wtfInit();
@@ -35066,7 +35170,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/browser_common.js
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/runtime_compiler.js", ["../core/linker/compiler", "../core/linker/view_ref", "./template_compiler", "../core/di"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/runtime_compiler.js", ["../core/linker/compiler", "../core/linker/view_ref", "./template_compiler", "../core/di"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -35132,7 +35236,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/runtime_compiler.
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/template_compiler.js", ["../facade/lang", "../facade/exceptions", "../facade/collection", "../facade/async", "./directive_metadata", "./template_ast", "../core/di", "./source_module", "./change_detector_compiler", "./style_compiler", "./view_compiler", "./proto_view_compiler", "./template_parser", "./template_normalizer", "./runtime_metadata", "../core/linker/view", "../core/change_detection/change_detection", "../core/linker/resolved_metadata_cache", "./util"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/template_compiler.js", ["../facade/lang", "../facade/exceptions", "../facade/collection", "../facade/async", "./directive_metadata", "./template_ast", "../core/di", "./source_module", "./change_detector_compiler", "./style_compiler", "./view_compiler", "./proto_view_compiler", "./template_parser", "./template_normalizer", "./runtime_metadata", "../core/linker/view", "../core/change_detection/change_detection", "../core/linker/resolved_metadata_cache", "./util"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -35522,7 +35626,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/template_compiler
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/template_parser.js", ["../facade/collection", "../facade/lang", "../../core", "../facade/exceptions", "../core/change_detection/change_detection", "./html_parser", "./html_tags", "./parse_util", "../core/change_detection/parser/ast", "./template_ast", "./selector", "./schema/element_schema_registry", "./template_preparser", "./style_url_resolver", "./html_ast", "./util", "process"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/template_parser.js", ["../facade/collection", "../facade/lang", "../../core", "../facade/exceptions", "../core/change_detection/change_detection", "./html_parser", "./html_tags", "./parse_util", "../core/change_detection/parser/ast", "./template_ast", "./selector", "./schema/element_schema_registry", "./template_preparser", "./style_url_resolver", "./html_ast", "./util", "process"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -36153,7 +36257,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/template_parser.j
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/html_ast.js", ["../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/html_ast.js", ["../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -36214,7 +36318,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/html_ast.js", [".
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/html_lexer.js", ["../facade/lang", "../facade/collection", "./parse_util", "./html_tags", "process"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/html_lexer.js", ["../facade/lang", "../facade/collection", "./parse_util", "./html_tags", "process"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -36765,7 +36869,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/html_lexer.js", [
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/parse_util.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/parse_util.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -36847,7 +36951,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/parse_util.js", [
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/html_parser.js", ["../facade/lang", "../facade/collection", "./html_ast", "../core/di", "./html_lexer", "./parse_util", "./html_tags"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/html_parser.js", ["../facade/lang", "../facade/collection", "./html_ast", "../core/di", "./html_lexer", "./parse_util", "./html_tags"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -37094,7 +37198,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/html_parser.js", 
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/template_preparser.js", ["../facade/lang", "./html_tags"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/template_preparser.js", ["../facade/lang", "./html_tags"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -37171,7 +37275,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/template_preparse
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/template_normalizer.js", ["./directive_metadata", "../facade/lang", "../facade/exceptions", "../facade/async", "./xhr", "./url_resolver", "./style_url_resolver", "../core/di", "../core/metadata/view", "./html_ast", "./html_parser", "./template_preparser"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/template_normalizer.js", ["./directive_metadata", "../facade/lang", "../facade/exceptions", "../facade/async", "./xhr", "./url_resolver", "./style_url_resolver", "../core/di", "../core/metadata/view", "./html_ast", "./html_parser", "./template_preparser"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -37314,7 +37418,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/template_normaliz
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/selector.js", ["../facade/collection", "../facade/lang", "../facade/exceptions", "process"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/selector.js", ["../facade/collection", "../facade/lang", "../facade/exceptions", "process"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -37639,7 +37743,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/selector.js", [".
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/directive_metadata.js", ["../facade/lang", "../facade/exceptions", "../facade/collection", "../core/change_detection/change_detection", "../core/metadata/view", "./selector", "./util", "../core/linker/interfaces"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/directive_metadata.js", ["../facade/lang", "../facade/exceptions", "../facade/collection", "../core/change_detection/change_detection", "../core/metadata/view", "./selector", "./util", "../core/linker/interfaces"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -37930,7 +38034,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/directive_metadat
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/directive_lifecycle_reflector.js", ["../../facade/lang", "./interfaces"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/linker/directive_lifecycle_reflector.js", ["../../facade/lang", "./interfaces"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -37968,7 +38072,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/directive_life
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/runtime_metadata.js", ["../core/di", "../facade/lang", "../facade/exceptions", "./directive_metadata", "../core/metadata/directives", "../core/linker/directive_resolver", "../core/linker/pipe_resolver", "../core/linker/view_resolver", "../core/linker/directive_lifecycle_reflector", "../core/linker/interfaces", "../core/reflection/reflection", "../core/platform_directives_and_pipes", "./util", "./url_resolver"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/runtime_metadata.js", ["../core/di", "../facade/lang", "../facade/exceptions", "./directive_metadata", "../core/metadata/directives", "../core/linker/directive_resolver", "../core/linker/pipe_resolver", "../core/linker/view_resolver", "../core/linker/directive_lifecycle_reflector", "../core/linker/interfaces", "../core/reflection/reflection", "../core/platform_directives_and_pipes", "./util", "./url_resolver"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -38157,7 +38261,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/runtime_metadata.
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/interfaces.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/linker/interfaces.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -38179,7 +38283,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/interfaces.js"
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/change_definition_factory.js", ["../facade/collection", "../facade/lang", "../core/reflection/reflection", "../core/change_detection/change_detection", "./template_ast", "../core/linker/interfaces"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/change_definition_factory.js", ["../facade/collection", "../facade/lang", "../core/reflection/reflection", "../core/change_detection/change_detection", "./template_ast", "../core/linker/interfaces"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -38341,7 +38445,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/change_definition
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/transform/template_compiler/change_detector_codegen.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/transform/template_compiler/change_detector_codegen.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -38362,7 +38466,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/transform/template_compile
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/change_detector_compiler.js", ["./source_module", "../core/change_detection/change_detection_jit_generator", "../core/change_detection/abstract_change_detector", "../core/change_detection/change_detection_util", "../core/change_detection/constants", "./change_definition_factory", "../facade/lang", "../core/change_detection/change_detection", "../transform/template_compiler/change_detector_codegen", "./util", "../core/di"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/change_detector_compiler.js", ["./source_module", "../core/change_detection/change_detection_jit_generator", "../core/change_detection/abstract_change_detector", "../core/change_detection/change_detection_util", "../core/change_detection/constants", "./change_definition_factory", "../facade/lang", "../core/change_detection/change_detection", "../transform/template_compiler/change_detector_codegen", "./util", "../core/di"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -38456,7 +38560,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/change_detector_c
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/shadow_css.js", ["../facade/collection", "../facade/lang", "process"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/shadow_css.js", ["../facade/collection", "../facade/lang", "process"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -38734,7 +38838,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/shadow_css.js", [
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/style_url_resolver.js", ["../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/style_url_resolver.js", ["../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -38775,7 +38879,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/style_url_resolve
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/style_compiler.js", ["./source_module", "../core/metadata/view", "./xhr", "../facade/lang", "../facade/async", "./shadow_css", "./url_resolver", "./style_url_resolver", "./util", "../core/di"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/style_compiler.js", ["./source_module", "../core/metadata/view", "./xhr", "../facade/lang", "../facade/async", "./shadow_css", "./url_resolver", "./style_url_resolver", "./util", "../core/di"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -38888,7 +38992,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/style_compiler.js
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/view_compiler.js", ["../facade/lang", "../facade/collection", "./template_ast", "./source_module", "../core/linker/view", "../core/linker/view_type", "../core/linker/element", "../core/metadata/view", "./util", "../core/di", "./proto_view_compiler"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/view_compiler.js", ["../facade/lang", "../facade/collection", "./template_ast", "./source_module", "../core/linker/view", "../core/linker/view_type", "../core/linker/element", "../core/metadata/view", "./util", "../core/di", "./proto_view_compiler"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -39308,7 +39412,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/view_compiler.js"
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/template_ast.js", ["../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/template_ast.js", ["../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -39506,7 +39610,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/template_ast.js",
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/source_module.js", ["../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/source_module.js", ["../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -39579,7 +39683,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/source_module.js"
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/util.js", ["../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/util.js", ["../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -39772,7 +39876,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/util.js", ["../fa
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/proto_view_compiler.js", ["../facade/lang", "../facade/collection", "./template_ast", "./source_module", "../core/linker/view", "../core/linker/view_type", "../core/linker/element", "./util", "../core/di"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/proto_view_compiler.js", ["../facade/lang", "../facade/collection", "./template_ast", "./source_module", "../core/linker/view", "../core/linker/view_type", "../core/linker/element", "./util", "../core/di"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -40124,7 +40228,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/proto_view_compil
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/html_tags.js", ["../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/html_tags.js", ["../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -40548,7 +40652,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/html_tags.js", ["
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/schema/element_schema_registry.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/schema/element_schema_registry.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -40569,7 +40673,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/schema/element_sc
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/schema/dom_element_schema_registry.js", ["../../core/di", "../../facade/lang", "../../facade/collection", "../../platform/dom/dom_adapter", "../html_tags", "./element_schema_registry"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/schema/dom_element_schema_registry.js", ["../../core/di", "../../facade/lang", "../../facade/collection", "../../platform/dom/dom_adapter", "../html_tags", "./element_schema_registry"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -40645,7 +40749,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/schema/dom_elemen
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/url_resolver.js", ["../core/di", "../facade/lang", "../core/application_tokens"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/url_resolver.js", ["../core/di", "../facade/lang", "../core/application_tokens"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -40817,7 +40921,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/url_resolver.js",
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/compiler.js", ["./runtime_compiler", "./template_compiler", "./directive_metadata", "./source_module", "../core/platform_directives_and_pipes", "./template_ast", "./template_parser", "../facade/lang", "../core/di", "./html_parser", "./template_normalizer", "./runtime_metadata", "./change_detector_compiler", "./style_compiler", "./view_compiler", "./proto_view_compiler", "../core/change_detection/change_detection", "../core/linker/compiler", "./schema/element_schema_registry", "./schema/dom_element_schema_registry", "./url_resolver"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/compiler.js", ["./runtime_compiler", "./template_compiler", "./directive_metadata", "./source_module", "../core/platform_directives_and_pipes", "./template_ast", "./template_parser", "../facade/lang", "../core/di", "./html_parser", "./template_normalizer", "./runtime_metadata", "./change_detector_compiler", "./style_compiler", "./view_compiler", "./proto_view_compiler", "../core/change_detection/change_detection", "../core/linker/compiler", "./schema/element_schema_registry", "./schema/dom_element_schema_registry", "./url_resolver"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -40873,7 +40977,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/compiler.js", [".
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/compiler.js", ["./src/compiler/url_resolver", "./src/compiler/xhr", "./src/compiler/compiler"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/compiler.js", ["./src/compiler/url_resolver", "./src/compiler/xhr", "./src/compiler/compiler"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -40891,7 +40995,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/compiler.js", ["./src/compiler
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/xhr.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/compiler/xhr.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -40909,7 +41013,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/compiler/xhr.js", [], true
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/browser/xhr_impl.js", ["../../facade/promise", "../../facade/lang", "../../compiler/xhr"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/browser/xhr_impl.js", ["../../facade/promise", "../../facade/lang", "../../compiler/xhr"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -40962,7 +41066,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/browser/xhr_impl.
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/platform/browser.js", ["../src/core/angular_entrypoint", "../src/platform/browser_common", "../src/facade/lang", "../compiler", "../core", "../src/core/reflection/reflection_capabilities", "../src/platform/browser/xhr_impl", "../src/core/di", "process"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/platform/browser.js", ["../src/core/angular_entrypoint", "../src/platform/browser_common", "../src/facade/lang", "../compiler", "../core", "../src/core/reflection/reflection_capabilities", "../src/platform/browser/xhr_impl", "../src/core/di", "process"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -40973,8 +41077,8 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/platform/browser.js", ["../src
     exports.AngularEntrypoint = angular_entrypoint_1.AngularEntrypoint;
     var browser_common_1 = $__require('../src/platform/browser_common');
     exports.BROWSER_PROVIDERS = browser_common_1.BROWSER_PROVIDERS;
-    exports.ELEMENT_PROBE_BINDINGS = browser_common_1.ELEMENT_PROBE_BINDINGS;
     exports.ELEMENT_PROBE_PROVIDERS = browser_common_1.ELEMENT_PROBE_PROVIDERS;
+    exports.ELEMENT_PROBE_PROVIDERS_PROD_MODE = browser_common_1.ELEMENT_PROBE_PROVIDERS_PROD_MODE;
     exports.inspectNativeElement = browser_common_1.inspectNativeElement;
     exports.BrowserDomAdapter = browser_common_1.BrowserDomAdapter;
     exports.By = browser_common_1.By;
@@ -41002,7 +41106,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/platform/browser.js", ["../src
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/router_outlet.js", ["../facade/async", "../facade/collection", "../facade/lang", "../facade/exceptions", "../../core", "./router", "./instruction", "./lifecycle_annotations", "./route_lifecycle_reflector"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/router_outlet.js", ["../facade/async", "../facade/collection", "../facade/lang", "../facade/exceptions", "../../core", "./router", "./instruction", "./lifecycle_annotations", "./route_lifecycle_reflector"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -41117,7 +41221,345 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/router_outlet.js", 
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/route_lifecycle_reflector.js", ["../facade/lang", "./lifecycle_annotations_impl", "../core/reflection/reflection"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/router_link.js", ["../../core", "../facade/lang", "./router", "./location"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var core_1 = $__require('../../core');
+  var lang_1 = $__require('../facade/lang');
+  var router_1 = $__require('./router');
+  var location_1 = $__require('./location');
+  var RouterLink = (function() {
+    function RouterLink(_router, _location) {
+      var _this = this;
+      this._router = _router;
+      this._location = _location;
+      this._router.subscribe(function(_) {
+        return _this._updateLink();
+      });
+    }
+    RouterLink.prototype._updateLink = function() {
+      this._navigationInstruction = this._router.generate(this._routeParams);
+      var navigationHref = this._navigationInstruction.toLinkUrl();
+      this.visibleHref = this._location.prepareExternalUrl(navigationHref);
+    };
+    Object.defineProperty(RouterLink.prototype, "isRouteActive", {
+      get: function() {
+        return this._router.isRouteActive(this._navigationInstruction);
+      },
+      enumerable: true,
+      configurable: true
+    });
+    Object.defineProperty(RouterLink.prototype, "routeParams", {
+      set: function(changes) {
+        this._routeParams = changes;
+        this._updateLink();
+      },
+      enumerable: true,
+      configurable: true
+    });
+    RouterLink.prototype.onClick = function() {
+      if (!lang_1.isString(this.target) || this.target == '_self') {
+        this._router.navigateByInstruction(this._navigationInstruction);
+        return false;
+      }
+      return true;
+    };
+    RouterLink = __decorate([core_1.Directive({
+      selector: '[routerLink]',
+      inputs: ['routeParams: routerLink', 'target: target'],
+      host: {
+        '(click)': 'onClick()',
+        '[attr.href]': 'visibleHref',
+        '[class.router-link-active]': 'isRouteActive'
+      }
+    }), __metadata('design:paramtypes', [router_1.Router, location_1.Location])], RouterLink);
+    return RouterLink;
+  })();
+  exports.RouterLink = RouterLink;
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/hash_location_strategy.js", ["../../core", "./location_strategy", "../facade/lang", "./platform_location"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1 = $__require('../../core');
+  var location_strategy_1 = $__require('./location_strategy');
+  var lang_1 = $__require('../facade/lang');
+  var platform_location_1 = $__require('./platform_location');
+  var HashLocationStrategy = (function(_super) {
+    __extends(HashLocationStrategy, _super);
+    function HashLocationStrategy(_platformLocation, _baseHref) {
+      _super.call(this);
+      this._platformLocation = _platformLocation;
+      this._baseHref = '';
+      if (lang_1.isPresent(_baseHref)) {
+        this._baseHref = _baseHref;
+      }
+    }
+    HashLocationStrategy.prototype.onPopState = function(fn) {
+      this._platformLocation.onPopState(fn);
+      this._platformLocation.onHashChange(fn);
+    };
+    HashLocationStrategy.prototype.getBaseHref = function() {
+      return this._baseHref;
+    };
+    HashLocationStrategy.prototype.path = function() {
+      var path = this._platformLocation.hash;
+      return (path.length > 0 ? path.substring(1) : path) + location_strategy_1.normalizeQueryParams(this._platformLocation.search);
+    };
+    HashLocationStrategy.prototype.prepareExternalUrl = function(internal) {
+      var url = location_strategy_1.joinWithSlash(this._baseHref, internal);
+      return url.length > 0 ? ('#' + url) : url;
+    };
+    HashLocationStrategy.prototype.pushState = function(state, title, path, queryParams) {
+      var url = this.prepareExternalUrl(path + location_strategy_1.normalizeQueryParams(queryParams));
+      if (url.length == 0) {
+        url = this._platformLocation.pathname;
+      }
+      this._platformLocation.pushState(state, title, url);
+    };
+    HashLocationStrategy.prototype.replaceState = function(state, title, path, queryParams) {
+      var url = this.prepareExternalUrl(path + location_strategy_1.normalizeQueryParams(queryParams));
+      if (url.length == 0) {
+        url = this._platformLocation.pathname;
+      }
+      this._platformLocation.replaceState(state, title, url);
+    };
+    HashLocationStrategy.prototype.forward = function() {
+      this._platformLocation.forward();
+    };
+    HashLocationStrategy.prototype.back = function() {
+      this._platformLocation.back();
+    };
+    HashLocationStrategy = __decorate([core_1.Injectable(), __param(1, core_1.Optional()), __param(1, core_1.Inject(location_strategy_1.APP_BASE_HREF)), __metadata('design:paramtypes', [platform_location_1.PlatformLocation, String])], HashLocationStrategy);
+    return HashLocationStrategy;
+  })(location_strategy_1.LocationStrategy);
+  exports.HashLocationStrategy = HashLocationStrategy;
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/route_definition.js", [], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  "format cjs";
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/lifecycle_annotations.js", ["../core/util/decorators", "./lifecycle_annotations_impl"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var decorators_1 = $__require('../core/util/decorators');
+  var lifecycle_annotations_impl_1 = $__require('./lifecycle_annotations_impl');
+  var lifecycle_annotations_impl_2 = $__require('./lifecycle_annotations_impl');
+  exports.routerCanReuse = lifecycle_annotations_impl_2.routerCanReuse;
+  exports.routerCanDeactivate = lifecycle_annotations_impl_2.routerCanDeactivate;
+  exports.routerOnActivate = lifecycle_annotations_impl_2.routerOnActivate;
+  exports.routerOnReuse = lifecycle_annotations_impl_2.routerOnReuse;
+  exports.routerOnDeactivate = lifecycle_annotations_impl_2.routerOnDeactivate;
+  exports.CanActivate = decorators_1.makeDecorator(lifecycle_annotations_impl_1.CanActivate);
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/path_location_strategy.js", ["../../core", "../facade/lang", "../facade/exceptions", "./location_strategy", "./platform_location"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1 = $__require('../../core');
+  var lang_1 = $__require('../facade/lang');
+  var exceptions_1 = $__require('../facade/exceptions');
+  var location_strategy_1 = $__require('./location_strategy');
+  var platform_location_1 = $__require('./platform_location');
+  var PathLocationStrategy = (function(_super) {
+    __extends(PathLocationStrategy, _super);
+    function PathLocationStrategy(_platformLocation, href) {
+      _super.call(this);
+      this._platformLocation = _platformLocation;
+      if (lang_1.isBlank(href)) {
+        href = this._platformLocation.getBaseHrefFromDOM();
+      }
+      if (lang_1.isBlank(href)) {
+        throw new exceptions_1.BaseException("No base href set. Please provide a value for the APP_BASE_HREF token or add a base element to the document.");
+      }
+      this._baseHref = href;
+    }
+    PathLocationStrategy.prototype.onPopState = function(fn) {
+      this._platformLocation.onPopState(fn);
+      this._platformLocation.onHashChange(fn);
+    };
+    PathLocationStrategy.prototype.getBaseHref = function() {
+      return this._baseHref;
+    };
+    PathLocationStrategy.prototype.prepareExternalUrl = function(internal) {
+      return location_strategy_1.joinWithSlash(this._baseHref, internal);
+    };
+    PathLocationStrategy.prototype.path = function() {
+      return this._platformLocation.pathname + location_strategy_1.normalizeQueryParams(this._platformLocation.search);
+    };
+    PathLocationStrategy.prototype.pushState = function(state, title, url, queryParams) {
+      var externalUrl = this.prepareExternalUrl(url + location_strategy_1.normalizeQueryParams(queryParams));
+      this._platformLocation.pushState(state, title, externalUrl);
+    };
+    PathLocationStrategy.prototype.replaceState = function(state, title, url, queryParams) {
+      var externalUrl = this.prepareExternalUrl(url + location_strategy_1.normalizeQueryParams(queryParams));
+      this._platformLocation.replaceState(state, title, externalUrl);
+    };
+    PathLocationStrategy.prototype.forward = function() {
+      this._platformLocation.forward();
+    };
+    PathLocationStrategy.prototype.back = function() {
+      this._platformLocation.back();
+    };
+    PathLocationStrategy = __decorate([core_1.Injectable(), __param(1, core_1.Optional()), __param(1, core_1.Inject(location_strategy_1.APP_BASE_HREF)), __metadata('design:paramtypes', [platform_location_1.PlatformLocation, String])], PathLocationStrategy);
+    return PathLocationStrategy;
+  })(location_strategy_1.LocationStrategy);
+  exports.PathLocationStrategy = PathLocationStrategy;
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/lifecycle_annotations_impl.js", ["../facade/lang"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var lang_1 = $__require('../facade/lang');
+  var RouteLifecycleHook = (function() {
+    function RouteLifecycleHook(name) {
+      this.name = name;
+    }
+    RouteLifecycleHook = __decorate([lang_1.CONST(), __metadata('design:paramtypes', [String])], RouteLifecycleHook);
+    return RouteLifecycleHook;
+  })();
+  exports.RouteLifecycleHook = RouteLifecycleHook;
+  var CanActivate = (function() {
+    function CanActivate(fn) {
+      this.fn = fn;
+    }
+    CanActivate = __decorate([lang_1.CONST(), __metadata('design:paramtypes', [Function])], CanActivate);
+    return CanActivate;
+  })();
+  exports.CanActivate = CanActivate;
+  exports.routerCanReuse = lang_1.CONST_EXPR(new RouteLifecycleHook("routerCanReuse"));
+  exports.routerCanDeactivate = lang_1.CONST_EXPR(new RouteLifecycleHook("routerCanDeactivate"));
+  exports.routerOnActivate = lang_1.CONST_EXPR(new RouteLifecycleHook("routerOnActivate"));
+  exports.routerOnReuse = lang_1.CONST_EXPR(new RouteLifecycleHook("routerOnReuse"));
+  exports.routerOnDeactivate = lang_1.CONST_EXPR(new RouteLifecycleHook("routerOnDeactivate"));
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/route_lifecycle_reflector.js", ["../facade/lang", "./lifecycle_annotations_impl", "../core/reflection/reflection"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -41147,7 +41589,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/route_lifecycle_ref
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/router.js", ["../facade/async", "../facade/collection", "../facade/lang", "../facade/exceptions", "../../core", "./route_registry", "./location", "./route_lifecycle_reflector"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/router.js", ["../facade/async", "../facade/collection", "../facade/lang", "../facade/exceptions", "../../core", "./route_registry", "./location", "./route_lifecycle_reflector"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -41569,85 +42011,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/router.js", ["../fa
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/router_link.js", ["../../core", "../facade/lang", "./router", "./location"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
-      r = Reflect.decorate(decorators, target, key, desc);
-    else
-      for (var i = decorators.length - 1; i >= 0; i--)
-        if (d = decorators[i])
-          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-  };
-  var __metadata = (this && this.__metadata) || function(k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
-      return Reflect.metadata(k, v);
-  };
-  var core_1 = $__require('../../core');
-  var lang_1 = $__require('../facade/lang');
-  var router_1 = $__require('./router');
-  var location_1 = $__require('./location');
-  var RouterLink = (function() {
-    function RouterLink(_router, _location) {
-      var _this = this;
-      this._router = _router;
-      this._location = _location;
-      this._router.subscribe(function(_) {
-        return _this._updateLink();
-      });
-    }
-    RouterLink.prototype._updateLink = function() {
-      this._navigationInstruction = this._router.generate(this._routeParams);
-      var navigationHref = this._navigationInstruction.toLinkUrl();
-      this.visibleHref = this._location.prepareExternalUrl(navigationHref);
-    };
-    Object.defineProperty(RouterLink.prototype, "isRouteActive", {
-      get: function() {
-        return this._router.isRouteActive(this._navigationInstruction);
-      },
-      enumerable: true,
-      configurable: true
-    });
-    Object.defineProperty(RouterLink.prototype, "routeParams", {
-      set: function(changes) {
-        this._routeParams = changes;
-        this._updateLink();
-      },
-      enumerable: true,
-      configurable: true
-    });
-    RouterLink.prototype.onClick = function() {
-      if (!lang_1.isString(this.target) || this.target == '_self') {
-        this._router.navigateByInstruction(this._navigationInstruction);
-        return false;
-      }
-      return true;
-    };
-    RouterLink = __decorate([core_1.Directive({
-      selector: '[routerLink]',
-      inputs: ['routeParams: routerLink', 'target: target'],
-      host: {
-        '(click)': 'onClick()',
-        '[attr.href]': 'visibleHref',
-        '[class.router-link-active]': 'isRouteActive'
-      }
-    }), __metadata('design:paramtypes', [router_1.Router, location_1.Location])], RouterLink);
-    return RouterLink;
-  })();
-  exports.RouterLink = RouterLink;
-  global.define = __define;
-  return module.exports;
-});
-
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/path_recognizer.js", ["../facade/lang", "../facade/exceptions", "../facade/collection", "./url_parser"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/path_recognizer.js", ["../facade/lang", "../facade/exceptions", "../facade/collection", "./url_parser"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -41895,7 +42259,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/path_recognizer.js"
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/route_recognizer.js", ["../facade/lang", "../facade/exceptions", "../facade/promise", "../facade/collection", "./instruction", "./path_recognizer"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/route_recognizer.js", ["../facade/lang", "../facade/exceptions", "../facade/promise", "../facade/collection", "./instruction", "./path_recognizer"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -42012,7 +42376,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/route_recognizer.js
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/async_route_handler.js", ["../facade/lang", "./instruction"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/async_route_handler.js", ["../facade/lang", "./instruction"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -42046,7 +42410,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/async_route_handler
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/sync_route_handler.js", ["../facade/async", "../facade/lang", "./instruction"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/sync_route_handler.js", ["../facade/async", "../facade/lang", "./instruction"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -42072,7 +42436,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/sync_route_handler.
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/component_recognizer.js", ["../facade/lang", "../facade/exceptions", "../facade/collection", "../facade/async", "./route_recognizer", "./route_config_impl", "./async_route_handler", "./sync_route_handler"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/component_recognizer.js", ["../facade/lang", "../facade/exceptions", "../facade/collection", "../facade/async", "./route_recognizer", "./route_config_impl", "./async_route_handler", "./sync_route_handler"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -42195,7 +42559,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/component_recognize
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/instruction.js", ["../facade/collection", "../facade/lang", "../facade/async"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/instruction.js", ["../facade/collection", "../facade/lang", "../facade/async"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -42439,7 +42803,132 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/instruction.js", ["
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/route_config_nomalizer.js", ["./route_config_decorator", "../facade/lang", "../facade/exceptions"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/route_config_impl.js", ["../facade/lang"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var lang_1 = $__require('../facade/lang');
+  var RouteConfig = (function() {
+    function RouteConfig(configs) {
+      this.configs = configs;
+    }
+    RouteConfig = __decorate([lang_1.CONST(), __metadata('design:paramtypes', [Array])], RouteConfig);
+    return RouteConfig;
+  })();
+  exports.RouteConfig = RouteConfig;
+  var Route = (function() {
+    function Route(_a) {
+      var path = _a.path,
+          component = _a.component,
+          name = _a.name,
+          data = _a.data,
+          useAsDefault = _a.useAsDefault;
+      this.aux = null;
+      this.loader = null;
+      this.redirectTo = null;
+      this.path = path;
+      this.component = component;
+      this.name = name;
+      this.data = data;
+      this.useAsDefault = useAsDefault;
+    }
+    Route = __decorate([lang_1.CONST(), __metadata('design:paramtypes', [Object])], Route);
+    return Route;
+  })();
+  exports.Route = Route;
+  var AuxRoute = (function() {
+    function AuxRoute(_a) {
+      var path = _a.path,
+          component = _a.component,
+          name = _a.name;
+      this.data = null;
+      this.aux = null;
+      this.loader = null;
+      this.redirectTo = null;
+      this.useAsDefault = false;
+      this.path = path;
+      this.component = component;
+      this.name = name;
+    }
+    AuxRoute = __decorate([lang_1.CONST(), __metadata('design:paramtypes', [Object])], AuxRoute);
+    return AuxRoute;
+  })();
+  exports.AuxRoute = AuxRoute;
+  var AsyncRoute = (function() {
+    function AsyncRoute(_a) {
+      var path = _a.path,
+          loader = _a.loader,
+          name = _a.name,
+          data = _a.data,
+          useAsDefault = _a.useAsDefault;
+      this.aux = null;
+      this.path = path;
+      this.loader = loader;
+      this.name = name;
+      this.data = data;
+      this.useAsDefault = useAsDefault;
+    }
+    AsyncRoute = __decorate([lang_1.CONST(), __metadata('design:paramtypes', [Object])], AsyncRoute);
+    return AsyncRoute;
+  })();
+  exports.AsyncRoute = AsyncRoute;
+  var Redirect = (function() {
+    function Redirect(_a) {
+      var path = _a.path,
+          redirectTo = _a.redirectTo;
+      this.name = null;
+      this.loader = null;
+      this.data = null;
+      this.aux = null;
+      this.useAsDefault = false;
+      this.path = path;
+      this.redirectTo = redirectTo;
+    }
+    Redirect = __decorate([lang_1.CONST(), __metadata('design:paramtypes', [Object])], Redirect);
+    return Redirect;
+  })();
+  exports.Redirect = Redirect;
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/route_config_decorator.js", ["./route_config_impl", "../core/util/decorators"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var route_config_impl_1 = $__require('./route_config_impl');
+  var decorators_1 = $__require('../core/util/decorators');
+  var route_config_impl_2 = $__require('./route_config_impl');
+  exports.Route = route_config_impl_2.Route;
+  exports.Redirect = route_config_impl_2.Redirect;
+  exports.AuxRoute = route_config_impl_2.AuxRoute;
+  exports.AsyncRoute = route_config_impl_2.AsyncRoute;
+  exports.RouteConfig = decorators_1.makeDecorator(route_config_impl_1.RouteConfig);
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/route_config_nomalizer.js", ["./route_config_decorator", "../facade/lang", "../facade/exceptions"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -42538,7 +43027,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/route_config_nomali
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/url_parser.js", ["../facade/collection", "../facade/lang", "../facade/exceptions"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/url_parser.js", ["../facade/collection", "../facade/lang", "../facade/exceptions"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -42772,7 +43261,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/url_parser.js", [".
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/route_registry.js", ["../facade/collection", "../facade/async", "../facade/lang", "../facade/exceptions", "../core/reflection/reflection", "../../core", "./route_config_impl", "./route_recognizer", "./component_recognizer", "./instruction", "./route_config_nomalizer", "./url_parser"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/route_registry.js", ["../facade/collection", "../facade/async", "../facade/lang", "../facade/exceptions", "../core/reflection/reflection", "../../core", "./route_config_impl", "./route_recognizer", "./component_recognizer", "./instruction", "./route_config_nomalizer", "./url_parser"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -43153,309 +43642,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/route_registry.js",
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/hash_location_strategy.js", ["../../core", "./location_strategy", "../facade/lang", "./platform_location"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var __extends = (this && this.__extends) || function(d, b) {
-    for (var p in b)
-      if (b.hasOwnProperty(p))
-        d[p] = b[p];
-    function __() {
-      this.constructor = d;
-    }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
-      r = Reflect.decorate(decorators, target, key, desc);
-    else
-      for (var i = decorators.length - 1; i >= 0; i--)
-        if (d = decorators[i])
-          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-  };
-  var __metadata = (this && this.__metadata) || function(k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
-      return Reflect.metadata(k, v);
-  };
-  var __param = (this && this.__param) || function(paramIndex, decorator) {
-    return function(target, key) {
-      decorator(target, key, paramIndex);
-    };
-  };
-  var core_1 = $__require('../../core');
-  var location_strategy_1 = $__require('./location_strategy');
-  var lang_1 = $__require('../facade/lang');
-  var platform_location_1 = $__require('./platform_location');
-  var HashLocationStrategy = (function(_super) {
-    __extends(HashLocationStrategy, _super);
-    function HashLocationStrategy(_platformLocation, _baseHref) {
-      _super.call(this);
-      this._platformLocation = _platformLocation;
-      this._baseHref = '';
-      if (lang_1.isPresent(_baseHref)) {
-        this._baseHref = _baseHref;
-      }
-    }
-    HashLocationStrategy.prototype.onPopState = function(fn) {
-      this._platformLocation.onPopState(fn);
-      this._platformLocation.onHashChange(fn);
-    };
-    HashLocationStrategy.prototype.getBaseHref = function() {
-      return this._baseHref;
-    };
-    HashLocationStrategy.prototype.path = function() {
-      var path = this._platformLocation.hash;
-      return (path.length > 0 ? path.substring(1) : path) + location_strategy_1.normalizeQueryParams(this._platformLocation.search);
-    };
-    HashLocationStrategy.prototype.prepareExternalUrl = function(internal) {
-      var url = location_strategy_1.joinWithSlash(this._baseHref, internal);
-      return url.length > 0 ? ('#' + url) : url;
-    };
-    HashLocationStrategy.prototype.pushState = function(state, title, path, queryParams) {
-      var url = this.prepareExternalUrl(path + location_strategy_1.normalizeQueryParams(queryParams));
-      if (url.length == 0) {
-        url = this._platformLocation.pathname;
-      }
-      this._platformLocation.pushState(state, title, url);
-    };
-    HashLocationStrategy.prototype.replaceState = function(state, title, path, queryParams) {
-      var url = this.prepareExternalUrl(path + location_strategy_1.normalizeQueryParams(queryParams));
-      if (url.length == 0) {
-        url = this._platformLocation.pathname;
-      }
-      this._platformLocation.replaceState(state, title, url);
-    };
-    HashLocationStrategy.prototype.forward = function() {
-      this._platformLocation.forward();
-    };
-    HashLocationStrategy.prototype.back = function() {
-      this._platformLocation.back();
-    };
-    HashLocationStrategy = __decorate([core_1.Injectable(), __param(1, core_1.Optional()), __param(1, core_1.Inject(location_strategy_1.APP_BASE_HREF)), __metadata('design:paramtypes', [platform_location_1.PlatformLocation, String])], HashLocationStrategy);
-    return HashLocationStrategy;
-  })(location_strategy_1.LocationStrategy);
-  exports.HashLocationStrategy = HashLocationStrategy;
-  global.define = __define;
-  return module.exports;
-});
-
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/platform/dom/dom_adapter.js", ["../../facade/lang"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var lang_1 = $__require('../../facade/lang');
-  exports.DOM = null;
-  function setRootDomAdapter(adapter) {
-    if (lang_1.isBlank(exports.DOM)) {
-      exports.DOM = adapter;
-    }
-  }
-  exports.setRootDomAdapter = setRootDomAdapter;
-  var DomAdapter = (function() {
-    function DomAdapter() {}
-    Object.defineProperty(DomAdapter.prototype, "attrToPropMap", {
-      get: function() {
-        return this._attrToPropMap;
-      },
-      set: function(value) {
-        this._attrToPropMap = value;
-      },
-      enumerable: true,
-      configurable: true
-    });
-    ;
-    ;
-    return DomAdapter;
-  })();
-  exports.DomAdapter = DomAdapter;
-  global.define = __define;
-  return module.exports;
-});
-
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/platform_location.js", ["../platform/dom/dom_adapter", "../../core"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
-      r = Reflect.decorate(decorators, target, key, desc);
-    else
-      for (var i = decorators.length - 1; i >= 0; i--)
-        if (d = decorators[i])
-          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-  };
-  var __metadata = (this && this.__metadata) || function(k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
-      return Reflect.metadata(k, v);
-  };
-  var dom_adapter_1 = $__require('../platform/dom/dom_adapter');
-  var core_1 = $__require('../../core');
-  var PlatformLocation = (function() {
-    function PlatformLocation() {
-      this._init();
-    }
-    PlatformLocation.prototype._init = function() {
-      this._location = dom_adapter_1.DOM.getLocation();
-      this._history = dom_adapter_1.DOM.getHistory();
-    };
-    PlatformLocation.prototype.getBaseHrefFromDOM = function() {
-      return dom_adapter_1.DOM.getBaseHref();
-    };
-    PlatformLocation.prototype.onPopState = function(fn) {
-      dom_adapter_1.DOM.getGlobalEventTarget('window').addEventListener('popstate', fn, false);
-    };
-    PlatformLocation.prototype.onHashChange = function(fn) {
-      dom_adapter_1.DOM.getGlobalEventTarget('window').addEventListener('hashchange', fn, false);
-    };
-    Object.defineProperty(PlatformLocation.prototype, "pathname", {
-      get: function() {
-        return this._location.pathname;
-      },
-      set: function(newPath) {
-        this._location.pathname = newPath;
-      },
-      enumerable: true,
-      configurable: true
-    });
-    Object.defineProperty(PlatformLocation.prototype, "search", {
-      get: function() {
-        return this._location.search;
-      },
-      enumerable: true,
-      configurable: true
-    });
-    Object.defineProperty(PlatformLocation.prototype, "hash", {
-      get: function() {
-        return this._location.hash;
-      },
-      enumerable: true,
-      configurable: true
-    });
-    PlatformLocation.prototype.pushState = function(state, title, url) {
-      this._history.pushState(state, title, url);
-    };
-    PlatformLocation.prototype.replaceState = function(state, title, url) {
-      this._history.replaceState(state, title, url);
-    };
-    PlatformLocation.prototype.forward = function() {
-      this._history.forward();
-    };
-    PlatformLocation.prototype.back = function() {
-      this._history.back();
-    };
-    PlatformLocation = __decorate([core_1.Injectable(), __metadata('design:paramtypes', [])], PlatformLocation);
-    return PlatformLocation;
-  })();
-  exports.PlatformLocation = PlatformLocation;
-  global.define = __define;
-  return module.exports;
-});
-
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/path_location_strategy.js", ["../../core", "../facade/lang", "../facade/exceptions", "./location_strategy", "./platform_location"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var __extends = (this && this.__extends) || function(d, b) {
-    for (var p in b)
-      if (b.hasOwnProperty(p))
-        d[p] = b[p];
-    function __() {
-      this.constructor = d;
-    }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
-      r = Reflect.decorate(decorators, target, key, desc);
-    else
-      for (var i = decorators.length - 1; i >= 0; i--)
-        if (d = decorators[i])
-          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-  };
-  var __metadata = (this && this.__metadata) || function(k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
-      return Reflect.metadata(k, v);
-  };
-  var __param = (this && this.__param) || function(paramIndex, decorator) {
-    return function(target, key) {
-      decorator(target, key, paramIndex);
-    };
-  };
-  var core_1 = $__require('../../core');
-  var lang_1 = $__require('../facade/lang');
-  var exceptions_1 = $__require('../facade/exceptions');
-  var location_strategy_1 = $__require('./location_strategy');
-  var platform_location_1 = $__require('./platform_location');
-  var PathLocationStrategy = (function(_super) {
-    __extends(PathLocationStrategy, _super);
-    function PathLocationStrategy(_platformLocation, href) {
-      _super.call(this);
-      this._platformLocation = _platformLocation;
-      if (lang_1.isBlank(href)) {
-        href = this._platformLocation.getBaseHrefFromDOM();
-      }
-      if (lang_1.isBlank(href)) {
-        throw new exceptions_1.BaseException("No base href set. Please provide a value for the APP_BASE_HREF token or add a base element to the document.");
-      }
-      this._baseHref = href;
-    }
-    PathLocationStrategy.prototype.onPopState = function(fn) {
-      this._platformLocation.onPopState(fn);
-      this._platformLocation.onHashChange(fn);
-    };
-    PathLocationStrategy.prototype.getBaseHref = function() {
-      return this._baseHref;
-    };
-    PathLocationStrategy.prototype.prepareExternalUrl = function(internal) {
-      return location_strategy_1.joinWithSlash(this._baseHref, internal);
-    };
-    PathLocationStrategy.prototype.path = function() {
-      return this._platformLocation.pathname + location_strategy_1.normalizeQueryParams(this._platformLocation.search);
-    };
-    PathLocationStrategy.prototype.pushState = function(state, title, url, queryParams) {
-      var externalUrl = this.prepareExternalUrl(url + location_strategy_1.normalizeQueryParams(queryParams));
-      this._platformLocation.pushState(state, title, externalUrl);
-    };
-    PathLocationStrategy.prototype.replaceState = function(state, title, url, queryParams) {
-      var externalUrl = this.prepareExternalUrl(url + location_strategy_1.normalizeQueryParams(queryParams));
-      this._platformLocation.replaceState(state, title, externalUrl);
-    };
-    PathLocationStrategy.prototype.forward = function() {
-      this._platformLocation.forward();
-    };
-    PathLocationStrategy.prototype.back = function() {
-      this._platformLocation.back();
-    };
-    PathLocationStrategy = __decorate([core_1.Injectable(), __param(1, core_1.Optional()), __param(1, core_1.Inject(location_strategy_1.APP_BASE_HREF)), __metadata('design:paramtypes', [platform_location_1.PlatformLocation, String])], PathLocationStrategy);
-    return PathLocationStrategy;
-  })(location_strategy_1.LocationStrategy);
-  exports.PathLocationStrategy = PathLocationStrategy;
-  global.define = __define;
-  return module.exports;
-});
-
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/location_strategy.js", ["../facade/lang", "../../core"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/location_strategy.js", ["../facade/lang", "../../core"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -43500,7 +43687,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/location_strategy.j
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/location.js", ["./location_strategy", "../facade/async", "../../core"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/location.js", ["./location_strategy", "../facade/async", "../../core"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -43605,210 +43792,45 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/location.js", ["./l
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/route_config_impl.js", ["../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/router_providers_common.js", ["./location_strategy", "./path_location_strategy", "./router", "./route_registry", "./location", "../facade/lang", "../../core", "../facade/exceptions"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
-      r = Reflect.decorate(decorators, target, key, desc);
-    else
-      for (var i = decorators.length - 1; i >= 0; i--)
-        if (d = decorators[i])
-          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-  };
-  var __metadata = (this && this.__metadata) || function(k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
-      return Reflect.metadata(k, v);
-  };
+  var location_strategy_1 = $__require('./location_strategy');
+  var path_location_strategy_1 = $__require('./path_location_strategy');
+  var router_1 = $__require('./router');
+  var route_registry_1 = $__require('./route_registry');
+  var location_1 = $__require('./location');
   var lang_1 = $__require('../facade/lang');
-  var RouteConfig = (function() {
-    function RouteConfig(configs) {
-      this.configs = configs;
+  var core_1 = $__require('../../core');
+  var exceptions_1 = $__require('../facade/exceptions');
+  exports.ROUTER_PROVIDERS_COMMON = lang_1.CONST_EXPR([route_registry_1.RouteRegistry, lang_1.CONST_EXPR(new core_1.Provider(location_strategy_1.LocationStrategy, {useClass: path_location_strategy_1.PathLocationStrategy})), location_1.Location, lang_1.CONST_EXPR(new core_1.Provider(router_1.Router, {
+    useFactory: routerFactory,
+    deps: lang_1.CONST_EXPR([route_registry_1.RouteRegistry, location_1.Location, route_registry_1.ROUTER_PRIMARY_COMPONENT, core_1.ApplicationRef])
+  })), lang_1.CONST_EXPR(new core_1.Provider(route_registry_1.ROUTER_PRIMARY_COMPONENT, {
+    useFactory: routerPrimaryComponentFactory,
+    deps: lang_1.CONST_EXPR([core_1.ApplicationRef])
+  }))]);
+  function routerFactory(registry, location, primaryComponent, appRef) {
+    var rootRouter = new router_1.RootRouter(registry, location, primaryComponent);
+    appRef.registerDisposeListener(function() {
+      return rootRouter.dispose();
+    });
+    return rootRouter;
+  }
+  function routerPrimaryComponentFactory(app) {
+    if (app.componentTypes.length == 0) {
+      throw new exceptions_1.BaseException("Bootstrap at least one component before injecting Router.");
     }
-    RouteConfig = __decorate([lang_1.CONST(), __metadata('design:paramtypes', [Array])], RouteConfig);
-    return RouteConfig;
-  })();
-  exports.RouteConfig = RouteConfig;
-  var Route = (function() {
-    function Route(_a) {
-      var path = _a.path,
-          component = _a.component,
-          name = _a.name,
-          data = _a.data,
-          useAsDefault = _a.useAsDefault;
-      this.aux = null;
-      this.loader = null;
-      this.redirectTo = null;
-      this.path = path;
-      this.component = component;
-      this.name = name;
-      this.data = data;
-      this.useAsDefault = useAsDefault;
-    }
-    Route = __decorate([lang_1.CONST(), __metadata('design:paramtypes', [Object])], Route);
-    return Route;
-  })();
-  exports.Route = Route;
-  var AuxRoute = (function() {
-    function AuxRoute(_a) {
-      var path = _a.path,
-          component = _a.component,
-          name = _a.name;
-      this.data = null;
-      this.aux = null;
-      this.loader = null;
-      this.redirectTo = null;
-      this.useAsDefault = false;
-      this.path = path;
-      this.component = component;
-      this.name = name;
-    }
-    AuxRoute = __decorate([lang_1.CONST(), __metadata('design:paramtypes', [Object])], AuxRoute);
-    return AuxRoute;
-  })();
-  exports.AuxRoute = AuxRoute;
-  var AsyncRoute = (function() {
-    function AsyncRoute(_a) {
-      var path = _a.path,
-          loader = _a.loader,
-          name = _a.name,
-          data = _a.data,
-          useAsDefault = _a.useAsDefault;
-      this.aux = null;
-      this.path = path;
-      this.loader = loader;
-      this.name = name;
-      this.data = data;
-      this.useAsDefault = useAsDefault;
-    }
-    AsyncRoute = __decorate([lang_1.CONST(), __metadata('design:paramtypes', [Object])], AsyncRoute);
-    return AsyncRoute;
-  })();
-  exports.AsyncRoute = AsyncRoute;
-  var Redirect = (function() {
-    function Redirect(_a) {
-      var path = _a.path,
-          redirectTo = _a.redirectTo;
-      this.name = null;
-      this.loader = null;
-      this.data = null;
-      this.aux = null;
-      this.useAsDefault = false;
-      this.path = path;
-      this.redirectTo = redirectTo;
-    }
-    Redirect = __decorate([lang_1.CONST(), __metadata('design:paramtypes', [Object])], Redirect);
-    return Redirect;
-  })();
-  exports.Redirect = Redirect;
+    return app.componentTypes[0];
+  }
   global.define = __define;
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/route_config_decorator.js", ["./route_config_impl", "../core/util/decorators"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var route_config_impl_1 = $__require('./route_config_impl');
-  var decorators_1 = $__require('../core/util/decorators');
-  var route_config_impl_2 = $__require('./route_config_impl');
-  exports.Route = route_config_impl_2.Route;
-  exports.Redirect = route_config_impl_2.Redirect;
-  exports.AuxRoute = route_config_impl_2.AuxRoute;
-  exports.AsyncRoute = route_config_impl_2.AsyncRoute;
-  exports.RouteConfig = decorators_1.makeDecorator(route_config_impl_1.RouteConfig);
-  global.define = __define;
-  return module.exports;
-});
-
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/route_definition.js", [], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  "format cjs";
-  global.define = __define;
-  return module.exports;
-});
-
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/lifecycle_annotations_impl.js", ["../facade/lang"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
-      r = Reflect.decorate(decorators, target, key, desc);
-    else
-      for (var i = decorators.length - 1; i >= 0; i--)
-        if (d = decorators[i])
-          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-  };
-  var __metadata = (this && this.__metadata) || function(k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
-      return Reflect.metadata(k, v);
-  };
-  var lang_1 = $__require('../facade/lang');
-  var RouteLifecycleHook = (function() {
-    function RouteLifecycleHook(name) {
-      this.name = name;
-    }
-    RouteLifecycleHook = __decorate([lang_1.CONST(), __metadata('design:paramtypes', [String])], RouteLifecycleHook);
-    return RouteLifecycleHook;
-  })();
-  exports.RouteLifecycleHook = RouteLifecycleHook;
-  var CanActivate = (function() {
-    function CanActivate(fn) {
-      this.fn = fn;
-    }
-    CanActivate = __decorate([lang_1.CONST(), __metadata('design:paramtypes', [Function])], CanActivate);
-    return CanActivate;
-  })();
-  exports.CanActivate = CanActivate;
-  exports.routerCanReuse = lang_1.CONST_EXPR(new RouteLifecycleHook("routerCanReuse"));
-  exports.routerCanDeactivate = lang_1.CONST_EXPR(new RouteLifecycleHook("routerCanDeactivate"));
-  exports.routerOnActivate = lang_1.CONST_EXPR(new RouteLifecycleHook("routerOnActivate"));
-  exports.routerOnReuse = lang_1.CONST_EXPR(new RouteLifecycleHook("routerOnReuse"));
-  exports.routerOnDeactivate = lang_1.CONST_EXPR(new RouteLifecycleHook("routerOnDeactivate"));
-  global.define = __define;
-  return module.exports;
-});
-
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/router/lifecycle_annotations.js", ["../core/util/decorators", "./lifecycle_annotations_impl"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var decorators_1 = $__require('../core/util/decorators');
-  var lifecycle_annotations_impl_1 = $__require('./lifecycle_annotations_impl');
-  var lifecycle_annotations_impl_2 = $__require('./lifecycle_annotations_impl');
-  exports.routerCanReuse = lifecycle_annotations_impl_2.routerCanReuse;
-  exports.routerCanDeactivate = lifecycle_annotations_impl_2.routerCanDeactivate;
-  exports.routerOnActivate = lifecycle_annotations_impl_2.routerOnActivate;
-  exports.routerOnReuse = lifecycle_annotations_impl_2.routerOnReuse;
-  exports.routerOnDeactivate = lifecycle_annotations_impl_2.routerOnDeactivate;
-  exports.CanActivate = decorators_1.makeDecorator(lifecycle_annotations_impl_1.CanActivate);
-  global.define = __define;
-  return module.exports;
-});
-
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/util.js", ["./util/decorators"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/util.js", ["./util/decorators"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -43820,7 +43842,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/util.js", ["./util/de
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/prod_mode.js", ["../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/prod_mode.js", ["../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -43832,7 +43854,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/prod_mode.js", ["../f
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/facade/facade.js", ["./lang", "./async", "./exceptions", "./exception_handler"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/facade/facade.js", ["./lang", "./async", "./exceptions", "./exception_handler"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -43850,7 +43872,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/facade/facade.js", ["./lan
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/application_ref.js", ["./zone/ng_zone", "../facade/lang", "./di", "./application_tokens", "../facade/async", "../facade/collection", "./testability/testability", "./linker/dynamic_component_loader", "../facade/exceptions", "./console", "./profile/profile"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/application_ref.js", ["./zone/ng_zone", "../facade/lang", "./di", "./application_tokens", "../facade/async", "../facade/collection", "./testability/testability", "./linker/dynamic_component_loader", "../facade/exceptions", "./console", "./profile/profile"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -44247,7 +44269,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/application_ref.js", 
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/zone.js", ["./zone/ng_zone"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/zone.js", ["./zone/ng_zone"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -44260,7 +44282,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/zone.js", ["./zone/ng
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/render.js", ["./render/api"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/render.js", ["./render/api"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -44274,7 +44296,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/render.js", ["./rende
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker.js", ["./linker/directive_resolver", "./linker/view_resolver", "./linker/compiler", "./linker/view_manager", "./linker/query_list", "./linker/dynamic_component_loader", "./linker/element_ref", "./linker/template_ref", "./linker/view_ref", "./linker/view_container_ref"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/linker.js", ["./linker/directive_resolver", "./linker/view_resolver", "./linker/compiler", "./linker/view_manager", "./linker/query_list", "./linker/dynamic_component_loader", "./linker/element_ref", "./linker/template_ref", "./linker/view_ref", "./linker/view_container_ref"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -44309,7 +44331,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker.js", ["./linke
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/debug/debug_element.js", ["../../facade/lang", "../../facade/exceptions"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/debug/debug_node.js", ["../../facade/lang", "../../facade/collection"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -44325,201 +44347,166 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/debug/debug_element.j
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
   };
   var lang_1 = $__require('../../facade/lang');
-  var exceptions_1 = $__require('../../facade/exceptions');
-  var DebugElement = (function() {
-    function DebugElement() {}
-    Object.defineProperty(DebugElement.prototype, "componentInstance", {
-      get: function() {
-        return exceptions_1.unimplemented();
-      },
-      enumerable: true,
-      configurable: true
-    });
+  var collection_1 = $__require('../../facade/collection');
+  var EventListener = (function() {
+    function EventListener(name, callback) {
+      this.name = name;
+      this.callback = callback;
+    }
     ;
-    Object.defineProperty(DebugElement.prototype, "nativeElement", {
-      get: function() {
-        return exceptions_1.unimplemented();
-      },
-      enumerable: true,
-      configurable: true
-    });
-    ;
-    Object.defineProperty(DebugElement.prototype, "elementRef", {
-      get: function() {
-        return exceptions_1.unimplemented();
-      },
-      enumerable: true,
-      configurable: true
-    });
-    ;
-    Object.defineProperty(DebugElement.prototype, "children", {
-      get: function() {
-        return exceptions_1.unimplemented();
-      },
-      enumerable: true,
-      configurable: true
-    });
-    ;
-    Object.defineProperty(DebugElement.prototype, "componentViewChildren", {
-      get: function() {
-        return exceptions_1.unimplemented();
-      },
-      enumerable: true,
-      configurable: true
-    });
-    ;
-    DebugElement.prototype.query = function(predicate, scope) {
-      if (scope === void 0) {
-        scope = Scope.all;
+    return EventListener;
+  })();
+  exports.EventListener = EventListener;
+  var DebugNode = (function() {
+    function DebugNode(nativeNode, parent) {
+      this.nativeNode = nativeNode;
+      if (lang_1.isPresent(parent) && parent instanceof DebugElement) {
+        parent.addChild(this);
+      } else {
+        this.parent = null;
       }
-      var results = this.queryAll(predicate, scope);
+      this.listeners = [];
+      this.providerTokens = [];
+    }
+    DebugNode.prototype.setDebugInfo = function(info) {
+      this.injector = info.injector;
+      this.providerTokens = info.providerTokens;
+      this.locals = info.locals;
+      this.componentInstance = info.component;
+    };
+    DebugNode.prototype.inject = function(token) {
+      return this.injector.get(token);
+    };
+    DebugNode.prototype.getLocal = function(name) {
+      return this.locals.get(name);
+    };
+    return DebugNode;
+  })();
+  exports.DebugNode = DebugNode;
+  var DebugElement = (function(_super) {
+    __extends(DebugElement, _super);
+    function DebugElement(nativeNode, parent) {
+      _super.call(this, nativeNode, parent);
+      this.properties = new Map();
+      this.attributes = new Map();
+      this.childNodes = [];
+      this.nativeElement = nativeNode;
+    }
+    DebugElement.prototype.addChild = function(child) {
+      if (lang_1.isPresent(child)) {
+        this.childNodes.push(child);
+        child.parent = this;
+      }
+    };
+    DebugElement.prototype.removeChild = function(child) {
+      var childIndex = this.childNodes.indexOf(child);
+      if (childIndex !== -1) {
+        child.parent = null;
+        this.childNodes.splice(childIndex, 1);
+      }
+    };
+    DebugElement.prototype.insertChildrenAfter = function(child, newChildren) {
+      var siblingIndex = this.childNodes.indexOf(child);
+      if (siblingIndex !== -1) {
+        var previousChildren = this.childNodes.slice(0, siblingIndex + 1);
+        var nextChildren = this.childNodes.slice(siblingIndex + 1);
+        this.childNodes = collection_1.ListWrapper.concat(collection_1.ListWrapper.concat(previousChildren, newChildren), nextChildren);
+        for (var i = 0; i < newChildren.length; ++i) {
+          var newChild = newChildren[i];
+          if (lang_1.isPresent(newChild.parent)) {
+            newChild.parent.removeChild(newChild);
+          }
+          newChild.parent = this;
+        }
+      }
+    };
+    DebugElement.prototype.query = function(predicate) {
+      var results = this.queryAll(predicate);
       return results.length > 0 ? results[0] : null;
     };
-    DebugElement.prototype.queryAll = function(predicate, scope) {
-      if (scope === void 0) {
-        scope = Scope.all;
-      }
-      var elementsInScope = scope(this);
-      return elementsInScope.filter(predicate);
+    DebugElement.prototype.queryAll = function(predicate) {
+      var matches = [];
+      _queryElementChildren(this, predicate, matches);
+      return matches;
+    };
+    DebugElement.prototype.queryAllNodes = function(predicate) {
+      var matches = [];
+      _queryNodeChildren(this, predicate, matches);
+      return matches;
+    };
+    Object.defineProperty(DebugElement.prototype, "children", {
+      get: function() {
+        var children = [];
+        this.childNodes.forEach(function(node) {
+          if (node instanceof DebugElement) {
+            children.push(node);
+          }
+        });
+        return children;
+      },
+      enumerable: true,
+      configurable: true
+    });
+    DebugElement.prototype.triggerEventHandler = function(eventName, eventObj) {
+      this.listeners.forEach(function(listener) {
+        if (listener.name == eventName) {
+          listener.callback(eventObj);
+        }
+      });
     };
     return DebugElement;
-  })();
+  })(DebugNode);
   exports.DebugElement = DebugElement;
-  var DebugElement_ = (function(_super) {
-    __extends(DebugElement_, _super);
-    function DebugElement_(_appElement) {
-      _super.call(this);
-      this._appElement = _appElement;
-    }
-    Object.defineProperty(DebugElement_.prototype, "componentInstance", {
-      get: function() {
-        if (!lang_1.isPresent(this._appElement)) {
-          return null;
-        }
-        return this._appElement.getComponent();
-      },
-      enumerable: true,
-      configurable: true
-    });
-    Object.defineProperty(DebugElement_.prototype, "nativeElement", {
-      get: function() {
-        return this.elementRef.nativeElement;
-      },
-      enumerable: true,
-      configurable: true
-    });
-    Object.defineProperty(DebugElement_.prototype, "elementRef", {
-      get: function() {
-        return this._appElement.ref;
-      },
-      enumerable: true,
-      configurable: true
-    });
-    DebugElement_.prototype.getDirectiveInstance = function(directiveIndex) {
-      return this._appElement.getDirectiveAtIndex(directiveIndex);
-    };
-    Object.defineProperty(DebugElement_.prototype, "children", {
-      get: function() {
-        return this._getChildElements(this._appElement.parentView, this._appElement);
-      },
-      enumerable: true,
-      configurable: true
-    });
-    Object.defineProperty(DebugElement_.prototype, "componentViewChildren", {
-      get: function() {
-        if (!lang_1.isPresent(this._appElement.componentView)) {
-          return [];
-        }
-        return this._getChildElements(this._appElement.componentView, null);
-      },
-      enumerable: true,
-      configurable: true
-    });
-    DebugElement_.prototype.triggerEventHandler = function(eventName, eventObj) {
-      this._appElement.parentView.triggerEventHandlers(eventName, eventObj, this._appElement.proto.index);
-    };
-    DebugElement_.prototype.hasDirective = function(type) {
-      if (!lang_1.isPresent(this._appElement)) {
-        return false;
-      }
-      return this._appElement.hasDirective(type);
-    };
-    DebugElement_.prototype.inject = function(type) {
-      if (!lang_1.isPresent(this._appElement)) {
-        return null;
-      }
-      return this._appElement.get(type);
-    };
-    DebugElement_.prototype.getLocal = function(name) {
-      return this._appElement.parentView.locals.get(name);
-    };
-    DebugElement_.prototype._getChildElements = function(view, parentAppElement) {
-      var _this = this;
-      var els = [];
-      for (var i = 0; i < view.appElements.length; ++i) {
-        var appEl = view.appElements[i];
-        if (appEl.parent == parentAppElement) {
-          els.push(new DebugElement_(appEl));
-          var views = appEl.nestedViews;
-          if (lang_1.isPresent(views)) {
-            views.forEach(function(nextView) {
-              els = els.concat(_this._getChildElements(nextView, null));
-            });
-          }
-        }
-      }
-      return els;
-    };
-    return DebugElement_;
-  })(DebugElement);
-  exports.DebugElement_ = DebugElement_;
-  function inspectElement(elementRef) {
-    return new DebugElement_(elementRef.internalElement);
-  }
-  exports.inspectElement = inspectElement;
-  function asNativeElements(arr) {
-    return arr.map(function(debugEl) {
-      return debugEl.nativeElement;
+  function asNativeElements(debugEls) {
+    return debugEls.map(function(el) {
+      return el.nativeElement;
     });
   }
   exports.asNativeElements = asNativeElements;
-  var Scope = (function() {
-    function Scope() {}
-    Scope.all = function(debugElement) {
-      var scope = [];
-      scope.push(debugElement);
-      debugElement.children.forEach(function(child) {
-        return scope = scope.concat(Scope.all(child));
+  function _queryElementChildren(element, predicate, matches) {
+    element.childNodes.forEach(function(node) {
+      if (node instanceof DebugElement) {
+        if (predicate(node)) {
+          matches.push(node);
+        }
+        _queryElementChildren(node, predicate, matches);
+      }
+    });
+  }
+  function _queryNodeChildren(parentNode, predicate, matches) {
+    if (parentNode instanceof DebugElement) {
+      parentNode.childNodes.forEach(function(node) {
+        if (predicate(node)) {
+          matches.push(node);
+        }
+        if (node instanceof DebugElement) {
+          _queryNodeChildren(node, predicate, matches);
+        }
       });
-      debugElement.componentViewChildren.forEach(function(child) {
-        return scope = scope.concat(Scope.all(child));
-      });
-      return scope;
-    };
-    Scope.light = function(debugElement) {
-      var scope = [];
-      debugElement.children.forEach(function(child) {
-        scope.push(child);
-        scope = scope.concat(Scope.light(child));
-      });
-      return scope;
-    };
-    Scope.view = function(debugElement) {
-      var scope = [];
-      debugElement.componentViewChildren.forEach(function(child) {
-        scope.push(child);
-        scope = scope.concat(Scope.light(child));
-      });
-      return scope;
-    };
-    return Scope;
-  })();
-  exports.Scope = Scope;
+    }
+  }
+  var _nativeNodeToDebugNode = new Map();
+  function getDebugNode(nativeNode) {
+    return _nativeNodeToDebugNode.get(nativeNode);
+  }
+  exports.getDebugNode = getDebugNode;
+  function getAllDebugNodes() {
+    return collection_1.MapWrapper.values(_nativeNodeToDebugNode);
+  }
+  exports.getAllDebugNodes = getAllDebugNodes;
+  function indexDebugNode(node) {
+    _nativeNodeToDebugNode.set(node.nativeNode, node);
+  }
+  exports.indexDebugNode = indexDebugNode;
+  function removeDebugNodeFromIndex(node) {
+    _nativeNodeToDebugNode.delete(node.nativeNode);
+  }
+  exports.removeDebugNodeFromIndex = removeDebugNodeFromIndex;
   global.define = __define;
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/platform_directives_and_pipes.js", ["./di", "../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/platform_directives_and_pipes.js", ["./di", "../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -44533,7 +44520,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/platform_directives_a
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/console.js", ["./di", "../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/console.js", ["./di", "../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -44570,7 +44557,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/console.js", ["./di",
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/zone/ng_zone.js", ["../../facade/collection", "../../facade/lang", "../../facade/async", "../profile/profile", "process"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/zone/ng_zone.js", ["../../facade/collection", "../../facade/lang", "../../facade/async", "../profile/profile", "process"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -44800,14 +44787,14 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/zone/ng_zone.js", [".
                 fn();
                 collection_1.ListWrapper.remove(ngZone._pendingTimeouts, id);
               };
-              id = parentSetTimeout(cb, delay, args);
+              id = parentSetTimeout.call(this, cb, delay, args);
               ngZone._pendingTimeouts.push(id);
               return id;
             };
           },
           '$clearTimeout': function(parentClearTimeout) {
             return function(id) {
-              parentClearTimeout(id);
+              parentClearTimeout.call(this, id);
               collection_1.ListWrapper.remove(ngZone._pendingTimeouts, id);
             };
           },
@@ -44841,7 +44828,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/zone/ng_zone.js", [".
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/testability/testability.js", ["../di", "../../facade/collection", "../../facade/lang", "../../facade/exceptions", "../zone/ng_zone", "../../facade/async"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/testability/testability.js", ["../di", "../../facade/collection", "../../facade/lang", "../../facade/exceptions", "../zone/ng_zone", "../../facade/async"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -44983,7 +44970,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/testability/testabili
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/platform_common_providers.js", ["../facade/lang", "./di", "./console", "./reflection/reflection", "./testability/testability"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/platform_common_providers.js", ["../facade/lang", "./di", "./console", "./reflection/reflection", "./testability/testability"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -45005,7 +44992,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/platform_common_provi
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/resolved_metadata_cache.js", ["../di", "../../facade/lang", "./element", "./directive_resolver", "../pipes/pipe_provider", "./pipe_resolver"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/linker/resolved_metadata_cache.js", ["../di", "../../facade/lang", "./element", "./directive_resolver", "../pipes/pipe_provider", "./pipe_resolver"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -45065,7 +45052,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/resolved_metad
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view_resolver.js", ["../di", "../metadata/view", "../metadata/directives", "../../facade/lang", "../../facade/exceptions", "../../facade/collection", "../reflection/reflection"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/linker/view_resolver.js", ["../di", "../metadata/view", "../metadata/directives", "../../facade/lang", "../../facade/exceptions", "../../facade/collection", "../reflection/reflection"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -45167,7 +45154,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view_resolver.
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/directive_resolver.js", ["../di", "../../facade/lang", "../../facade/exceptions", "../../facade/collection", "../metadata", "../reflection/reflection"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/linker/directive_resolver.js", ["../di", "../../facade/lang", "../../facade/exceptions", "../../facade/collection", "../metadata", "../reflection/reflection"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -45308,7 +45295,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/directive_reso
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/metadata/view.js", ["../../facade/lang", "process"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/metadata/view.js", ["../../facade/lang", "process"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -45366,7 +45353,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/metadata/view.js", ["
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/metadata.js", ["./metadata/di", "./metadata/directives", "./metadata/view", "./util/decorators"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/metadata.js", ["./metadata/di", "./metadata/directives", "./metadata/view", "./util/decorators"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -45418,7 +45405,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/metadata.js", ["./met
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/pipe_resolver.js", ["../di", "../../facade/lang", "../../facade/exceptions", "../metadata", "../reflection/reflection"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/linker/pipe_resolver.js", ["../di", "../../facade/lang", "../../facade/exceptions", "../metadata", "../reflection/reflection"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -45469,7 +45456,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/pipe_resolver.
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/compiler.js", ["../di", "../../facade/lang", "../../facade/exceptions", "../../facade/async", "../reflection/reflection", "./view", "./view_ref"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/linker/compiler.js", ["../di", "../../facade/lang", "../../facade/exceptions", "../../facade/async", "../reflection/reflection", "./view", "./view_ref"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -45537,7 +45524,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/compiler.js", 
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view_ref.js", ["../../facade/exceptions"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/linker/view_ref.js", ["../../facade/exceptions"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -45670,7 +45657,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view_ref.js", 
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/pipes.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/pipes.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -45688,7 +45675,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/pipe
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/pipes/pipes.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/collection", "../change_detection/pipes"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/pipes/pipes.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/collection", "../change_detection/pipes"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -45744,7 +45731,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/pipes/pipes.js", ["..
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/render/util.js", ["../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/render/util.js", ["../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -45769,7 +45756,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/render/util.js", ["..
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view.js", ["../../facade/collection", "../change_detection/change_detection", "../change_detection/interfaces", "./element", "../../facade/lang", "../../facade/exceptions", "./view_ref", "../pipes/pipes", "../render/util", "./view_type"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/linker/view.js", ["../../facade/collection", "../change_detection/change_detection", "../change_detection/interfaces", "./element", "../../facade/lang", "../../facade/exceptions", "../render/api", "./view_ref", "../pipes/pipes", "../render/util", "./view_type"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -45797,6 +45784,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view.js", ["..
   var element_1 = $__require('./element');
   var lang_1 = $__require('../../facade/lang');
   var exceptions_1 = $__require('../../facade/exceptions');
+  var api_1 = $__require('../render/api');
   var view_ref_1 = $__require('./view_ref');
   var pipes_1 = $__require('../pipes/pipes');
   var util_1 = $__require('../render/util');
@@ -45850,6 +45838,12 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view.js", ["..
       });
       for (var i = 0; i < appElements.length; i++) {
         var appEl = appElements[i];
+        var providerTokens = [];
+        if (lang_1.isPresent(appEl.proto.protoInjector)) {
+          for (var j = 0; j < appEl.proto.protoInjector.numberOfProviders; j++) {
+            providerTokens.push(appEl.proto.protoInjector.getProviderAtIndex(j).key.token);
+          }
+        }
         collection_1.StringMapWrapper.forEach(appEl.proto.directiveVariableBindings, function(directiveIndex, name) {
           if (lang_1.isBlank(directiveIndex)) {
             localsMap.set(name, appEl.nativeElement);
@@ -45857,6 +45851,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view.js", ["..
             localsMap.set(name, appEl.getDirectiveAtIndex(directiveIndex));
           }
         });
+        this.renderer.setElementDebugInfo(appEl.nativeElement, new api_1.RenderDebugInfo(appEl.getInjector(), appEl.getComponent(), providerTokens, localsMap));
       }
       var parentLocals = null;
       if (this.proto.type !== view_type_1.ViewType.COMPONENT) {
@@ -46044,7 +46039,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view.js", ["..
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/metadata/di.js", ["../../facade/lang", "../di", "../di/metadata"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/metadata/di.js", ["../../facade/lang", "../di", "../di/metadata"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -46221,7 +46216,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/metadata/di.js", ["..
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/element_ref.js", ["../../facade/exceptions"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/linker/element_ref.js", ["../../facade/exceptions"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -46265,7 +46260,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/element_ref.js
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view_container_ref.js", ["../../facade/collection", "../../facade/exceptions", "../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/linker/view_container_ref.js", ["../../facade/collection", "../../facade/exceptions", "../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -46393,7 +46388,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view_container
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/template_ref.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/linker/template_ref.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -46440,7 +46435,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/template_ref.j
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection.js", ["./change_detection/change_detection"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection.js", ["./change_detection/change_detection"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -46459,7 +46454,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection.js",
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/metadata/directives.js", ["../../facade/lang", "../di/metadata", "../change_detection"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/metadata/directives.js", ["../../facade/lang", "../di/metadata", "../change_detection"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -46690,7 +46685,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/metadata/directives.j
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/differs/iterable_differs.js", ["../../../facade/lang", "../../../facade/exceptions", "../../../facade/collection", "../../di"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/differs/iterable_differs.js", ["../../../facade/lang", "../../../facade/exceptions", "../../../facade/collection", "../../di"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -46758,7 +46753,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/diff
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/differs/default_iterable_differ.js", ["../../../facade/lang", "../../../facade/exceptions", "../../../facade/collection"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/differs/default_iterable_differ.js", ["../../../facade/lang", "../../../facade/exceptions", "../../../facade/collection"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -46789,17 +46784,21 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/diff
     DefaultIterableDifferFactory.prototype.supports = function(obj) {
       return collection_1.isListLikeIterable(obj);
     };
-    DefaultIterableDifferFactory.prototype.create = function(cdRef) {
-      return new DefaultIterableDiffer();
+    DefaultIterableDifferFactory.prototype.create = function(cdRef, trackByFn) {
+      return new DefaultIterableDiffer(trackByFn);
     };
     DefaultIterableDifferFactory = __decorate([lang_1.CONST(), __metadata('design:paramtypes', [])], DefaultIterableDifferFactory);
     return DefaultIterableDifferFactory;
   })();
   exports.DefaultIterableDifferFactory = DefaultIterableDifferFactory;
+  var trackByIdentity = function(index, item) {
+    return item;
+  };
   var DefaultIterableDiffer = (function() {
-    function DefaultIterableDiffer() {
-      this._collection = null;
+    function DefaultIterableDiffer(_trackByFn) {
+      this._trackByFn = _trackByFn;
       this._length = null;
+      this._collection = null;
       this._linkedRecords = null;
       this._unlinkedRecords = null;
       this._previousItHead = null;
@@ -46811,6 +46810,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/diff
       this._movesTail = null;
       this._removalsHead = null;
       this._removalsTail = null;
+      this._trackByFn = lang_2.isPresent(this._trackByFn) ? this._trackByFn : trackByIdentity;
     }
     Object.defineProperty(DefaultIterableDiffer.prototype, "collection", {
       get: function() {
@@ -46876,27 +46876,33 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/diff
       var mayBeDirty = false;
       var index;
       var item;
+      var itemTrackBy;
       if (lang_2.isArray(collection)) {
         var list = collection;
         this._length = collection.length;
         for (index = 0; index < this._length; index++) {
           item = list[index];
-          if (record === null || !lang_2.looseIdentical(record.item, item)) {
-            record = this._mismatch(record, item, index);
+          itemTrackBy = this._trackByFn(index, item);
+          if (record === null || !lang_2.looseIdentical(record.trackById, itemTrackBy)) {
+            record = this._mismatch(record, item, itemTrackBy, index);
             mayBeDirty = true;
-          } else if (mayBeDirty) {
-            record = this._verifyReinsertion(record, item, index);
+          } else {
+            if (mayBeDirty) {
+              record = this._verifyReinsertion(record, item, itemTrackBy, index);
+            }
+            record.item = item;
           }
           record = record._next;
         }
       } else {
         index = 0;
         collection_1.iterateListLike(collection, function(item) {
-          if (record === null || !lang_2.looseIdentical(record.item, item)) {
-            record = _this._mismatch(record, item, index);
+          itemTrackBy = _this._trackByFn(index, item);
+          if (record === null || !lang_2.looseIdentical(record.trackById, itemTrackBy)) {
+            record = _this._mismatch(record, item, itemTrackBy, index);
             mayBeDirty = true;
           } else if (mayBeDirty) {
-            record = _this._verifyReinsertion(record, item, index);
+            record = _this._verifyReinsertion(record, item, itemTrackBy, index);
           }
           record = record._next;
           index++;
@@ -46933,7 +46939,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/diff
         this._removalsHead = this._removalsTail = null;
       }
     };
-    DefaultIterableDiffer.prototype._mismatch = function(record, item, index) {
+    DefaultIterableDiffer.prototype._mismatch = function(record, item, itemTrackBy, index) {
       var previousRecord;
       if (record === null) {
         previousRecord = this._itTail;
@@ -46941,27 +46947,28 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/diff
         previousRecord = record._prev;
         this._remove(record);
       }
-      record = this._linkedRecords === null ? null : this._linkedRecords.get(item, index);
+      record = this._linkedRecords === null ? null : this._linkedRecords.get(itemTrackBy, index);
       if (record !== null) {
         this._moveAfter(record, previousRecord, index);
       } else {
-        record = this._unlinkedRecords === null ? null : this._unlinkedRecords.get(item);
+        record = this._unlinkedRecords === null ? null : this._unlinkedRecords.get(itemTrackBy);
         if (record !== null) {
           this._reinsertAfter(record, previousRecord, index);
         } else {
-          record = this._addAfter(new CollectionChangeRecord(item), previousRecord, index);
+          record = this._addAfter(new CollectionChangeRecord(item, itemTrackBy), previousRecord, index);
         }
       }
       return record;
     };
-    DefaultIterableDiffer.prototype._verifyReinsertion = function(record, item, index) {
-      var reinsertRecord = this._unlinkedRecords === null ? null : this._unlinkedRecords.get(item);
+    DefaultIterableDiffer.prototype._verifyReinsertion = function(record, item, itemTrackBy, index) {
+      var reinsertRecord = this._unlinkedRecords === null ? null : this._unlinkedRecords.get(itemTrackBy);
       if (reinsertRecord !== null) {
         record = this._reinsertAfter(reinsertRecord, record._prev, index);
       } else if (record.currentIndex != index) {
         record.currentIndex = index;
         this._addToMoves(record, index);
       }
+      record.item = item;
       return record;
     };
     DefaultIterableDiffer.prototype._truncate = function(record) {
@@ -47091,35 +47098,35 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/diff
       return record;
     };
     DefaultIterableDiffer.prototype.toString = function() {
-      var record;
       var list = [];
-      for (record = this._itHead; record !== null; record = record._next) {
-        list.push(record);
-      }
+      this.forEachItem(function(record) {
+        return list.push(record);
+      });
       var previous = [];
-      for (record = this._previousItHead; record !== null; record = record._nextPrevious) {
-        previous.push(record);
-      }
+      this.forEachPreviousItem(function(record) {
+        return previous.push(record);
+      });
       var additions = [];
-      for (record = this._additionsHead; record !== null; record = record._nextAdded) {
-        additions.push(record);
-      }
+      this.forEachAddedItem(function(record) {
+        return additions.push(record);
+      });
       var moves = [];
-      for (record = this._movesHead; record !== null; record = record._nextMoved) {
-        moves.push(record);
-      }
+      this.forEachMovedItem(function(record) {
+        return moves.push(record);
+      });
       var removals = [];
-      for (record = this._removalsHead; record !== null; record = record._nextRemoved) {
-        removals.push(record);
-      }
+      this.forEachRemovedItem(function(record) {
+        return removals.push(record);
+      });
       return "collection: " + list.join(', ') + "\n" + "previous: " + previous.join(', ') + "\n" + "additions: " + additions.join(', ') + "\n" + "moves: " + moves.join(', ') + "\n" + "removals: " + removals.join(', ') + "\n";
     };
     return DefaultIterableDiffer;
   })();
   exports.DefaultIterableDiffer = DefaultIterableDiffer;
   var CollectionChangeRecord = (function() {
-    function CollectionChangeRecord(item) {
+    function CollectionChangeRecord(item, trackById) {
       this.item = item;
+      this.trackById = trackById;
       this.currentIndex = null;
       this.previousIndex = null;
       this._nextPrevious = null;
@@ -47155,10 +47162,10 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/diff
         this._tail = record;
       }
     };
-    _DuplicateItemRecordList.prototype.get = function(item, afterIndex) {
+    _DuplicateItemRecordList.prototype.get = function(trackById, afterIndex) {
       var record;
       for (record = this._head; record !== null; record = record._nextDup) {
-        if ((afterIndex === null || afterIndex < record.currentIndex) && lang_2.looseIdentical(record.item, item)) {
+        if ((afterIndex === null || afterIndex < record.currentIndex) && lang_2.looseIdentical(record.trackById, trackById)) {
           return record;
         }
       }
@@ -47186,7 +47193,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/diff
       this.map = new Map();
     }
     _DuplicateMap.prototype.put = function(record) {
-      var key = lang_2.getMapKey(record.item);
+      var key = lang_2.getMapKey(record.trackById);
       var duplicates = this.map.get(key);
       if (!lang_2.isPresent(duplicates)) {
         duplicates = new _DuplicateItemRecordList();
@@ -47194,16 +47201,16 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/diff
       }
       duplicates.add(record);
     };
-    _DuplicateMap.prototype.get = function(value, afterIndex) {
+    _DuplicateMap.prototype.get = function(trackById, afterIndex) {
       if (afterIndex === void 0) {
         afterIndex = null;
       }
-      var key = lang_2.getMapKey(value);
+      var key = lang_2.getMapKey(trackById);
       var recordList = this.map.get(key);
-      return lang_2.isBlank(recordList) ? null : recordList.get(value, afterIndex);
+      return lang_2.isBlank(recordList) ? null : recordList.get(trackById, afterIndex);
     };
     _DuplicateMap.prototype.remove = function(record) {
-      var key = lang_2.getMapKey(record.item);
+      var key = lang_2.getMapKey(record.trackById);
       var recordList = this.map.get(key);
       if (recordList.remove(record)) {
         this.map.delete(key);
@@ -47229,7 +47236,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/diff
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/differs/keyvalue_differs.js", ["../../../facade/lang", "../../../facade/exceptions", "../../../facade/collection", "../../di"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/differs/keyvalue_differs.js", ["../../../facade/lang", "../../../facade/exceptions", "../../../facade/collection", "../../di"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -47297,7 +47304,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/diff
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/differs/default_keyvalue_differ.js", ["../../../facade/collection", "../../../facade/lang", "../../../facade/exceptions"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/differs/default_keyvalue_differ.js", ["../../../facade/collection", "../../../facade/lang", "../../../facade/exceptions"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -47588,7 +47595,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/diff
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/parser/lexer.js", ["../../di/decorators", "../../../facade/collection", "../../../facade/lang", "../../../facade/exceptions"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/parser/lexer.js", ["../../di/decorators", "../../../facade/collection", "../../../facade/lang", "../../../facade/exceptions"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -48038,7 +48045,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/pars
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/parser/parser.js", ["../../di/decorators", "../../../facade/lang", "../../../facade/exceptions", "../../../facade/collection", "./lexer", "../../reflection/reflection", "./ast"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/parser/parser.js", ["../../di/decorators", "../../../facade/lang", "../../../facade/exceptions", "../../../facade/collection", "./lexer", "../../reflection/reflection", "./ast"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -48674,7 +48681,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/pars
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/interfaces.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/interfaces.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -48718,7 +48725,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/inte
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/codegen_name_util.js", ["../../facade/lang", "../../facade/collection"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/codegen_name_util.js", ["../../facade/lang", "../../facade/collection"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -48901,7 +48908,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/code
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/codegen_logic_util.js", ["../../facade/lang", "./codegen_facade", "./proto_record", "./constants", "../../facade/exceptions"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/codegen_logic_util.js", ["../../facade/lang", "./codegen_facade", "./proto_record", "./constants", "../../facade/exceptions"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -49124,7 +49131,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/code
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/codegen_facade.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/codegen_facade.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -49146,7 +49153,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/code
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/parser/ast.js", ["../../../facade/collection", "process"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/parser/ast.js", ["../../../facade/collection", "process"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -49631,7 +49638,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/pars
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/event_binding.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/event_binding.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -49651,7 +49658,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/even
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/coalesce.js", ["../../facade/lang", "../../facade/collection", "./proto_record"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/coalesce.js", ["../../facade/lang", "../../facade/collection", "./proto_record"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -49765,7 +49772,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/coal
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/proto_change_detector.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/collection", "./parser/ast", "./change_detection_util", "./dynamic_change_detector", "./directive_record", "./event_binding", "./coalesce", "./proto_record"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/proto_change_detector.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/collection", "./parser/ast", "./change_detection_util", "./dynamic_change_detector", "./directive_record", "./event_binding", "./coalesce", "./proto_record"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -50172,7 +50179,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/prot
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/change_detection_jit_generator.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/collection", "./abstract_change_detector", "./change_detection_util", "./proto_record", "./codegen_name_util", "./codegen_logic_util", "./codegen_facade", "./constants", "./proto_change_detector"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/change_detection_jit_generator.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/collection", "./abstract_change_detector", "./change_detection_util", "./proto_record", "./codegen_name_util", "./codegen_logic_util", "./codegen_facade", "./constants", "./proto_change_detector"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -50381,7 +50388,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/chan
       });
       contexOrArgCheck.push(this._names.getChangeName(r.contextIndex));
       var condition = "!" + pipe + ".pure || (" + contexOrArgCheck.join(" || ") + ")";
-      var check = "\n      if (" + this.changeDetectionUtilVarName + ".looseNotIdentical(" + oldValue + ", " + newValue + ")) {\n        " + newValue + " = " + this.changeDetectionUtilVarName + ".unwrapValue(" + newValue + ")\n        " + this._genChangeMarker(r) + "\n        " + this._genUpdateDirectiveOrElement(r) + "\n        " + this._genAddToChanges(r) + "\n        " + oldValue + " = " + newValue + ";\n      }\n    ";
+      var check = "\n      " + this._genThrowOnChangeCheck(oldValue, newValue) + "\n      if (" + this.changeDetectionUtilVarName + ".looseNotIdentical(" + oldValue + ", " + newValue + ")) {\n        " + newValue + " = " + this.changeDetectionUtilVarName + ".unwrapValue(" + newValue + ")\n        " + this._genChangeMarker(r) + "\n        " + this._genUpdateDirectiveOrElement(r) + "\n        " + this._genAddToChanges(r) + "\n        " + oldValue + " = " + newValue + ";\n      }\n    ";
       var genCode = r.shouldBeChecked() ? "" + read + check : read;
       if (r.isUsedByOtherRecord()) {
         return init + " if (" + condition + ") { " + genCode + " } else { " + newValue + " = " + oldValue + "; }";
@@ -50394,7 +50401,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/chan
       var oldValue = this._names.getFieldName(r.selfIndex);
       var newValue = this._names.getLocalName(r.selfIndex);
       var read = "\n      " + this._logic.genPropertyBindingEvalValue(r) + "\n    ";
-      var check = "\n      if (" + this.changeDetectionUtilVarName + ".looseNotIdentical(" + oldValue + ", " + newValue + ")) {\n        " + this._genChangeMarker(r) + "\n        " + this._genUpdateDirectiveOrElement(r) + "\n        " + this._genAddToChanges(r) + "\n        " + oldValue + " = " + newValue + ";\n      }\n    ";
+      var check = "\n      " + this._genThrowOnChangeCheck(oldValue, newValue) + "\n      if (" + this.changeDetectionUtilVarName + ".looseNotIdentical(" + oldValue + ", " + newValue + ")) {\n        " + this._genChangeMarker(r) + "\n        " + this._genUpdateDirectiveOrElement(r) + "\n        " + this._genAddToChanges(r) + "\n        " + oldValue + " = " + newValue + ";\n      }\n    ";
       var genCode = r.shouldBeChecked() ? "" + read + check : read;
       if (r.isPureFunction()) {
         var condition = r.args.map(function(a) {
@@ -50416,19 +50423,18 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/chan
       if (!r.lastInBinding)
         return "";
       var newValue = this._names.getLocalName(r.selfIndex);
-      var oldValue = this._names.getFieldName(r.selfIndex);
       var notifyDebug = this.genConfig.logBindingUpdate ? "this.logBindingUpdate(" + newValue + ");" : "";
       var br = r.bindingRecord;
       if (br.target.isDirective()) {
         var directiveProperty = this._names.getDirectiveName(br.directiveRecord.directiveIndex) + "." + br.target.name;
-        return "\n        " + this._genThrowOnChangeCheck(oldValue, newValue) + "\n        " + directiveProperty + " = " + newValue + ";\n        " + notifyDebug + "\n        " + IS_CHANGED_LOCAL + " = true;\n      ";
+        return "\n        " + directiveProperty + " = " + newValue + ";\n        " + notifyDebug + "\n        " + IS_CHANGED_LOCAL + " = true;\n      ";
       } else {
-        return "\n        " + this._genThrowOnChangeCheck(oldValue, newValue) + "\n        this.notifyDispatcher(" + newValue + ");\n        " + notifyDebug + "\n      ";
+        return "\n        this.notifyDispatcher(" + newValue + ");\n        " + notifyDebug + "\n      ";
       }
     };
     ChangeDetectorJITGenerator.prototype._genThrowOnChangeCheck = function(oldValue, newValue) {
       if (lang_1.assertionsEnabled()) {
-        return "\n        if(throwOnChange) {\n          this.throwOnChangeError(" + oldValue + ", " + newValue + ");\n        }\n        ";
+        return "\n        if (throwOnChange && !" + this.changeDetectionUtilVarName + ".devModeEqual(" + oldValue + ", " + newValue + ")) {\n          this.throwOnChangeError(" + oldValue + ", " + newValue + ");\n        }\n        ";
       } else {
         return '';
       }
@@ -50476,7 +50482,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/chan
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/jit_proto_change_detector.js", ["./change_detection_jit_generator"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/jit_proto_change_detector.js", ["./change_detection_jit_generator"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -50504,7 +50510,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/jit_
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/exceptions.js", ["../../facade/exceptions"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/exceptions.js", ["../../facade/exceptions"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -50568,7 +50574,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/exce
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/parser/locals.js", ["../../../facade/lang", "../../../facade/exceptions", "../../../facade/collection"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/parser/locals.js", ["../../../facade/lang", "../../../facade/exceptions", "../../../facade/collection"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -50617,7 +50623,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/pars
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/observable_facade.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/observable_facade.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -50631,7 +50637,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/obse
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/abstract_change_detector.js", ["../../facade/lang", "../../facade/collection", "./change_detection_util", "./change_detector_ref", "./exceptions", "./parser/locals", "./constants", "../profile/profile", "./observable_facade", "../../facade/async"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/abstract_change_detector.js", ["../../facade/lang", "../../facade/collection", "./change_detection_util", "./change_detector_ref", "./exceptions", "./parser/locals", "./constants", "../profile/profile", "./observable_facade", "../../facade/async"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -50935,7 +50941,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/abst
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/proto_record.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/proto_record.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -51012,7 +51018,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/prot
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/dynamic_change_detector.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/collection", "./abstract_change_detector", "./change_detection_util", "./constants", "./proto_record", "../reflection/reflection", "../../facade/async"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/dynamic_change_detector.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/collection", "./abstract_change_detector", "./change_detection_util", "./constants", "./proto_record", "../reflection/reflection", "../../facade/async"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -51272,7 +51278,8 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/dyna
       }
       if (proto.shouldBeChecked()) {
         var prevValue = this._readSelf(proto, values);
-        if (change_detection_util_1.ChangeDetectionUtil.looseNotIdentical(prevValue, currValue)) {
+        var detectedChange = throwOnChange ? !change_detection_util_1.ChangeDetectionUtil.devModeEqual(prevValue, currValue) : change_detection_util_1.ChangeDetectionUtil.looseNotIdentical(prevValue, currValue);
+        if (detectedChange) {
           if (proto.lastInBinding) {
             var change = change_detection_util_1.ChangeDetectionUtil.simpleChange(prevValue, currValue);
             if (throwOnChange)
@@ -51355,7 +51362,8 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/dyna
         var currValue = selectedPipe.pipe.transform(context, args);
         if (proto.shouldBeChecked()) {
           var prevValue = this._readSelf(proto, values);
-          if (change_detection_util_1.ChangeDetectionUtil.looseNotIdentical(prevValue, currValue)) {
+          var detectedChange = throwOnChange ? !change_detection_util_1.ChangeDetectionUtil.devModeEqual(prevValue, currValue) : change_detection_util_1.ChangeDetectionUtil.looseNotIdentical(prevValue, currValue);
+          if (detectedChange) {
             currValue = change_detection_util_1.ChangeDetectionUtil.unwrapValue(currValue);
             if (proto.lastInBinding) {
               var change = change_detection_util_1.ChangeDetectionUtil.simpleChange(prevValue, currValue);
@@ -51440,7 +51448,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/dyna
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/change_detector_ref.js", ["./constants"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/change_detector_ref.js", ["./constants"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -51490,7 +51498,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/chan
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/pipe_lifecycle_reflector.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/pipe_lifecycle_reflector.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -51504,7 +51512,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/pipe
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/binding_record.js", ["../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/binding_record.js", ["../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -51635,7 +51643,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/bind
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/constants.js", ["../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/constants.js", ["../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -51668,7 +51676,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/cons
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/directive_record.js", ["../../facade/lang", "./constants"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/directive_record.js", ["../../facade/lang", "./constants"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -51727,7 +51735,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/dire
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/change_detection_util.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/collection", "./constants", "./pipe_lifecycle_reflector", "./binding_record", "./directive_record"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/change_detection_util.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/collection", "./constants", "./pipe_lifecycle_reflector", "./binding_record", "./directive_record"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -51943,6 +51951,15 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/chan
     ChangeDetectionUtil.looseNotIdentical = function(a, b) {
       return !lang_1.looseIdentical(a, b);
     };
+    ChangeDetectionUtil.devModeEqual = function(a, b) {
+      if (collection_1.isListLikeIterable(a) && collection_1.isListLikeIterable(b)) {
+        return collection_1.areIterablesEqual(a, b, ChangeDetectionUtil.devModeEqual);
+      } else if (!collection_1.isListLikeIterable(a) && !lang_1.isPrimitive(a) && !collection_1.isListLikeIterable(b) && !lang_1.isPrimitive(b)) {
+        return true;
+      } else {
+        return lang_1.looseIdentical(a, b);
+      }
+    };
     ChangeDetectionUtil.uninitialized = lang_1.CONST_EXPR(new Object());
     return ChangeDetectionUtil;
   })();
@@ -51951,7 +51968,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/chan
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/change_detection.js", ["./differs/iterable_differs", "./differs/default_iterable_differ", "./differs/keyvalue_differs", "./differs/default_keyvalue_differ", "../../facade/lang", "./parser/ast", "./parser/lexer", "./parser/parser", "./parser/locals", "./exceptions", "./interfaces", "./constants", "./proto_change_detector", "./jit_proto_change_detector", "./binding_record", "./directive_record", "./dynamic_change_detector", "./change_detector_ref", "./change_detection_util"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/change_detection/change_detection.js", ["./differs/iterable_differs", "./differs/default_iterable_differ", "./differs/keyvalue_differs", "./differs/default_keyvalue_differ", "../../facade/lang", "./parser/ast", "./parser/lexer", "./parser/parser", "./parser/locals", "./exceptions", "./interfaces", "./constants", "./proto_change_detector", "./jit_proto_change_detector", "./binding_record", "./directive_record", "./dynamic_change_detector", "./change_detector_ref", "./change_detection_util"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -52015,7 +52032,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/change_detection/chan
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/facade/promise.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/facade/promise.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -53065,7 +53082,7 @@ System.registerDynamic("npm:rxjs@5.0.0-beta.0/Observable.js", ["./Subscriber", "
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/facade/async.js", ["./lang", "./promise", "rxjs/Subject", "rxjs/observable/fromPromise", "rxjs/operator/toPromise", "rxjs/Observable"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/facade/async.js", ["./lang", "./promise", "rxjs/Subject", "rxjs/observable/fromPromise", "rxjs/operator/toPromise", "rxjs/Observable"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -53237,7 +53254,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/facade/async.js", ["./lang
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/query_list.js", ["../../facade/collection", "../../facade/lang", "../../facade/async"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/linker/query_list.js", ["../../facade/collection", "../../facade/lang", "../../facade/async"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -53310,7 +53327,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/query_list.js"
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/pipes/pipe_provider.js", ["../di/provider", "../di"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/pipes/pipe_provider.js", ["../di/provider", "../di"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -53346,7 +53363,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/pipes/pipe_provider.j
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/element.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/collection", "../di", "../di/provider", "../di/injector", "../metadata/di", "./view_type", "./element_ref", "./view_container_ref", "../render/api", "./template_ref", "../metadata/directives", "../change_detection/change_detection", "./query_list", "../reflection/reflection", "../pipes/pipe_provider"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/linker/element.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/collection", "../di", "../di/provider", "../di/injector", "../metadata/di", "./view_type", "./element_ref", "./view_container_ref", "../render/api", "./template_ref", "../metadata/directives", "../change_detection/change_detection", "./query_list", "../reflection/reflection", "../pipes/pipe_provider"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -53746,7 +53763,11 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/element.js", [
       var inj = this;
       while (lang_1.isPresent(inj)) {
         inj._setQueriesAsDirty();
-        inj = inj.parent;
+        if (lang_1.isBlank(inj.parent) && inj.parentView.proto.type === view_type_1.ViewType.EMBEDDED) {
+          inj = inj.parentView.containerAppElement;
+        } else {
+          inj = inj.parent;
+        }
       }
     };
     AppElement.prototype._setQueriesAsDirty = function() {
@@ -54143,42 +54164,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/element.js", [
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view_listener.js", ["../di"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
-      r = Reflect.decorate(decorators, target, key, desc);
-    else
-      for (var i = decorators.length - 1; i >= 0; i--)
-        if (d = decorators[i])
-          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-  };
-  var __metadata = (this && this.__metadata) || function(k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
-      return Reflect.metadata(k, v);
-  };
-  var di_1 = $__require('../di');
-  var AppViewListener = (function() {
-    function AppViewListener() {}
-    AppViewListener.prototype.onViewCreated = function(view) {};
-    AppViewListener.prototype.onViewDestroyed = function(view) {};
-    AppViewListener = __decorate([di_1.Injectable(), __metadata('design:paramtypes', [])], AppViewListener);
-    return AppViewListener;
-  })();
-  exports.AppViewListener = AppViewListener;
-  global.define = __define;
-  return module.exports;
-});
-
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/render/api.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/render/api.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -54193,6 +54179,16 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/render/api.js", [], t
     return RenderComponentType;
   })();
   exports.RenderComponentType = RenderComponentType;
+  var RenderDebugInfo = (function() {
+    function RenderDebugInfo(injector, component, providerTokens, locals) {
+      this.injector = injector;
+      this.component = component;
+      this.providerTokens = providerTokens;
+      this.locals = locals;
+    }
+    return RenderDebugInfo;
+  })();
+  exports.RenderDebugInfo = RenderDebugInfo;
   var Renderer = (function() {
     function Renderer() {}
     return Renderer;
@@ -54207,7 +54203,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/render/api.js", [], t
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/profile/wtf_impl.js", ["../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/profile/wtf_impl.js", ["../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -54252,7 +54248,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/profile/wtf_impl.js",
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/profile/profile.js", ["./wtf_impl"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/profile/profile.js", ["./wtf_impl"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -54279,7 +54275,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/profile/profile.js", 
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/util/decorators.js", ["../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/util/decorators.js", ["../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -54447,7 +54443,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/util/decorators.js", 
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di/decorators.js", ["./metadata", "../util/decorators"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/di/decorators.js", ["./metadata", "../util/decorators"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -54465,7 +54461,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di/decorators.js", ["
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di/injector.js", ["../../facade/collection", "./provider", "./exceptions", "../../facade/lang", "./key", "./metadata", "process"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/di/injector.js", ["../../facade/collection", "./provider", "./exceptions", "../../facade/lang", "./key", "./metadata", "process"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -55133,7 +55129,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di/injector.js", ["..
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di/metadata.js", ["../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/di/metadata.js", ["../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -55226,7 +55222,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di/metadata.js", ["..
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di/provider.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/collection", "../reflection/reflection", "./key", "./metadata", "./exceptions", "./forward_ref"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/di/provider.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/collection", "../reflection/reflection", "./key", "./metadata", "./exceptions", "./forward_ref"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -55582,7 +55578,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di/provider.js", ["..
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di/type_literal.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/di/type_literal.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -55604,7 +55600,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di/type_literal.js", 
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di/forward_ref.js", ["../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/di/forward_ref.js", ["../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -55631,7 +55627,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di/forward_ref.js", [
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di/key.js", ["../../facade/lang", "../../facade/exceptions", "./type_literal", "./forward_ref"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/di/key.js", ["../../facade/lang", "../../facade/exceptions", "./type_literal", "./forward_ref"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -55705,7 +55701,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di/key.js", ["../../f
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di/exceptions.js", ["../../facade/collection", "../../facade/lang", "../../facade/exceptions"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/di/exceptions.js", ["../../facade/collection", "../../facade/lang", "../../facade/exceptions"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -55876,7 +55872,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di/exceptions.js", ["
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di/opaque_token.js", ["../../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/di/opaque_token.js", ["../../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -55914,7 +55910,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di/opaque_token.js", 
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di.js", ["./di/metadata", "./di/decorators", "./di/forward_ref", "./di/injector", "./di/provider", "./di/key", "./di/exceptions", "./di/opaque_token"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/di.js", ["./di/metadata", "./di/decorators", "./di/forward_ref", "./di/injector", "./di/provider", "./di/key", "./di/exceptions", "./di/opaque_token"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -55964,7 +55960,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/di.js", ["./di/metada
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/application_tokens.js", ["./di", "../facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/application_tokens.js", ["./di", "../facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -55992,7 +55988,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/application_tokens.js
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view_type.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/linker/view_type.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -56008,7 +56004,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view_type.js",
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view_manager.js", ["../di", "../../facade/lang", "../../facade/collection", "../../facade/exceptions", "./view", "./element", "./view_listener", "../render/api", "../profile/profile", "../application_tokens", "./view_type"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/linker/view_manager.js", ["../di", "../../facade/lang", "../../facade/collection", "../../facade/exceptions", "./view", "./element", "../render/api", "../profile/profile", "../application_tokens", "./view_type"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -56050,7 +56046,6 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view_manager.j
   var exceptions_1 = $__require('../../facade/exceptions');
   var view_1 = $__require('./view');
   var element_1 = $__require('./element');
-  var view_listener_1 = $__require('./view_listener');
   var api_1 = $__require('../render/api');
   var profile_1 = $__require('../profile/profile');
   var application_tokens_1 = $__require('../application_tokens');
@@ -56062,10 +56057,9 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view_manager.j
   exports.AppViewManager = AppViewManager;
   var AppViewManager_ = (function(_super) {
     __extends(AppViewManager_, _super);
-    function AppViewManager_(_renderer, _viewListener, _appId) {
+    function AppViewManager_(_renderer, _appId) {
       _super.call(this);
       this._renderer = _renderer;
-      this._viewListener = _viewListener;
       this._appId = _appId;
       this._nextCompTypeId = 0;
       this._createRootHostViewScope = profile_1.wtfCreateScope('AppViewManager#createRootHostView()');
@@ -56153,12 +56147,8 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view_manager.j
       var view = this._detachViewInContainer(viewContainerLocation.internalElement, index);
       return profile_1.wtfLeave(s, view.ref);
     };
-    AppViewManager_.prototype.onViewCreated = function(view) {
-      this._viewListener.onViewCreated(view);
-    };
-    AppViewManager_.prototype.onViewDestroyed = function(view) {
-      this._viewListener.onViewDestroyed(view);
-    };
+    AppViewManager_.prototype.onViewCreated = function(view) {};
+    AppViewManager_.prototype.onViewDestroyed = function(view) {};
     AppViewManager_.prototype.createRenderComponentType = function(encapsulation, styles) {
       return new api_1.RenderComponentType(this._appId + "-" + this._nextCompTypeId++, encapsulation, styles);
     };
@@ -56201,7 +56191,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view_manager.j
       view.changeDetector.remove();
       return view;
     };
-    AppViewManager_ = __decorate([di_1.Injectable(), __param(2, di_1.Inject(application_tokens_1.APP_ID)), __metadata('design:paramtypes', [api_1.RootRenderer, view_listener_1.AppViewListener, String])], AppViewManager_);
+    AppViewManager_ = __decorate([di_1.Injectable(), __param(1, di_1.Inject(application_tokens_1.APP_ID)), __metadata('design:paramtypes', [api_1.RootRenderer, String])], AppViewManager_);
     return AppViewManager_;
   })(AppViewManager);
   exports.AppViewManager_ = AppViewManager_;
@@ -56209,7 +56199,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/view_manager.j
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/dynamic_component_loader.js", ["../di", "./compiler", "../../facade/lang", "./view_manager"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/linker/dynamic_component_loader.js", ["../di", "./compiler", "../../facade/lang", "./view_manager"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -56352,7 +56342,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/linker/dynamic_compon
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/application_common_providers.js", ["../facade/lang", "./di", "./application_tokens", "./change_detection/change_detection", "./linker/resolved_metadata_cache", "./linker/view_manager", "./linker/view_resolver", "./linker/view_listener", "./linker/directive_resolver", "./linker/pipe_resolver", "./linker/compiler", "./linker/dynamic_component_loader"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/application_common_providers.js", ["../facade/lang", "./di", "./application_tokens", "./change_detection/change_detection", "./linker/resolved_metadata_cache", "./linker/view_manager", "./linker/view_resolver", "./linker/directive_resolver", "./linker/pipe_resolver", "./linker/compiler", "./linker/dynamic_component_loader"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -56366,19 +56356,18 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/application_common_pr
   var view_manager_1 = $__require('./linker/view_manager');
   var view_manager_2 = $__require('./linker/view_manager');
   var view_resolver_1 = $__require('./linker/view_resolver');
-  var view_listener_1 = $__require('./linker/view_listener');
   var directive_resolver_1 = $__require('./linker/directive_resolver');
   var pipe_resolver_1 = $__require('./linker/pipe_resolver');
   var compiler_1 = $__require('./linker/compiler');
   var compiler_2 = $__require('./linker/compiler');
   var dynamic_component_loader_1 = $__require('./linker/dynamic_component_loader');
   var dynamic_component_loader_2 = $__require('./linker/dynamic_component_loader');
-  exports.APPLICATION_COMMON_PROVIDERS = lang_1.CONST_EXPR([new di_1.Provider(compiler_1.Compiler, {useClass: compiler_2.Compiler_}), application_tokens_1.APP_ID_RANDOM_PROVIDER, resolved_metadata_cache_1.ResolvedMetadataCache, new di_1.Provider(view_manager_1.AppViewManager, {useClass: view_manager_2.AppViewManager_}), view_listener_1.AppViewListener, view_resolver_1.ViewResolver, new di_1.Provider(change_detection_1.IterableDiffers, {useValue: change_detection_1.defaultIterableDiffers}), new di_1.Provider(change_detection_1.KeyValueDiffers, {useValue: change_detection_1.defaultKeyValueDiffers}), directive_resolver_1.DirectiveResolver, pipe_resolver_1.PipeResolver, new di_1.Provider(dynamic_component_loader_1.DynamicComponentLoader, {useClass: dynamic_component_loader_2.DynamicComponentLoader_})]);
+  exports.APPLICATION_COMMON_PROVIDERS = lang_1.CONST_EXPR([new di_1.Provider(compiler_1.Compiler, {useClass: compiler_2.Compiler_}), application_tokens_1.APP_ID_RANDOM_PROVIDER, resolved_metadata_cache_1.ResolvedMetadataCache, new di_1.Provider(view_manager_1.AppViewManager, {useClass: view_manager_2.AppViewManager_}), view_resolver_1.ViewResolver, new di_1.Provider(change_detection_1.IterableDiffers, {useValue: change_detection_1.defaultIterableDiffers}), new di_1.Provider(change_detection_1.KeyValueDiffers, {useValue: change_detection_1.defaultKeyValueDiffers}), directive_resolver_1.DirectiveResolver, pipe_resolver_1.PipeResolver, new di_1.Provider(dynamic_component_loader_1.DynamicComponentLoader, {useClass: dynamic_component_loader_2.DynamicComponentLoader_})]);
   global.define = __define;
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/reflection/reflector.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/collection"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/reflection/reflector.js", ["../../facade/lang", "../../facade/exceptions", "../../facade/collection"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -56523,7 +56512,619 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/reflection/reflector.
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/reflection/reflection_capabilities.js", ["../../facade/lang", "../../facade/exceptions"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/facade/collection.js", ["./lang"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var lang_1 = $__require('./lang');
+  exports.Map = lang_1.global.Map;
+  exports.Set = lang_1.global.Set;
+  var createMapFromPairs = (function() {
+    try {
+      if (new exports.Map([[1, 2]]).size === 1) {
+        return function createMapFromPairs(pairs) {
+          return new exports.Map(pairs);
+        };
+      }
+    } catch (e) {}
+    return function createMapAndPopulateFromPairs(pairs) {
+      var map = new exports.Map();
+      for (var i = 0; i < pairs.length; i++) {
+        var pair = pairs[i];
+        map.set(pair[0], pair[1]);
+      }
+      return map;
+    };
+  })();
+  var createMapFromMap = (function() {
+    try {
+      if (new exports.Map(new exports.Map())) {
+        return function createMapFromMap(m) {
+          return new exports.Map(m);
+        };
+      }
+    } catch (e) {}
+    return function createMapAndPopulateFromMap(m) {
+      var map = new exports.Map();
+      m.forEach(function(v, k) {
+        map.set(k, v);
+      });
+      return map;
+    };
+  })();
+  var _clearValues = (function() {
+    if ((new exports.Map()).keys().next) {
+      return function _clearValues(m) {
+        var keyIterator = m.keys();
+        var k;
+        while (!((k = keyIterator.next()).done)) {
+          m.set(k.value, null);
+        }
+      };
+    } else {
+      return function _clearValuesWithForeEach(m) {
+        m.forEach(function(v, k) {
+          m.set(k, null);
+        });
+      };
+    }
+  })();
+  var _arrayFromMap = (function() {
+    try {
+      if ((new exports.Map()).values().next) {
+        return function createArrayFromMap(m, getValues) {
+          return getValues ? Array.from(m.values()) : Array.from(m.keys());
+        };
+      }
+    } catch (e) {}
+    return function createArrayFromMapWithForeach(m, getValues) {
+      var res = ListWrapper.createFixedSize(m.size),
+          i = 0;
+      m.forEach(function(v, k) {
+        res[i] = getValues ? v : k;
+        i++;
+      });
+      return res;
+    };
+  })();
+  var MapWrapper = (function() {
+    function MapWrapper() {}
+    MapWrapper.clone = function(m) {
+      return createMapFromMap(m);
+    };
+    MapWrapper.createFromStringMap = function(stringMap) {
+      var result = new exports.Map();
+      for (var prop in stringMap) {
+        result.set(prop, stringMap[prop]);
+      }
+      return result;
+    };
+    MapWrapper.toStringMap = function(m) {
+      var r = {};
+      m.forEach(function(v, k) {
+        return r[k] = v;
+      });
+      return r;
+    };
+    MapWrapper.createFromPairs = function(pairs) {
+      return createMapFromPairs(pairs);
+    };
+    MapWrapper.clearValues = function(m) {
+      _clearValues(m);
+    };
+    MapWrapper.iterable = function(m) {
+      return m;
+    };
+    MapWrapper.keys = function(m) {
+      return _arrayFromMap(m, false);
+    };
+    MapWrapper.values = function(m) {
+      return _arrayFromMap(m, true);
+    };
+    return MapWrapper;
+  })();
+  exports.MapWrapper = MapWrapper;
+  var StringMapWrapper = (function() {
+    function StringMapWrapper() {}
+    StringMapWrapper.create = function() {
+      return {};
+    };
+    StringMapWrapper.contains = function(map, key) {
+      return map.hasOwnProperty(key);
+    };
+    StringMapWrapper.get = function(map, key) {
+      return map.hasOwnProperty(key) ? map[key] : undefined;
+    };
+    StringMapWrapper.set = function(map, key, value) {
+      map[key] = value;
+    };
+    StringMapWrapper.keys = function(map) {
+      return Object.keys(map);
+    };
+    StringMapWrapper.isEmpty = function(map) {
+      for (var prop in map) {
+        return false;
+      }
+      return true;
+    };
+    StringMapWrapper.delete = function(map, key) {
+      delete map[key];
+    };
+    StringMapWrapper.forEach = function(map, callback) {
+      for (var prop in map) {
+        if (map.hasOwnProperty(prop)) {
+          callback(map[prop], prop);
+        }
+      }
+    };
+    StringMapWrapper.merge = function(m1, m2) {
+      var m = {};
+      for (var attr in m1) {
+        if (m1.hasOwnProperty(attr)) {
+          m[attr] = m1[attr];
+        }
+      }
+      for (var attr in m2) {
+        if (m2.hasOwnProperty(attr)) {
+          m[attr] = m2[attr];
+        }
+      }
+      return m;
+    };
+    StringMapWrapper.equals = function(m1, m2) {
+      var k1 = Object.keys(m1);
+      var k2 = Object.keys(m2);
+      if (k1.length != k2.length) {
+        return false;
+      }
+      var key;
+      for (var i = 0; i < k1.length; i++) {
+        key = k1[i];
+        if (m1[key] !== m2[key]) {
+          return false;
+        }
+      }
+      return true;
+    };
+    return StringMapWrapper;
+  })();
+  exports.StringMapWrapper = StringMapWrapper;
+  var ListWrapper = (function() {
+    function ListWrapper() {}
+    ListWrapper.createFixedSize = function(size) {
+      return new Array(size);
+    };
+    ListWrapper.createGrowableSize = function(size) {
+      return new Array(size);
+    };
+    ListWrapper.clone = function(array) {
+      return array.slice(0);
+    };
+    ListWrapper.forEachWithIndex = function(array, fn) {
+      for (var i = 0; i < array.length; i++) {
+        fn(array[i], i);
+      }
+    };
+    ListWrapper.first = function(array) {
+      if (!array)
+        return null;
+      return array[0];
+    };
+    ListWrapper.last = function(array) {
+      if (!array || array.length == 0)
+        return null;
+      return array[array.length - 1];
+    };
+    ListWrapper.indexOf = function(array, value, startIndex) {
+      if (startIndex === void 0) {
+        startIndex = 0;
+      }
+      return array.indexOf(value, startIndex);
+    };
+    ListWrapper.contains = function(list, el) {
+      return list.indexOf(el) !== -1;
+    };
+    ListWrapper.reversed = function(array) {
+      var a = ListWrapper.clone(array);
+      return a.reverse();
+    };
+    ListWrapper.concat = function(a, b) {
+      return a.concat(b);
+    };
+    ListWrapper.insert = function(list, index, value) {
+      list.splice(index, 0, value);
+    };
+    ListWrapper.removeAt = function(list, index) {
+      var res = list[index];
+      list.splice(index, 1);
+      return res;
+    };
+    ListWrapper.removeAll = function(list, items) {
+      for (var i = 0; i < items.length; ++i) {
+        var index = list.indexOf(items[i]);
+        list.splice(index, 1);
+      }
+    };
+    ListWrapper.remove = function(list, el) {
+      var index = list.indexOf(el);
+      if (index > -1) {
+        list.splice(index, 1);
+        return true;
+      }
+      return false;
+    };
+    ListWrapper.clear = function(list) {
+      list.length = 0;
+    };
+    ListWrapper.isEmpty = function(list) {
+      return list.length == 0;
+    };
+    ListWrapper.fill = function(list, value, start, end) {
+      if (start === void 0) {
+        start = 0;
+      }
+      if (end === void 0) {
+        end = null;
+      }
+      list.fill(value, start, end === null ? list.length : end);
+    };
+    ListWrapper.equals = function(a, b) {
+      if (a.length != b.length)
+        return false;
+      for (var i = 0; i < a.length; ++i) {
+        if (a[i] !== b[i])
+          return false;
+      }
+      return true;
+    };
+    ListWrapper.slice = function(l, from, to) {
+      if (from === void 0) {
+        from = 0;
+      }
+      if (to === void 0) {
+        to = null;
+      }
+      return l.slice(from, to === null ? undefined : to);
+    };
+    ListWrapper.splice = function(l, from, length) {
+      return l.splice(from, length);
+    };
+    ListWrapper.sort = function(l, compareFn) {
+      if (lang_1.isPresent(compareFn)) {
+        l.sort(compareFn);
+      } else {
+        l.sort();
+      }
+    };
+    ListWrapper.toString = function(l) {
+      return l.toString();
+    };
+    ListWrapper.toJSON = function(l) {
+      return JSON.stringify(l);
+    };
+    ListWrapper.maximum = function(list, predicate) {
+      if (list.length == 0) {
+        return null;
+      }
+      var solution = null;
+      var maxValue = -Infinity;
+      for (var index = 0; index < list.length; index++) {
+        var candidate = list[index];
+        if (lang_1.isBlank(candidate)) {
+          continue;
+        }
+        var candidateValue = predicate(candidate);
+        if (candidateValue > maxValue) {
+          solution = candidate;
+          maxValue = candidateValue;
+        }
+      }
+      return solution;
+    };
+    return ListWrapper;
+  })();
+  exports.ListWrapper = ListWrapper;
+  function isListLikeIterable(obj) {
+    if (!lang_1.isJsObject(obj))
+      return false;
+    return lang_1.isArray(obj) || (!(obj instanceof exports.Map) && lang_1.getSymbolIterator() in obj);
+  }
+  exports.isListLikeIterable = isListLikeIterable;
+  function areIterablesEqual(a, b, comparator) {
+    var iterator1 = a[lang_1.getSymbolIterator()]();
+    var iterator2 = b[lang_1.getSymbolIterator()]();
+    while (true) {
+      var item1 = iterator1.next();
+      var item2 = iterator2.next();
+      if (item1.done && item2.done)
+        return true;
+      if (item1.done || item2.done)
+        return false;
+      if (!comparator(item1.value, item2.value))
+        return false;
+    }
+  }
+  exports.areIterablesEqual = areIterablesEqual;
+  function iterateListLike(obj, fn) {
+    if (lang_1.isArray(obj)) {
+      for (var i = 0; i < obj.length; i++) {
+        fn(obj[i]);
+      }
+    } else {
+      var iterator = obj[lang_1.getSymbolIterator()]();
+      var item;
+      while (!((item = iterator.next()).done)) {
+        fn(item.value);
+      }
+    }
+  }
+  exports.iterateListLike = iterateListLike;
+  var createSetFromList = (function() {
+    var test = new exports.Set([1, 2, 3]);
+    if (test.size === 3) {
+      return function createSetFromList(lst) {
+        return new exports.Set(lst);
+      };
+    } else {
+      return function createSetAndPopulateFromList(lst) {
+        var res = new exports.Set(lst);
+        if (res.size !== lst.length) {
+          for (var i = 0; i < lst.length; i++) {
+            res.add(lst[i]);
+          }
+        }
+        return res;
+      };
+    }
+  })();
+  var SetWrapper = (function() {
+    function SetWrapper() {}
+    SetWrapper.createFromList = function(lst) {
+      return createSetFromList(lst);
+    };
+    SetWrapper.has = function(s, key) {
+      return s.has(key);
+    };
+    SetWrapper.delete = function(m, k) {
+      m.delete(k);
+    };
+    return SetWrapper;
+  })();
+  exports.SetWrapper = SetWrapper;
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/facade/exception_handler.js", ["./lang", "./exceptions", "./collection"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var lang_1 = $__require('./lang');
+  var exceptions_1 = $__require('./exceptions');
+  var collection_1 = $__require('./collection');
+  var _ArrayLogger = (function() {
+    function _ArrayLogger() {
+      this.res = [];
+    }
+    _ArrayLogger.prototype.log = function(s) {
+      this.res.push(s);
+    };
+    _ArrayLogger.prototype.logError = function(s) {
+      this.res.push(s);
+    };
+    _ArrayLogger.prototype.logGroup = function(s) {
+      this.res.push(s);
+    };
+    _ArrayLogger.prototype.logGroupEnd = function() {};
+    ;
+    return _ArrayLogger;
+  })();
+  var ExceptionHandler = (function() {
+    function ExceptionHandler(_logger, _rethrowException) {
+      if (_rethrowException === void 0) {
+        _rethrowException = true;
+      }
+      this._logger = _logger;
+      this._rethrowException = _rethrowException;
+    }
+    ExceptionHandler.exceptionToString = function(exception, stackTrace, reason) {
+      if (stackTrace === void 0) {
+        stackTrace = null;
+      }
+      if (reason === void 0) {
+        reason = null;
+      }
+      var l = new _ArrayLogger();
+      var e = new ExceptionHandler(l, false);
+      e.call(exception, stackTrace, reason);
+      return l.res.join("\n");
+    };
+    ExceptionHandler.prototype.call = function(exception, stackTrace, reason) {
+      if (stackTrace === void 0) {
+        stackTrace = null;
+      }
+      if (reason === void 0) {
+        reason = null;
+      }
+      var originalException = this._findOriginalException(exception);
+      var originalStack = this._findOriginalStack(exception);
+      var context = this._findContext(exception);
+      this._logger.logGroup("EXCEPTION: " + this._extractMessage(exception));
+      if (lang_1.isPresent(stackTrace) && lang_1.isBlank(originalStack)) {
+        this._logger.logError("STACKTRACE:");
+        this._logger.logError(this._longStackTrace(stackTrace));
+      }
+      if (lang_1.isPresent(reason)) {
+        this._logger.logError("REASON: " + reason);
+      }
+      if (lang_1.isPresent(originalException)) {
+        this._logger.logError("ORIGINAL EXCEPTION: " + this._extractMessage(originalException));
+      }
+      if (lang_1.isPresent(originalStack)) {
+        this._logger.logError("ORIGINAL STACKTRACE:");
+        this._logger.logError(this._longStackTrace(originalStack));
+      }
+      if (lang_1.isPresent(context)) {
+        this._logger.logError("ERROR CONTEXT:");
+        this._logger.logError(context);
+      }
+      this._logger.logGroupEnd();
+      if (this._rethrowException)
+        throw exception;
+    };
+    ExceptionHandler.prototype._extractMessage = function(exception) {
+      return exception instanceof exceptions_1.WrappedException ? exception.wrapperMessage : exception.toString();
+    };
+    ExceptionHandler.prototype._longStackTrace = function(stackTrace) {
+      return collection_1.isListLikeIterable(stackTrace) ? stackTrace.join("\n\n-----async gap-----\n") : stackTrace.toString();
+    };
+    ExceptionHandler.prototype._findContext = function(exception) {
+      try {
+        if (!(exception instanceof exceptions_1.WrappedException))
+          return null;
+        return lang_1.isPresent(exception.context) ? exception.context : this._findContext(exception.originalException);
+      } catch (e) {
+        return null;
+      }
+    };
+    ExceptionHandler.prototype._findOriginalException = function(exception) {
+      if (!(exception instanceof exceptions_1.WrappedException))
+        return null;
+      var e = exception.originalException;
+      while (e instanceof exceptions_1.WrappedException && lang_1.isPresent(e.originalException)) {
+        e = e.originalException;
+      }
+      return e;
+    };
+    ExceptionHandler.prototype._findOriginalStack = function(exception) {
+      if (!(exception instanceof exceptions_1.WrappedException))
+        return null;
+      var e = exception;
+      var stack = exception.originalStack;
+      while (e instanceof exceptions_1.WrappedException && lang_1.isPresent(e.originalException)) {
+        e = e.originalException;
+        if (e instanceof exceptions_1.WrappedException && lang_1.isPresent(e.originalException)) {
+          stack = e.originalStack;
+        }
+      }
+      return stack;
+    };
+    return ExceptionHandler;
+  })();
+  exports.ExceptionHandler = ExceptionHandler;
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/facade/exceptions.js", ["./exception_handler"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var exception_handler_1 = $__require('./exception_handler');
+  var exception_handler_2 = $__require('./exception_handler');
+  exports.ExceptionHandler = exception_handler_2.ExceptionHandler;
+  var BaseException = (function(_super) {
+    __extends(BaseException, _super);
+    function BaseException(message) {
+      if (message === void 0) {
+        message = "--";
+      }
+      _super.call(this, message);
+      this.message = message;
+      this.stack = (new Error(message)).stack;
+    }
+    BaseException.prototype.toString = function() {
+      return this.message;
+    };
+    return BaseException;
+  })(Error);
+  exports.BaseException = BaseException;
+  var WrappedException = (function(_super) {
+    __extends(WrappedException, _super);
+    function WrappedException(_wrapperMessage, _originalException, _originalStack, _context) {
+      _super.call(this, _wrapperMessage);
+      this._wrapperMessage = _wrapperMessage;
+      this._originalException = _originalException;
+      this._originalStack = _originalStack;
+      this._context = _context;
+      this._wrapperStack = (new Error(_wrapperMessage)).stack;
+    }
+    Object.defineProperty(WrappedException.prototype, "wrapperMessage", {
+      get: function() {
+        return this._wrapperMessage;
+      },
+      enumerable: true,
+      configurable: true
+    });
+    Object.defineProperty(WrappedException.prototype, "wrapperStack", {
+      get: function() {
+        return this._wrapperStack;
+      },
+      enumerable: true,
+      configurable: true
+    });
+    Object.defineProperty(WrappedException.prototype, "originalException", {
+      get: function() {
+        return this._originalException;
+      },
+      enumerable: true,
+      configurable: true
+    });
+    Object.defineProperty(WrappedException.prototype, "originalStack", {
+      get: function() {
+        return this._originalStack;
+      },
+      enumerable: true,
+      configurable: true
+    });
+    Object.defineProperty(WrappedException.prototype, "context", {
+      get: function() {
+        return this._context;
+      },
+      enumerable: true,
+      configurable: true
+    });
+    Object.defineProperty(WrappedException.prototype, "message", {
+      get: function() {
+        return exception_handler_1.ExceptionHandler.exceptionToString(this);
+      },
+      enumerable: true,
+      configurable: true
+    });
+    WrappedException.prototype.toString = function() {
+      return this.message;
+    };
+    return WrappedException;
+  })(Error);
+  exports.WrappedException = WrappedException;
+  function makeTypeError(message) {
+    return new TypeError(message);
+  }
+  exports.makeTypeError = makeTypeError;
+  function unimplemented() {
+    throw new BaseException('unimplemented');
+  }
+  exports.unimplemented = unimplemented;
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/reflection/reflection_capabilities.js", ["../../facade/lang", "../../facade/exceptions"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -56717,7 +57318,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/reflection/reflection
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/reflection/reflection.js", ["./reflector", "./reflection_capabilities"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/core/reflection/reflection.js", ["./reflector", "./reflection_capabilities"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -56733,7 +57334,7 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/core/reflection/reflection
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/core.js", ["./src/core/metadata", "./src/core/util", "./src/core/prod_mode", "./src/core/di", "./src/facade/facade", "./src/facade/lang", "./src/core/application_ref", "./src/core/application_tokens", "./src/core/zone", "./src/core/render", "./src/core/linker", "./src/core/debug/debug_element", "./src/core/testability/testability", "./src/core/change_detection", "./src/core/platform_directives_and_pipes", "./src/core/platform_common_providers", "./src/core/application_common_providers", "./src/core/reflection/reflection"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/core.js", ["./src/core/metadata", "./src/core/util", "./src/core/prod_mode", "./src/core/di", "./src/facade/facade", "./src/facade/lang", "./src/core/application_ref", "./src/core/application_tokens", "./src/core/zone", "./src/core/render", "./src/core/linker", "./src/core/debug/debug_node", "./src/core/testability/testability", "./src/core/change_detection", "./src/core/platform_directives_and_pipes", "./src/core/platform_common_providers", "./src/core/application_common_providers", "./src/core/reflection/reflection"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -56765,11 +57366,10 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/core.js", ["./src/core/metadat
   __export($__require('./src/core/zone'));
   __export($__require('./src/core/render'));
   __export($__require('./src/core/linker'));
-  var debug_element_1 = $__require('./src/core/debug/debug_element');
-  exports.DebugElement = debug_element_1.DebugElement;
-  exports.Scope = debug_element_1.Scope;
-  exports.inspectElement = debug_element_1.inspectElement;
-  exports.asNativeElements = debug_element_1.asNativeElements;
+  var debug_node_1 = $__require('./src/core/debug/debug_node');
+  exports.DebugElement = debug_node_1.DebugElement;
+  exports.DebugNode = debug_node_1.DebugNode;
+  exports.asNativeElements = debug_node_1.asNativeElements;
   __export($__require('./src/core/testability/testability'));
   __export($__require('./src/core/change_detection'));
   __export($__require('./src/core/platform_directives_and_pipes'));
@@ -56780,7 +57380,178 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/core.js", ["./src/core/metadat
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/facade/lang.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/platform/dom/dom_adapter.js", ["../../facade/lang"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var lang_1 = $__require('../../facade/lang');
+  exports.DOM = null;
+  function setRootDomAdapter(adapter) {
+    if (lang_1.isBlank(exports.DOM)) {
+      exports.DOM = adapter;
+    }
+  }
+  exports.setRootDomAdapter = setRootDomAdapter;
+  var DomAdapter = (function() {
+    function DomAdapter() {}
+    Object.defineProperty(DomAdapter.prototype, "attrToPropMap", {
+      get: function() {
+        return this._attrToPropMap;
+      },
+      set: function(value) {
+        this._attrToPropMap = value;
+      },
+      enumerable: true,
+      configurable: true
+    });
+    ;
+    ;
+    return DomAdapter;
+  })();
+  exports.DomAdapter = DomAdapter;
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/browser_platform_location.js", ["../../core", "./platform_location", "../platform/dom/dom_adapter"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var core_1 = $__require('../../core');
+  var platform_location_1 = $__require('./platform_location');
+  var dom_adapter_1 = $__require('../platform/dom/dom_adapter');
+  var BrowserPlatformLocation = (function(_super) {
+    __extends(BrowserPlatformLocation, _super);
+    function BrowserPlatformLocation() {
+      _super.call(this);
+      this._init();
+    }
+    BrowserPlatformLocation.prototype._init = function() {
+      this._location = dom_adapter_1.DOM.getLocation();
+      this._history = dom_adapter_1.DOM.getHistory();
+    };
+    Object.defineProperty(BrowserPlatformLocation.prototype, "location", {
+      get: function() {
+        return this._location;
+      },
+      enumerable: true,
+      configurable: true
+    });
+    BrowserPlatformLocation.prototype.getBaseHrefFromDOM = function() {
+      return dom_adapter_1.DOM.getBaseHref();
+    };
+    BrowserPlatformLocation.prototype.onPopState = function(fn) {
+      dom_adapter_1.DOM.getGlobalEventTarget('window').addEventListener('popstate', fn, false);
+    };
+    BrowserPlatformLocation.prototype.onHashChange = function(fn) {
+      dom_adapter_1.DOM.getGlobalEventTarget('window').addEventListener('hashchange', fn, false);
+    };
+    Object.defineProperty(BrowserPlatformLocation.prototype, "pathname", {
+      get: function() {
+        return this._location.pathname;
+      },
+      set: function(newPath) {
+        this._location.pathname = newPath;
+      },
+      enumerable: true,
+      configurable: true
+    });
+    Object.defineProperty(BrowserPlatformLocation.prototype, "search", {
+      get: function() {
+        return this._location.search;
+      },
+      enumerable: true,
+      configurable: true
+    });
+    Object.defineProperty(BrowserPlatformLocation.prototype, "hash", {
+      get: function() {
+        return this._location.hash;
+      },
+      enumerable: true,
+      configurable: true
+    });
+    BrowserPlatformLocation.prototype.pushState = function(state, title, url) {
+      this._history.pushState(state, title, url);
+    };
+    BrowserPlatformLocation.prototype.replaceState = function(state, title, url) {
+      this._history.replaceState(state, title, url);
+    };
+    BrowserPlatformLocation.prototype.forward = function() {
+      this._history.forward();
+    };
+    BrowserPlatformLocation.prototype.back = function() {
+      this._history.back();
+    };
+    BrowserPlatformLocation = __decorate([core_1.Injectable(), __metadata('design:paramtypes', [])], BrowserPlatformLocation);
+    return BrowserPlatformLocation;
+  })(platform_location_1.PlatformLocation);
+  exports.BrowserPlatformLocation = BrowserPlatformLocation;
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/platform_location.js", [], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var PlatformLocation = (function() {
+    function PlatformLocation() {}
+    return PlatformLocation;
+  })();
+  exports.PlatformLocation = PlatformLocation;
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/router/router_providers.js", ["../../router", "../../core", "../facade/lang", "./browser_platform_location", "./platform_location"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var router_1 = $__require('../../router');
+  var core_1 = $__require('../../core');
+  var lang_1 = $__require('../facade/lang');
+  var browser_platform_location_1 = $__require('./browser_platform_location');
+  var platform_location_1 = $__require('./platform_location');
+  exports.ROUTER_PROVIDERS = lang_1.CONST_EXPR([router_1.ROUTER_PROVIDERS_COMMON, lang_1.CONST_EXPR(new core_1.Provider(platform_location_1.PlatformLocation, {useClass: browser_platform_location_1.BrowserPlatformLocation}))]);
+  exports.ROUTER_BINDINGS = exports.ROUTER_PROVIDERS;
+  global.define = __define;
+  return module.exports;
+});
+
+System.registerDynamic("npm:angular2@2.0.0-beta.3/src/facade/lang.js", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -57235,608 +58006,15 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/src/facade/lang.js", [], true,
     return new (Function.bind.apply(Function, [void 0].concat(fnArgNames.concat(fnBody))))().apply(void 0, fnArgValues);
   }
   exports.evalExpression = evalExpression;
+  function isPrimitive(obj) {
+    return !isJsObject(obj);
+  }
+  exports.isPrimitive = isPrimitive;
   global.define = __define;
   return module.exports;
 });
 
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/facade/collection.js", ["./lang"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var lang_1 = $__require('./lang');
-  exports.Map = lang_1.global.Map;
-  exports.Set = lang_1.global.Set;
-  var createMapFromPairs = (function() {
-    try {
-      if (new exports.Map([[1, 2]]).size === 1) {
-        return function createMapFromPairs(pairs) {
-          return new exports.Map(pairs);
-        };
-      }
-    } catch (e) {}
-    return function createMapAndPopulateFromPairs(pairs) {
-      var map = new exports.Map();
-      for (var i = 0; i < pairs.length; i++) {
-        var pair = pairs[i];
-        map.set(pair[0], pair[1]);
-      }
-      return map;
-    };
-  })();
-  var createMapFromMap = (function() {
-    try {
-      if (new exports.Map(new exports.Map())) {
-        return function createMapFromMap(m) {
-          return new exports.Map(m);
-        };
-      }
-    } catch (e) {}
-    return function createMapAndPopulateFromMap(m) {
-      var map = new exports.Map();
-      m.forEach(function(v, k) {
-        map.set(k, v);
-      });
-      return map;
-    };
-  })();
-  var _clearValues = (function() {
-    if ((new exports.Map()).keys().next) {
-      return function _clearValues(m) {
-        var keyIterator = m.keys();
-        var k;
-        while (!((k = keyIterator.next()).done)) {
-          m.set(k.value, null);
-        }
-      };
-    } else {
-      return function _clearValuesWithForeEach(m) {
-        m.forEach(function(v, k) {
-          m.set(k, null);
-        });
-      };
-    }
-  })();
-  var _arrayFromMap = (function() {
-    try {
-      if ((new exports.Map()).values().next) {
-        return function createArrayFromMap(m, getValues) {
-          return getValues ? Array.from(m.values()) : Array.from(m.keys());
-        };
-      }
-    } catch (e) {}
-    return function createArrayFromMapWithForeach(m, getValues) {
-      var res = ListWrapper.createFixedSize(m.size),
-          i = 0;
-      m.forEach(function(v, k) {
-        res[i] = getValues ? v : k;
-        i++;
-      });
-      return res;
-    };
-  })();
-  var MapWrapper = (function() {
-    function MapWrapper() {}
-    MapWrapper.clone = function(m) {
-      return createMapFromMap(m);
-    };
-    MapWrapper.createFromStringMap = function(stringMap) {
-      var result = new exports.Map();
-      for (var prop in stringMap) {
-        result.set(prop, stringMap[prop]);
-      }
-      return result;
-    };
-    MapWrapper.toStringMap = function(m) {
-      var r = {};
-      m.forEach(function(v, k) {
-        return r[k] = v;
-      });
-      return r;
-    };
-    MapWrapper.createFromPairs = function(pairs) {
-      return createMapFromPairs(pairs);
-    };
-    MapWrapper.clearValues = function(m) {
-      _clearValues(m);
-    };
-    MapWrapper.iterable = function(m) {
-      return m;
-    };
-    MapWrapper.keys = function(m) {
-      return _arrayFromMap(m, false);
-    };
-    MapWrapper.values = function(m) {
-      return _arrayFromMap(m, true);
-    };
-    return MapWrapper;
-  })();
-  exports.MapWrapper = MapWrapper;
-  var StringMapWrapper = (function() {
-    function StringMapWrapper() {}
-    StringMapWrapper.create = function() {
-      return {};
-    };
-    StringMapWrapper.contains = function(map, key) {
-      return map.hasOwnProperty(key);
-    };
-    StringMapWrapper.get = function(map, key) {
-      return map.hasOwnProperty(key) ? map[key] : undefined;
-    };
-    StringMapWrapper.set = function(map, key, value) {
-      map[key] = value;
-    };
-    StringMapWrapper.keys = function(map) {
-      return Object.keys(map);
-    };
-    StringMapWrapper.isEmpty = function(map) {
-      for (var prop in map) {
-        return false;
-      }
-      return true;
-    };
-    StringMapWrapper.delete = function(map, key) {
-      delete map[key];
-    };
-    StringMapWrapper.forEach = function(map, callback) {
-      for (var prop in map) {
-        if (map.hasOwnProperty(prop)) {
-          callback(map[prop], prop);
-        }
-      }
-    };
-    StringMapWrapper.merge = function(m1, m2) {
-      var m = {};
-      for (var attr in m1) {
-        if (m1.hasOwnProperty(attr)) {
-          m[attr] = m1[attr];
-        }
-      }
-      for (var attr in m2) {
-        if (m2.hasOwnProperty(attr)) {
-          m[attr] = m2[attr];
-        }
-      }
-      return m;
-    };
-    StringMapWrapper.equals = function(m1, m2) {
-      var k1 = Object.keys(m1);
-      var k2 = Object.keys(m2);
-      if (k1.length != k2.length) {
-        return false;
-      }
-      var key;
-      for (var i = 0; i < k1.length; i++) {
-        key = k1[i];
-        if (m1[key] !== m2[key]) {
-          return false;
-        }
-      }
-      return true;
-    };
-    return StringMapWrapper;
-  })();
-  exports.StringMapWrapper = StringMapWrapper;
-  var ListWrapper = (function() {
-    function ListWrapper() {}
-    ListWrapper.createFixedSize = function(size) {
-      return new Array(size);
-    };
-    ListWrapper.createGrowableSize = function(size) {
-      return new Array(size);
-    };
-    ListWrapper.clone = function(array) {
-      return array.slice(0);
-    };
-    ListWrapper.forEachWithIndex = function(array, fn) {
-      for (var i = 0; i < array.length; i++) {
-        fn(array[i], i);
-      }
-    };
-    ListWrapper.first = function(array) {
-      if (!array)
-        return null;
-      return array[0];
-    };
-    ListWrapper.last = function(array) {
-      if (!array || array.length == 0)
-        return null;
-      return array[array.length - 1];
-    };
-    ListWrapper.indexOf = function(array, value, startIndex) {
-      if (startIndex === void 0) {
-        startIndex = 0;
-      }
-      return array.indexOf(value, startIndex);
-    };
-    ListWrapper.contains = function(list, el) {
-      return list.indexOf(el) !== -1;
-    };
-    ListWrapper.reversed = function(array) {
-      var a = ListWrapper.clone(array);
-      return a.reverse();
-    };
-    ListWrapper.concat = function(a, b) {
-      return a.concat(b);
-    };
-    ListWrapper.insert = function(list, index, value) {
-      list.splice(index, 0, value);
-    };
-    ListWrapper.removeAt = function(list, index) {
-      var res = list[index];
-      list.splice(index, 1);
-      return res;
-    };
-    ListWrapper.removeAll = function(list, items) {
-      for (var i = 0; i < items.length; ++i) {
-        var index = list.indexOf(items[i]);
-        list.splice(index, 1);
-      }
-    };
-    ListWrapper.remove = function(list, el) {
-      var index = list.indexOf(el);
-      if (index > -1) {
-        list.splice(index, 1);
-        return true;
-      }
-      return false;
-    };
-    ListWrapper.clear = function(list) {
-      list.length = 0;
-    };
-    ListWrapper.isEmpty = function(list) {
-      return list.length == 0;
-    };
-    ListWrapper.fill = function(list, value, start, end) {
-      if (start === void 0) {
-        start = 0;
-      }
-      if (end === void 0) {
-        end = null;
-      }
-      list.fill(value, start, end === null ? list.length : end);
-    };
-    ListWrapper.equals = function(a, b) {
-      if (a.length != b.length)
-        return false;
-      for (var i = 0; i < a.length; ++i) {
-        if (a[i] !== b[i])
-          return false;
-      }
-      return true;
-    };
-    ListWrapper.slice = function(l, from, to) {
-      if (from === void 0) {
-        from = 0;
-      }
-      if (to === void 0) {
-        to = null;
-      }
-      return l.slice(from, to === null ? undefined : to);
-    };
-    ListWrapper.splice = function(l, from, length) {
-      return l.splice(from, length);
-    };
-    ListWrapper.sort = function(l, compareFn) {
-      if (lang_1.isPresent(compareFn)) {
-        l.sort(compareFn);
-      } else {
-        l.sort();
-      }
-    };
-    ListWrapper.toString = function(l) {
-      return l.toString();
-    };
-    ListWrapper.toJSON = function(l) {
-      return JSON.stringify(l);
-    };
-    ListWrapper.maximum = function(list, predicate) {
-      if (list.length == 0) {
-        return null;
-      }
-      var solution = null;
-      var maxValue = -Infinity;
-      for (var index = 0; index < list.length; index++) {
-        var candidate = list[index];
-        if (lang_1.isBlank(candidate)) {
-          continue;
-        }
-        var candidateValue = predicate(candidate);
-        if (candidateValue > maxValue) {
-          solution = candidate;
-          maxValue = candidateValue;
-        }
-      }
-      return solution;
-    };
-    return ListWrapper;
-  })();
-  exports.ListWrapper = ListWrapper;
-  function isListLikeIterable(obj) {
-    if (!lang_1.isJsObject(obj))
-      return false;
-    return lang_1.isArray(obj) || (!(obj instanceof exports.Map) && lang_1.getSymbolIterator() in obj);
-  }
-  exports.isListLikeIterable = isListLikeIterable;
-  function iterateListLike(obj, fn) {
-    if (lang_1.isArray(obj)) {
-      for (var i = 0; i < obj.length; i++) {
-        fn(obj[i]);
-      }
-    } else {
-      var iterator = obj[lang_1.getSymbolIterator()]();
-      var item;
-      while (!((item = iterator.next()).done)) {
-        fn(item.value);
-      }
-    }
-  }
-  exports.iterateListLike = iterateListLike;
-  var createSetFromList = (function() {
-    var test = new exports.Set([1, 2, 3]);
-    if (test.size === 3) {
-      return function createSetFromList(lst) {
-        return new exports.Set(lst);
-      };
-    } else {
-      return function createSetAndPopulateFromList(lst) {
-        var res = new exports.Set(lst);
-        if (res.size !== lst.length) {
-          for (var i = 0; i < lst.length; i++) {
-            res.add(lst[i]);
-          }
-        }
-        return res;
-      };
-    }
-  })();
-  var SetWrapper = (function() {
-    function SetWrapper() {}
-    SetWrapper.createFromList = function(lst) {
-      return createSetFromList(lst);
-    };
-    SetWrapper.has = function(s, key) {
-      return s.has(key);
-    };
-    SetWrapper.delete = function(m, k) {
-      m.delete(k);
-    };
-    return SetWrapper;
-  })();
-  exports.SetWrapper = SetWrapper;
-  global.define = __define;
-  return module.exports;
-});
-
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/facade/exception_handler.js", ["./lang", "./exceptions", "./collection"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var lang_1 = $__require('./lang');
-  var exceptions_1 = $__require('./exceptions');
-  var collection_1 = $__require('./collection');
-  var _ArrayLogger = (function() {
-    function _ArrayLogger() {
-      this.res = [];
-    }
-    _ArrayLogger.prototype.log = function(s) {
-      this.res.push(s);
-    };
-    _ArrayLogger.prototype.logError = function(s) {
-      this.res.push(s);
-    };
-    _ArrayLogger.prototype.logGroup = function(s) {
-      this.res.push(s);
-    };
-    _ArrayLogger.prototype.logGroupEnd = function() {};
-    ;
-    return _ArrayLogger;
-  })();
-  var ExceptionHandler = (function() {
-    function ExceptionHandler(_logger, _rethrowException) {
-      if (_rethrowException === void 0) {
-        _rethrowException = true;
-      }
-      this._logger = _logger;
-      this._rethrowException = _rethrowException;
-    }
-    ExceptionHandler.exceptionToString = function(exception, stackTrace, reason) {
-      if (stackTrace === void 0) {
-        stackTrace = null;
-      }
-      if (reason === void 0) {
-        reason = null;
-      }
-      var l = new _ArrayLogger();
-      var e = new ExceptionHandler(l, false);
-      e.call(exception, stackTrace, reason);
-      return l.res.join("\n");
-    };
-    ExceptionHandler.prototype.call = function(exception, stackTrace, reason) {
-      if (stackTrace === void 0) {
-        stackTrace = null;
-      }
-      if (reason === void 0) {
-        reason = null;
-      }
-      var originalException = this._findOriginalException(exception);
-      var originalStack = this._findOriginalStack(exception);
-      var context = this._findContext(exception);
-      this._logger.logGroup("EXCEPTION: " + this._extractMessage(exception));
-      if (lang_1.isPresent(stackTrace) && lang_1.isBlank(originalStack)) {
-        this._logger.logError("STACKTRACE:");
-        this._logger.logError(this._longStackTrace(stackTrace));
-      }
-      if (lang_1.isPresent(reason)) {
-        this._logger.logError("REASON: " + reason);
-      }
-      if (lang_1.isPresent(originalException)) {
-        this._logger.logError("ORIGINAL EXCEPTION: " + this._extractMessage(originalException));
-      }
-      if (lang_1.isPresent(originalStack)) {
-        this._logger.logError("ORIGINAL STACKTRACE:");
-        this._logger.logError(this._longStackTrace(originalStack));
-      }
-      if (lang_1.isPresent(context)) {
-        this._logger.logError("ERROR CONTEXT:");
-        this._logger.logError(context);
-      }
-      this._logger.logGroupEnd();
-      if (this._rethrowException)
-        throw exception;
-    };
-    ExceptionHandler.prototype._extractMessage = function(exception) {
-      return exception instanceof exceptions_1.WrappedException ? exception.wrapperMessage : exception.toString();
-    };
-    ExceptionHandler.prototype._longStackTrace = function(stackTrace) {
-      return collection_1.isListLikeIterable(stackTrace) ? stackTrace.join("\n\n-----async gap-----\n") : stackTrace.toString();
-    };
-    ExceptionHandler.prototype._findContext = function(exception) {
-      try {
-        if (!(exception instanceof exceptions_1.WrappedException))
-          return null;
-        return lang_1.isPresent(exception.context) ? exception.context : this._findContext(exception.originalException);
-      } catch (e) {
-        return null;
-      }
-    };
-    ExceptionHandler.prototype._findOriginalException = function(exception) {
-      if (!(exception instanceof exceptions_1.WrappedException))
-        return null;
-      var e = exception.originalException;
-      while (e instanceof exceptions_1.WrappedException && lang_1.isPresent(e.originalException)) {
-        e = e.originalException;
-      }
-      return e;
-    };
-    ExceptionHandler.prototype._findOriginalStack = function(exception) {
-      if (!(exception instanceof exceptions_1.WrappedException))
-        return null;
-      var e = exception;
-      var stack = exception.originalStack;
-      while (e instanceof exceptions_1.WrappedException && lang_1.isPresent(e.originalException)) {
-        e = e.originalException;
-        if (e instanceof exceptions_1.WrappedException && lang_1.isPresent(e.originalException)) {
-          stack = e.originalStack;
-        }
-      }
-      return stack;
-    };
-    return ExceptionHandler;
-  })();
-  exports.ExceptionHandler = ExceptionHandler;
-  global.define = __define;
-  return module.exports;
-});
-
-System.registerDynamic("npm:angular2@2.0.0-beta.2/src/facade/exceptions.js", ["./exception_handler"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var __extends = (this && this.__extends) || function(d, b) {
-    for (var p in b)
-      if (b.hasOwnProperty(p))
-        d[p] = b[p];
-    function __() {
-      this.constructor = d;
-    }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-  var exception_handler_1 = $__require('./exception_handler');
-  var exception_handler_2 = $__require('./exception_handler');
-  exports.ExceptionHandler = exception_handler_2.ExceptionHandler;
-  var BaseException = (function(_super) {
-    __extends(BaseException, _super);
-    function BaseException(message) {
-      if (message === void 0) {
-        message = "--";
-      }
-      _super.call(this, message);
-      this.message = message;
-      this.stack = (new Error(message)).stack;
-    }
-    BaseException.prototype.toString = function() {
-      return this.message;
-    };
-    return BaseException;
-  })(Error);
-  exports.BaseException = BaseException;
-  var WrappedException = (function(_super) {
-    __extends(WrappedException, _super);
-    function WrappedException(_wrapperMessage, _originalException, _originalStack, _context) {
-      _super.call(this, _wrapperMessage);
-      this._wrapperMessage = _wrapperMessage;
-      this._originalException = _originalException;
-      this._originalStack = _originalStack;
-      this._context = _context;
-      this._wrapperStack = (new Error(_wrapperMessage)).stack;
-    }
-    Object.defineProperty(WrappedException.prototype, "wrapperMessage", {
-      get: function() {
-        return this._wrapperMessage;
-      },
-      enumerable: true,
-      configurable: true
-    });
-    Object.defineProperty(WrappedException.prototype, "wrapperStack", {
-      get: function() {
-        return this._wrapperStack;
-      },
-      enumerable: true,
-      configurable: true
-    });
-    Object.defineProperty(WrappedException.prototype, "originalException", {
-      get: function() {
-        return this._originalException;
-      },
-      enumerable: true,
-      configurable: true
-    });
-    Object.defineProperty(WrappedException.prototype, "originalStack", {
-      get: function() {
-        return this._originalStack;
-      },
-      enumerable: true,
-      configurable: true
-    });
-    Object.defineProperty(WrappedException.prototype, "context", {
-      get: function() {
-        return this._context;
-      },
-      enumerable: true,
-      configurable: true
-    });
-    Object.defineProperty(WrappedException.prototype, "message", {
-      get: function() {
-        return exception_handler_1.ExceptionHandler.exceptionToString(this);
-      },
-      enumerable: true,
-      configurable: true
-    });
-    WrappedException.prototype.toString = function() {
-      return this.message;
-    };
-    return WrappedException;
-  })(Error);
-  exports.WrappedException = WrappedException;
-  function makeTypeError(message) {
-    return new TypeError(message);
-  }
-  exports.makeTypeError = makeTypeError;
-  function unimplemented() {
-    throw new BaseException('unimplemented');
-  }
-  exports.unimplemented = unimplemented;
-  global.define = __define;
-  return module.exports;
-});
-
-System.registerDynamic("npm:angular2@2.0.0-beta.2/router.js", ["./src/router/router", "./src/router/router_outlet", "./src/router/router_link", "./src/router/instruction", "./src/router/platform_location", "./src/router/route_registry", "./src/router/location_strategy", "./src/router/hash_location_strategy", "./src/router/path_location_strategy", "./src/router/location", "./src/router/route_config_decorator", "./src/router/route_definition", "./src/router/lifecycle_annotations", "./core", "./src/facade/lang", "./src/facade/exceptions"], true, function($__require, exports, module) {
+System.registerDynamic("npm:angular2@2.0.0-beta.3/router.js", ["./src/router/router", "./src/router/router_outlet", "./src/router/router_link", "./src/router/instruction", "./src/router/platform_location", "./src/router/route_registry", "./src/router/location_strategy", "./src/router/hash_location_strategy", "./src/router/path_location_strategy", "./src/router/location", "./src/router/route_config_decorator", "./src/router/route_definition", "./src/router/lifecycle_annotations", "./core", "./src/router/router_providers_common", "./src/router/router_providers", "./src/facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var global = this,
@@ -57879,39 +58057,15 @@ System.registerDynamic("npm:angular2@2.0.0-beta.2/router.js", ["./src/router/rou
   exports.ComponentInstruction = instruction_2.ComponentInstruction;
   var core_1 = $__require('./core');
   exports.OpaqueToken = core_1.OpaqueToken;
-  var platform_location_2 = $__require('./src/router/platform_location');
-  var location_strategy_2 = $__require('./src/router/location_strategy');
-  var path_location_strategy_2 = $__require('./src/router/path_location_strategy');
-  var router_2 = $__require('./src/router/router');
+  var router_providers_common_1 = $__require('./src/router/router_providers_common');
+  exports.ROUTER_PROVIDERS_COMMON = router_providers_common_1.ROUTER_PROVIDERS_COMMON;
+  var router_providers_1 = $__require('./src/router/router_providers');
+  exports.ROUTER_PROVIDERS = router_providers_1.ROUTER_PROVIDERS;
+  exports.ROUTER_BINDINGS = router_providers_1.ROUTER_BINDINGS;
   var router_outlet_2 = $__require('./src/router/router_outlet');
   var router_link_2 = $__require('./src/router/router_link');
-  var route_registry_2 = $__require('./src/router/route_registry');
-  var location_2 = $__require('./src/router/location');
-  var core_2 = $__require('./core');
   var lang_1 = $__require('./src/facade/lang');
-  var exceptions_1 = $__require('./src/facade/exceptions');
   exports.ROUTER_DIRECTIVES = lang_1.CONST_EXPR([router_outlet_2.RouterOutlet, router_link_2.RouterLink]);
-  exports.ROUTER_PROVIDERS = lang_1.CONST_EXPR([route_registry_2.RouteRegistry, lang_1.CONST_EXPR(new core_2.Provider(location_strategy_2.LocationStrategy, {useClass: path_location_strategy_2.PathLocationStrategy})), platform_location_2.PlatformLocation, location_2.Location, lang_1.CONST_EXPR(new core_2.Provider(router_2.Router, {
-    useFactory: routerFactory,
-    deps: lang_1.CONST_EXPR([route_registry_2.RouteRegistry, location_2.Location, route_registry_2.ROUTER_PRIMARY_COMPONENT, core_2.ApplicationRef])
-  })), lang_1.CONST_EXPR(new core_2.Provider(route_registry_2.ROUTER_PRIMARY_COMPONENT, {
-    useFactory: routerPrimaryComponentFactory,
-    deps: lang_1.CONST_EXPR([core_2.ApplicationRef])
-  }))]);
-  exports.ROUTER_BINDINGS = exports.ROUTER_PROVIDERS;
-  function routerFactory(registry, location, primaryComponent, appRef) {
-    var rootRouter = new router_2.RootRouter(registry, location, primaryComponent);
-    appRef.registerDisposeListener(function() {
-      return rootRouter.dispose();
-    });
-    return rootRouter;
-  }
-  function routerPrimaryComponentFactory(app) {
-    if (app.componentTypes.length == 0) {
-      throw new exceptions_1.BaseException("Bootstrap at least one component before injecting Router.");
-    }
-    return app.componentTypes[0];
-  }
   global.define = __define;
   return module.exports;
 });
@@ -63943,7 +64097,7 @@ define("npm:jquery@2.2.0.js", ["npm:jquery@2.2.0/dist/jquery.js"], function(main
 
 _removeDefine();
 })();
-System.registerDynamic("npm:moment@2.11.1/moment.js", [], true, function($__require, exports, module) {
+System.registerDynamic("npm:moment@2.11.2/moment.js", [], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -65286,7 +65440,7 @@ System.registerDynamic("npm:moment@2.11.1/moment.js", [], true, function($__requ
     function isUtc() {
       return this.isValid() ? this._isUTC && this._offset === 0 : false;
     }
-    var aspNetRegex = /(\-)?(?:(\d*)[. ])?(\d+)\:(\d+)(?:\:(\d+)\.?(\d{3})?)?/;
+    var aspNetRegex = /^(\-)?(?:(\d*)[. ])?(\d+)\:(\d+)(?:\:(\d+)\.?(\d{3})?\d*)?$/;
     var isoRegex = /^(-)?P(?:(?:([0-9,.]*)Y)?(?:([0-9,.]*)M)?(?:([0-9,.]*)D)?(?:T(?:([0-9,.]*)H)?(?:([0-9,.]*)M)?(?:([0-9,.]*)S)?)?|([0-9,.]*)W)$/;
     function create__createDuration(input, key) {
       var duration = input,
@@ -66545,7 +66699,7 @@ System.registerDynamic("npm:moment@2.11.1/moment.js", [], true, function($__requ
     addParseToken('x', function(input, array, config) {
       config._d = new Date(toInt(input));
     });
-    utils_hooks__hooks.version = '2.11.1';
+    utils_hooks__hooks.version = '2.11.2';
     setHookCallback(local__createLocal);
     utils_hooks__hooks.fn = momentPrototype;
     utils_hooks__hooks.min = min;
@@ -66577,12 +66731,12 @@ System.registerDynamic("npm:moment@2.11.1/moment.js", [], true, function($__requ
   return module.exports;
 });
 
-System.registerDynamic("npm:moment@2.11.1.js", ["npm:moment@2.11.1/moment.js"], true, function($__require, exports, module) {
+System.registerDynamic("npm:moment@2.11.2.js", ["npm:moment@2.11.2/moment.js"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  module.exports = $__require('npm:moment@2.11.1/moment.js');
+  module.exports = $__require('npm:moment@2.11.2/moment.js');
   global.define = __define;
   return module.exports;
 });
