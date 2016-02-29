@@ -1,0 +1,48 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "es6-shim/es6-shim.d.ts": {
+      "commit": "ab2462147a313f69e7118625cfcce21c005fa4af"
+    },
+    "jquery/jquery.d.ts": {
+      "commit": "ab2462147a313f69e7118625cfcce21c005fa4af"
+    },
+    "moment/moment.d.ts": {
+      "commit": "ab2462147a313f69e7118625cfcce21c005fa4af"
+    },
+    "react-redux/react-redux.d.ts": {
+      "commit": "ab2462147a313f69e7118625cfcce21c005fa4af"
+    },
+    "react/react.d.ts": {
+      "commit": "ab2462147a313f69e7118625cfcce21c005fa4af"
+    },
+    "redux/redux.d.ts": {
+      "commit": "ab2462147a313f69e7118625cfcce21c005fa4af"
+    },
+    "react-router/react-router.d.ts": {
+      "commit": "ab2462147a313f69e7118625cfcce21c005fa4af"
+    },
+    "whatwg-fetch/whatwg-fetch.d.ts": {
+      "commit": "ab2462147a313f69e7118625cfcce21c005fa4af"
+    },
+    "moment/moment-node.d.ts": {
+      "commit": "ab2462147a313f69e7118625cfcce21c005fa4af"
+    },
+    "react-router/history.d.ts": {
+      "commit": "ab2462147a313f69e7118625cfcce21c005fa4af"
+    },
+    "react/react-dom.d.ts": {
+      "commit": "ab2462147a313f69e7118625cfcce21c005fa4af"
+    },
+    "node/node.d.ts": {
+      "commit": "ab2462147a313f69e7118625cfcce21c005fa4af"
+    },
+    "d3/d3.d.ts": {
+      "commit": "b10e5ade29708bb0a7d21916a9fe289973520e89"
+    }
+  }
+}
