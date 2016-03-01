@@ -53,7 +53,9 @@ module.exports = {
 
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({name: 'vendors', filename: 'vendors.js', minChunks: Infinity}),
-    new CopyWebpackPlugin(scan(['ico', 'svg', 'jpg']).concat([{from: 'src/cname', to: 'cname', toType: 'file'}])),
+    new CopyWebpackPlugin(scan(['ico', 'svg', 'jpg']).concat([
+      {from: 'src/CNAME', to: 'CNAME', toType: 'file'}
+    ])),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'src/Index.ejs',
