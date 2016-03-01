@@ -13,6 +13,7 @@ const scan = (extensions) => {
       .sync(`src/**/*.${extension}`)
       .forEach(file => files.push({from: file, to: file.replace('src/', '')}))
   });
+  console.log('webpack.config.js..scan()', files);
   return files;
 }
 
@@ -52,7 +53,7 @@ module.exports = {
 
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({name: 'vendors', filename: 'vendors.js', minChunks: Infinity}),
-    new CopyWebpackPlugin(scan(['ico', 'svg', 'jpg'])),
+    new CopyWebpackPlugin(scan(['ico', 'svg', 'jpg']).concat([{from: 'src/cname', to: 'cname', toType: 'file'}])),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'src/Index.ejs',
