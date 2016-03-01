@@ -10,11 +10,11 @@ webpackJsonp([0],{
 	var React = __webpack_require__(3);
 	var react_dom_1 = __webpack_require__(159);
 	var react_redux_1 = __webpack_require__(160);
-	var react_router_1 = __webpack_require__(181);
-	var store_1 = __webpack_require__(240);
-	var routeConfig_1 = __webpack_require__(243);
-	var components_1 = __webpack_require__(359);
-	__webpack_require__(360);
+	var react_router_1 = __webpack_require__(178);
+	var store_1 = __webpack_require__(234);
+	var routeConfig_1 = __webpack_require__(237);
+	var components_1 = __webpack_require__(357);
+	__webpack_require__(358);
 	function onUpdateHook() {
 	    var args = [];
 	    for (var _i = 0; _i < arguments.length; _i++) {
@@ -33,14 +33,14 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 240:
+/***/ 234:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var redux_1 = __webpack_require__(166);
-	var thunkMiddleware = __webpack_require__(241);
+	var thunkMiddleware = __webpack_require__(235);
 	//const createLogger = require('redux-logger');
-	var appReducers = __webpack_require__(242);
+	var appReducers = __webpack_require__(236);
 	// , createLogger()
 	//const logger = store => next => action => {
 	//  console.log('????',  action);
@@ -56,7 +56,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 242:
+/***/ 236:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -69,12 +69,12 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 243:
+/***/ 237:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var entry_1 = __webpack_require__(244);
-	var entry_2 = __webpack_require__(353);
+	var entry_1 = __webpack_require__(238);
+	var entry_2 = __webpack_require__(347);
 	exports.indexRoute = Object.freeze(entry_1.default());
 	exports.childRoutes = Object.freeze([
 	    entry_2.default()
@@ -83,14 +83,14 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 244:
+/***/ 238:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var react_redux_1 = __webpack_require__(160);
-	var store_1 = __webpack_require__(240);
-	var components_1 = __webpack_require__(245);
-	var reducers = __webpack_require__(352);
+	var store_1 = __webpack_require__(234);
+	var components_1 = __webpack_require__(239);
+	var reducers = __webpack_require__(346);
 	var Component = react_redux_1.connect(function (state) { return ({
 	    dispatch: state.dispatch,
 	    activities: state.activities
@@ -108,7 +108,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 245:
+/***/ 239:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -118,8 +118,8 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var moment = __webpack_require__(246);
-	var actions_1 = __webpack_require__(345);
+	var moment = __webpack_require__(240);
+	var actions_1 = __webpack_require__(339);
 	var ActivitiesLink = function (_a) {
 	    var title = _a.title, url = _a.url, key = _a.key;
 	    return (React.createElement("a", {href: url, key: key, className: "btn btn-info btn-sm", target: "_blank"}, title));
@@ -171,11 +171,11 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 345:
+/***/ 339:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var services = __webpack_require__(346);
+	var services = __webpack_require__(340);
 	exports.RECEIVE_GITHUB_REPOSITORIES = 'RECEIVE_GITHUB_REPOSITORIES';
 	exports.RECEIVE_GITHUB_GISTS = 'RECEIVE_GITHUB_GISTS';
 	exports.RECEIVE_JSFIDDLE = 'RECEIVE_JSFIDDLE';
@@ -220,11 +220,11 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 346:
+/***/ 340:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(fetch) {"use strict";
-	var jsonp = __webpack_require__(348);
+	var jsonp = __webpack_require__(342);
 	var GITHUB_HEADERS = {
 	    headers: {
 	        Authorization: 'token cd4981226b72e9bffd3f8796026aa6865c81cb73'
@@ -266,11 +266,11 @@ webpackJsonp([0],{
 	}
 	exports.getJsfiddles = getJsfiddles;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(347)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(341)))
 
 /***/ },
 
-/***/ 347:
+/***/ 341:
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*** IMPORTS FROM imports-loader ***/
@@ -674,12 +674,12 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 352:
+/***/ 346:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var moment = __webpack_require__(246);
-	var actions_1 = __webpack_require__(345);
+	var moment = __webpack_require__(240);
+	var actions_1 = __webpack_require__(339);
 	var now = Date.now;
 	var freeze = Object.freeze;
 	var init = function () { return ({ items: freeze([]), updatedAt: 0 }); };
@@ -759,12 +759,12 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 353:
+/***/ 347:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var React = __webpack_require__(3);
-	var basic_charts_1 = __webpack_require__(354);
+	var basic_charts_1 = __webpack_require__(348);
 	var Infographics = function () { return (React.createElement("div", null, React.createElement(basic_charts_1.default, null))); };
 	function default_1() {
 	    return { path: '/infographics', title: 'Infographics', component: Infographics };
@@ -775,7 +775,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 354:
+/***/ 348:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -785,8 +785,8 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var d3 = __webpack_require__(356);
-	var basic_chart_bar_1 = __webpack_require__(355);
+	var d3 = __webpack_require__(349);
+	var basic_chart_bar_1 = __webpack_require__(350);
 	var BasicCharts = (function (_super) {
 	    __extends(BasicCharts, _super);
 	    function BasicCharts(props, context) {
@@ -837,7 +837,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 355:
+/***/ 350:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -847,9 +847,9 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var d3 = __webpack_require__(356);
-	var d3tip_1 = __webpack_require__(357);
-	__webpack_require__(374);
+	var d3 = __webpack_require__(349);
+	var d3tip_1 = __webpack_require__(351);
+	__webpack_require__(353);
 	var Chart = (function () {
 	    function Chart(svg) {
 	        this.svg = svg;
@@ -998,43 +998,23 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 359:
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var React = __webpack_require__(3);
-	var react_router_1 = __webpack_require__(181);
-	var routeConfig_1 = __webpack_require__(243);
-	exports.Menu = function () {
-	    var indexLink = (React.createElement("li", {key: routeConfig_1.indexRoute.title, className: "nav-item"}, React.createElement(react_router_1.IndexLink, {className: "nav-link", to: "/", activeClassName: "active"}, routeConfig_1.indexRoute.title)));
-	    var childLinks = routeConfig_1.childRoutes.map(function (route) { return (React.createElement("li", {key: route.title, className: "nav-item"}, React.createElement(react_router_1.Link, {className: "nav-link", to: route.path, activeClassName: "active"}, route.title))); });
-	    return (React.createElement("div", {className: "main-menu"}, React.createElement("nav", {className: "navbar navbar-fixed-top navbar-light bg-faded"}, React.createElement("button", {className: "navbar-toggler hidden-sm-up", type: "button", "data-toggle": "collapse", "data-target": "#navbar"}, "&#9776;"), React.createElement("div", {className: "collapse navbar-toggleable-xs", id: "navbar"}, React.createElement("a", {className: "navbar-brand", href: "#"}, "SSEN"), React.createElement("ul", {className: "nav navbar-nav"}, indexLink, childLinks)))));
-	};
-	exports.App = function (_a) {
-	    var children = _a.children;
-	    return (React.createElement("div", null, React.createElement(exports.Menu, null), React.createElement("div", {className: "main-content"}, children)));
-	};
-
-
-/***/ },
-
-/***/ 360:
+/***/ 353:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(361);
+	var content = __webpack_require__(354);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(363)(content, {});
+	var update = __webpack_require__(356)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/less-loader/index.js!./style.less", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/less-loader/index.js!./style.less");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./basic-chart-bar.less", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./basic-chart-bar.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -1045,22 +1025,22 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 361:
+/***/ 354:
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(362)();
+	exports = module.exports = __webpack_require__(355)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "div.main-menu nav.navbar {\n  background-color: rgba(255, 255, 255, 0.98);\n}\ndiv.main-menu a {\n  font-weight: 300;\n}\ndiv.main-content {\n  margin-top: 60px;\n}\ndiv.main-content h1.content-activity {\n  font-weight: 200;\n}\ndiv.main-content div.content-activity h4 {\n  font-weight: 400;\n}\ndiv.main-content div.content-activity div.card-block {\n  padding: 0.8rem;\n}\ndiv.main-content div.content-activity div.card p.card-text {\n  line-height: 130%;\n}\ndiv.main-content div.content-activity div.card a.btn {\n  margin-left: 4px;\n}\ndiv.main-content div.content-activity div.card a.btn:first-child {\n  margin-left: 0;\n}\n", ""]);
+	exports.push([module.id, "svg.basic-chart-bar text {\n  font-size: 10px;\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
 
-/***/ 362:
+/***/ 355:
 /***/ function(module, exports) {
 
 	/*
@@ -1117,7 +1097,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 363:
+/***/ 356:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -1372,23 +1352,43 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 374:
+/***/ 357:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var React = __webpack_require__(3);
+	var react_router_1 = __webpack_require__(178);
+	var routeConfig_1 = __webpack_require__(237);
+	exports.Menu = function () {
+	    var indexLink = (React.createElement("li", {key: routeConfig_1.indexRoute.title, className: "nav-item"}, React.createElement(react_router_1.IndexLink, {className: "nav-link", to: "/", activeClassName: "active"}, routeConfig_1.indexRoute.title)));
+	    var childLinks = routeConfig_1.childRoutes.map(function (route) { return (React.createElement("li", {key: route.title, className: "nav-item"}, React.createElement(react_router_1.Link, {className: "nav-link", to: route.path, activeClassName: "active"}, route.title))); });
+	    return (React.createElement("div", {className: "main-menu"}, React.createElement("nav", {className: "navbar navbar-fixed-top navbar-light bg-faded"}, React.createElement("button", {className: "navbar-toggler hidden-sm-up", type: "button", "data-toggle": "collapse", "data-target": "#navbar"}, "&#9776;"), React.createElement("div", {className: "collapse navbar-toggleable-xs", id: "navbar"}, React.createElement("a", {className: "navbar-brand", href: "#"}, "SSEN"), React.createElement("ul", {className: "nav navbar-nav"}, indexLink, childLinks)))));
+	};
+	exports.App = function (_a) {
+	    var children = _a.children;
+	    return (React.createElement("div", null, React.createElement(exports.Menu, null), React.createElement("div", {className: "main-content"}, children)));
+	};
+
+
+/***/ },
+
+/***/ 358:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(375);
+	var content = __webpack_require__(359);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(363)(content, {});
+	var update = __webpack_require__(356)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./basic-chart-bar.less", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./basic-chart-bar.less");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/less-loader/index.js!./style.less", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/less-loader/index.js!./style.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -1399,15 +1399,15 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 375:
+/***/ 359:
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(362)();
+	exports = module.exports = __webpack_require__(355)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "svg.basic-chart-bar text {\n  font-size: 10px;\n}\n", ""]);
+	exports.push([module.id, "div.main-menu nav.navbar {\n  background-color: rgba(255, 255, 255, 0.98);\n}\ndiv.main-menu a {\n  font-weight: 300;\n}\ndiv.main-content {\n  margin-top: 60px;\n}\ndiv.main-content h1.content-activity {\n  font-weight: 200;\n}\ndiv.main-content div.content-activity h4 {\n  font-weight: 400;\n}\ndiv.main-content div.content-activity div.card-block {\n  padding: 0.8rem;\n}\ndiv.main-content div.content-activity div.card p.card-text {\n  line-height: 130%;\n}\ndiv.main-content div.content-activity div.card a.btn {\n  margin-left: 4px;\n}\ndiv.main-content div.content-activity div.card a.btn:first-child {\n  margin-left: 0;\n}\n", ""]);
 	
 	// exports
 
