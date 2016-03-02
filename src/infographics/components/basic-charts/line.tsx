@@ -2,21 +2,7 @@ import * as React from 'react';
 import * as d3 from 'd3';
 import d3tip from 'd3tip';
 
-import {Data} from '../types';
-import './basic-chart-bar.less';
-
-interface Props {
-  duration?:number;
-  delay?:number;
-  width?:number;
-  height?:number;
-  gutterLeft?:number;
-  gutterRight?:number;
-  gutterTop?:number;
-  gutterBottom?:number;
-  color?:d3.scale.Ordinal<string, string>;
-  data?:Data[];
-}
+import {Data} from '../../types';
 
 class Chart {
   private _svg:d3.Selection<any>;
@@ -28,6 +14,7 @@ class Chart {
   private _easeOut:(t:number)=>number;
   private _easeIn:(t:number)=>number;
   private _invalidated:boolean;
+  private _path1:d3.Selection<any>;
 
   public duration:number;
   public delay:number;
@@ -42,10 +29,11 @@ class Chart {
   constructor(private svg:EventTarget) {
     this._svg = d3.select(svg);
     this._g = this._svg.append('g');
-    this._x = this._g.append('g');
-    this._y = this._g.append('g');
+    this._x = this._g.append('g').attr('class', 'axis axis-x');
+    this._y = this._g.append('g').attr('class', 'axis axis-y');
     this._easeIn = d3.ease('quad-in');
     this._easeOut = d3.ease('quad-out');
+    this._invalidated = true;
   }
 
   invalidate() {
@@ -60,75 +48,67 @@ class Chart {
       this._height = this.height - this.gutterTop - this.gutterBottom;
 
       this._g.attr('transform', `translate(${this.gutterLeft}, ${this.gutterTop})`);
-      this._x.attr('transform', `translate(0, 0)`);
-      this._y.attr('transform', `translate(0, ${this._height})`);
+      this._x.attr('transform', `translate(0, ${this._height})`);
+      this._y.attr('transform', `translate(0, 0)`);
 
       this._invalidated = false;
     }
 
-    const xmax:number = d3.max(data, d => d.Data1);
-    const xscale = d3.scale.linear().rangeRound([0, this._width]).domain([0, xmax]).nice();
-    const yscale = d3.scale.ordinal().rangeRoundBands([0, this._height]).domain(data.map(d => d.Category));
-    const rects = this._g.selectAll('rect').data(data);
+    const ymax:number = d3.max(data, d => d.Data1);
+    const xscale = d3.scale.ordinal().rangeRoundBands([0, this._width]).domain(data.map(d => d.Category));
+    const yscale = d3.scale.linear().rangeRound([this._height, 0]).domain([0, ymax]).nice();
 
-    // update existing nodes
-    rects
-      .transition()
-      .duration(this.duration)
-      .delay((d, i) => this.delay * i)
-      .ease(this._easeOut)
-      .attr({
-        fill: d => this.color(d.Category),
-        y: d => yscale(d.Category),
-        width: d => xscale(d.Data1),
-        height: d => yscale.rangeBand()
-      })
+    const line1:any = d3.svg.line()
+      .x((d:any, i) => xscale(d.Category) + (xscale.rangeBand() / 2))
+      .y((d:any, i) => yscale(d.Data1));
 
-    // remove ramaining nodes
-    rects
-      .exit()
-      .transition()
-      .duration(this.duration)
-      .delay((d, i) => this.delay * i)
-      .ease(this._easeIn)
-      .attr({
-        opacity: 0,
-        y: this._height,
-        width: 0,
-        height: 0
-      })
-      .remove()
+    if (!this._path1) {
+      const line0:any = d3.svg.line()
+        .x((d:any, i) => xscale(d.Category) + (xscale.rangeBand() / 2))
+        .y((d:any, i) => yscale.range()[0]);
 
-    // create additional nodes
-    rects
-      .enter()
-      .append('rect')
-      .attr({
-        fill: d => this.color(d.Category),
-        opacity: 0,
-        y: d => yscale(d.Category),
-        width: 0,
-        height: d => yscale.rangeBand()
-      })
-      .call(d3tip({
-        html: (d:Data) => `<h5>${d.Category}</h5>${d.Data1}`
-      }))
-      .transition()
-      .duration(this.duration)
-      .delay((d, i) => this.delay * i)
-      .ease(this._easeOut)
-      .attr({
-        opacity: 1,
-        width: d => xscale(d.Data1)
-      })
+      this._path1 = this._g
+        .append('path')
+        .attr({
+          fill: 'none',
+          stroke: this.color('line1'),
+          'stroke-width': '4px',
+          'stroke-linecap': 'round',
+          'stroke-linejoin': 'round'
+        })
+
+      this._path1
+        .datum(data)
+        .attr('d', line0)
+        .transition()
+        .attr('d', line1)
+    } else {
+      this._path1
+        .datum(data)
+        .transition()
+        .attr('d', line1)
+    }
 
     // draw axis
-    const xaxis = d3.svg.axis().scale(xscale).orient('bottom');
-    const yaxis = d3.svg.axis().scale(yscale).orient('left');
+    let xaxis = d3.svg.axis().scale(xscale).orient('bottom');
+    let yaxis = d3.svg.axis().scale(yscale).orient('left');
 
-    this._y.call(xaxis);
-    this._x.call(yaxis);
+    this._x.call(xaxis);
+    this._y.call(yaxis);
   }
+}
+
+interface Props {
+  duration?:number;
+  delay?:number;
+  width?:number;
+  height?:number;
+  gutterLeft?:number;
+  gutterRight?:number;
+  gutterTop?:number;
+  gutterBottom?:number;
+  color?:d3.scale.Ordinal<string, string>;
+  data?:Data[];
 }
 
 export default class Component extends React.Component<Props, any> {
@@ -151,9 +131,9 @@ export default class Component extends React.Component<Props, any> {
   }
 
   render() {
-    return (<svg className="basic-chart-bar" ref="svg"/>);
+    return (<svg className="basic-chart-bubble" ref="svg"/>);
   }
-  
+
   bind(props:Props) {
     const chart = this.chart;
     chart.duration = props.duration;
@@ -195,3 +175,4 @@ export default class Component extends React.Component<Props, any> {
     return false;
   }
 }
+
