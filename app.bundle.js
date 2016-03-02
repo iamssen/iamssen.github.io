@@ -10,11 +10,11 @@ webpackJsonp([0],{
 	var React = __webpack_require__(3);
 	var react_dom_1 = __webpack_require__(159);
 	var react_redux_1 = __webpack_require__(160);
-	var react_router_1 = __webpack_require__(178);
-	var store_1 = __webpack_require__(234);
-	var routeConfig_1 = __webpack_require__(237);
-	var components_1 = __webpack_require__(357);
-	__webpack_require__(358);
+	var react_router_1 = __webpack_require__(181);
+	var store_1 = __webpack_require__(240);
+	var routeConfig_1 = __webpack_require__(243);
+	var components_1 = __webpack_require__(367);
+	__webpack_require__(368);
 	function onUpdateHook() {
 	    var args = [];
 	    for (var _i = 0; _i < arguments.length; _i++) {
@@ -33,14 +33,14 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 234:
+/***/ 240:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var redux_1 = __webpack_require__(166);
-	var thunkMiddleware = __webpack_require__(235);
+	var thunkMiddleware = __webpack_require__(241);
 	//const createLogger = require('redux-logger');
-	var appReducers = __webpack_require__(236);
+	var appReducers = __webpack_require__(242);
 	// , createLogger()
 	//const logger = store => next => action => {
 	//  console.log('????',  action);
@@ -56,7 +56,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 236:
+/***/ 242:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -69,12 +69,12 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 237:
+/***/ 243:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var entry_1 = __webpack_require__(238);
-	var entry_2 = __webpack_require__(347);
+	var entry_1 = __webpack_require__(244);
+	var entry_2 = __webpack_require__(353);
 	exports.indexRoute = Object.freeze(entry_1.default());
 	exports.childRoutes = Object.freeze([
 	    entry_2.default()
@@ -83,14 +83,14 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 238:
+/***/ 244:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var react_redux_1 = __webpack_require__(160);
-	var store_1 = __webpack_require__(234);
-	var components_1 = __webpack_require__(239);
-	var reducers = __webpack_require__(346);
+	var store_1 = __webpack_require__(240);
+	var components_1 = __webpack_require__(245);
+	var reducers = __webpack_require__(352);
 	var Component = react_redux_1.connect(function (state) { return ({
 	    dispatch: state.dispatch,
 	    activities: state.activities
@@ -108,7 +108,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 239:
+/***/ 245:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -118,8 +118,8 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var moment = __webpack_require__(240);
-	var actions_1 = __webpack_require__(339);
+	var moment = __webpack_require__(246);
+	var actions_1 = __webpack_require__(345);
 	var ActivitiesLink = function (_a) {
 	    var title = _a.title, url = _a.url, key = _a.key;
 	    return (React.createElement("a", {href: url, key: key, className: "btn btn-info btn-sm", target: "_blank"}, title));
@@ -171,11 +171,11 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 339:
+/***/ 345:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var services = __webpack_require__(340);
+	var services = __webpack_require__(346);
 	exports.RECEIVE_GITHUB_REPOSITORIES = 'RECEIVE_GITHUB_REPOSITORIES';
 	exports.RECEIVE_GITHUB_GISTS = 'RECEIVE_GITHUB_GISTS';
 	exports.RECEIVE_JSFIDDLE = 'RECEIVE_JSFIDDLE';
@@ -220,11 +220,11 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 340:
+/***/ 346:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(fetch) {"use strict";
-	var jsonp = __webpack_require__(342);
+	var jsonp = __webpack_require__(348);
 	var GITHUB_HEADERS = {
 	    headers: {
 	        Authorization: 'token cd4981226b72e9bffd3f8796026aa6865c81cb73'
@@ -266,11 +266,11 @@ webpackJsonp([0],{
 	}
 	exports.getJsfiddles = getJsfiddles;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(341)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(347)))
 
 /***/ },
 
-/***/ 341:
+/***/ 347:
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*** IMPORTS FROM imports-loader ***/
@@ -674,12 +674,12 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 346:
+/***/ 352:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var moment = __webpack_require__(240);
-	var actions_1 = __webpack_require__(339);
+	var moment = __webpack_require__(246);
+	var actions_1 = __webpack_require__(345);
 	var now = Date.now;
 	var freeze = Object.freeze;
 	var init = function () { return ({ items: freeze([]), updatedAt: 0 }); };
@@ -759,12 +759,12 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 347:
+/***/ 353:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var React = __webpack_require__(3);
-	var basic_charts_1 = __webpack_require__(348);
+	var basic_charts_1 = __webpack_require__(354);
 	var Infographics = function () { return (React.createElement("div", null, React.createElement(basic_charts_1.default, null))); };
 	function default_1() {
 	    return { path: '/infographics', title: 'Infographics', component: Infographics };
@@ -775,7 +775,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 348:
+/***/ 354:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -785,25 +785,28 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var d3 = __webpack_require__(349);
-	var basic_chart_bar_1 = __webpack_require__(350);
+	var d3 = __webpack_require__(356);
+	var bar_1 = __webpack_require__(355);
+	var column_1 = __webpack_require__(359);
+	var bubble_1 = __webpack_require__(360);
+	var line_1 = __webpack_require__(361);
+	var pie_1 = __webpack_require__(362);
+	__webpack_require__(363);
+	var colors = [
+	    d3.scale.category10(),
+	    d3.scale.category20(),
+	    d3.scale.category20b(),
+	    d3.scale.category20c()
+	];
 	var BasicCharts = (function (_super) {
 	    __extends(BasicCharts, _super);
 	    function BasicCharts(props, context) {
 	        _super.call(this, props, context);
-	        this.state = { data: null };
+	        this.state = { data: null, color: colors[0] };
 	    }
 	    BasicCharts.prototype.render = function () {
-	        var _this = this;
 	        var style = { textAlign: 'right' };
-	        var colors = [
-	            d3.scale.category10(),
-	            d3.scale.category20(),
-	            d3.scale.category20b(),
-	            d3.scale.category20c()
-	        ];
-	        var bars = d3.range(50).map(function (x) { return (React.createElement(basic_chart_bar_1.default, {key: x, width: 310, height: 150, data: _this.state.data, color: colors[x % colors.length]})); });
-	        return (React.createElement("div", null, React.createElement("div", {style: style}, React.createElement("button", {onClick: this.refresh.bind(this)}, "Refresh")), bars));
+	        return (React.createElement("div", {className: "basic-charts"}, React.createElement("div", {style: style}, React.createElement("button", {onClick: this.changeColor.bind(this)}, "Change Color"), React.createElement("button", {onClick: this.refreshData.bind(this)}, "Refresh Data")), React.createElement(bar_1.default, {width: 450, height: 270, data: this.state.data, color: this.state.color}), React.createElement(bubble_1.default, {width: 450, height: 270, data: this.state.data, color: this.state.color}), React.createElement(column_1.default, {width: 450, height: 270, data: this.state.data, color: this.state.color}), React.createElement(line_1.default, {width: 450, height: 270, data: this.state.data, color: this.state.color}), React.createElement(pie_1.default, {width: 450, height: 270, data: this.state.data, color: this.state.color})));
 	    };
 	    BasicCharts.prototype.data = function () {
 	        var max = Math.random() * 1000;
@@ -822,11 +825,16 @@ webpackJsonp([0],{
 	        return arr;
 	    };
 	    BasicCharts.prototype.componentDidMount = function () {
-	        this.refresh();
+	        this.refreshData();
 	    };
-	    BasicCharts.prototype.refresh = function () {
+	    BasicCharts.prototype.refreshData = function () {
 	        this.setState({
 	            data: this.data()
+	        });
+	    };
+	    BasicCharts.prototype.changeColor = function () {
+	        this.setState({
+	            color: colors[(colors.indexOf(this.state.color) + 1) % colors.length]
 	        });
 	    };
 	    return BasicCharts;
@@ -837,7 +845,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 350:
+/***/ 355:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -847,18 +855,158 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var d3 = __webpack_require__(349);
-	var d3tip_1 = __webpack_require__(351);
-	__webpack_require__(353);
+	var d3 = __webpack_require__(356);
+	var d3tip_1 = __webpack_require__(357);
+	var Component = (function (_super) {
+	    __extends(Component, _super);
+	    function Component(props, context) {
+	        _super.call(this, props, context);
+	    }
+	    Component.prototype.render = function () {
+	        return (React.createElement("svg", {className: "basic-chart-bar", ref: "svg"}));
+	    };
+	    Component.prototype.draw = function (props, drawTransition) {
+	        var data = props.data;
+	        var data1Max = d3.max(data, function (d) { return d.Data1; });
+	        var data1 = d3.scale.linear().rangeRound([0, this._width]).domain([0, data1Max]).nice();
+	        var category = d3.scale.ordinal().rangeRoundBands([0, this._height]).domain(data.map(function (d) { return d.Category; }));
+	        var rects = this._g.selectAll('rect').data(data);
+	        // update
+	        (!drawTransition ? rects : rects
+	            .transition()
+	            .duration(props.duration)
+	            .delay(function (d, i) { return props.delay * i; })
+	            .ease(this._easeOut)) // end transition
+	            .attr({
+	            fill: function (d) { return props.color(d.Category); },
+	            y: function (d) { return category(d.Category); },
+	            width: function (d) { return data1(d.Data1); },
+	            height: function (d) { return category.rangeBand(); }
+	        });
+	        // exit
+	        (!drawTransition ? rects.exit() : rects.exit()
+	            .transition()
+	            .duration(props.duration)
+	            .delay(function (d, i) { return props.delay * i; })
+	            .ease(this._easeIn)
+	            .attr({
+	            opacity: 0,
+	            y: this._height,
+	            width: 0,
+	            height: 0
+	        })) // end transition
+	            .remove();
+	        // enter
+	        var enter = rects.enter()
+	            .append('rect')
+	            .call(d3tip_1.default({
+	            html: function (d) { return ("<h5>" + d.Category + "</h5>" + d.Data1); }
+	        }));
+	        (!drawTransition ? enter : enter
+	            .attr({
+	            fill: function (d) { return props.color(d.Category); },
+	            opacity: 0,
+	            y: function (d) { return category(d.Category); },
+	            width: 0,
+	            height: function (d) { return category.rangeBand(); }
+	        })
+	            .transition()
+	            .duration(props.duration)
+	            .delay(function (d, i) { return props.delay * i; })
+	            .ease(this._easeOut)) // end transition
+	            .attr({
+	            fill: function (d) { return props.color(d.Category); },
+	            opacity: 1,
+	            y: function (d) { return category(d.Category); },
+	            width: function (d) { return data1(d.Data1); },
+	            height: function (d) { return category.rangeBand(); }
+	        });
+	        // draw axis
+	        var xaxis = d3.svg.axis().scale(data1).orient('bottom');
+	        var yaxis = d3.svg.axis().scale(category).orient('left');
+	        this._y.call(yaxis);
+	        this._x.call(xaxis);
+	    };
+	    Component.prototype.componentDidMount = function () {
+	        this._svg = d3.select(this.refs['svg']);
+	        this._g = this._svg.append('g');
+	        this._x = this._g.append('g').attr('class', 'axis axis-x');
+	        this._y = this._g.append('g').attr('class', 'axis axis-y');
+	        this._easeIn = d3.ease('quad-in');
+	        this._easeOut = d3.ease('quad-out');
+	    };
+	    //componentWillUnmount():void {
+	    //  this.chart = null;
+	    //}
+	    Component.prototype.shouldComponentUpdate = function (nextProps, nextState, nextContext) {
+	        var currentProps = this.props;
+	        if (!this._width || !this._height
+	            || currentProps.width !== nextProps.width
+	            || currentProps.height !== nextProps.height
+	            || currentProps.gutterLeft !== nextProps.gutterLeft
+	            || currentProps.gutterRight !== nextProps.gutterRight
+	            || currentProps.gutterTop !== nextProps.gutterTop
+	            || currentProps.gutterBottom !== nextProps.gutterBottom) {
+	            this._svg.attr({ width: nextProps.width, height: nextProps.height });
+	            this._width = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
+	            this._height = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
+	            this._g.attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
+	            this._x.attr('transform', "translate(0, " + this._height + ")");
+	            this._y.attr('transform', "translate(0, 0)");
+	        }
+	        if (currentProps.width !== nextProps.width
+	            || currentProps.height !== nextProps.height
+	            || currentProps.gutterLeft !== nextProps.gutterLeft
+	            || currentProps.gutterRight !== nextProps.gutterRight
+	            || currentProps.gutterTop !== nextProps.gutterTop
+	            || currentProps.gutterBottom !== nextProps.gutterBottom
+	            || currentProps.color !== nextProps.color
+	            || currentProps.data !== nextProps.data) {
+	            this.draw(nextProps, currentProps.data !== nextProps.data);
+	        }
+	        return false;
+	    };
+	    Component.defaultProps = {
+	        duration: 300,
+	        delay: 40,
+	        width: 540,
+	        height: 320,
+	        gutterLeft: 50,
+	        gutterRight: 20,
+	        gutterTop: 20,
+	        gutterBottom: 30,
+	        color: d3.scale.category20c()
+	    };
+	    return Component;
+	}(React.Component));
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = Component;
+
+
+/***/ },
+
+/***/ 359:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var React = __webpack_require__(3);
+	var d3 = __webpack_require__(356);
+	var d3tip_1 = __webpack_require__(357);
 	var Chart = (function () {
 	    function Chart(svg) {
 	        this.svg = svg;
 	        this._svg = d3.select(svg);
 	        this._g = this._svg.append('g');
-	        this._x = this._g.append('g');
-	        this._y = this._g.append('g');
+	        this._x = this._g.append('g').attr('class', 'axis axis-x');
+	        this._y = this._g.append('g').attr('class', 'axis axis-y');
 	        this._easeIn = d3.ease('quad-in');
 	        this._easeOut = d3.ease('quad-out');
+	        this._invalidated = true;
 	    }
 	    Chart.prototype.invalidate = function () {
 	        this._invalidated = true;
@@ -870,13 +1018,13 @@ webpackJsonp([0],{
 	            this._width = this.width - this.gutterLeft - this.gutterRight;
 	            this._height = this.height - this.gutterTop - this.gutterBottom;
 	            this._g.attr('transform', "translate(" + this.gutterLeft + ", " + this.gutterTop + ")");
-	            this._x.attr('transform', "translate(0, 0)");
-	            this._y.attr('transform', "translate(0, " + this._height + ")");
+	            this._x.attr('transform', "translate(0, " + this._height + ")");
+	            this._y.attr('transform', "translate(0, 0)");
 	            this._invalidated = false;
 	        }
-	        var xmax = d3.max(data, function (d) { return d.Data1; });
-	        var xscale = d3.scale.linear().rangeRound([0, this._width]).domain([0, xmax]).nice();
-	        var yscale = d3.scale.ordinal().rangeRoundBands([0, this._height]).domain(data.map(function (d) { return d.Category; }));
+	        var ymax = d3.max(data, function (d) { return d.Data1; });
+	        var xscale = d3.scale.ordinal().rangeRoundBands([0, this._width]).domain(data.map(function (d) { return d.Category; }));
+	        var yscale = d3.scale.linear().rangeRound([this._height, 0]).domain([0, ymax]).nice();
 	        var rects = this._g.selectAll('rect').data(data);
 	        // update existing nodes
 	        rects
@@ -886,9 +1034,10 @@ webpackJsonp([0],{
 	            .ease(this._easeOut)
 	            .attr({
 	            fill: function (d) { return _this.color(d.Category); },
-	            y: function (d) { return yscale(d.Category); },
-	            width: function (d) { return xscale(d.Data1); },
-	            height: function (d) { return yscale.rangeBand(); }
+	            x: function (d) { return xscale(d.Category); },
+	            y: function (d) { return yscale(d.Data1); },
+	            width: function (d) { return xscale.rangeBand(); },
+	            height: function (d) { return _this._height - yscale(d.Data1); }
 	        });
 	        // remove ramaining nodes
 	        rects
@@ -899,6 +1048,7 @@ webpackJsonp([0],{
 	            .ease(this._easeIn)
 	            .attr({
 	            opacity: 0,
+	            x: this.width,
 	            y: this._height,
 	            width: 0,
 	            height: 0
@@ -911,9 +1061,10 @@ webpackJsonp([0],{
 	            .attr({
 	            fill: function (d) { return _this.color(d.Category); },
 	            opacity: 0,
-	            y: function (d) { return yscale(d.Category); },
-	            width: 0,
-	            height: function (d) { return yscale.rangeBand(); }
+	            x: function (d) { return xscale(d.Category); },
+	            y: this._height,
+	            width: function (d) { return xscale.rangeBand(); },
+	            height: 0
 	        })
 	            .call(d3tip_1.default({
 	            html: function (d) { return ("<h5>" + d.Category + "</h5>" + d.Data1); }
@@ -924,13 +1075,14 @@ webpackJsonp([0],{
 	            .ease(this._easeOut)
 	            .attr({
 	            opacity: 1,
-	            width: function (d) { return xscale(d.Data1); }
+	            y: function (d) { return yscale(d.Data1); },
+	            height: function (d) { return _this._height - yscale(d.Data1); }
 	        });
 	        // draw axis
 	        var xaxis = d3.svg.axis().scale(xscale).orient('bottom');
 	        var yaxis = d3.svg.axis().scale(yscale).orient('left');
-	        this._y.call(xaxis);
-	        this._x.call(yaxis);
+	        this._x.call(xaxis);
+	        this._y.call(yaxis);
 	    };
 	    return Chart;
 	}());
@@ -940,7 +1092,7 @@ webpackJsonp([0],{
 	        _super.call(this, props, context);
 	    }
 	    Component.prototype.render = function () {
-	        return (React.createElement("svg", {className: "basic-chart-bar", ref: "svg"}));
+	        return (React.createElement("svg", {className: "basic-chart-column", ref: "svg"}));
 	    };
 	    Component.prototype.bind = function (props) {
 	        var chart = this.chart;
@@ -998,23 +1150,446 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 353:
+/***/ 360:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var React = __webpack_require__(3);
+	var d3 = __webpack_require__(356);
+	var d3tip_1 = __webpack_require__(357);
+	var Component = (function (_super) {
+	    __extends(Component, _super);
+	    function Component(props, context) {
+	        _super.call(this, props, context);
+	    }
+	    Component.prototype.render = function () {
+	        return (React.createElement("svg", {className: "basic-chart-bubble", ref: "svg"}));
+	    };
+	    Component.prototype.draw = function (props, drawTransition) {
+	        var data = props.data;
+	        var xmax = d3.max(data, function (d) { return d.Data2; });
+	        var ymax = d3.max(data, function (d) { return d.Data1; });
+	        var zmax = d3.max(data, function (d) { return d.Data3; });
+	        var xscale = d3.scale.linear().rangeRound([0, this._width]).domain([0, xmax]).nice();
+	        var yscale = d3.scale.linear().rangeRound([this._height, 0]).domain([0, ymax]).nice();
+	        // remove ramaining nodes
+	        if (this._bubbles) {
+	            (!drawTransition ? this._bubbles : this._bubbles
+	                .transition()
+	                .duration(props.duration)
+	                .delay(function (d, i) { return props.delay * i; })
+	                .ease(this._easeIn)
+	                .attr({
+	                opacity: 0,
+	                r: 0
+	            })) // end transition
+	                .remove();
+	        }
+	        // create additional nodes
+	        this._bubbles = this._g
+	            .selectAll('.circle')
+	            .data(data)
+	            .enter()
+	            .append('circle')
+	            .call(d3tip_1.default({
+	            html: function (d) { return ("<h5>" + d.Category + "</h5>" + d.Data1 + "<br/>" + d.Data2 + "<br/>" + d.Data3); }
+	        }));
+	        (!drawTransition ? this._bubbles : this._bubbles
+	            .attr({
+	            fill: function (d) { return props.color(d.Category); },
+	            cx: function (d) { return xscale(d.Data2); },
+	            cy: function (d) { return yscale(d.Data1); },
+	            r: 0,
+	            opacity: 0
+	        })
+	            .transition()
+	            .delay(function (d, i) { return props.delay * i; })
+	            .ease(this._easeOut)) // end transition
+	            .attr({
+	            fill: function (d) { return props.color(d.Category); },
+	            cx: function (d) { return xscale(d.Data2); },
+	            cy: function (d) { return yscale(d.Data1); },
+	            opacity: 1,
+	            r: function (d) { return 5 + ((d.Data3 / zmax) * 15); }
+	        });
+	        // draw axis
+	        var xaxis = d3.svg.axis().scale(xscale).orient('bottom');
+	        var yaxis = d3.svg.axis().scale(yscale).orient('left');
+	        this._x.call(xaxis);
+	        this._y.call(yaxis);
+	    };
+	    Component.prototype.componentDidMount = function () {
+	        this._svg = d3.select(this.refs['svg']);
+	        this._g = this._svg.append('g');
+	        this._x = this._g.append('g').attr('class', 'axis axis-x');
+	        this._y = this._g.append('g').attr('class', 'axis axis-y');
+	        this._easeIn = d3.ease('quad-in');
+	        this._easeOut = d3.ease('quad-out');
+	    };
+	    //componentWillUnmount():void {
+	    //  this.chart = null;
+	    //}
+	    Component.prototype.shouldComponentUpdate = function (nextProps, nextState, nextContext) {
+	        var currentProps = this.props;
+	        if (!this._width || !this._height
+	            || currentProps.width !== nextProps.width
+	            || currentProps.height !== nextProps.height
+	            || currentProps.gutterLeft !== nextProps.gutterLeft
+	            || currentProps.gutterRight !== nextProps.gutterRight
+	            || currentProps.gutterTop !== nextProps.gutterTop
+	            || currentProps.gutterBottom !== nextProps.gutterBottom) {
+	            this._svg.attr({ width: nextProps.width, height: nextProps.height });
+	            this._width = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
+	            this._height = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
+	            this._g.attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
+	            this._x.attr('transform', "translate(0, " + this._height + ")");
+	            this._y.attr('transform', "translate(0, 0)");
+	        }
+	        if (currentProps.width !== nextProps.width
+	            || currentProps.height !== nextProps.height
+	            || currentProps.gutterLeft !== nextProps.gutterLeft
+	            || currentProps.gutterRight !== nextProps.gutterRight
+	            || currentProps.gutterTop !== nextProps.gutterTop
+	            || currentProps.gutterBottom !== nextProps.gutterBottom
+	            || currentProps.color !== nextProps.color
+	            || currentProps.data !== nextProps.data) {
+	            this.draw(nextProps, currentProps.data !== nextProps.data);
+	        }
+	        return false;
+	    };
+	    Component.defaultProps = {
+	        duration: 300,
+	        delay: 40,
+	        width: 540,
+	        height: 320,
+	        gutterLeft: 50,
+	        gutterRight: 20,
+	        gutterTop: 20,
+	        gutterBottom: 30,
+	        color: d3.scale.category20c()
+	    };
+	    return Component;
+	}(React.Component));
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = Component;
+
+
+/***/ },
+
+/***/ 361:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var React = __webpack_require__(3);
+	var d3 = __webpack_require__(356);
+	var Chart = (function () {
+	    function Chart(svg) {
+	        this.svg = svg;
+	        this._svg = d3.select(svg);
+	        this._g = this._svg.append('g');
+	        this._x = this._g.append('g').attr('class', 'axis axis-x');
+	        this._y = this._g.append('g').attr('class', 'axis axis-y');
+	        this._easeIn = d3.ease('quad-in');
+	        this._easeOut = d3.ease('quad-out');
+	        this._invalidated = true;
+	    }
+	    Chart.prototype.invalidate = function () {
+	        this._invalidated = true;
+	    };
+	    Chart.prototype.update = function (data) {
+	        if (this._invalidated) {
+	            this._svg.attr({ width: this.width, height: this.height });
+	            this._width = this.width - this.gutterLeft - this.gutterRight;
+	            this._height = this.height - this.gutterTop - this.gutterBottom;
+	            this._g.attr('transform', "translate(" + this.gutterLeft + ", " + this.gutterTop + ")");
+	            this._x.attr('transform', "translate(0, " + this._height + ")");
+	            this._y.attr('transform', "translate(0, 0)");
+	            this._invalidated = false;
+	        }
+	        var ymax = d3.max(data, function (d) { return d.Data1; });
+	        var xscale = d3.scale.ordinal().rangeRoundBands([0, this._width]).domain(data.map(function (d) { return d.Category; }));
+	        var yscale = d3.scale.linear().rangeRound([this._height, 0]).domain([0, ymax]).nice();
+	        var line1 = d3.svg.line()
+	            .x(function (d, i) { return xscale(d.Category) + (xscale.rangeBand() / 2); })
+	            .y(function (d, i) { return yscale(d.Data1); });
+	        if (!this._path1) {
+	            var line0 = d3.svg.line()
+	                .x(function (d, i) { return xscale(d.Category) + (xscale.rangeBand() / 2); })
+	                .y(function (d, i) { return yscale.range()[0]; });
+	            this._path1 = this._g
+	                .append('path')
+	                .attr({
+	                fill: 'none',
+	                stroke: this.color('line1'),
+	                'stroke-width': '4px',
+	                'stroke-linecap': 'round',
+	                'stroke-linejoin': 'round'
+	            });
+	            this._path1
+	                .datum(data)
+	                .attr('d', line0)
+	                .transition()
+	                .attr('d', line1);
+	        }
+	        else {
+	            this._path1
+	                .datum(data)
+	                .transition()
+	                .attr('d', line1);
+	        }
+	        // draw axis
+	        var xaxis = d3.svg.axis().scale(xscale).orient('bottom');
+	        var yaxis = d3.svg.axis().scale(yscale).orient('left');
+	        this._x.call(xaxis);
+	        this._y.call(yaxis);
+	    };
+	    return Chart;
+	}());
+	var Component = (function (_super) {
+	    __extends(Component, _super);
+	    function Component(props, context) {
+	        _super.call(this, props, context);
+	    }
+	    Component.prototype.render = function () {
+	        return (React.createElement("svg", {className: "basic-chart-bubble", ref: "svg"}));
+	    };
+	    Component.prototype.bind = function (props) {
+	        var chart = this.chart;
+	        chart.duration = props.duration;
+	        chart.delay = props.delay;
+	        chart.width = props.width;
+	        chart.height = props.height;
+	        chart.gutterLeft = props.gutterLeft;
+	        chart.gutterRight = props.gutterRight;
+	        chart.gutterTop = props.gutterTop;
+	        chart.gutterBottom = props.gutterBottom;
+	        chart.color = props.color;
+	        chart.invalidate();
+	    };
+	    Component.prototype.componentDidMount = function () {
+	        this.chart = new Chart(this.refs['svg']);
+	        this.bind(this.props);
+	    };
+	    Component.prototype.componentWillUnmount = function () {
+	        this.chart = null;
+	    };
+	    Component.prototype.shouldComponentUpdate = function (nextProps, nextState, nextContext) {
+	        if (this.props.duration !== nextProps.duration
+	            || this.props.delay !== nextProps.delay
+	            || this.props.width !== nextProps.width
+	            || this.props.height !== nextProps.height
+	            || this.props.gutterLeft !== nextProps.gutterLeft
+	            || this.props.gutterRight !== nextProps.gutterRight
+	            || this.props.gutterTop !== nextProps.gutterTop
+	            || this.props.gutterBottom !== nextProps.gutterBottom
+	            || this.props.color !== nextProps.color) {
+	            this.bind(nextProps);
+	        }
+	        if (this.props.data !== nextProps.data) {
+	            this.chart.update(nextProps.data);
+	        }
+	        return false;
+	    };
+	    Component.defaultProps = {
+	        duration: 300,
+	        delay: 40,
+	        width: 540,
+	        height: 320,
+	        gutterLeft: 50,
+	        gutterRight: 20,
+	        gutterTop: 20,
+	        gutterBottom: 30,
+	        color: d3.scale.category20c()
+	    };
+	    return Component;
+	}(React.Component));
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = Component;
+
+
+/***/ },
+
+/***/ 362:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var React = __webpack_require__(3);
+	var d3 = __webpack_require__(356);
+	var d3tip_1 = __webpack_require__(357);
+	var Chart = (function () {
+	    //duration:number = 300;
+	    //color:d3.scale.Ordinal<string, string>;
+	    //g:d3.Selection<Data>;
+	    //pie:d3.layout.Pie;
+	    //arc:d3.svg.Arc;
+	    //easeOut:(t:number)=>number;
+	    //easeIn:(t:number)=>number;
+	    //prev:d3.Selection<any>;
+	    //constructor(private svg:d3.Selection<any>,
+	    //            private RADIUS:number) {
+	    //  this.color = d3.scale.category20c();
+	    //  this.pie = d3.layout.pie().value((d:any) => d.Data1).sort(null);
+	    //  this.arc = d3.svg.arc().outerRadius(RADIUS - 20).innerRadius(RADIUS - 60);
+	    //
+	    //  this.svg.attr({
+	    //    width: this.RADIUS * 2,
+	    //    height: this.RADIUS * 2
+	    //  });
+	    //
+	    //  this.g = this.svg.append('g').attr('transform', `translate(${this.RADIUS}, ${this.RADIUS})`);
+	    //  this.easeIn = d3.ease('quad-in');
+	    //  this.easeOut = d3.ease('quad-out');
+	    //}
+	    function Chart(svg) {
+	        this.svg = svg;
+	        this._svg = d3.select(svg);
+	        this._g = this._svg.append('g');
+	        this._easeIn = d3.ease('quad-in');
+	        this._easeOut = d3.ease('quad-out');
+	        this._invalidated = true;
+	    }
+	    Chart.prototype.invalidate = function () {
+	        this._invalidated = true;
+	    };
+	    Chart.prototype.update = function (data) {
+	        var _this = this;
+	        if (this._invalidated) {
+	            this._svg.attr({ width: this.width, height: this.height });
+	            this._radius = Math.floor(d3.min([this.width, this.height]) / 2);
+	            this._pie = d3.layout.pie().value(function (d) { return d.Data1; }).sort(null);
+	            this._arc = d3.svg.arc().outerRadius(this._radius - 20).innerRadius(this._radius - 60);
+	            this._g.attr('transform', "translate(" + this.width / 2 + ", " + this.height / 2 + ")");
+	            this._invalidated = false;
+	        }
+	        var pieData = this._pie(data);
+	        var arc = this._arc;
+	        if (this._prev) {
+	            this._prev
+	                .transition()
+	                .duration(this.duration)
+	                .tween('exit arc', function () {
+	                var selection = d3.select(this);
+	                return function (t) {
+	                    var r = 1 - t;
+	                    var a = (Math.PI * 2) - (Math.PI * 2 * r);
+	                    selection.attr('d', function (d, i) {
+	                        var start = (d.startAngle * r) + a;
+	                        var end = (d.endAngle * r) + a;
+	                        return arc.startAngle(start).endAngle(end)(d, i);
+	                    });
+	                };
+	            })
+	                .remove();
+	        }
+	        var path = this._g
+	            .selectAll('.path')
+	            .data(pieData)
+	            .enter()
+	            .append('path')
+	            .attr('fill', function (d) { return _this.color(d.data.Category); })
+	            .call(d3tip_1.default({
+	            html: function (d) { return ("<h5>" + d.data.Category + "</h5>" + d.data.Data1); }
+	        }));
+	        path.transition()
+	            .duration(this.duration)
+	            .tween('entry arc', function () {
+	            var selection = d3.select(this);
+	            return function (t) {
+	                selection.attr('d', function (d, i) {
+	                    var start = d.startAngle * t;
+	                    var end = d.endAngle * t;
+	                    return arc.startAngle(start).endAngle(end)(d, i);
+	                });
+	            };
+	        });
+	        this._prev = path;
+	    };
+	    return Chart;
+	}());
+	var Component = (function (_super) {
+	    __extends(Component, _super);
+	    function Component(props, context) {
+	        _super.call(this, props, context);
+	    }
+	    Component.prototype.render = function () {
+	        return (React.createElement("svg", {className: "basic-chart-bubble", ref: "svg"}));
+	    };
+	    Component.prototype.bind = function (props) {
+	        var chart = this.chart;
+	        chart.duration = props.duration;
+	        chart.delay = props.delay;
+	        chart.width = props.width;
+	        chart.height = props.height;
+	        chart.color = props.color;
+	        chart.invalidate();
+	    };
+	    Component.prototype.componentDidMount = function () {
+	        this.chart = new Chart(this.refs['svg']);
+	        this.bind(this.props);
+	    };
+	    Component.prototype.componentWillUnmount = function () {
+	        this.chart = null;
+	    };
+	    Component.prototype.shouldComponentUpdate = function (nextProps, nextState, nextContext) {
+	        if (this.props.duration !== nextProps.duration
+	            || this.props.delay !== nextProps.delay
+	            || this.props.width !== nextProps.width
+	            || this.props.height !== nextProps.height
+	            || this.props.color !== nextProps.color) {
+	            this.bind(nextProps);
+	        }
+	        if (this.props.data !== nextProps.data) {
+	            this.chart.update(nextProps.data);
+	        }
+	        return false;
+	    };
+	    Component.defaultProps = {
+	        duration: 300,
+	        delay: 40,
+	        width: 540,
+	        height: 320,
+	        color: d3.scale.category20c()
+	    };
+	    return Component;
+	}(React.Component));
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = Component;
+
+
+/***/ },
+
+/***/ 363:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(354);
+	var content = __webpack_require__(364);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(356)(content, {});
+	var update = __webpack_require__(366)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./basic-chart-bar.less", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./basic-chart-bar.less");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./basic-charts.less", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./basic-charts.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -1025,22 +1600,22 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 354:
+/***/ 364:
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(355)();
+	exports = module.exports = __webpack_require__(365)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "svg.basic-chart-bar text {\n  font-size: 10px;\n}\n", ""]);
+	exports.push([module.id, "div.basic-charts svg g.axis text {\n  font-size: 10px;\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
 
-/***/ 355:
+/***/ 365:
 /***/ function(module, exports) {
 
 	/*
@@ -1097,7 +1672,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 356:
+/***/ 366:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -1352,13 +1927,13 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 357:
+/***/ 367:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var React = __webpack_require__(3);
-	var react_router_1 = __webpack_require__(178);
-	var routeConfig_1 = __webpack_require__(237);
+	var react_router_1 = __webpack_require__(181);
+	var routeConfig_1 = __webpack_require__(243);
 	exports.Menu = function () {
 	    var indexLink = (React.createElement("li", {key: routeConfig_1.indexRoute.title, className: "nav-item"}, React.createElement(react_router_1.IndexLink, {className: "nav-link", to: "/", activeClassName: "active"}, routeConfig_1.indexRoute.title)));
 	    var childLinks = routeConfig_1.childRoutes.map(function (route) { return (React.createElement("li", {key: route.title, className: "nav-item"}, React.createElement(react_router_1.Link, {className: "nav-link", to: route.path, activeClassName: "active"}, route.title))); });
@@ -1372,16 +1947,16 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 358:
+/***/ 368:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(359);
+	var content = __webpack_require__(369);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(356)(content, {});
+	var update = __webpack_require__(366)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -1399,10 +1974,10 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 359:
+/***/ 369:
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(355)();
+	exports = module.exports = __webpack_require__(365)();
 	// imports
 	
 	
