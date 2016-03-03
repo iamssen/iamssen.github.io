@@ -785,8 +785,8 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var d3 = __webpack_require__(356);
-	var bar_1 = __webpack_require__(355);
+	var d3 = __webpack_require__(355);
+	var bar_1 = __webpack_require__(356);
 	var column_1 = __webpack_require__(359);
 	var bubble_1 = __webpack_require__(360);
 	var line_1 = __webpack_require__(361);
@@ -845,7 +845,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 355:
+/***/ 356:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -855,7 +855,7 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var d3 = __webpack_require__(356);
+	var d3 = __webpack_require__(355);
 	var d3tip_1 = __webpack_require__(357);
 	var Component = (function (_super) {
 	    __extends(Component, _super);
@@ -995,97 +995,8 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var d3 = __webpack_require__(356);
+	var d3 = __webpack_require__(355);
 	var d3tip_1 = __webpack_require__(357);
-	var Chart = (function () {
-	    function Chart(svg) {
-	        this.svg = svg;
-	        this._svg = d3.select(svg);
-	        this._g = this._svg.append('g');
-	        this._x = this._g.append('g').attr('class', 'axis axis-x');
-	        this._y = this._g.append('g').attr('class', 'axis axis-y');
-	        this._easeIn = d3.ease('quad-in');
-	        this._easeOut = d3.ease('quad-out');
-	        this._invalidated = true;
-	    }
-	    Chart.prototype.invalidate = function () {
-	        this._invalidated = true;
-	    };
-	    Chart.prototype.update = function (data) {
-	        var _this = this;
-	        if (this._invalidated) {
-	            this._svg.attr({ width: this.width, height: this.height });
-	            this._width = this.width - this.gutterLeft - this.gutterRight;
-	            this._height = this.height - this.gutterTop - this.gutterBottom;
-	            this._g.attr('transform', "translate(" + this.gutterLeft + ", " + this.gutterTop + ")");
-	            this._x.attr('transform', "translate(0, " + this._height + ")");
-	            this._y.attr('transform', "translate(0, 0)");
-	            this._invalidated = false;
-	        }
-	        var ymax = d3.max(data, function (d) { return d.Data1; });
-	        var xscale = d3.scale.ordinal().rangeRoundBands([0, this._width]).domain(data.map(function (d) { return d.Category; }));
-	        var yscale = d3.scale.linear().rangeRound([this._height, 0]).domain([0, ymax]).nice();
-	        var rects = this._g.selectAll('rect').data(data);
-	        // update existing nodes
-	        rects
-	            .transition()
-	            .duration(this.duration)
-	            .delay(function (d, i) { return _this.delay * i; })
-	            .ease(this._easeOut)
-	            .attr({
-	            fill: function (d) { return _this.color(d.Category); },
-	            x: function (d) { return xscale(d.Category); },
-	            y: function (d) { return yscale(d.Data1); },
-	            width: function (d) { return xscale.rangeBand(); },
-	            height: function (d) { return _this._height - yscale(d.Data1); }
-	        });
-	        // remove ramaining nodes
-	        rects
-	            .exit()
-	            .transition()
-	            .duration(this.duration)
-	            .delay(function (d, i) { return _this.delay * i; })
-	            .ease(this._easeIn)
-	            .attr({
-	            opacity: 0,
-	            x: this.width,
-	            y: this._height,
-	            width: 0,
-	            height: 0
-	        })
-	            .remove();
-	        // create additional nodes
-	        rects
-	            .enter()
-	            .append('rect')
-	            .attr({
-	            fill: function (d) { return _this.color(d.Category); },
-	            opacity: 0,
-	            x: function (d) { return xscale(d.Category); },
-	            y: this._height,
-	            width: function (d) { return xscale.rangeBand(); },
-	            height: 0
-	        })
-	            .call(d3tip_1.default({
-	            html: function (d) { return ("<h5>" + d.Category + "</h5>" + d.Data1); }
-	        }))
-	            .transition()
-	            .duration(this.duration)
-	            .delay(function (d, i) { return _this.delay * i; })
-	            .ease(this._easeOut)
-	            .attr({
-	            opacity: 1,
-	            y: function (d) { return yscale(d.Data1); },
-	            height: function (d) { return _this._height - yscale(d.Data1); }
-	        });
-	        // draw axis
-	        var xaxis = d3.svg.axis().scale(xscale).orient('bottom');
-	        var yaxis = d3.svg.axis().scale(yscale).orient('left');
-	        this._x.call(xaxis);
-	        this._y.call(yaxis);
-	    };
-	    return Chart;
-	}());
 	var Component = (function (_super) {
 	    __extends(Component, _super);
 	    function Component(props, context) {
@@ -1094,40 +1005,109 @@ webpackJsonp([0],{
 	    Component.prototype.render = function () {
 	        return (React.createElement("svg", {className: "basic-chart-column", ref: "svg"}));
 	    };
-	    Component.prototype.bind = function (props) {
-	        var chart = this.chart;
-	        chart.duration = props.duration;
-	        chart.delay = props.delay;
-	        chart.width = props.width;
-	        chart.height = props.height;
-	        chart.gutterLeft = props.gutterLeft;
-	        chart.gutterRight = props.gutterRight;
-	        chart.gutterTop = props.gutterTop;
-	        chart.gutterBottom = props.gutterBottom;
-	        chart.color = props.color;
-	        chart.invalidate();
+	    Component.prototype.draw = function (props, drawTransition) {
+	        var _this = this;
+	        var data = props.data;
+	        var ymax = d3.max(data, function (d) { return d.Data1; });
+	        var xscale = d3.scale.ordinal().rangeRoundBands([0, this._width]).domain(data.map(function (d) { return d.Category; }));
+	        var yscale = d3.scale.linear().rangeRound([this._height, 0]).domain([0, ymax]).nice();
+	        var rects = this._g.selectAll('rect').data(data);
+	        // update
+	        (!drawTransition ? rects : rects
+	            .transition()
+	            .duration(props.duration)
+	            .delay(function (d, i) { return props.delay * i; })
+	            .ease(this._easeOut)) // end transition
+	            .attr({
+	            fill: function (d) { return props.color(d.Category); },
+	            x: function (d) { return xscale(d.Category); },
+	            y: function (d) { return yscale(d.Data1); },
+	            width: function (d) { return xscale.rangeBand(); },
+	            height: function (d) { return _this._height - yscale(d.Data1); }
+	        });
+	        // exit
+	        (!drawTransition ? rects.exit() : rects.exit()
+	            .transition()
+	            .duration(props.duration)
+	            .delay(function (d, i) { return props.delay * i; })
+	            .ease(this._easeIn)
+	            .attr({
+	            opacity: 0,
+	            x: props.width,
+	            y: this._height,
+	            width: 0,
+	            height: 0
+	        })) // end transition
+	            .remove();
+	        // enter
+	        var enter = rects.enter()
+	            .append('rect')
+	            .call(d3tip_1.default({
+	            html: function (d) { return ("<h5>" + d.Category + "</h5>" + d.Data1); }
+	        }));
+	        (!drawTransition ? enter : enter
+	            .attr({
+	            fill: function (d) { return props.color(d.Category); },
+	            opacity: 0,
+	            x: function (d) { return xscale(d.Category); },
+	            y: this._height,
+	            width: function (d) { return xscale.rangeBand(); },
+	            height: 0
+	        })
+	            .transition()
+	            .duration(props.duration)
+	            .delay(function (d, i) { return props.delay * i; })
+	            .ease(this._easeOut)) // end transition
+	            .attr({
+	            fill: function (d) { return props.color(d.Category); },
+	            opacity: 1,
+	            x: function (d) { return xscale(d.Category); },
+	            y: function (d) { return yscale(d.Data1); },
+	            width: function (d) { return xscale.rangeBand(); },
+	            height: function (d) { return _this._height - yscale(d.Data1); }
+	        });
+	        // draw axis
+	        var xaxis = d3.svg.axis().scale(xscale).orient('bottom');
+	        var yaxis = d3.svg.axis().scale(yscale).orient('left');
+	        this._x.call(xaxis);
+	        this._y.call(yaxis);
 	    };
 	    Component.prototype.componentDidMount = function () {
-	        this.chart = new Chart(this.refs['svg']);
-	        this.bind(this.props);
+	        this._svg = d3.select(this.refs['svg']);
+	        this._g = this._svg.append('g');
+	        this._x = this._g.append('g').attr('class', 'axis axis-x');
+	        this._y = this._g.append('g').attr('class', 'axis axis-y');
+	        this._easeIn = d3.ease('quad-in');
+	        this._easeOut = d3.ease('quad-out');
 	    };
-	    Component.prototype.componentWillUnmount = function () {
-	        this.chart = null;
-	    };
+	    //componentWillUnmount():void {
+	    //  this.chart = null;
+	    //}
 	    Component.prototype.shouldComponentUpdate = function (nextProps, nextState, nextContext) {
-	        if (this.props.duration !== nextProps.duration
-	            || this.props.delay !== nextProps.delay
-	            || this.props.width !== nextProps.width
-	            || this.props.height !== nextProps.height
-	            || this.props.gutterLeft !== nextProps.gutterLeft
-	            || this.props.gutterRight !== nextProps.gutterRight
-	            || this.props.gutterTop !== nextProps.gutterTop
-	            || this.props.gutterBottom !== nextProps.gutterBottom
-	            || this.props.color !== nextProps.color) {
-	            this.bind(nextProps);
+	        var currentProps = this.props;
+	        if (!this._width || !this._height
+	            || currentProps.width !== nextProps.width
+	            || currentProps.height !== nextProps.height
+	            || currentProps.gutterLeft !== nextProps.gutterLeft
+	            || currentProps.gutterRight !== nextProps.gutterRight
+	            || currentProps.gutterTop !== nextProps.gutterTop
+	            || currentProps.gutterBottom !== nextProps.gutterBottom) {
+	            this._svg.attr({ width: nextProps.width, height: nextProps.height });
+	            this._width = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
+	            this._height = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
+	            this._g.attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
+	            this._x.attr('transform', "translate(0, " + this._height + ")");
+	            this._y.attr('transform', "translate(0, 0)");
 	        }
-	        if (this.props.data !== nextProps.data) {
-	            this.chart.update(nextProps.data);
+	        if (currentProps.width !== nextProps.width
+	            || currentProps.height !== nextProps.height
+	            || currentProps.gutterLeft !== nextProps.gutterLeft
+	            || currentProps.gutterRight !== nextProps.gutterRight
+	            || currentProps.gutterTop !== nextProps.gutterTop
+	            || currentProps.gutterBottom !== nextProps.gutterBottom
+	            || currentProps.color !== nextProps.color
+	            || currentProps.data !== nextProps.data) {
+	            this.draw(nextProps, currentProps.data !== nextProps.data);
 	        }
 	        return false;
 	    };
@@ -1160,7 +1140,7 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var d3 = __webpack_require__(356);
+	var d3 = __webpack_require__(355);
 	var d3tip_1 = __webpack_require__(357);
 	var Component = (function (_super) {
 	    __extends(Component, _super);
@@ -1199,6 +1179,7 @@ webpackJsonp([0],{
 	            .call(d3tip_1.default({
 	            html: function (d) { return ("<h5>" + d.Category + "</h5>" + d.Data1 + "<br/>" + d.Data2 + "<br/>" + d.Data3); }
 	        }));
+	        //noinspection TypeScriptValidateTypes
 	        (!drawTransition ? this._bubbles : this._bubbles
 	            .attr({
 	            fill: function (d) { return props.color(d.Category); },
@@ -1291,31 +1272,17 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var d3 = __webpack_require__(356);
-	var Chart = (function () {
-	    function Chart(svg) {
-	        this.svg = svg;
-	        this._svg = d3.select(svg);
-	        this._g = this._svg.append('g');
-	        this._x = this._g.append('g').attr('class', 'axis axis-x');
-	        this._y = this._g.append('g').attr('class', 'axis axis-y');
-	        this._easeIn = d3.ease('quad-in');
-	        this._easeOut = d3.ease('quad-out');
-	        this._invalidated = true;
+	var d3 = __webpack_require__(355);
+	var Component = (function (_super) {
+	    __extends(Component, _super);
+	    function Component(props, context) {
+	        _super.call(this, props, context);
 	    }
-	    Chart.prototype.invalidate = function () {
-	        this._invalidated = true;
+	    Component.prototype.render = function () {
+	        return (React.createElement("svg", {className: "basic-chart-bubble", ref: "svg"}));
 	    };
-	    Chart.prototype.update = function (data) {
-	        if (this._invalidated) {
-	            this._svg.attr({ width: this.width, height: this.height });
-	            this._width = this.width - this.gutterLeft - this.gutterRight;
-	            this._height = this.height - this.gutterTop - this.gutterBottom;
-	            this._g.attr('transform', "translate(" + this.gutterLeft + ", " + this.gutterTop + ")");
-	            this._x.attr('transform', "translate(0, " + this._height + ")");
-	            this._y.attr('transform', "translate(0, 0)");
-	            this._invalidated = false;
-	        }
+	    Component.prototype.draw = function (props, drawTransition) {
+	        var data = props.data;
 	        var ymax = d3.max(data, function (d) { return d.Data1; });
 	        var xscale = d3.scale.ordinal().rangeRoundBands([0, this._width]).domain(data.map(function (d) { return d.Category; }));
 	        var yscale = d3.scale.linear().rangeRound([this._height, 0]).domain([0, ymax]).nice();
@@ -1326,77 +1293,68 @@ webpackJsonp([0],{
 	            var line0 = d3.svg.line()
 	                .x(function (d, i) { return xscale(d.Category) + (xscale.rangeBand() / 2); })
 	                .y(function (d, i) { return yscale.range()[0]; });
-	            this._path1 = this._g
-	                .append('path')
-	                .attr({
-	                fill: 'none',
-	                stroke: this.color('line1'),
-	                'stroke-width': '4px',
-	                'stroke-linecap': 'round',
-	                'stroke-linejoin': 'round'
-	            });
-	            this._path1
-	                .datum(data)
+	            this._path1 = this._g.append('path');
+	            //noinspection TypeScriptValidateTypes
+	            (!drawTransition ? this._path1.datum(data) : this._path1.datum(data)
 	                .attr('d', line0)
-	                .transition()
+	                .transition()) // end transition
 	                .attr('d', line1);
 	        }
 	        else {
-	            this._path1
-	                .datum(data)
-	                .transition()
+	            //noinspection TypeScriptValidateTypes
+	            (!drawTransition ? this._path1.datum(data) : this._path1.datum(data)
+	                .transition()) // end transition
 	                .attr('d', line1);
 	        }
+	        this._path1.attr({
+	            fill: 'none',
+	            stroke: props.color('line1'),
+	            'stroke-width': '4px',
+	            'stroke-linecap': 'round',
+	            'stroke-linejoin': 'round'
+	        });
 	        // draw axis
 	        var xaxis = d3.svg.axis().scale(xscale).orient('bottom');
 	        var yaxis = d3.svg.axis().scale(yscale).orient('left');
 	        this._x.call(xaxis);
 	        this._y.call(yaxis);
 	    };
-	    return Chart;
-	}());
-	var Component = (function (_super) {
-	    __extends(Component, _super);
-	    function Component(props, context) {
-	        _super.call(this, props, context);
-	    }
-	    Component.prototype.render = function () {
-	        return (React.createElement("svg", {className: "basic-chart-bubble", ref: "svg"}));
-	    };
-	    Component.prototype.bind = function (props) {
-	        var chart = this.chart;
-	        chart.duration = props.duration;
-	        chart.delay = props.delay;
-	        chart.width = props.width;
-	        chart.height = props.height;
-	        chart.gutterLeft = props.gutterLeft;
-	        chart.gutterRight = props.gutterRight;
-	        chart.gutterTop = props.gutterTop;
-	        chart.gutterBottom = props.gutterBottom;
-	        chart.color = props.color;
-	        chart.invalidate();
-	    };
 	    Component.prototype.componentDidMount = function () {
-	        this.chart = new Chart(this.refs['svg']);
-	        this.bind(this.props);
+	        this._svg = d3.select(this.refs['svg']);
+	        this._g = this._svg.append('g');
+	        this._x = this._g.append('g').attr('class', 'axis axis-x');
+	        this._y = this._g.append('g').attr('class', 'axis axis-y');
+	        this._easeIn = d3.ease('quad-in');
+	        this._easeOut = d3.ease('quad-out');
 	    };
-	    Component.prototype.componentWillUnmount = function () {
-	        this.chart = null;
-	    };
+	    //componentWillUnmount():void {
+	    //  this.chart = null;
+	    //}
 	    Component.prototype.shouldComponentUpdate = function (nextProps, nextState, nextContext) {
-	        if (this.props.duration !== nextProps.duration
-	            || this.props.delay !== nextProps.delay
-	            || this.props.width !== nextProps.width
-	            || this.props.height !== nextProps.height
-	            || this.props.gutterLeft !== nextProps.gutterLeft
-	            || this.props.gutterRight !== nextProps.gutterRight
-	            || this.props.gutterTop !== nextProps.gutterTop
-	            || this.props.gutterBottom !== nextProps.gutterBottom
-	            || this.props.color !== nextProps.color) {
-	            this.bind(nextProps);
+	        var currentProps = this.props;
+	        if (!this._width || !this._height
+	            || currentProps.width !== nextProps.width
+	            || currentProps.height !== nextProps.height
+	            || currentProps.gutterLeft !== nextProps.gutterLeft
+	            || currentProps.gutterRight !== nextProps.gutterRight
+	            || currentProps.gutterTop !== nextProps.gutterTop
+	            || currentProps.gutterBottom !== nextProps.gutterBottom) {
+	            this._svg.attr({ width: nextProps.width, height: nextProps.height });
+	            this._width = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
+	            this._height = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
+	            this._g.attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
+	            this._x.attr('transform', "translate(0, " + this._height + ")");
+	            this._y.attr('transform', "translate(0, 0)");
 	        }
-	        if (this.props.data !== nextProps.data) {
-	            this.chart.update(nextProps.data);
+	        if (currentProps.width !== nextProps.width
+	            || currentProps.height !== nextProps.height
+	            || currentProps.gutterLeft !== nextProps.gutterLeft
+	            || currentProps.gutterRight !== nextProps.gutterRight
+	            || currentProps.gutterTop !== nextProps.gutterTop
+	            || currentProps.gutterBottom !== nextProps.gutterBottom
+	            || currentProps.color !== nextProps.color
+	            || currentProps.data !== nextProps.data) {
+	            this.draw(nextProps, currentProps.data !== nextProps.data);
 	        }
 	        return false;
 	    };
@@ -1429,59 +1387,24 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var d3 = __webpack_require__(356);
+	var d3 = __webpack_require__(355);
 	var d3tip_1 = __webpack_require__(357);
-	var Chart = (function () {
-	    //duration:number = 300;
-	    //color:d3.scale.Ordinal<string, string>;
-	    //g:d3.Selection<Data>;
-	    //pie:d3.layout.Pie;
-	    //arc:d3.svg.Arc;
-	    //easeOut:(t:number)=>number;
-	    //easeIn:(t:number)=>number;
-	    //prev:d3.Selection<any>;
-	    //constructor(private svg:d3.Selection<any>,
-	    //            private RADIUS:number) {
-	    //  this.color = d3.scale.category20c();
-	    //  this.pie = d3.layout.pie().value((d:any) => d.Data1).sort(null);
-	    //  this.arc = d3.svg.arc().outerRadius(RADIUS - 20).innerRadius(RADIUS - 60);
-	    //
-	    //  this.svg.attr({
-	    //    width: this.RADIUS * 2,
-	    //    height: this.RADIUS * 2
-	    //  });
-	    //
-	    //  this.g = this.svg.append('g').attr('transform', `translate(${this.RADIUS}, ${this.RADIUS})`);
-	    //  this.easeIn = d3.ease('quad-in');
-	    //  this.easeOut = d3.ease('quad-out');
-	    //}
-	    function Chart(svg) {
-	        this.svg = svg;
-	        this._svg = d3.select(svg);
-	        this._g = this._svg.append('g');
-	        this._easeIn = d3.ease('quad-in');
-	        this._easeOut = d3.ease('quad-out');
-	        this._invalidated = true;
+	var Component = (function (_super) {
+	    __extends(Component, _super);
+	    function Component(props, context) {
+	        _super.call(this, props, context);
 	    }
-	    Chart.prototype.invalidate = function () {
-	        this._invalidated = true;
+	    Component.prototype.render = function () {
+	        return (React.createElement("svg", {className: "basic-chart-bubble", ref: "svg"}));
 	    };
-	    Chart.prototype.update = function (data) {
-	        var _this = this;
-	        if (this._invalidated) {
-	            this._svg.attr({ width: this.width, height: this.height });
-	            this._radius = Math.floor(d3.min([this.width, this.height]) / 2);
-	            this._pie = d3.layout.pie().value(function (d) { return d.Data1; }).sort(null);
-	            this._arc = d3.svg.arc().outerRadius(this._radius - 20).innerRadius(this._radius - 60);
-	            this._g.attr('transform', "translate(" + this.width / 2 + ", " + this.height / 2 + ")");
-	            this._invalidated = false;
-	        }
+	    Component.prototype.draw = function (props, drawTransition) {
+	        var data = props.data;
 	        var pieData = this._pie(data);
 	        var arc = this._arc;
 	        if (this._prev) {
-	            this._prev
+	            (!drawTransition ? this._prev : this._prev
 	                .transition()
-	                .duration(this.duration)
+	                .duration(props.duration)
 	                .tween('exit arc', function () {
 	                var selection = d3.select(this);
 	                return function (t) {
@@ -1493,7 +1416,7 @@ webpackJsonp([0],{
 	                        return arc.startAngle(start).endAngle(end)(d, i);
 	                    });
 	                };
-	            })
+	            })) // end transition
 	                .remove();
 	        }
 	        var path = this._g
@@ -1501,60 +1424,55 @@ webpackJsonp([0],{
 	            .data(pieData)
 	            .enter()
 	            .append('path')
-	            .attr('fill', function (d) { return _this.color(d.data.Category); })
+	            .attr('fill', function (d) { return props.color(d.data.Category); })
 	            .call(d3tip_1.default({
 	            html: function (d) { return ("<h5>" + d.data.Category + "</h5>" + d.data.Data1); }
 	        }));
-	        path.transition()
-	            .duration(this.duration)
-	            .tween('entry arc', function () {
-	            var selection = d3.select(this);
-	            return function (t) {
-	                selection.attr('d', function (d, i) {
-	                    var start = d.startAngle * t;
-	                    var end = d.endAngle * t;
-	                    return arc.startAngle(start).endAngle(end)(d, i);
-	                });
-	            };
-	        });
+	        if (drawTransition) {
+	            path
+	                .transition()
+	                .duration(props.duration)
+	                .tween('entry arc', function () {
+	                var selection = d3.select(this);
+	                return function (t) {
+	                    selection.attr('d', function (d, i) {
+	                        var start = d.startAngle * t;
+	                        var end = d.endAngle * t;
+	                        return arc.startAngle(start).endAngle(end)(d, i);
+	                    });
+	                };
+	            });
+	        }
+	        else {
+	            path.attr('d', function (d, i) { return arc.startAngle(d.startAngle).endAngle(d.endAngle)(d, i); });
+	        }
 	        this._prev = path;
 	    };
-	    return Chart;
-	}());
-	var Component = (function (_super) {
-	    __extends(Component, _super);
-	    function Component(props, context) {
-	        _super.call(this, props, context);
-	    }
-	    Component.prototype.render = function () {
-	        return (React.createElement("svg", {className: "basic-chart-bubble", ref: "svg"}));
-	    };
-	    Component.prototype.bind = function (props) {
-	        var chart = this.chart;
-	        chart.duration = props.duration;
-	        chart.delay = props.delay;
-	        chart.width = props.width;
-	        chart.height = props.height;
-	        chart.color = props.color;
-	        chart.invalidate();
-	    };
 	    Component.prototype.componentDidMount = function () {
-	        this.chart = new Chart(this.refs['svg']);
-	        this.bind(this.props);
+	        this._svg = d3.select(this.refs['svg']);
+	        this._g = this._svg.append('g');
+	        this._easeIn = d3.ease('quad-in');
+	        this._easeOut = d3.ease('quad-out');
 	    };
-	    Component.prototype.componentWillUnmount = function () {
-	        this.chart = null;
-	    };
+	    //componentWillUnmount():void {
+	    //  this.chart = null;
+	    //}
 	    Component.prototype.shouldComponentUpdate = function (nextProps, nextState, nextContext) {
-	        if (this.props.duration !== nextProps.duration
-	            || this.props.delay !== nextProps.delay
-	            || this.props.width !== nextProps.width
-	            || this.props.height !== nextProps.height
-	            || this.props.color !== nextProps.color) {
-	            this.bind(nextProps);
+	        var currentProps = this.props;
+	        if (!this._svg.attr('width')
+	            || currentProps.width !== nextProps.width
+	            || currentProps.height !== nextProps.height) {
+	            this._svg.attr({ width: nextProps.width, height: nextProps.height });
+	            this._radius = Math.floor(d3.min([nextProps.width, nextProps.height]) / 2);
+	            this._pie = d3.layout.pie().value(function (d) { return d.Data1; }).sort(null);
+	            this._arc = d3.svg.arc().outerRadius(this._radius - 20).innerRadius(this._radius - 60);
+	            this._g.attr('transform', "translate(" + nextProps.width / 2 + ", " + nextProps.height / 2 + ")");
 	        }
-	        if (this.props.data !== nextProps.data) {
-	            this.chart.update(nextProps.data);
+	        if (currentProps.width !== nextProps.width
+	            || currentProps.height !== nextProps.height
+	            || currentProps.color !== nextProps.color
+	            || currentProps.data !== nextProps.data) {
+	            this.draw(nextProps, currentProps.data !== nextProps.data);
 	        }
 	        return false;
 	    };
