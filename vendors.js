@@ -99,7 +99,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	__webpack_require__(370);
+	__webpack_require__(371);
 	__webpack_require__(355);
 	__webpack_require__(357);
 	__webpack_require__(358);
@@ -109,10 +109,10 @@
 	__webpack_require__(159);
 	__webpack_require__(160);
 	__webpack_require__(181);
-	__webpack_require__(374);
+	__webpack_require__(375);
 	__webpack_require__(166);
 	__webpack_require__(241);
-	module.exports = __webpack_require__(379);
+	module.exports = __webpack_require__(380);
 
 
 /***/ },
@@ -63087,7 +63087,8 @@
 /* 367 */,
 /* 368 */,
 /* 369 */,
-/* 370 */
+/* 370 */,
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63128,7 +63129,7 @@
 	
 	exports.useBasename = _useBasename3['default'];
 	
-	var _useBeforeUnload2 = __webpack_require__(371);
+	var _useBeforeUnload2 = __webpack_require__(372);
 	
 	var _useBeforeUnload3 = _interopRequireDefault(_useBeforeUnload2);
 	
@@ -63148,13 +63149,13 @@
 	
 	// deprecated
 	
-	var _enableBeforeUnload2 = __webpack_require__(372);
+	var _enableBeforeUnload2 = __webpack_require__(373);
 	
 	var _enableBeforeUnload3 = _interopRequireDefault(_enableBeforeUnload2);
 	
 	exports.enableBeforeUnload = _enableBeforeUnload3['default'];
 	
-	var _enableQueries2 = __webpack_require__(373);
+	var _enableQueries2 = __webpack_require__(374);
 	
 	var _enableQueries3 = _interopRequireDefault(_enableQueries2);
 	
@@ -63163,7 +63164,7 @@
 	exports.createLocation = createLocation;
 
 /***/ },
-/* 371 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63279,7 +63280,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 372 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63292,7 +63293,7 @@
 	
 	var _deprecate2 = _interopRequireDefault(_deprecate);
 	
-	var _useBeforeUnload = __webpack_require__(371);
+	var _useBeforeUnload = __webpack_require__(372);
 	
 	var _useBeforeUnload2 = _interopRequireDefault(_useBeforeUnload);
 	
@@ -63300,7 +63301,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 373 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63321,7 +63322,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 374 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63331,7 +63332,7 @@
 	});
 	exports.routerMiddleware = exports.routerActions = exports.goForward = exports.goBack = exports.go = exports.replace = exports.push = exports.CALL_HISTORY_METHOD = exports.routerReducer = exports.LOCATION_CHANGE = exports.syncHistoryWithStore = undefined;
 	
-	var _reducer = __webpack_require__(375);
+	var _reducer = __webpack_require__(376);
 	
 	Object.defineProperty(exports, 'LOCATION_CHANGE', {
 	  enumerable: true,
@@ -63346,7 +63347,7 @@
 	  }
 	});
 	
-	var _actions = __webpack_require__(376);
+	var _actions = __webpack_require__(377);
 	
 	Object.defineProperty(exports, 'CALL_HISTORY_METHOD', {
 	  enumerable: true,
@@ -63391,11 +63392,11 @@
 	  }
 	});
 	
-	var _sync = __webpack_require__(377);
+	var _sync = __webpack_require__(378);
 	
 	var _sync2 = _interopRequireDefault(_sync);
 	
-	var _middleware = __webpack_require__(378);
+	var _middleware = __webpack_require__(379);
 	
 	var _middleware2 = _interopRequireDefault(_middleware);
 	
@@ -63405,7 +63406,7 @@
 	exports.routerMiddleware = _middleware2.default;
 
 /***/ },
-/* 375 */
+/* 376 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -63447,7 +63448,7 @@
 	}
 
 /***/ },
-/* 376 */
+/* 377 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -63489,7 +63490,7 @@
 	var routerActions = exports.routerActions = { push: push, replace: replace, go: go, goBack: goBack, goForward: goForward };
 
 /***/ },
-/* 377 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63502,7 +63503,7 @@
 	
 	exports.default = syncHistoryWithStore;
 	
-	var _reducer = __webpack_require__(375);
+	var _reducer = __webpack_require__(376);
 	
 	var defaultSelectLocationState = function defaultSelectLocationState(state) {
 	  return state.routing;
@@ -63641,7 +63642,7 @@
 	}
 
 /***/ },
-/* 378 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63651,7 +63652,7 @@
 	});
 	exports.default = routerMiddleware;
 	
-	var _actions = __webpack_require__(376);
+	var _actions = __webpack_require__(377);
 	
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 	
@@ -63679,7 +63680,7 @@
 	}
 
 /***/ },
-/* 379 */
+/* 380 */
 /***/ function(module, exports) {
 
 	(function(self) {
