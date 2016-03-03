@@ -80,6 +80,7 @@ export default class Component extends React.Component<Props, any> {
         html: (d:Data) => `<h5>${d.Category}</h5>${d.Data1}<br/>${d.Data2}<br/>${d.Data3}`
       }));
 
+    //noinspection TypeScriptValidateTypes
     (!drawTransition ? this._bubbles : this._bubbles
       .attr({
         fill: d => props.color(d.Category),
