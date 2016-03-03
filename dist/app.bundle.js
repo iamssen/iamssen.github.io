@@ -13,8 +13,8 @@ webpackJsonp([0],{
 	var react_router_1 = __webpack_require__(181);
 	var store_1 = __webpack_require__(240);
 	var routeConfig_1 = __webpack_require__(243);
-	var components_1 = __webpack_require__(367);
-	__webpack_require__(368);
+	var components_1 = __webpack_require__(368);
+	__webpack_require__(369);
 	function onUpdateHook() {
 	    var args = [];
 	    for (var _i = 0; _i < arguments.length; _i++) {
@@ -791,22 +791,28 @@ webpackJsonp([0],{
 	var bubble_1 = __webpack_require__(360);
 	var line_1 = __webpack_require__(361);
 	var pie_1 = __webpack_require__(362);
-	__webpack_require__(363);
+	var radar_1 = __webpack_require__(363);
+	__webpack_require__(364);
 	var colors = [
 	    d3.scale.category10(),
 	    d3.scale.category20(),
 	    d3.scale.category20b(),
 	    d3.scale.category20c()
 	];
+	var sizes = [
+	    [540, 320],
+	    [450, 270],
+	    [400, 240]
+	];
 	var BasicCharts = (function (_super) {
 	    __extends(BasicCharts, _super);
 	    function BasicCharts(props, context) {
 	        _super.call(this, props, context);
-	        this.state = { data: null, color: colors[0] };
+	        this.state = { data: null, color: colors[0], size: sizes[0] };
 	    }
 	    BasicCharts.prototype.render = function () {
 	        var style = { textAlign: 'right' };
-	        return (React.createElement("div", {className: "basic-charts"}, React.createElement("div", {style: style}, React.createElement("button", {onClick: this.changeColor.bind(this)}, "Change Color"), React.createElement("button", {onClick: this.refreshData.bind(this)}, "Refresh Data")), React.createElement(bar_1.default, {width: 450, height: 270, data: this.state.data, color: this.state.color}), React.createElement(bubble_1.default, {width: 450, height: 270, data: this.state.data, color: this.state.color}), React.createElement(column_1.default, {width: 450, height: 270, data: this.state.data, color: this.state.color}), React.createElement(line_1.default, {width: 450, height: 270, data: this.state.data, color: this.state.color}), React.createElement(pie_1.default, {width: 450, height: 270, data: this.state.data, color: this.state.color})));
+	        return (React.createElement("div", {className: "basic-charts"}, React.createElement("div", {style: style}, React.createElement("button", {onClick: this.changeSize.bind(this)}, "Change Size"), React.createElement("button", {onClick: this.changeColor.bind(this)}, "Change Color"), React.createElement("button", {onClick: this.refreshData.bind(this)}, "Refresh Data")), React.createElement(bar_1.default, {width: this.state.size[0], height: this.state.size[1], data: this.state.data, color: this.state.color}), React.createElement(bubble_1.default, {width: this.state.size[0], height: this.state.size[1], data: this.state.data, color: this.state.color}), React.createElement(column_1.default, {width: this.state.size[0], height: this.state.size[1], data: this.state.data, color: this.state.color}), React.createElement(line_1.default, {width: this.state.size[0], height: this.state.size[1], data: this.state.data, color: this.state.color}), React.createElement(pie_1.default, {width: this.state.size[0], height: this.state.size[1], data: this.state.data, color: this.state.color}), React.createElement(radar_1.default, {width: this.state.size[0], height: this.state.size[1], data: this.state.data, color: this.state.color})));
 	    };
 	    BasicCharts.prototype.data = function () {
 	        var max = Math.random() * 1000;
@@ -835,6 +841,11 @@ webpackJsonp([0],{
 	    BasicCharts.prototype.changeColor = function () {
 	        this.setState({
 	            color: colors[(colors.indexOf(this.state.color) + 1) % colors.length]
+	        });
+	    };
+	    BasicCharts.prototype.changeSize = function () {
+	        this.setState({
+	            size: sizes[(sizes.indexOf(this.state.size) + 1) % sizes.length]
 	        });
 	    };
 	    return BasicCharts;
@@ -1494,13 +1505,158 @@ webpackJsonp([0],{
 /***/ 363:
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var React = __webpack_require__(3);
+	var d3 = __webpack_require__(355);
+	var d3tip_1 = __webpack_require__(357);
+	var Component = (function (_super) {
+	    __extends(Component, _super);
+	    function Component(props, context) {
+	        _super.call(this, props, context);
+	    }
+	    Component.prototype.render = function () {
+	        return (React.createElement("svg", {className: "basic-chart-radar", ref: "svg"}));
+	    };
+	    Component.prototype.draw = function (props, drawTransition) {
+	        var data = props.data;
+	        var data1Max = d3.max(data, function (d) { return d.Data1; });
+	        var data1 = d3.scale.linear().rangeRound([0, this._radius]).domain([0, data1Max]).nice();
+	        var category = d3.scale.ordinal().rangeBands([0, Math.PI * 2]).domain(data.map(function (d) { return d.Category; }));
+	        this.__test_outline.attr({
+	            r: this._radius,
+	            fill: 'none',
+	            stroke: 'rgba(0, 0, 0, 0.3)',
+	            'stroke-width': 2
+	        });
+	        var points = data.map(function (d) { return ({
+	            x: data1(d.Data1) * Math.cos(category(d.Category)),
+	            y: data1(d.Data1) * Math.sin(category(d.Category)),
+	            color: props.color(d.Category),
+	            data: d
+	        }); });
+	        // remove remaining dots
+	        if (this._dot1) {
+	            (!drawTransition ? this._dot1 : this._dot1
+	                .transition()
+	                .duration(props.duration)
+	                .ease(this._easeIn)
+	                .attr({
+	                opacity: 0,
+	                r: 0
+	            })) // end transition
+	                .remove();
+	        }
+	        // create additional dots
+	        this._dot1 = this._g
+	            .selectAll('.circle')
+	            .data(points)
+	            .enter()
+	            .append('circle')
+	            .call(d3tip_1.default({
+	            html: function (d) { return ("<h5>" + d.data.Category + "</h5>" + d.data.Data1); }
+	        }));
+	        //noinspection TypeScriptValidateTypes
+	        (!drawTransition ? this._dot1 : this._dot1
+	            .attr({
+	            cx: function (p) { return p.x; },
+	            cy: function (p) { return p.y; },
+	            r: 1,
+	            opacity: 0,
+	            fill: function (p) { return p.color; }
+	        })
+	            .transition()
+	            .delay(function (d, i) { return props.delay * i; })
+	            .ease(this._easeOut)) // end transition
+	            .attr({
+	            cx: function (p) { return p.x; },
+	            cy: function (p) { return p.y; },
+	            r: 5,
+	            opacity: 1,
+	            fill: function (p) { return p.color; }
+	        });
+	        var line1 = d3.svg.line()
+	            .x(function (p) { return p.x; })
+	            .y(function (p) { return p.y; })
+	            .interpolate('linear-closed');
+	        if (!this._path1) {
+	            var line0 = d3.svg.line()
+	                .x(function (p) { return 0; })
+	                .y(function (p) { return 0; })
+	                .interpolate('linear-closed');
+	            this._path1 = this._g.append('path')
+	                .attr({
+	                fill: 'rgba(0, 0, 0, 0.06)',
+	                stroke: 'rgba(0, 0, 0, 0.6)',
+	                'stroke-width': '2px'
+	            });
+	            //noinspection TypeScriptValidateTypes
+	            (!drawTransition ? this._path1.datum(points) : this._path1.datum(points)
+	                .attr('d', line0)
+	                .transition()) // end transition
+	                .attr('d', line1);
+	        }
+	        else {
+	            //noinspection TypeScriptValidateTypes
+	            (!drawTransition ? this._path1.datum(points) : this._path1.datum(points)
+	                .transition()) // end transition
+	                .attr('d', line1);
+	        }
+	    };
+	    Component.prototype.componentDidMount = function () {
+	        this._svg = d3.select(this.refs['svg']);
+	        this._g = this._svg.append('g');
+	        this.__test_outline = this._svg.append('circle');
+	        this._easeIn = d3.ease('quad-in');
+	        this._easeOut = d3.ease('quad-out');
+	    };
+	    Component.prototype.shouldComponentUpdate = function (nextProps, nextState, nextContext) {
+	        var currentProps = this.props;
+	        if (!this._svg.attr('width')
+	            || currentProps.width !== nextProps.width
+	            || currentProps.height !== nextProps.height) {
+	            this._svg.attr({ width: nextProps.width, height: nextProps.height });
+	            this._radius = Math.floor(d3.min([nextProps.width, nextProps.height]) / 2);
+	            this._g.attr('transform', "translate(" + nextProps.width / 2 + ", " + nextProps.height / 2 + ")");
+	            this.__test_outline.attr('transform', "translate(" + nextProps.width / 2 + ", " + nextProps.height / 2 + ")");
+	        }
+	        if (currentProps.width !== nextProps.width
+	            || currentProps.height !== nextProps.height
+	            || currentProps.color !== nextProps.color
+	            || currentProps.data !== nextProps.data) {
+	            this.draw(nextProps, currentProps.data !== nextProps.data);
+	        }
+	        return false;
+	    };
+	    Component.defaultProps = {
+	        duration: 300,
+	        delay: 40,
+	        width: 540,
+	        height: 320,
+	        color: d3.scale.category20c()
+	    };
+	    return Component;
+	}(React.Component));
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = Component;
+
+
+/***/ },
+
+/***/ 364:
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(364);
+	var content = __webpack_require__(365);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(366)(content, {});
+	var update = __webpack_require__(367)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -1518,22 +1674,22 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 364:
+/***/ 365:
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(365)();
+	exports = module.exports = __webpack_require__(366)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "div.basic-charts svg g.axis text {\n  font-size: 10px;\n}\n", ""]);
+	exports.push([module.id, "div.basic-charts svg g.axis text {\n  font-size: 10px;\n}\ndiv.basic-charts svg g.axis path {\n  fill: none;\n  stroke: #000000;\n  stroke-width: 1px;\n}\ndiv.basic-charts svg.basic-chart-radar {\n  background-color: #eeeeee;\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
 
-/***/ 365:
+/***/ 366:
 /***/ function(module, exports) {
 
 	/*
@@ -1590,7 +1746,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 366:
+/***/ 367:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -1845,7 +2001,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 367:
+/***/ 368:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1865,16 +2021,16 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 368:
+/***/ 369:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(369);
+	var content = __webpack_require__(370);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(366)(content, {});
+	var update = __webpack_require__(367)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -1892,10 +2048,10 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 369:
+/***/ 370:
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(365)();
+	exports = module.exports = __webpack_require__(366)();
 	// imports
 	
 	

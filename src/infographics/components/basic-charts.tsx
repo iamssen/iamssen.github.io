@@ -8,6 +8,7 @@ import Column from './basic-charts/column';
 import Bubble from './basic-charts/bubble';
 import Line from './basic-charts/line';
 import Pie from './basic-charts/pie';
+import Radar from './basic-charts/radar';
 
 import './basic-charts.less';
 
@@ -18,10 +19,16 @@ const colors:d3.scale.Ordinal<string, string>[] = [
   d3.scale.category20c()
 ];
 
+const sizes:[number, number][] = [
+  [540, 320],
+  [450, 270],
+  [400, 240]
+]
+
 export default class BasicCharts extends React.Component<any, any> {
   constructor(props, context) {
     super(props, context);
-    this.state = {data: null, color: colors[0]};
+    this.state = {data: null, color: colors[0], size: sizes[0]};
   }
 
   render() {
@@ -29,14 +36,16 @@ export default class BasicCharts extends React.Component<any, any> {
     return (
       <div className="basic-charts">
         <div style={style}>
+          <button onClick={this.changeSize.bind(this)}>Change Size</button>
           <button onClick={this.changeColor.bind(this)}>Change Color</button>
           <button onClick={this.refreshData.bind(this)}>Refresh Data</button>
         </div>
-        <Bar width={450} height={270} data={this.state.data} color={this.state.color}/>
-        <Bubble width={450} height={270} data={this.state.data} color={this.state.color}/>
-        <Column width={450} height={270} data={this.state.data} color={this.state.color}/>
-        <Line width={450} height={270} data={this.state.data} color={this.state.color}/>
-        <Pie width={450} height={270} data={this.state.data} color={this.state.color}/>
+        <Bar width={this.state.size[0]} height={this.state.size[1]} data={this.state.data} color={this.state.color}/>
+        <Bubble width={this.state.size[0]} height={this.state.size[1]} data={this.state.data} color={this.state.color}/>
+        <Column width={this.state.size[0]} height={this.state.size[1]} data={this.state.data} color={this.state.color}/>
+        <Line width={this.state.size[0]} height={this.state.size[1]} data={this.state.data} color={this.state.color}/>
+        <Pie width={this.state.size[0]} height={this.state.size[1]} data={this.state.data} color={this.state.color}/>
+        <Radar width={this.state.size[0]} height={this.state.size[1]} data={this.state.data} color={this.state.color}/>
       </div>
     )
   }
@@ -71,6 +80,12 @@ export default class BasicCharts extends React.Component<any, any> {
   changeColor() {
     this.setState({
       color: colors[(colors.indexOf(this.state.color) + 1) % colors.length]
+    });
+  }
+
+  changeSize() {
+    this.setState({
+      size: sizes[(sizes.indexOf(this.state.size) + 1) % sizes.length]
     });
   }
 }
