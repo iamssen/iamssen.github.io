@@ -4,6 +4,11 @@ import d3tip from 'd3tip';
 
 import {Data} from '../../types';
 
+const CHART:string = 'chart';
+const BUBBLE_SERIES:string = 'canvas';
+const AXIS_X:string = 'axisX';
+const AXIS_Y:string = 'axisY';
+
 interface Props {
   duration?:number;
   delay?:number;
@@ -18,12 +23,8 @@ interface Props {
 }
 
 export default class Component extends React.Component<Props, any> {
-  private _svg:d3.Selection<any>;
-  private _width:number;
-  private _height:number;
-  private _g:d3.Selection<Data>;
-  private _x:d3.Selection<any>;
-  private _y:d3.Selection<any>;
+  private _w:number;
+  private _h:number;
   private _easeOut:(t:number)=>number;
   private _easeIn:(t:number)=>number;
   private _bubbles:d3.Selection<any>;
@@ -45,16 +46,23 @@ export default class Component extends React.Component<Props, any> {
   }
 
   render() {
-    return (<svg className="basic-chart-bubble" ref="svg"/>);
+    return (
+    <svg ref={CHART} className="basic-chart-bubble">
+      <g ref={BUBBLE_SERIES} className="canvas"/>
+      <g ref={AXIS_X} className="axis axis-x"/>
+      <g ref={AXIS_Y} className="axis axis-y"/>
+    </svg>
+    );
   }
 
   draw(props:Props, drawTransition:boolean) {
     const data:Data[] = props.data;
     const xmax:number = d3.max(data, d => d.Data2);
     const ymax:number = d3.max(data, d => d.Data1);
-    const zmax:number = d3.max(data, d => d.Data3);
-    const xscale = d3.scale.linear().rangeRound([0, this._width]).domain([0, xmax]).nice();
-    const yscale = d3.scale.linear().rangeRound([this._height, 0]).domain([0, ymax]).nice();
+    const rmax:number = d3.max(data, d => d.Data3);
+    const xscale = d3.scale.linear().rangeRound([0, this._w]).domain([0, xmax]).nice();
+    const yscale = d3.scale.linear().rangeRound([this._h, 0]).domain([0, ymax]).nice();
+    const rscale = d3.scale.linear().rangeRound([5, 20]).domain([0, rmax]).nice();
 
     // remove ramaining nodes
     if (this._bubbles) {
@@ -71,7 +79,7 @@ export default class Component extends React.Component<Props, any> {
     }
 
     // create additional nodes
-    this._bubbles = this._g
+    this._bubbles = this.select(BUBBLE_SERIES)
       .selectAll('.circle')
       .data(data)
       .enter()
@@ -96,23 +104,19 @@ export default class Component extends React.Component<Props, any> {
         fill: d => props.color(d.Category),
         cx: d => xscale(d.Data2),
         cy: d => yscale(d.Data1),
-        opacity: 1,
-        r: d => 5 + ((d.Data3 / zmax) * 15)
+        r: d => rscale(d.Data3),
+        opacity: 1
       });
 
     // draw axis
-    let xaxis = d3.svg.axis().scale(xscale).orient('bottom');
-    let yaxis = d3.svg.axis().scale(yscale).orient('left');
+    const xaxis = d3.svg.axis().scale(xscale).orient('bottom');
+    const yaxis = d3.svg.axis().scale(yscale).orient('left');
 
-    this._x.call(xaxis);
-    this._y.call(yaxis);
+    this.select(AXIS_X).call(xaxis);
+    this.select(AXIS_Y).call(yaxis);
   }
 
   componentDidMount():void {
-    this._svg = d3.select(this.refs['svg'] as Element);
-    this._g = this._svg.append('g');
-    this._x = this._g.append('g').attr('class', 'axis axis-x');
-    this._y = this._g.append('g').attr('class', 'axis axis-y');
     this._easeIn = d3.ease('quad-in');
     this._easeOut = d3.ease('quad-out');
   }
@@ -124,21 +128,21 @@ export default class Component extends React.Component<Props, any> {
   shouldComponentUpdate(nextProps:Props, nextState:any, nextContext:any):boolean {
     const currentProps:Props = this.props;
 
-    if (!this._width || !this._height
+    if (!this._w || !this._h
       || currentProps.width !== nextProps.width
       || currentProps.height !== nextProps.height
       || currentProps.gutterLeft !== nextProps.gutterLeft
       || currentProps.gutterRight !== nextProps.gutterRight
       || currentProps.gutterTop !== nextProps.gutterTop
       || currentProps.gutterBottom !== nextProps.gutterBottom) {
-      this._svg.attr({width: nextProps.width, height: nextProps.height});
+      this.select(CHART).attr({width: nextProps.width, height: nextProps.height});
 
-      this._width = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
-      this._height = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
+      this._w = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
+      this._h = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
 
-      this._g.attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop})`);
-      this._x.attr('transform', `translate(0, ${this._height})`);
-      this._y.attr('transform', `translate(0, 0)`);
+      this.select(BUBBLE_SERIES).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop})`);
+      this.select(AXIS_X).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop + this._h})`);
+      this.select(AXIS_Y).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop})`);
     }
 
     if (currentProps.width !== nextProps.width
@@ -152,5 +156,9 @@ export default class Component extends React.Component<Props, any> {
       this.draw(nextProps, currentProps.data !== nextProps.data);
     }
     return false;
+  }
+
+  select(ref:string):d3.Selection<any> {
+    return d3.select(this.refs[ref] as Element);
   }
 }

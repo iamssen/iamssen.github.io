@@ -2,7 +2,7 @@
   "name": "ssen.name",
   "version": "0.0.1",
   "scripts": {
-    "serve": "live-server --port=3004 dist",
+    "serve": "live-server --port=3004 --no-browser dist",
     "build": "webpack --progress --profile --colors --display-error-details --display-cached",
     "build:prod": "webpack --config webpack.prod.config.js --progress --profile --colors --display-error-details --display-cached",
     "watch": "webpack --watch --progress --profile --colors --display-error-details --display-cached",

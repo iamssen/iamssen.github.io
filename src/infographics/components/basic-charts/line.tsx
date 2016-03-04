@@ -4,6 +4,15 @@ import d3tip from 'd3tip';
 
 import {Data} from '../../types';
 
+const CHART:string = 'chart';
+const BAR_SERIES:string = 'canvas';
+const LINE_SERIES1:string = 'line1';
+const LINE_SERIES2:string = 'line2';
+const LINE_SERIES3:string = 'line3';
+const LINE_SERIES4:string = 'line4';
+const AXIS_X:string = 'axisX';
+const AXIS_Y:string = 'axisY';
+
 interface Props {
   duration?:number;
   delay?:number;
@@ -18,15 +27,10 @@ interface Props {
 }
 
 export default class Component extends React.Component<Props, any> {
-  private _svg:d3.Selection<any>;
-  private _width:number;
-  private _height:number;
-  private _g:d3.Selection<Data>;
-  private _x:d3.Selection<any>;
-  private _y:d3.Selection<any>;
+  private _w:number;
+  private _h:number;
   private _easeOut:(t:number)=>number;
   private _easeIn:(t:number)=>number;
-  private _path1:d3.Selection<any>;
 
   static defaultProps:Props = {
     duration: 300,
@@ -45,85 +49,93 @@ export default class Component extends React.Component<Props, any> {
   }
 
   render() {
-    return (<svg className="basic-chart-bubble" ref="svg"/>);
+    return (
+      <svg ref={CHART} className="basic-chart-line">
+        <g ref={BAR_SERIES} className="canvas">
+          <path ref={LINE_SERIES1} className="line1"/>
+          <path ref={LINE_SERIES2} className="line2"/>
+          <path ref={LINE_SERIES3} className="line3"/>
+          <path ref={LINE_SERIES4} className="line4"/>
+        </g>
+        <g ref={AXIS_X} className="axis axis-x"/>
+        <g ref={AXIS_Y} className="axis axis-y"/>
+      </svg>
+    );
+  }
+
+  drawLineSeries(props:Props, drawTransition:boolean,
+                 dataField:string,
+                 categoryField:string,
+                 dataScale:d3.scale.Linear<any, any>,
+                 categoryScale:d3.scale.Ordinal<any, any>,
+                 ref:string) {
+    const path = this.select(ref);
+
+    const line:any = d3.svg.line()
+      .x((d:any, i) => categoryScale(d[categoryField]) + (categoryScale.rangeBand() / 2))
+      .y((d:any, i) => dataScale(d[dataField]));
+
+    //noinspection TypeScriptValidateTypes
+    (!drawTransition ? path.datum(props.data) : path.datum(props.data)
+      .transition())
+      .attr({
+        d: line,
+        fill: 'none',
+        stroke: props.color(ref),
+        'stroke-width': '4px',
+        'stroke-linecap': 'round',
+        'stroke-linejoin': 'round'
+      });
   }
 
   draw(props:Props, drawTransition:boolean) {
     const data:Data[] = props.data;
-    const ymax:number = d3.max(data, d => d.Data1);
-    const xscale = d3.scale.ordinal().rangeRoundBands([0, this._width]).domain(data.map(d => d.Category));
-    const yscale = d3.scale.linear().rangeRound([this._height, 0]).domain([0, ymax]).nice();
+    const categoryScale:d3.scale.Ordinal<any, any> = d3.scale.ordinal().rangeRoundBands([0, this._w]).domain(data.map(d => d.Category));
 
-    const line1:any = d3.svg.line()
-      .x((d:any, i) => xscale(d.Category) + (xscale.rangeBand() / 2))
-      .y((d:any, i) => yscale(d.Data1));
+    const dataMax:number = Math.max(
+      d3.max(data, d => d.Data1),
+      d3.max(data, d => d.Data2),
+      d3.max(data, d => d.Data3),
+      d3.max(data, d => d.Data4)
+    );
+    const dataScale:d3.scale.Linear<any, any> = d3.scale.linear().rangeRound([this._h, 0]).domain([0, dataMax]).nice();
 
-    if (!this._path1) {
-      const line0:any = d3.svg.line()
-        .x((d:any, i) => xscale(d.Category) + (xscale.rangeBand() / 2))
-        .y((d:any, i) => yscale.range()[0]);
-
-      this._path1 = this._g.append('path');
-
-      //noinspection TypeScriptValidateTypes
-      (!drawTransition ? this._path1.datum(data) : this._path1.datum(data)
-        .attr('d', line0)
-        .transition()) // end transition
-        .attr('d', line1);
-    } else {
-      //noinspection TypeScriptValidateTypes
-      (!drawTransition ? this._path1.datum(data) : this._path1.datum(data)
-        .transition()) // end transition
-        .attr('d', line1);
-    }
-
-    this._path1.attr({
-      fill: 'none',
-      stroke: props.color('line1'),
-      'stroke-width': '4px',
-      'stroke-linecap': 'round',
-      'stroke-linejoin': 'round'
-    });
+    this.drawLineSeries(props, drawTransition, 'Data1', 'Category', dataScale, categoryScale, LINE_SERIES1);
+    this.drawLineSeries(props, drawTransition, 'Data2', 'Category', dataScale, categoryScale, LINE_SERIES2);
+    this.drawLineSeries(props, drawTransition, 'Data3', 'Category', dataScale, categoryScale, LINE_SERIES3);
+    this.drawLineSeries(props, drawTransition, 'Data4', 'Category', dataScale, categoryScale, LINE_SERIES4);
 
     // draw axis
-    const xaxis = d3.svg.axis().scale(xscale).orient('bottom');
-    const yaxis = d3.svg.axis().scale(yscale).orient('left');
+    const xaxis = d3.svg.axis().scale(categoryScale).orient('bottom');
+    const yaxis = d3.svg.axis().scale(dataScale).orient('left');
 
-    this._x.call(xaxis);
-    this._y.call(yaxis);
+    this.select(AXIS_X).call(xaxis);
+    this.select(AXIS_Y).call(yaxis);
   }
 
   componentDidMount():void {
-    this._svg = d3.select(this.refs['svg'] as Element);
-    this._g = this._svg.append('g');
-    this._x = this._g.append('g').attr('class', 'axis axis-x');
-    this._y = this._g.append('g').attr('class', 'axis axis-y');
     this._easeIn = d3.ease('quad-in');
     this._easeOut = d3.ease('quad-out');
   }
 
-  //componentWillUnmount():void {
-  //  this.chart = null;
-  //}
-
   shouldComponentUpdate(nextProps:Props, nextState:any, nextContext:any):boolean {
     const currentProps:Props = this.props;
 
-    if (!this._width || !this._height
+    if (!this._w || !this._h
       || currentProps.width !== nextProps.width
       || currentProps.height !== nextProps.height
       || currentProps.gutterLeft !== nextProps.gutterLeft
       || currentProps.gutterRight !== nextProps.gutterRight
       || currentProps.gutterTop !== nextProps.gutterTop
       || currentProps.gutterBottom !== nextProps.gutterBottom) {
-      this._svg.attr({width: nextProps.width, height: nextProps.height});
+      this.select(CHART).attr({width: nextProps.width, height: nextProps.height});
 
-      this._width = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
-      this._height = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
+      this._w = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
+      this._h = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
 
-      this._g.attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop})`);
-      this._x.attr('transform', `translate(0, ${this._height})`);
-      this._y.attr('transform', `translate(0, 0)`);
+      this.select(BAR_SERIES).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop})`);
+      this.select(AXIS_X).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop + this._h})`);
+      this.select(AXIS_Y).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop})`);
     }
 
     if (currentProps.width !== nextProps.width
@@ -137,6 +149,10 @@ export default class Component extends React.Component<Props, any> {
       this.draw(nextProps, currentProps.data !== nextProps.data);
     }
     return false;
+  }
+
+  select(ref:string):d3.Selection<any> {
+    return d3.select(this.refs[ref] as Element);
   }
 }
 

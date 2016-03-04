@@ -804,15 +804,23 @@ webpackJsonp([0],{
 	    [450, 270],
 	    [400, 240]
 	];
+	var dataFields = [
+	    ['Data1'],
+	    ['Data1', 'Data2'],
+	    ['Data1', 'Data2', 'Data3'],
+	    ['Data1', 'Data2', 'Data3', 'Data4']
+	];
 	var BasicCharts = (function (_super) {
 	    __extends(BasicCharts, _super);
 	    function BasicCharts(props, context) {
 	        _super.call(this, props, context);
-	        this.state = { data: null, color: colors[0], size: sizes[0] };
+	        this.state = { data: null, color: colors[0], size: sizes[0], dataField: dataFields[0] };
 	    }
 	    BasicCharts.prototype.render = function () {
 	        var style = { textAlign: 'right' };
-	        return (React.createElement("div", {className: "basic-charts"}, React.createElement("div", {style: style}, React.createElement("button", {onClick: this.changeSize.bind(this)}, "Change Size"), React.createElement("button", {onClick: this.changeColor.bind(this)}, "Change Color"), React.createElement("button", {onClick: this.refreshData.bind(this)}, "Refresh Data")), React.createElement(bar_1.default, {width: this.state.size[0], height: this.state.size[1], data: this.state.data, color: this.state.color}), React.createElement(bubble_1.default, {width: this.state.size[0], height: this.state.size[1], data: this.state.data, color: this.state.color}), React.createElement(column_1.default, {width: this.state.size[0], height: this.state.size[1], data: this.state.data, color: this.state.color}), React.createElement(line_1.default, {width: this.state.size[0], height: this.state.size[1], data: this.state.data, color: this.state.color}), React.createElement(pie_1.default, {width: this.state.size[0], height: this.state.size[1], data: this.state.data, color: this.state.color}), React.createElement(radar_1.default, {width: this.state.size[0], height: this.state.size[1], data: this.state.data, color: this.state.color})));
+	        var _a = this.state, data = _a.data, color = _a.color, dataField = _a.dataField, size = _a.size;
+	        var width = size[0], height = size[1];
+	        return (React.createElement("div", {className: "basic-charts"}, React.createElement("div", {style: style}, React.createElement("button", {onClick: this.changeSize.bind(this)}, "Change Size"), React.createElement("button", {onClick: this.changeColor.bind(this)}, "Change Color"), React.createElement("button", {onClick: this.changeDataFields.bind(this)}, "Change DataFields"), React.createElement("button", {onClick: this.refreshData.bind(this)}, "Refresh Data")), React.createElement(bar_1.default, {width: width, height: height, data: data, color: color, dataFields: dataField}), React.createElement(bubble_1.default, {width: width, height: height, data: data, color: color}), React.createElement(column_1.default, {width: width, height: height, data: data, color: color}), React.createElement(line_1.default, {width: width, height: height, data: data, color: color}), React.createElement(pie_1.default, {width: width, height: height, data: data, color: color}), React.createElement(radar_1.default, {width: width, height: height, data: data, color: color})));
 	    };
 	    BasicCharts.prototype.data = function () {
 	        var max = Math.random() * 1000;
@@ -848,6 +856,11 @@ webpackJsonp([0],{
 	            size: sizes[(sizes.indexOf(this.state.size) + 1) % sizes.length]
 	        });
 	    };
+	    BasicCharts.prototype.changeDataFields = function () {
+	        this.setState({
+	            dataField: dataFields[(dataFields.indexOf(this.state.dataField) + 1) % dataFields.length]
+	        });
+	    };
 	    return BasicCharts;
 	}(React.Component));
 	Object.defineProperty(exports, "__esModule", { value: true });
@@ -868,102 +881,116 @@ webpackJsonp([0],{
 	var React = __webpack_require__(3);
 	var d3 = __webpack_require__(355);
 	var d3tip_1 = __webpack_require__(357);
+	var CHART = 'chart';
+	var SERIES = 'series';
+	var AXIS_X = 'axisX';
+	var AXIS_Y = 'axisY';
 	var Component = (function (_super) {
 	    __extends(Component, _super);
 	    function Component(props, context) {
 	        _super.call(this, props, context);
 	    }
 	    Component.prototype.render = function () {
-	        return (React.createElement("svg", {className: "basic-chart-bar", ref: "svg"}));
+	        return (React.createElement("svg", {ref: CHART, className: "basic-chart-bar"}, React.createElement("g", {ref: SERIES, className: "series"}), React.createElement("g", {ref: AXIS_X, className: "axis axis-x"}), React.createElement("g", {ref: AXIS_Y, className: "axis axis-y"})));
 	    };
 	    Component.prototype.draw = function (props, drawTransition) {
-	        var data = props.data;
-	        var data1Max = d3.max(data, function (d) { return d.Data1; });
-	        var data1 = d3.scale.linear().rangeRound([0, this._width]).domain([0, data1Max]).nice();
-	        var category = d3.scale.ordinal().rangeRoundBands([0, this._height]).domain(data.map(function (d) { return d.Category; }));
-	        var rects = this._g.selectAll('rect').data(data);
-	        // update
-	        (!drawTransition ? rects : rects
+	        var data = props.data, duration = props.duration, delayTime = props.delay, color = props.color, dataFields = props.dataFields;
+	        var categoryField = 'Category';
+	        var categoryScale = d3.scale.ordinal().rangeRoundBands([0, this._h]).domain(data.map(function (d) { return d[categoryField]; }));
+	        var xmax = d3.max(data, function (d) { return d3.max(dataFields, function (dataField) { return d[dataField]; }); });
+	        var xscale = d3.scale.linear().rangeRound([0, this._w]).domain([0, xmax]).nice();
+	        var dataFieldsLength = dataFields.length;
+	        var rects = data.map(function (d, f) { return dataFields.map(function (dataField, s) {
+	            var fill = dataFieldsLength === 1 ? color(d[categoryField]) : color(s.toString());
+	            var delay = delayTime * f;
+	            var width = xscale(d[dataField]);
+	            var height = categoryScale.rangeBand() / dataFieldsLength;
+	            var y = categoryScale(d[categoryField]) + (height * s);
+	            return {
+	                fill: fill,
+	                delay: delay,
+	                width: width,
+	                height: height,
+	                y: y,
+	                data: d,
+	                dataField: dataField
+	            };
+	        }); });
+	        var delay = function (r) { return r.delay; };
+	        var fill = function (r) { return r.fill; };
+	        var y = function (r) { return r.y; };
+	        var width = function (r) { return r.width; };
+	        var height = function (r) { return r.height; };
+	        var update = this.select(SERIES)
+	            .selectAll('rect')
+	            .data((_a = []).concat.apply(_a, rects));
+	        // noinspection TypeScriptValidateTypes
+	        (!drawTransition ? update : update
 	            .transition()
-	            .duration(props.duration)
-	            .delay(function (d, i) { return props.delay * i; })
+	            .duration(duration)
+	            .delay(delay)
 	            .ease(this._easeOut)) // end transition
-	            .attr({
-	            fill: function (d) { return props.color(d.Category); },
-	            y: function (d) { return category(d.Category); },
-	            width: function (d) { return data1(d.Data1); },
-	            height: function (d) { return category.rangeBand(); }
-	        });
-	        // exit
-	        (!drawTransition ? rects.exit() : rects.exit()
+	            .attr({ fill: fill, y: y, width: width, height: height });
+	        (!drawTransition ? update.exit() : update.exit()
 	            .transition()
-	            .duration(props.duration)
-	            .delay(function (d, i) { return props.delay * i; })
+	            .duration(duration)
+	            .delay(delay)
 	            .ease(this._easeIn)
 	            .attr({
 	            opacity: 0,
-	            y: this._height,
+	            y: this._h,
 	            width: 0,
 	            height: 0
 	        })) // end transition
 	            .remove();
-	        // enter
-	        var enter = rects.enter()
+	        var enter = update.enter()
 	            .append('rect')
+	            .attr({ fill: fill, y: y, height: height })
 	            .call(d3tip_1.default({
-	            html: function (d) { return ("<h5>" + d.Category + "</h5>" + d.Data1); }
+	            html: function (r) { return ("<h5>" + r.data[categoryField] + "</h5>" + r.data[r.dataField]); }
 	        }));
+	        //noinspection TypeScriptValidateTypes
 	        (!drawTransition ? enter : enter
 	            .attr({
-	            fill: function (d) { return props.color(d.Category); },
 	            opacity: 0,
-	            y: function (d) { return category(d.Category); },
-	            width: 0,
-	            height: function (d) { return category.rangeBand(); }
+	            width: 0
 	        })
 	            .transition()
-	            .duration(props.duration)
-	            .delay(function (d, i) { return props.delay * i; })
+	            .duration(duration)
+	            .delay(delay)
 	            .ease(this._easeOut)) // end transition
 	            .attr({
-	            fill: function (d) { return props.color(d.Category); },
 	            opacity: 1,
-	            y: function (d) { return category(d.Category); },
-	            width: function (d) { return data1(d.Data1); },
-	            height: function (d) { return category.rangeBand(); }
+	            width: width
 	        });
+	        //---------------------------------------------
 	        // draw axis
-	        var xaxis = d3.svg.axis().scale(data1).orient('bottom');
-	        var yaxis = d3.svg.axis().scale(category).orient('left');
-	        this._y.call(yaxis);
-	        this._x.call(xaxis);
+	        //---------------------------------------------
+	        var xaxis = d3.svg.axis().scale(xscale).orient('bottom');
+	        var yaxis = d3.svg.axis().scale(categoryScale).orient('left');
+	        this.select(AXIS_X).call(xaxis);
+	        this.select(AXIS_Y).call(yaxis);
+	        var _a;
 	    };
 	    Component.prototype.componentDidMount = function () {
-	        this._svg = d3.select(this.refs['svg']);
-	        this._g = this._svg.append('g');
-	        this._x = this._g.append('g').attr('class', 'axis axis-x');
-	        this._y = this._g.append('g').attr('class', 'axis axis-y');
 	        this._easeIn = d3.ease('quad-in');
 	        this._easeOut = d3.ease('quad-out');
 	    };
-	    //componentWillUnmount():void {
-	    //  this.chart = null;
-	    //}
 	    Component.prototype.shouldComponentUpdate = function (nextProps, nextState, nextContext) {
 	        var currentProps = this.props;
-	        if (!this._width || !this._height
+	        if (!this._w || !this._h
 	            || currentProps.width !== nextProps.width
 	            || currentProps.height !== nextProps.height
 	            || currentProps.gutterLeft !== nextProps.gutterLeft
 	            || currentProps.gutterRight !== nextProps.gutterRight
 	            || currentProps.gutterTop !== nextProps.gutterTop
 	            || currentProps.gutterBottom !== nextProps.gutterBottom) {
-	            this._svg.attr({ width: nextProps.width, height: nextProps.height });
-	            this._width = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
-	            this._height = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
-	            this._g.attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
-	            this._x.attr('transform', "translate(0, " + this._height + ")");
-	            this._y.attr('transform', "translate(0, 0)");
+	            this.select(CHART).attr({ width: nextProps.width, height: nextProps.height });
+	            this._w = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
+	            this._h = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
+	            this.select(SERIES).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
+	            this.select(AXIS_X).attr('transform', "translate(" + nextProps.gutterLeft + ", " + (nextProps.gutterTop + this._h) + ")");
+	            this.select(AXIS_Y).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
 	        }
 	        if (currentProps.width !== nextProps.width
 	            || currentProps.height !== nextProps.height
@@ -972,14 +999,18 @@ webpackJsonp([0],{
 	            || currentProps.gutterTop !== nextProps.gutterTop
 	            || currentProps.gutterBottom !== nextProps.gutterBottom
 	            || currentProps.color !== nextProps.color
-	            || currentProps.data !== nextProps.data) {
-	            this.draw(nextProps, currentProps.data !== nextProps.data);
+	            || currentProps.data !== nextProps.data
+	            || currentProps.dataFields !== nextProps.dataFields) {
+	            this.draw(nextProps, currentProps.data !== nextProps.data || currentProps.dataFields !== nextProps.dataFields);
 	        }
 	        return false;
 	    };
+	    Component.prototype.select = function (ref) {
+	        return d3.select(this.refs[ref]);
+	    };
 	    Component.defaultProps = {
 	        duration: 300,
-	        delay: 40,
+	        delay: 20,
 	        width: 540,
 	        height: 320,
 	        gutterLeft: 50,
@@ -1008,36 +1039,34 @@ webpackJsonp([0],{
 	var React = __webpack_require__(3);
 	var d3 = __webpack_require__(355);
 	var d3tip_1 = __webpack_require__(357);
+	var CHART = 'chart';
+	var COLUMN_SERIES = 'canvas';
+	var AXIS_X = 'axisX';
+	var AXIS_Y = 'axisY';
 	var Component = (function (_super) {
 	    __extends(Component, _super);
 	    function Component(props, context) {
 	        _super.call(this, props, context);
 	    }
 	    Component.prototype.render = function () {
-	        return (React.createElement("svg", {className: "basic-chart-column", ref: "svg"}));
+	        return (React.createElement("svg", {ref: CHART, className: "basic-chart-column"}, React.createElement("g", {ref: COLUMN_SERIES, className: "canvas"}), React.createElement("g", {ref: AXIS_X, className: "axis axis-x"}), React.createElement("g", {ref: AXIS_Y, className: "axis axis-y"})));
 	    };
-	    Component.prototype.draw = function (props, drawTransition) {
+	    Component.prototype.drawColumnSeries = function (props, drawTransition, dataField, categoryField, dataScale, categoryScale, updateSelection) {
 	        var _this = this;
-	        var data = props.data;
-	        var ymax = d3.max(data, function (d) { return d.Data1; });
-	        var xscale = d3.scale.ordinal().rangeRoundBands([0, this._width]).domain(data.map(function (d) { return d.Category; }));
-	        var yscale = d3.scale.linear().rangeRound([this._height, 0]).domain([0, ymax]).nice();
-	        var rects = this._g.selectAll('rect').data(data);
-	        // update
-	        (!drawTransition ? rects : rects
+	        //noinspection TypeScriptValidateTypes
+	        (!drawTransition ? updateSelection : updateSelection
 	            .transition()
 	            .duration(props.duration)
 	            .delay(function (d, i) { return props.delay * i; })
 	            .ease(this._easeOut)) // end transition
 	            .attr({
-	            fill: function (d) { return props.color(d.Category); },
-	            x: function (d) { return xscale(d.Category); },
-	            y: function (d) { return yscale(d.Data1); },
-	            width: function (d) { return xscale.rangeBand(); },
-	            height: function (d) { return _this._height - yscale(d.Data1); }
+	            fill: function (d) { return props.color(d[categoryField]); },
+	            x: function (d) { return categoryScale(d[categoryField]); },
+	            y: function (d) { return dataScale(d[dataField]); },
+	            width: function (d) { return categoryScale.rangeBand(); },
+	            height: function (d) { return _this._h - dataScale(d[dataField]); }
 	        });
-	        // exit
-	        (!drawTransition ? rects.exit() : rects.exit()
+	        (!drawTransition ? updateSelection.exit() : updateSelection.exit()
 	            .transition()
 	            .duration(props.duration)
 	            .delay(function (d, i) { return props.delay * i; })
@@ -1045,24 +1074,24 @@ webpackJsonp([0],{
 	            .attr({
 	            opacity: 0,
 	            x: props.width,
-	            y: this._height,
+	            y: this._h,
 	            width: 0,
 	            height: 0
 	        })) // end transition
 	            .remove();
-	        // enter
-	        var enter = rects.enter()
+	        var newRects = updateSelection.enter()
 	            .append('rect')
 	            .call(d3tip_1.default({
-	            html: function (d) { return ("<h5>" + d.Category + "</h5>" + d.Data1); }
+	            html: function (d) { return ("<h5>" + d[categoryField] + "</h5>" + d[dataField]); }
 	        }));
-	        (!drawTransition ? enter : enter
+	        //noinspection TypeScriptValidateTypes
+	        (!drawTransition ? newRects : newRects
 	            .attr({
-	            fill: function (d) { return props.color(d.Category); },
+	            fill: function (d) { return props.color(d[categoryField]); },
 	            opacity: 0,
-	            x: function (d) { return xscale(d.Category); },
-	            y: this._height,
-	            width: function (d) { return xscale.rangeBand(); },
+	            x: function (d) { return categoryScale(d[categoryField]); },
+	            y: this._h,
+	            width: function (d) { return categoryScale.rangeBand(); },
 	            height: 0
 	        })
 	            .transition()
@@ -1070,45 +1099,47 @@ webpackJsonp([0],{
 	            .delay(function (d, i) { return props.delay * i; })
 	            .ease(this._easeOut)) // end transition
 	            .attr({
-	            fill: function (d) { return props.color(d.Category); },
+	            fill: function (d) { return props.color(d[categoryField]); },
 	            opacity: 1,
-	            x: function (d) { return xscale(d.Category); },
-	            y: function (d) { return yscale(d.Data1); },
-	            width: function (d) { return xscale.rangeBand(); },
-	            height: function (d) { return _this._height - yscale(d.Data1); }
+	            x: function (d) { return categoryScale(d[categoryField]); },
+	            y: function (d) { return dataScale(d[dataField]); },
+	            width: function (d) { return categoryScale.rangeBand(); },
+	            height: function (d) { return _this._h - dataScale(d[dataField]); }
 	        });
+	    };
+	    Component.prototype.draw = function (props, drawTransition) {
+	        var data = props.data;
+	        var categoryScale = d3.scale.ordinal().rangeRoundBands([0, this._w]).domain(data.map(function (d) { return d.Category; }));
+	        var data1Max = d3.max(data, function (d) { return d.Data1; });
+	        var data1Scale = d3.scale.linear().rangeRound([this._h, 0]).domain([0, data1Max]).nice();
+	        var data1ColumnSelection = this.select(COLUMN_SERIES).selectAll('rect').data(data);
+	        // draw column series
+	        this.drawColumnSeries(props, drawTransition, 'Data1', 'Category', data1Scale, categoryScale, data1ColumnSelection);
 	        // draw axis
-	        var xaxis = d3.svg.axis().scale(xscale).orient('bottom');
-	        var yaxis = d3.svg.axis().scale(yscale).orient('left');
-	        this._x.call(xaxis);
-	        this._y.call(yaxis);
+	        var xaxis = d3.svg.axis().scale(categoryScale).orient('bottom');
+	        var yaxis = d3.svg.axis().scale(data1Scale).orient('left');
+	        this.select(AXIS_X).call(xaxis);
+	        this.select(AXIS_Y).call(yaxis);
 	    };
 	    Component.prototype.componentDidMount = function () {
-	        this._svg = d3.select(this.refs['svg']);
-	        this._g = this._svg.append('g');
-	        this._x = this._g.append('g').attr('class', 'axis axis-x');
-	        this._y = this._g.append('g').attr('class', 'axis axis-y');
 	        this._easeIn = d3.ease('quad-in');
 	        this._easeOut = d3.ease('quad-out');
 	    };
-	    //componentWillUnmount():void {
-	    //  this.chart = null;
-	    //}
 	    Component.prototype.shouldComponentUpdate = function (nextProps, nextState, nextContext) {
 	        var currentProps = this.props;
-	        if (!this._width || !this._height
+	        if (!this._w || !this._h
 	            || currentProps.width !== nextProps.width
 	            || currentProps.height !== nextProps.height
 	            || currentProps.gutterLeft !== nextProps.gutterLeft
 	            || currentProps.gutterRight !== nextProps.gutterRight
 	            || currentProps.gutterTop !== nextProps.gutterTop
 	            || currentProps.gutterBottom !== nextProps.gutterBottom) {
-	            this._svg.attr({ width: nextProps.width, height: nextProps.height });
-	            this._width = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
-	            this._height = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
-	            this._g.attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
-	            this._x.attr('transform', "translate(0, " + this._height + ")");
-	            this._y.attr('transform', "translate(0, 0)");
+	            this.select(CHART).attr({ width: nextProps.width, height: nextProps.height });
+	            this._w = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
+	            this._h = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
+	            this.select(COLUMN_SERIES).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
+	            this.select(AXIS_X).attr('transform', "translate(" + nextProps.gutterLeft + ", " + (nextProps.gutterTop + this._h) + ")");
+	            this.select(AXIS_Y).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
 	        }
 	        if (currentProps.width !== nextProps.width
 	            || currentProps.height !== nextProps.height
@@ -1121,6 +1152,9 @@ webpackJsonp([0],{
 	            this.draw(nextProps, currentProps.data !== nextProps.data);
 	        }
 	        return false;
+	    };
+	    Component.prototype.select = function (ref) {
+	        return d3.select(this.refs[ref]);
 	    };
 	    Component.defaultProps = {
 	        duration: 300,
@@ -1153,21 +1187,26 @@ webpackJsonp([0],{
 	var React = __webpack_require__(3);
 	var d3 = __webpack_require__(355);
 	var d3tip_1 = __webpack_require__(357);
+	var CHART = 'chart';
+	var BUBBLE_SERIES = 'canvas';
+	var AXIS_X = 'axisX';
+	var AXIS_Y = 'axisY';
 	var Component = (function (_super) {
 	    __extends(Component, _super);
 	    function Component(props, context) {
 	        _super.call(this, props, context);
 	    }
 	    Component.prototype.render = function () {
-	        return (React.createElement("svg", {className: "basic-chart-bubble", ref: "svg"}));
+	        return (React.createElement("svg", {ref: CHART, className: "basic-chart-bubble"}, React.createElement("g", {ref: BUBBLE_SERIES, className: "canvas"}), React.createElement("g", {ref: AXIS_X, className: "axis axis-x"}), React.createElement("g", {ref: AXIS_Y, className: "axis axis-y"})));
 	    };
 	    Component.prototype.draw = function (props, drawTransition) {
 	        var data = props.data;
 	        var xmax = d3.max(data, function (d) { return d.Data2; });
 	        var ymax = d3.max(data, function (d) { return d.Data1; });
-	        var zmax = d3.max(data, function (d) { return d.Data3; });
-	        var xscale = d3.scale.linear().rangeRound([0, this._width]).domain([0, xmax]).nice();
-	        var yscale = d3.scale.linear().rangeRound([this._height, 0]).domain([0, ymax]).nice();
+	        var rmax = d3.max(data, function (d) { return d.Data3; });
+	        var xscale = d3.scale.linear().rangeRound([0, this._w]).domain([0, xmax]).nice();
+	        var yscale = d3.scale.linear().rangeRound([this._h, 0]).domain([0, ymax]).nice();
+	        var rscale = d3.scale.linear().rangeRound([5, 20]).domain([0, rmax]).nice();
 	        // remove ramaining nodes
 	        if (this._bubbles) {
 	            (!drawTransition ? this._bubbles : this._bubbles
@@ -1182,7 +1221,7 @@ webpackJsonp([0],{
 	                .remove();
 	        }
 	        // create additional nodes
-	        this._bubbles = this._g
+	        this._bubbles = this.select(BUBBLE_SERIES)
 	            .selectAll('.circle')
 	            .data(data)
 	            .enter()
@@ -1206,20 +1245,16 @@ webpackJsonp([0],{
 	            fill: function (d) { return props.color(d.Category); },
 	            cx: function (d) { return xscale(d.Data2); },
 	            cy: function (d) { return yscale(d.Data1); },
-	            opacity: 1,
-	            r: function (d) { return 5 + ((d.Data3 / zmax) * 15); }
+	            r: function (d) { return rscale(d.Data3); },
+	            opacity: 1
 	        });
 	        // draw axis
 	        var xaxis = d3.svg.axis().scale(xscale).orient('bottom');
 	        var yaxis = d3.svg.axis().scale(yscale).orient('left');
-	        this._x.call(xaxis);
-	        this._y.call(yaxis);
+	        this.select(AXIS_X).call(xaxis);
+	        this.select(AXIS_Y).call(yaxis);
 	    };
 	    Component.prototype.componentDidMount = function () {
-	        this._svg = d3.select(this.refs['svg']);
-	        this._g = this._svg.append('g');
-	        this._x = this._g.append('g').attr('class', 'axis axis-x');
-	        this._y = this._g.append('g').attr('class', 'axis axis-y');
 	        this._easeIn = d3.ease('quad-in');
 	        this._easeOut = d3.ease('quad-out');
 	    };
@@ -1228,19 +1263,19 @@ webpackJsonp([0],{
 	    //}
 	    Component.prototype.shouldComponentUpdate = function (nextProps, nextState, nextContext) {
 	        var currentProps = this.props;
-	        if (!this._width || !this._height
+	        if (!this._w || !this._h
 	            || currentProps.width !== nextProps.width
 	            || currentProps.height !== nextProps.height
 	            || currentProps.gutterLeft !== nextProps.gutterLeft
 	            || currentProps.gutterRight !== nextProps.gutterRight
 	            || currentProps.gutterTop !== nextProps.gutterTop
 	            || currentProps.gutterBottom !== nextProps.gutterBottom) {
-	            this._svg.attr({ width: nextProps.width, height: nextProps.height });
-	            this._width = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
-	            this._height = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
-	            this._g.attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
-	            this._x.attr('transform', "translate(0, " + this._height + ")");
-	            this._y.attr('transform', "translate(0, 0)");
+	            this.select(CHART).attr({ width: nextProps.width, height: nextProps.height });
+	            this._w = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
+	            this._h = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
+	            this.select(BUBBLE_SERIES).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
+	            this.select(AXIS_X).attr('transform', "translate(" + nextProps.gutterLeft + ", " + (nextProps.gutterTop + this._h) + ")");
+	            this.select(AXIS_Y).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
 	        }
 	        if (currentProps.width !== nextProps.width
 	            || currentProps.height !== nextProps.height
@@ -1253,6 +1288,9 @@ webpackJsonp([0],{
 	            this.draw(nextProps, currentProps.data !== nextProps.data);
 	        }
 	        return false;
+	    };
+	    Component.prototype.select = function (ref) {
+	        return d3.select(this.refs[ref]);
 	    };
 	    Component.defaultProps = {
 	        duration: 300,
@@ -1284,78 +1322,73 @@ webpackJsonp([0],{
 	};
 	var React = __webpack_require__(3);
 	var d3 = __webpack_require__(355);
+	var CHART = 'chart';
+	var BAR_SERIES = 'canvas';
+	var LINE_SERIES1 = 'line1';
+	var LINE_SERIES2 = 'line2';
+	var LINE_SERIES3 = 'line3';
+	var LINE_SERIES4 = 'line4';
+	var AXIS_X = 'axisX';
+	var AXIS_Y = 'axisY';
 	var Component = (function (_super) {
 	    __extends(Component, _super);
 	    function Component(props, context) {
 	        _super.call(this, props, context);
 	    }
 	    Component.prototype.render = function () {
-	        return (React.createElement("svg", {className: "basic-chart-bubble", ref: "svg"}));
+	        return (React.createElement("svg", {ref: CHART, className: "basic-chart-line"}, React.createElement("g", {ref: BAR_SERIES, className: "canvas"}, React.createElement("path", {ref: LINE_SERIES1, className: "line1"}), React.createElement("path", {ref: LINE_SERIES2, className: "line2"}), React.createElement("path", {ref: LINE_SERIES3, className: "line3"}), React.createElement("path", {ref: LINE_SERIES4, className: "line4"})), React.createElement("g", {ref: AXIS_X, className: "axis axis-x"}), React.createElement("g", {ref: AXIS_Y, className: "axis axis-y"})));
 	    };
-	    Component.prototype.draw = function (props, drawTransition) {
-	        var data = props.data;
-	        var ymax = d3.max(data, function (d) { return d.Data1; });
-	        var xscale = d3.scale.ordinal().rangeRoundBands([0, this._width]).domain(data.map(function (d) { return d.Category; }));
-	        var yscale = d3.scale.linear().rangeRound([this._height, 0]).domain([0, ymax]).nice();
-	        var line1 = d3.svg.line()
-	            .x(function (d, i) { return xscale(d.Category) + (xscale.rangeBand() / 2); })
-	            .y(function (d, i) { return yscale(d.Data1); });
-	        if (!this._path1) {
-	            var line0 = d3.svg.line()
-	                .x(function (d, i) { return xscale(d.Category) + (xscale.rangeBand() / 2); })
-	                .y(function (d, i) { return yscale.range()[0]; });
-	            this._path1 = this._g.append('path');
-	            //noinspection TypeScriptValidateTypes
-	            (!drawTransition ? this._path1.datum(data) : this._path1.datum(data)
-	                .attr('d', line0)
-	                .transition()) // end transition
-	                .attr('d', line1);
-	        }
-	        else {
-	            //noinspection TypeScriptValidateTypes
-	            (!drawTransition ? this._path1.datum(data) : this._path1.datum(data)
-	                .transition()) // end transition
-	                .attr('d', line1);
-	        }
-	        this._path1.attr({
+	    Component.prototype.drawLineSeries = function (props, drawTransition, dataField, categoryField, dataScale, categoryScale, ref) {
+	        var path = this.select(ref);
+	        var line = d3.svg.line()
+	            .x(function (d, i) { return categoryScale(d[categoryField]) + (categoryScale.rangeBand() / 2); })
+	            .y(function (d, i) { return dataScale(d[dataField]); });
+	        //noinspection TypeScriptValidateTypes
+	        (!drawTransition ? path.datum(props.data) : path.datum(props.data)
+	            .transition())
+	            .attr({
+	            d: line,
 	            fill: 'none',
-	            stroke: props.color('line1'),
+	            stroke: props.color(ref),
 	            'stroke-width': '4px',
 	            'stroke-linecap': 'round',
 	            'stroke-linejoin': 'round'
 	        });
+	    };
+	    Component.prototype.draw = function (props, drawTransition) {
+	        var data = props.data;
+	        var categoryScale = d3.scale.ordinal().rangeRoundBands([0, this._w]).domain(data.map(function (d) { return d.Category; }));
+	        var dataMax = Math.max(d3.max(data, function (d) { return d.Data1; }), d3.max(data, function (d) { return d.Data2; }), d3.max(data, function (d) { return d.Data3; }), d3.max(data, function (d) { return d.Data4; }));
+	        var dataScale = d3.scale.linear().rangeRound([this._h, 0]).domain([0, dataMax]).nice();
+	        this.drawLineSeries(props, drawTransition, 'Data1', 'Category', dataScale, categoryScale, LINE_SERIES1);
+	        this.drawLineSeries(props, drawTransition, 'Data2', 'Category', dataScale, categoryScale, LINE_SERIES2);
+	        this.drawLineSeries(props, drawTransition, 'Data3', 'Category', dataScale, categoryScale, LINE_SERIES3);
+	        this.drawLineSeries(props, drawTransition, 'Data4', 'Category', dataScale, categoryScale, LINE_SERIES4);
 	        // draw axis
-	        var xaxis = d3.svg.axis().scale(xscale).orient('bottom');
-	        var yaxis = d3.svg.axis().scale(yscale).orient('left');
-	        this._x.call(xaxis);
-	        this._y.call(yaxis);
+	        var xaxis = d3.svg.axis().scale(categoryScale).orient('bottom');
+	        var yaxis = d3.svg.axis().scale(dataScale).orient('left');
+	        this.select(AXIS_X).call(xaxis);
+	        this.select(AXIS_Y).call(yaxis);
 	    };
 	    Component.prototype.componentDidMount = function () {
-	        this._svg = d3.select(this.refs['svg']);
-	        this._g = this._svg.append('g');
-	        this._x = this._g.append('g').attr('class', 'axis axis-x');
-	        this._y = this._g.append('g').attr('class', 'axis axis-y');
 	        this._easeIn = d3.ease('quad-in');
 	        this._easeOut = d3.ease('quad-out');
 	    };
-	    //componentWillUnmount():void {
-	    //  this.chart = null;
-	    //}
 	    Component.prototype.shouldComponentUpdate = function (nextProps, nextState, nextContext) {
 	        var currentProps = this.props;
-	        if (!this._width || !this._height
+	        if (!this._w || !this._h
 	            || currentProps.width !== nextProps.width
 	            || currentProps.height !== nextProps.height
 	            || currentProps.gutterLeft !== nextProps.gutterLeft
 	            || currentProps.gutterRight !== nextProps.gutterRight
 	            || currentProps.gutterTop !== nextProps.gutterTop
 	            || currentProps.gutterBottom !== nextProps.gutterBottom) {
-	            this._svg.attr({ width: nextProps.width, height: nextProps.height });
-	            this._width = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
-	            this._height = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
-	            this._g.attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
-	            this._x.attr('transform', "translate(0, " + this._height + ")");
-	            this._y.attr('transform', "translate(0, 0)");
+	            this.select(CHART).attr({ width: nextProps.width, height: nextProps.height });
+	            this._w = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
+	            this._h = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
+	            this.select(BAR_SERIES).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
+	            this.select(AXIS_X).attr('transform', "translate(" + nextProps.gutterLeft + ", " + (nextProps.gutterTop + this._h) + ")");
+	            this.select(AXIS_Y).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
 	        }
 	        if (currentProps.width !== nextProps.width
 	            || currentProps.height !== nextProps.height
@@ -1368,6 +1401,9 @@ webpackJsonp([0],{
 	            this.draw(nextProps, currentProps.data !== nextProps.data);
 	        }
 	        return false;
+	    };
+	    Component.prototype.select = function (ref) {
+	        return d3.select(this.refs[ref]);
 	    };
 	    Component.defaultProps = {
 	        duration: 300,
