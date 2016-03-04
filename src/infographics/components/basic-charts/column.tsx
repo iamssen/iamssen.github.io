@@ -5,7 +5,7 @@ import d3tip from 'd3tip';
 import {Data} from '../../types';
 
 const CHART:string = 'chart';
-const COLUMN_SERIES:string = 'canvas';
+const SERIES:string = 'series';
 const AXIS_X:string = 'axisX';
 const AXIS_Y:string = 'axisY';
 
@@ -20,6 +20,7 @@ interface Props {
   gutterBottom?:number;
   color?:d3.scale.Ordinal<string, string>;
   data?:Data[];
+  dataFields?:string[];
 }
 
 export default class Component extends React.Component<Props, any> {
@@ -30,7 +31,7 @@ export default class Component extends React.Component<Props, any> {
   
   static defaultProps:Props = {
     duration: 300,
-    delay: 40,
+    delay: 20,
     width: 540,
     height: 320,
     gutterLeft: 50,
@@ -47,91 +48,111 @@ export default class Component extends React.Component<Props, any> {
   render() {
     return (
       <svg ref={CHART} className="basic-chart-column">
-        <g ref={COLUMN_SERIES} className="canvas"/>
+        <g ref={SERIES} className="series"/>
         <g ref={AXIS_X} className="axis axis-x"/>
         <g ref={AXIS_Y} className="axis axis-y"/>
       </svg>
     );
   }
   
-  drawColumnSeries(props:Props, drawTransition:boolean,
-                   dataField:string,
-                   categoryField:string,
-                   dataScale:d3.scale.Linear<any, any>,
-                   categoryScale:d3.scale.Ordinal<any, any>,
-                   updateSelection:d3.selection.Update<any>) {
+  draw(props:Props, drawTransition:boolean) {
+    const {data, duration, delay: delayTime, color, dataFields} = props;
+    const categoryField:string = 'Category';
+    const categoryScale:d3.scale.Ordinal<any, any> = d3.scale.ordinal().rangeRoundBands([0, this._w]).domain(data.map(d => d[categoryField]));
+    
+    const ymax:number = d3.max(data, d => d3.max(dataFields, dataField => d[dataField]));
+    const yscale:d3.scale.Linear<any, any> = d3.scale.linear().rangeRound([this._h, 0]).domain([0, ymax]).nice();
+
+    //---------------------------------------------
+    // draw column series
+    //---------------------------------------------
+    interface Rect {
+      delay: number;
+      fill: string;
+      x:number;
+      y:number;
+      width: number;
+      height: number;
+      data:Data;
+      dataField:string;
+    }
+
+    const dataFieldsLength:number = dataFields.length;
+    const rects:Rect[][] = data.map((d, f) => dataFields.map((dataField, s) => {
+      const fill:string = dataFieldsLength === 1 ? color(d[categoryField]) : color(s.toString());
+      const delay:number = delayTime * f;
+      const width:number = categoryScale.rangeBand() / dataFieldsLength;
+      const height:number = this._h - yscale(d[dataField]);
+      const x:number = categoryScale(d[categoryField]) + (width * s);
+      const y:number = yscale(d[dataField]);
+      return {fill, delay, width, height, x, y, data: d, dataField};
+    }));
+
+    const delay = (r:Rect) => r.delay;
+    const fill = (r:Rect) => r.fill;
+    const x = (r:Rect) => r.x;
+    const y = (r:Rect) => r.y;
+    const width = (r:Rect) => r.width;
+    const height = (r:Rect) => r.height;
+
+    const update:d3.selection.Update<any> = this.select(SERIES)
+      .selectAll('rect')
+      .data([].concat(...rects));
+
     //noinspection TypeScriptValidateTypes
-    (!drawTransition ? updateSelection : updateSelection
+    (!drawTransition ? update : update
       .transition()
-      .duration(props.duration)
-      .delay((d, i) => props.delay * i)
+      .duration(duration)
+      .delay(delay)
       .ease(this._easeOut)) // end transition
       .attr({
-        fill: d => props.color(d[categoryField]),
-        x: d => categoryScale(d[categoryField]),
-        y: d => dataScale(d[dataField]),
-        width: d => categoryScale.rangeBand(),
-        height: d => this._h - dataScale(d[dataField])
+        opacity: 1,
+        fill, x, y, width, height
       });
 
-    (!drawTransition ? updateSelection.exit() : updateSelection.exit()
+    (!drawTransition ? update.exit() : update.exit()
       .transition()
-      .duration(props.duration)
-      .delay((d, i) => props.delay * i)
+      .duration(duration)
+      .delay(delay)
       .ease(this._easeIn)
       .attr({
         opacity: 0,
-        x: props.width,
+        x: this._w,
         y: this._h,
         width: 0,
         height: 0
       })) // end transition
       .remove();
 
-    const newRects:d3.Selection<any> = updateSelection.enter()
+    const enter:d3.Selection<any> = update.enter()
       .append('rect')
+      .attr({fill, x, width})
       .call(d3tip({
-        html: (d:Data) => `<h5>${d[categoryField]}</h5>${d[dataField]}`
+        html: (r:Rect) => `<h5>${r.data[categoryField]}</h5>${r.data[r.dataField]}`
       }));
 
     //noinspection TypeScriptValidateTypes
-    (!drawTransition ? newRects : newRects
+    (!drawTransition ? enter : enter
       .attr({
-        fill: d => props.color(d[categoryField]),
         opacity: 0,
-        x: d => categoryScale(d[categoryField]),
         y: this._h,
-        width: d => categoryScale.rangeBand(),
         height: 0
       })
       .transition()
-      .duration(props.duration)
-      .delay((d, i) => props.delay * i)
+      .duration(duration)
+      .delay(delay)
       .ease(this._easeOut)) // end transition
       .attr({
-        fill: d => props.color(d[categoryField]),
         opacity: 1,
-        x: d => categoryScale(d[categoryField]),
-        y: d => dataScale(d[dataField]),
-        width: d => categoryScale.rangeBand(),
-        height: d => this._h - dataScale(d[dataField])
+        y,
+        height
       });
-  }
-  
-  draw(props:Props, drawTransition:boolean) {
-    const data:Data[] = props.data;
-    const categoryScale:d3.scale.Ordinal<any, any> = d3.scale.ordinal().rangeRoundBands([0, this._w]).domain(data.map(d => d.Category));
-    
-    const data1Max:number = d3.max(data, d => d.Data1);
-    const data1Scale:d3.scale.Linear<any, any> = d3.scale.linear().rangeRound([this._h, 0]).domain([0, data1Max]).nice();
-    const data1ColumnSelection:d3.selection.Update<any> = this.select(COLUMN_SERIES).selectAll('rect').data(data);
-    
-    // draw column series
-    this.drawColumnSeries(props, drawTransition, 'Data1', 'Category', data1Scale, categoryScale, data1ColumnSelection);
-    
+
+    //---------------------------------------------
     // draw axis
+    //---------------------------------------------
     const xaxis = d3.svg.axis().scale(categoryScale).orient('bottom');
-    const yaxis = d3.svg.axis().scale(data1Scale).orient('left');
+    const yaxis = d3.svg.axis().scale(yscale).orient('left');
     
     this.select(AXIS_X).call(xaxis);
     this.select(AXIS_Y).call(yaxis);
@@ -157,7 +178,7 @@ export default class Component extends React.Component<Props, any> {
       this._w = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
       this._h = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
       
-      this.select(COLUMN_SERIES).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop})`);
+      this.select(SERIES).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop})`);
       this.select(AXIS_X).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop + this._h})`);
       this.select(AXIS_Y).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop})`);
     }
@@ -169,8 +190,9 @@ export default class Component extends React.Component<Props, any> {
       || currentProps.gutterTop !== nextProps.gutterTop
       || currentProps.gutterBottom !== nextProps.gutterBottom
       || currentProps.color !== nextProps.color
-      || currentProps.data !== nextProps.data) {
-      this.draw(nextProps, currentProps.data !== nextProps.data);
+      || currentProps.data !== nextProps.data
+      || currentProps.dataFields !== nextProps.dataFields) {
+      this.draw(nextProps, currentProps.data !== nextProps.data || currentProps.dataFields !== nextProps.dataFields);
     }
     return false;
   }

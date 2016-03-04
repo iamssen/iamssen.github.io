@@ -41,7 +41,6 @@ export const Menu = () => {
 export const App = ({children}) => (
   <div>
     <Menu/>
-    {/* container  */}
     <div className="main-content">
       {children}
     </div>

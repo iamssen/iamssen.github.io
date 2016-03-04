@@ -53,7 +53,7 @@ export default class BasicCharts extends React.Component<any, any> {
         </div>
         <Bar width={width} height={height} data={data} color={color} dataFields={dataField}/>
         <Bubble width={width} height={height} data={data} color={color}/>
-        <Column width={width} height={height} data={data} color={color}/>
+        <Column width={width} height={height} data={data} color={color} dataFields={dataField}/>
         <Line width={width} height={height} data={data} color={color}/>
         <Pie width={width} height={height} data={data} color={color}/>
         <Radar width={width} height={height} data={data} color={color}/>

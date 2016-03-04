@@ -69,9 +69,9 @@ export default class Component extends React.Component<Props, any> {
     interface Rect {
       delay: number;
       fill: string;
+      y: number;
       width: number;
       height: number;
-      y: number;
       data:Data;
       dataField:string;
     }
@@ -83,15 +83,7 @@ export default class Component extends React.Component<Props, any> {
       const width:number = xscale(d[dataField]);
       const height:number = categoryScale.rangeBand() / dataFieldsLength;
       const y:number = categoryScale(d[categoryField]) + (height * s);
-      return {
-        fill,
-        delay,
-        width,
-        height,
-        y,
-        data: d,
-        dataField
-      };
+      return {fill, delay, width, height, y, data: d, dataField};
     }));
 
     const delay = (r:Rect) => r.delay;
@@ -110,7 +102,10 @@ export default class Component extends React.Component<Props, any> {
       .duration(duration)
       .delay(delay)
       .ease(this._easeOut)) // end transition
-      .attr({fill, y, width, height});
+      .attr({
+        opacity: 1,
+        fill, y, width, height
+      });
 
     (!drawTransition ? update.exit() : update.exit()
       .transition()

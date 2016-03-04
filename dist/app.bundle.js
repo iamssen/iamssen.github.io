@@ -10,11 +10,11 @@ webpackJsonp([0],{
 	var React = __webpack_require__(3);
 	var react_dom_1 = __webpack_require__(159);
 	var react_redux_1 = __webpack_require__(160);
-	var react_router_1 = __webpack_require__(181);
-	var store_1 = __webpack_require__(240);
-	var routeConfig_1 = __webpack_require__(243);
-	var components_1 = __webpack_require__(368);
-	__webpack_require__(369);
+	var react_router_1 = __webpack_require__(178);
+	var store_1 = __webpack_require__(234);
+	var routeConfig_1 = __webpack_require__(237);
+	var components_1 = __webpack_require__(362);
+	__webpack_require__(363);
 	function onUpdateHook() {
 	    var args = [];
 	    for (var _i = 0; _i < arguments.length; _i++) {
@@ -33,14 +33,14 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 240:
+/***/ 234:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var redux_1 = __webpack_require__(166);
-	var thunkMiddleware = __webpack_require__(241);
+	var thunkMiddleware = __webpack_require__(235);
 	//const createLogger = require('redux-logger');
-	var appReducers = __webpack_require__(242);
+	var appReducers = __webpack_require__(236);
 	// , createLogger()
 	//const logger = store => next => action => {
 	//  console.log('????',  action);
@@ -56,7 +56,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 242:
+/***/ 236:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -69,12 +69,12 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 243:
+/***/ 237:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var entry_1 = __webpack_require__(244);
-	var entry_2 = __webpack_require__(353);
+	var entry_1 = __webpack_require__(238);
+	var entry_2 = __webpack_require__(347);
 	exports.indexRoute = Object.freeze(entry_1.default());
 	exports.childRoutes = Object.freeze([
 	    entry_2.default()
@@ -83,14 +83,14 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 244:
+/***/ 238:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var react_redux_1 = __webpack_require__(160);
-	var store_1 = __webpack_require__(240);
-	var components_1 = __webpack_require__(245);
-	var reducers = __webpack_require__(352);
+	var store_1 = __webpack_require__(234);
+	var components_1 = __webpack_require__(239);
+	var reducers = __webpack_require__(346);
 	var Component = react_redux_1.connect(function (state) { return ({
 	    dispatch: state.dispatch,
 	    activities: state.activities
@@ -108,7 +108,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 245:
+/***/ 239:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -118,8 +118,8 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var moment = __webpack_require__(246);
-	var actions_1 = __webpack_require__(345);
+	var moment = __webpack_require__(240);
+	var actions_1 = __webpack_require__(339);
 	var ActivitiesLink = function (_a) {
 	    var title = _a.title, url = _a.url, key = _a.key;
 	    return (React.createElement("a", {href: url, key: key, className: "btn btn-info btn-sm", target: "_blank"}, title));
@@ -171,11 +171,11 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 345:
+/***/ 339:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var services = __webpack_require__(346);
+	var services = __webpack_require__(340);
 	exports.RECEIVE_GITHUB_REPOSITORIES = 'RECEIVE_GITHUB_REPOSITORIES';
 	exports.RECEIVE_GITHUB_GISTS = 'RECEIVE_GITHUB_GISTS';
 	exports.RECEIVE_JSFIDDLE = 'RECEIVE_JSFIDDLE';
@@ -220,11 +220,11 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 346:
+/***/ 340:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(fetch) {"use strict";
-	var jsonp = __webpack_require__(348);
+	var jsonp = __webpack_require__(342);
 	var GITHUB_HEADERS = {
 	    headers: {
 	        Authorization: 'token cd4981226b72e9bffd3f8796026aa6865c81cb73'
@@ -266,11 +266,11 @@ webpackJsonp([0],{
 	}
 	exports.getJsfiddles = getJsfiddles;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(347)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(341)))
 
 /***/ },
 
-/***/ 347:
+/***/ 341:
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*** IMPORTS FROM imports-loader ***/
@@ -674,12 +674,12 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 352:
+/***/ 346:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var moment = __webpack_require__(246);
-	var actions_1 = __webpack_require__(345);
+	var moment = __webpack_require__(240);
+	var actions_1 = __webpack_require__(339);
 	var now = Date.now;
 	var freeze = Object.freeze;
 	var init = function () { return ({ items: freeze([]), updatedAt: 0 }); };
@@ -759,12 +759,12 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 353:
+/***/ 347:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var React = __webpack_require__(3);
-	var basic_charts_1 = __webpack_require__(354);
+	var basic_charts_1 = __webpack_require__(348);
 	var Infographics = function () { return (React.createElement("div", null, React.createElement(basic_charts_1.default, null))); };
 	function default_1() {
 	    return { path: '/infographics', title: 'Infographics', component: Infographics };
@@ -775,7 +775,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 354:
+/***/ 348:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -785,14 +785,14 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var d3 = __webpack_require__(355);
-	var bar_1 = __webpack_require__(356);
-	var column_1 = __webpack_require__(359);
-	var bubble_1 = __webpack_require__(360);
-	var line_1 = __webpack_require__(361);
-	var pie_1 = __webpack_require__(362);
-	var radar_1 = __webpack_require__(363);
-	__webpack_require__(364);
+	var d3 = __webpack_require__(349);
+	var bar_1 = __webpack_require__(350);
+	var column_1 = __webpack_require__(353);
+	var bubble_1 = __webpack_require__(354);
+	var line_1 = __webpack_require__(355);
+	var pie_1 = __webpack_require__(356);
+	var radar_1 = __webpack_require__(357);
+	__webpack_require__(358);
 	var colors = [
 	    d3.scale.category10(),
 	    d3.scale.category20(),
@@ -820,7 +820,7 @@ webpackJsonp([0],{
 	        var style = { textAlign: 'right' };
 	        var _a = this.state, data = _a.data, color = _a.color, dataField = _a.dataField, size = _a.size;
 	        var width = size[0], height = size[1];
-	        return (React.createElement("div", {className: "basic-charts"}, React.createElement("div", {style: style}, React.createElement("button", {onClick: this.changeSize.bind(this)}, "Change Size"), React.createElement("button", {onClick: this.changeColor.bind(this)}, "Change Color"), React.createElement("button", {onClick: this.changeDataFields.bind(this)}, "Change DataFields"), React.createElement("button", {onClick: this.refreshData.bind(this)}, "Refresh Data")), React.createElement(bar_1.default, {width: width, height: height, data: data, color: color, dataFields: dataField}), React.createElement(bubble_1.default, {width: width, height: height, data: data, color: color}), React.createElement(column_1.default, {width: width, height: height, data: data, color: color}), React.createElement(line_1.default, {width: width, height: height, data: data, color: color}), React.createElement(pie_1.default, {width: width, height: height, data: data, color: color}), React.createElement(radar_1.default, {width: width, height: height, data: data, color: color})));
+	        return (React.createElement("div", {className: "basic-charts"}, React.createElement("div", {style: style}, React.createElement("button", {onClick: this.changeSize.bind(this)}, "Change Size"), React.createElement("button", {onClick: this.changeColor.bind(this)}, "Change Color"), React.createElement("button", {onClick: this.changeDataFields.bind(this)}, "Change DataFields"), React.createElement("button", {onClick: this.refreshData.bind(this)}, "Refresh Data")), React.createElement(bar_1.default, {width: width, height: height, data: data, color: color, dataFields: dataField}), React.createElement(bubble_1.default, {width: width, height: height, data: data, color: color}), React.createElement(column_1.default, {width: width, height: height, data: data, color: color, dataFields: dataField}), React.createElement(line_1.default, {width: width, height: height, data: data, color: color}), React.createElement(pie_1.default, {width: width, height: height, data: data, color: color}), React.createElement(radar_1.default, {width: width, height: height, data: data, color: color})));
 	    };
 	    BasicCharts.prototype.data = function () {
 	        var max = Math.random() * 1000;
@@ -869,7 +869,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 356:
+/***/ 350:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -879,8 +879,8 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var d3 = __webpack_require__(355);
-	var d3tip_1 = __webpack_require__(357);
+	var d3 = __webpack_require__(349);
+	var d3tip_1 = __webpack_require__(351);
 	var CHART = 'chart';
 	var SERIES = 'series';
 	var AXIS_X = 'axisX';
@@ -906,15 +906,7 @@ webpackJsonp([0],{
 	            var width = xscale(d[dataField]);
 	            var height = categoryScale.rangeBand() / dataFieldsLength;
 	            var y = categoryScale(d[categoryField]) + (height * s);
-	            return {
-	                fill: fill,
-	                delay: delay,
-	                width: width,
-	                height: height,
-	                y: y,
-	                data: d,
-	                dataField: dataField
-	            };
+	            return { fill: fill, delay: delay, width: width, height: height, y: y, data: d, dataField: dataField };
 	        }); });
 	        var delay = function (r) { return r.delay; };
 	        var fill = function (r) { return r.fill; };
@@ -930,7 +922,10 @@ webpackJsonp([0],{
 	            .duration(duration)
 	            .delay(delay)
 	            .ease(this._easeOut)) // end transition
-	            .attr({ fill: fill, y: y, width: width, height: height });
+	            .attr({
+	            opacity: 1,
+	            fill: fill, y: y, width: width, height: height
+	        });
 	        (!drawTransition ? update.exit() : update.exit()
 	            .transition()
 	            .duration(duration)
@@ -1027,7 +1022,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 359:
+/***/ 353:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1037,10 +1032,10 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var d3 = __webpack_require__(355);
-	var d3tip_1 = __webpack_require__(357);
+	var d3 = __webpack_require__(349);
+	var d3tip_1 = __webpack_require__(351);
 	var CHART = 'chart';
-	var COLUMN_SERIES = 'canvas';
+	var SERIES = 'series';
 	var AXIS_X = 'axisX';
 	var AXIS_Y = 'axisY';
 	var Component = (function (_super) {
@@ -1049,77 +1044,87 @@ webpackJsonp([0],{
 	        _super.call(this, props, context);
 	    }
 	    Component.prototype.render = function () {
-	        return (React.createElement("svg", {ref: CHART, className: "basic-chart-column"}, React.createElement("g", {ref: COLUMN_SERIES, className: "canvas"}), React.createElement("g", {ref: AXIS_X, className: "axis axis-x"}), React.createElement("g", {ref: AXIS_Y, className: "axis axis-y"})));
+	        return (React.createElement("svg", {ref: CHART, className: "basic-chart-column"}, React.createElement("g", {ref: SERIES, className: "series"}), React.createElement("g", {ref: AXIS_X, className: "axis axis-x"}), React.createElement("g", {ref: AXIS_Y, className: "axis axis-y"})));
 	    };
-	    Component.prototype.drawColumnSeries = function (props, drawTransition, dataField, categoryField, dataScale, categoryScale, updateSelection) {
+	    Component.prototype.draw = function (props, drawTransition) {
 	        var _this = this;
+	        var data = props.data, duration = props.duration, delayTime = props.delay, color = props.color, dataFields = props.dataFields;
+	        var categoryField = 'Category';
+	        var categoryScale = d3.scale.ordinal().rangeRoundBands([0, this._w]).domain(data.map(function (d) { return d[categoryField]; }));
+	        var ymax = d3.max(data, function (d) { return d3.max(dataFields, function (dataField) { return d[dataField]; }); });
+	        var yscale = d3.scale.linear().rangeRound([this._h, 0]).domain([0, ymax]).nice();
+	        var dataFieldsLength = dataFields.length;
+	        var rects = data.map(function (d, f) { return dataFields.map(function (dataField, s) {
+	            var fill = dataFieldsLength === 1 ? color(d[categoryField]) : color(s.toString());
+	            var delay = delayTime * f;
+	            var width = categoryScale.rangeBand() / dataFieldsLength;
+	            var height = _this._h - yscale(d[dataField]);
+	            var x = categoryScale(d[categoryField]) + (width * s);
+	            var y = yscale(d[dataField]);
+	            return { fill: fill, delay: delay, width: width, height: height, x: x, y: y, data: d, dataField: dataField };
+	        }); });
+	        var delay = function (r) { return r.delay; };
+	        var fill = function (r) { return r.fill; };
+	        var x = function (r) { return r.x; };
+	        var y = function (r) { return r.y; };
+	        var width = function (r) { return r.width; };
+	        var height = function (r) { return r.height; };
+	        var update = this.select(SERIES)
+	            .selectAll('rect')
+	            .data((_a = []).concat.apply(_a, rects));
 	        //noinspection TypeScriptValidateTypes
-	        (!drawTransition ? updateSelection : updateSelection
+	        (!drawTransition ? update : update
 	            .transition()
-	            .duration(props.duration)
-	            .delay(function (d, i) { return props.delay * i; })
+	            .duration(duration)
+	            .delay(delay)
 	            .ease(this._easeOut)) // end transition
 	            .attr({
-	            fill: function (d) { return props.color(d[categoryField]); },
-	            x: function (d) { return categoryScale(d[categoryField]); },
-	            y: function (d) { return dataScale(d[dataField]); },
-	            width: function (d) { return categoryScale.rangeBand(); },
-	            height: function (d) { return _this._h - dataScale(d[dataField]); }
+	            opacity: 1,
+	            fill: fill, x: x, y: y, width: width, height: height
 	        });
-	        (!drawTransition ? updateSelection.exit() : updateSelection.exit()
+	        (!drawTransition ? update.exit() : update.exit()
 	            .transition()
-	            .duration(props.duration)
-	            .delay(function (d, i) { return props.delay * i; })
+	            .duration(duration)
+	            .delay(delay)
 	            .ease(this._easeIn)
 	            .attr({
 	            opacity: 0,
-	            x: props.width,
+	            x: this._w,
 	            y: this._h,
 	            width: 0,
 	            height: 0
 	        })) // end transition
 	            .remove();
-	        var newRects = updateSelection.enter()
+	        var enter = update.enter()
 	            .append('rect')
+	            .attr({ fill: fill, x: x, width: width })
 	            .call(d3tip_1.default({
-	            html: function (d) { return ("<h5>" + d[categoryField] + "</h5>" + d[dataField]); }
+	            html: function (r) { return ("<h5>" + r.data[categoryField] + "</h5>" + r.data[r.dataField]); }
 	        }));
 	        //noinspection TypeScriptValidateTypes
-	        (!drawTransition ? newRects : newRects
+	        (!drawTransition ? enter : enter
 	            .attr({
-	            fill: function (d) { return props.color(d[categoryField]); },
 	            opacity: 0,
-	            x: function (d) { return categoryScale(d[categoryField]); },
 	            y: this._h,
-	            width: function (d) { return categoryScale.rangeBand(); },
 	            height: 0
 	        })
 	            .transition()
-	            .duration(props.duration)
-	            .delay(function (d, i) { return props.delay * i; })
+	            .duration(duration)
+	            .delay(delay)
 	            .ease(this._easeOut)) // end transition
 	            .attr({
-	            fill: function (d) { return props.color(d[categoryField]); },
 	            opacity: 1,
-	            x: function (d) { return categoryScale(d[categoryField]); },
-	            y: function (d) { return dataScale(d[dataField]); },
-	            width: function (d) { return categoryScale.rangeBand(); },
-	            height: function (d) { return _this._h - dataScale(d[dataField]); }
+	            y: y,
+	            height: height
 	        });
-	    };
-	    Component.prototype.draw = function (props, drawTransition) {
-	        var data = props.data;
-	        var categoryScale = d3.scale.ordinal().rangeRoundBands([0, this._w]).domain(data.map(function (d) { return d.Category; }));
-	        var data1Max = d3.max(data, function (d) { return d.Data1; });
-	        var data1Scale = d3.scale.linear().rangeRound([this._h, 0]).domain([0, data1Max]).nice();
-	        var data1ColumnSelection = this.select(COLUMN_SERIES).selectAll('rect').data(data);
-	        // draw column series
-	        this.drawColumnSeries(props, drawTransition, 'Data1', 'Category', data1Scale, categoryScale, data1ColumnSelection);
+	        //---------------------------------------------
 	        // draw axis
+	        //---------------------------------------------
 	        var xaxis = d3.svg.axis().scale(categoryScale).orient('bottom');
-	        var yaxis = d3.svg.axis().scale(data1Scale).orient('left');
+	        var yaxis = d3.svg.axis().scale(yscale).orient('left');
 	        this.select(AXIS_X).call(xaxis);
 	        this.select(AXIS_Y).call(yaxis);
+	        var _a;
 	    };
 	    Component.prototype.componentDidMount = function () {
 	        this._easeIn = d3.ease('quad-in');
@@ -1137,7 +1142,7 @@ webpackJsonp([0],{
 	            this.select(CHART).attr({ width: nextProps.width, height: nextProps.height });
 	            this._w = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
 	            this._h = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
-	            this.select(COLUMN_SERIES).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
+	            this.select(SERIES).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
 	            this.select(AXIS_X).attr('transform', "translate(" + nextProps.gutterLeft + ", " + (nextProps.gutterTop + this._h) + ")");
 	            this.select(AXIS_Y).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
 	        }
@@ -1148,8 +1153,9 @@ webpackJsonp([0],{
 	            || currentProps.gutterTop !== nextProps.gutterTop
 	            || currentProps.gutterBottom !== nextProps.gutterBottom
 	            || currentProps.color !== nextProps.color
-	            || currentProps.data !== nextProps.data) {
-	            this.draw(nextProps, currentProps.data !== nextProps.data);
+	            || currentProps.data !== nextProps.data
+	            || currentProps.dataFields !== nextProps.dataFields) {
+	            this.draw(nextProps, currentProps.data !== nextProps.data || currentProps.dataFields !== nextProps.dataFields);
 	        }
 	        return false;
 	    };
@@ -1158,7 +1164,7 @@ webpackJsonp([0],{
 	    };
 	    Component.defaultProps = {
 	        duration: 300,
-	        delay: 40,
+	        delay: 20,
 	        width: 540,
 	        height: 320,
 	        gutterLeft: 50,
@@ -1175,7 +1181,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 360:
+/***/ 354:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1185,8 +1191,8 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var d3 = __webpack_require__(355);
-	var d3tip_1 = __webpack_require__(357);
+	var d3 = __webpack_require__(349);
+	var d3tip_1 = __webpack_require__(351);
 	var CHART = 'chart';
 	var BUBBLE_SERIES = 'canvas';
 	var AXIS_X = 'axisX';
@@ -1311,7 +1317,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 361:
+/***/ 355:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1321,7 +1327,7 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var d3 = __webpack_require__(355);
+	var d3 = __webpack_require__(349);
 	var CHART = 'chart';
 	var BAR_SERIES = 'canvas';
 	var LINE_SERIES1 = 'line1';
@@ -1424,7 +1430,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 362:
+/***/ 356:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1434,8 +1440,8 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var d3 = __webpack_require__(355);
-	var d3tip_1 = __webpack_require__(357);
+	var d3 = __webpack_require__(349);
+	var d3tip_1 = __webpack_require__(351);
 	var Component = (function (_super) {
 	    __extends(Component, _super);
 	    function Component(props, context) {
@@ -1538,7 +1544,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 363:
+/***/ 357:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1548,8 +1554,8 @@ webpackJsonp([0],{
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(3);
-	var d3 = __webpack_require__(355);
-	var d3tip_1 = __webpack_require__(357);
+	var d3 = __webpack_require__(349);
+	var d3tip_1 = __webpack_require__(351);
 	var Component = (function (_super) {
 	    __extends(Component, _super);
 	    function Component(props, context) {
@@ -1683,16 +1689,16 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 364:
+/***/ 358:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(365);
+	var content = __webpack_require__(359);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(367)(content, {});
+	var update = __webpack_require__(361)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -1710,10 +1716,10 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 365:
+/***/ 359:
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(366)();
+	exports = module.exports = __webpack_require__(360)();
 	// imports
 	
 	
@@ -1725,7 +1731,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 366:
+/***/ 360:
 /***/ function(module, exports) {
 
 	/*
@@ -1782,7 +1788,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 367:
+/***/ 361:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -2037,13 +2043,13 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 368:
+/***/ 362:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var React = __webpack_require__(3);
-	var react_router_1 = __webpack_require__(181);
-	var routeConfig_1 = __webpack_require__(243);
+	var react_router_1 = __webpack_require__(178);
+	var routeConfig_1 = __webpack_require__(237);
 	exports.Menu = function () {
 	    var indexLink = (React.createElement("li", {key: routeConfig_1.indexRoute.title, className: "nav-item"}, React.createElement(react_router_1.IndexLink, {className: "nav-link", to: "/", activeClassName: "active"}, routeConfig_1.indexRoute.title)));
 	    var childLinks = routeConfig_1.childRoutes.map(function (route) { return (React.createElement("li", {key: route.title, className: "nav-item"}, React.createElement(react_router_1.Link, {className: "nav-link", to: route.path, activeClassName: "active"}, route.title))); });
@@ -2057,16 +2063,16 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 369:
+/***/ 363:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(370);
+	var content = __webpack_require__(364);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(367)(content, {});
+	var update = __webpack_require__(361)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -2084,10 +2090,10 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 370:
+/***/ 364:
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(366)();
+	exports = module.exports = __webpack_require__(360)();
 	// imports
 	
 	
