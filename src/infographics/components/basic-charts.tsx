@@ -51,12 +51,12 @@ export default class BasicCharts extends React.Component<any, any> {
           <button onClick={this.changeDataFields.bind(this)}>Change DataFields</button>
           <button onClick={this.refreshData.bind(this)}>Refresh Data</button>
         </div>
-        <Bar width={width} height={height} data={data} color={color} dataFields={dataField}/>
-        <Bubble width={width} height={height} data={data} color={color} xField="Data2" yField="Data1" rField="Data3" categoryField="Category"/>
-        <Column width={width} height={height} data={data} color={color} dataFields={dataField}/>
-        <Line width={width} height={height} data={data} color={color}/>
+        <Line width={width} height={height} data={data} color={color} dataFields={dataField} categoryField="Category"/>
         <Pie width={width} height={height} data={data} color={color}/>
         <Radar width={width} height={height} data={data} color={color}/>
+        <Bar width={width} height={height} data={data} color={color} dataFields={dataField} categoryField="Category"/>
+        <Column width={width} height={height} data={data} color={color} dataFields={dataField} categoryField="Category"/>
+        <Bubble width={width} height={height} data={data} color={color} xField="Data2" yField="Data1" rField="Data3" categoryField="Category"/>
       </div>
     )
   }

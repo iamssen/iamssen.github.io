@@ -5,11 +5,7 @@ import d3tip from 'd3tip';
 import {Data} from '../../types';
 
 const CHART:string = 'chart';
-const BAR_SERIES:string = 'canvas';
-const LINE_SERIES1:string = 'line1';
-const LINE_SERIES2:string = 'line2';
-const LINE_SERIES3:string = 'line3';
-const LINE_SERIES4:string = 'line4';
+const SERIES:string = 'series';
 const AXIS_X:string = 'axisX';
 const AXIS_Y:string = 'axisY';
 
@@ -24,6 +20,8 @@ interface Props {
   gutterBottom?:number;
   color?:d3.scale.Ordinal<string, string>;
   data?:Data[];
+  dataFields?:string[];
+  categoryField?:string;
 }
 
 export default class Component extends React.Component<Props, any> {
@@ -31,10 +29,11 @@ export default class Component extends React.Component<Props, any> {
   private _h:number;
   private _easeOut:(t:number)=>number;
   private _easeIn:(t:number)=>number;
+  private _paths:d3.Selection<any>;
 
   static defaultProps:Props = {
-    duration: 300,
-    delay: 40,
+    duration: 700,
+    delay: 300,
     width: 540,
     height: 320,
     gutterLeft: 50,
@@ -51,63 +50,97 @@ export default class Component extends React.Component<Props, any> {
   render() {
     return (
       <svg ref={CHART} className="basic-chart-line">
-        <g ref={BAR_SERIES} className="canvas">
-          <path ref={LINE_SERIES1} className="line1"/>
-          <path ref={LINE_SERIES2} className="line2"/>
-          <path ref={LINE_SERIES3} className="line3"/>
-          <path ref={LINE_SERIES4} className="line4"/>
-        </g>
+        <g ref={SERIES} className="series"/>
         <g ref={AXIS_X} className="axis axis-x"/>
         <g ref={AXIS_Y} className="axis axis-y"/>
       </svg>
     );
   }
 
-  drawLineSeries(props:Props, drawTransition:boolean,
-                 dataField:string,
-                 categoryField:string,
-                 dataScale:d3.scale.Linear<any, any>,
-                 categoryScale:d3.scale.Ordinal<any, any>,
-                 ref:string) {
-    const path = this.select(ref);
+  draw(props:Props, drawTransition:boolean) {
+    const {data, duration, delay: delayTime, color: colorScale, dataFields, categoryField} = props;
+    const categoryScale:d3.scale.Ordinal<any, any> = d3.scale.ordinal().rangeRoundBands([0, this._w]).domain(data.map(d => d[categoryField]));
 
-    const line:any = d3.svg.line()
-      .x((d:any, i) => categoryScale(d[categoryField]) + (categoryScale.rangeBand() / 2))
-      .y((d:any, i) => dataScale(d[dataField]));
+    const ymax:number = d3.max(data, d => d3.max(dataFields, dataField => d[dataField]));
+    const yscale:d3.scale.Linear<any, any> = d3.scale.linear().rangeRound([this._h, 0]).domain([0, ymax]).nice();
 
-    //noinspection TypeScriptValidateTypes
-    (!drawTransition ? path.datum(props.data) : path.datum(props.data)
-      .transition())
+    //---------------------------------------------
+    // draw line series
+    //---------------------------------------------
+    interface Path {
+      delay:number;
+      color:string;
+      path:string;
+      dataField:string;
+      offset:number;
+    }
+
+    const line = d3.svg.line()
+      .x(d => categoryScale(d[categoryField]) + (categoryScale.rangeBand() / 2));
+
+    const paths:Path[] = dataFields.map((dataField, s) => {
+      const path:string = line.y(d => yscale(d[dataField]))(data);
+      const delay:number = delayTime * s;
+      const color:string = colorScale(dataField);
+      return {delay, path, color, dataField};
+    });
+
+    const delay = (l:Path) => l.delay;
+    const color = (l:Path) => l.color;
+    const path = (l:Path) => l.path;
+    const offset = (l:Path) => l.offset;
+
+    if (this._paths) {
+      (!drawTransition ? this._paths : this._paths
+        .transition()
+        .duration(duration / 3)
+        .delay(delay)
+        .ease(this._easeIn)
+        .attr({
+          opacity: 0
+        })) // end transition
+        .remove();
+    }
+
+    this._paths = this.select(SERIES)
+      .selectAll('.path')
+      .data(paths)
+      .enter()
+      .append('path')
       .attr({
-        d: line,
+        d: path,
         fill: 'none',
-        stroke: props.color(ref),
-        'stroke-width': '4px',
+        stroke: color,
+        'stroke-width': 4,
         'stroke-linecap': 'round',
         'stroke-linejoin': 'round'
+      })
+      .each(function (l:Path) {
+        l.offset = this.getTotalLength();
       });
-  }
 
-  draw(props:Props, drawTransition:boolean) {
-    const data:Data[] = props.data;
-    const categoryScale:d3.scale.Ordinal<any, any> = d3.scale.ordinal().rangeRoundBands([0, this._w]).domain(data.map(d => d.Category));
+    //noinspection TypeScriptValidateTypes
+    (!drawTransition ? this._paths : this._paths
+      .attr({
+        opacity: 0,
+        'stroke-dasharray': offset,
+        'stroke-dashoffset': offset
+      })
+      .transition()
+      .duration(duration)
+      .delay(delay)
+      .ease(this._easeOut)) // end transition
+      .attr({
+        opacity: 1,
+        'stroke-dasharray': offset,
+        'stroke-dashoffset': 0
+      });
 
-    const dataMax:number = Math.max(
-      d3.max(data, d => d.Data1),
-      d3.max(data, d => d.Data2),
-      d3.max(data, d => d.Data3),
-      d3.max(data, d => d.Data4)
-    );
-    const dataScale:d3.scale.Linear<any, any> = d3.scale.linear().rangeRound([this._h, 0]).domain([0, dataMax]).nice();
-
-    this.drawLineSeries(props, drawTransition, 'Data1', 'Category', dataScale, categoryScale, LINE_SERIES1);
-    this.drawLineSeries(props, drawTransition, 'Data2', 'Category', dataScale, categoryScale, LINE_SERIES2);
-    this.drawLineSeries(props, drawTransition, 'Data3', 'Category', dataScale, categoryScale, LINE_SERIES3);
-    this.drawLineSeries(props, drawTransition, 'Data4', 'Category', dataScale, categoryScale, LINE_SERIES4);
-
+    //---------------------------------------------
     // draw axis
+    //---------------------------------------------
     const xaxis = d3.svg.axis().scale(categoryScale).orient('bottom');
-    const yaxis = d3.svg.axis().scale(dataScale).orient('left');
+    const yaxis = d3.svg.axis().scale(yscale).orient('left');
 
     this.select(AXIS_X).call(xaxis);
     this.select(AXIS_Y).call(yaxis);
@@ -120,33 +153,48 @@ export default class Component extends React.Component<Props, any> {
 
   shouldComponentUpdate(nextProps:Props, nextState:any, nextContext:any):boolean {
     const currentProps:Props = this.props;
+    const width = currentProps.width !== nextProps.width;
+    const height = currentProps.height !== nextProps.height;
+    const gutterLeft = currentProps.gutterLeft !== nextProps.gutterLeft;
+    const gutterRight = currentProps.gutterRight !== nextProps.gutterRight;
+    const gutterTop = currentProps.gutterTop !== nextProps.gutterTop;
+    const gutterBottom = currentProps.gutterBottom !== nextProps.gutterBottom;
+    const color = currentProps.color !== nextProps.color;
+    const data = currentProps.data !== nextProps.data;
+    const dataFields = currentProps.dataFields !== nextProps.dataFields;
+    const categoryField = currentProps.categoryField !== nextProps.categoryField;
 
     if (!this._w || !this._h
-      || currentProps.width !== nextProps.width
-      || currentProps.height !== nextProps.height
-      || currentProps.gutterLeft !== nextProps.gutterLeft
-      || currentProps.gutterRight !== nextProps.gutterRight
-      || currentProps.gutterTop !== nextProps.gutterTop
-      || currentProps.gutterBottom !== nextProps.gutterBottom) {
+      || width
+      || height
+      || gutterLeft
+      || gutterRight
+      || gutterTop
+      || gutterBottom) {
       this.select(CHART).attr({width: nextProps.width, height: nextProps.height});
 
       this._w = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
       this._h = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
 
-      this.select(BAR_SERIES).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop})`);
+      this.select(SERIES).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop})`);
       this.select(AXIS_X).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop + this._h})`);
       this.select(AXIS_Y).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop})`);
     }
 
-    if (currentProps.width !== nextProps.width
-      || currentProps.height !== nextProps.height
-      || currentProps.gutterLeft !== nextProps.gutterLeft
-      || currentProps.gutterRight !== nextProps.gutterRight
-      || currentProps.gutterTop !== nextProps.gutterTop
-      || currentProps.gutterBottom !== nextProps.gutterBottom
-      || currentProps.color !== nextProps.color
-      || currentProps.data !== nextProps.data) {
-      this.draw(nextProps, currentProps.data !== nextProps.data);
+    if (width
+      || height
+      || gutterLeft
+      || gutterRight
+      || gutterTop
+      || gutterBottom
+      || color
+      || data
+      || dataFields
+      || categoryField) {
+      this.draw(nextProps,
+        data
+        || dataFields
+        || categoryField);
     }
     return false;
   }

@@ -21,6 +21,7 @@ interface Props {
   color?:d3.scale.Ordinal<string, string>;
   data?:Data[];
   dataFields?:string[];
+  categoryField?:string;
 }
 
 export default class Component extends React.Component<Props, any> {
@@ -56,8 +57,7 @@ export default class Component extends React.Component<Props, any> {
   }
 
   draw(props:Props, drawTransition:boolean) {
-    const {data, duration, delay: delayTime, color: colorScale, dataFields} = props;
-    const categoryField:string = 'Category';
+    const {data, duration, delay: delayTime, color: colorScale, dataFields, categoryField} = props;
     const categoryScale:d3.scale.Ordinal<any, any> = d3.scale.ordinal().rangeRoundBands([0, this._h]).domain(data.map(d => d[categoryField]));
 
     const xmax:number = d3.max(data, d => d3.max(dataFields, dataField => d[dataField]));
@@ -167,14 +167,24 @@ export default class Component extends React.Component<Props, any> {
   
   shouldComponentUpdate(nextProps:Props, nextState:any, nextContext:any):boolean {
     const currentProps:Props = this.props;
+    const width = currentProps.width !== nextProps.width;
+    const height = currentProps.height !== nextProps.height;
+    const gutterLeft = currentProps.gutterLeft !== nextProps.gutterLeft;
+    const gutterRight = currentProps.gutterRight !== nextProps.gutterRight;
+    const gutterTop = currentProps.gutterTop !== nextProps.gutterTop;
+    const gutterBottom = currentProps.gutterBottom !== nextProps.gutterBottom;
+    const color = currentProps.color !== nextProps.color;
+    const data = currentProps.data !== nextProps.data;
+    const dataFields = currentProps.dataFields !== nextProps.dataFields;
+    const categoryField = currentProps.categoryField !== nextProps.categoryField;
 
     if (!this._w || !this._h
-      || currentProps.width !== nextProps.width
-      || currentProps.height !== nextProps.height
-      || currentProps.gutterLeft !== nextProps.gutterLeft
-      || currentProps.gutterRight !== nextProps.gutterRight
-      || currentProps.gutterTop !== nextProps.gutterTop
-      || currentProps.gutterBottom !== nextProps.gutterBottom) {
+      || width
+      || height
+      || gutterLeft
+      || gutterRight
+      || gutterTop
+      || gutterBottom) {
       this.select(CHART).attr({width: nextProps.width, height: nextProps.height});
       
       this._w = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
@@ -185,18 +195,20 @@ export default class Component extends React.Component<Props, any> {
       this.select(AXIS_Y).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop})`);
     }
     
-    if (currentProps.width !== nextProps.width
-      || currentProps.height !== nextProps.height
-      || currentProps.gutterLeft !== nextProps.gutterLeft
-      || currentProps.gutterRight !== nextProps.gutterRight
-      || currentProps.gutterTop !== nextProps.gutterTop
-      || currentProps.gutterBottom !== nextProps.gutterBottom
-      || currentProps.color !== nextProps.color
-      || currentProps.data !== nextProps.data
-      || currentProps.dataFields !== nextProps.dataFields) {
+    if (width
+      || height
+      || gutterLeft
+      || gutterRight
+      || gutterTop
+      || gutterBottom
+      || color
+      || data
+      || dataFields
+      || categoryField) {
       this.draw(nextProps,
-        currentProps.data !== nextProps.data
-        || currentProps.dataFields !== nextProps.dataFields);
+        data
+        || dataFields
+        || categoryField);
     }
     return false;
   }

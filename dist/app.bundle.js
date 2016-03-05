@@ -820,7 +820,7 @@ webpackJsonp([0],{
 	        var style = { textAlign: 'right' };
 	        var _a = this.state, data = _a.data, color = _a.color, dataField = _a.dataField, size = _a.size;
 	        var width = size[0], height = size[1];
-	        return (React.createElement("div", {className: "basic-charts"}, React.createElement("div", {style: style}, React.createElement("button", {onClick: this.changeSize.bind(this)}, "Change Size"), React.createElement("button", {onClick: this.changeColor.bind(this)}, "Change Color"), React.createElement("button", {onClick: this.changeDataFields.bind(this)}, "Change DataFields"), React.createElement("button", {onClick: this.refreshData.bind(this)}, "Refresh Data")), React.createElement(bar_1.default, {width: width, height: height, data: data, color: color, dataFields: dataField}), React.createElement(bubble_1.default, {width: width, height: height, data: data, color: color, xField: "Data2", yField: "Data1", rField: "Data3", categoryField: "Category"}), React.createElement(column_1.default, {width: width, height: height, data: data, color: color, dataFields: dataField}), React.createElement(line_1.default, {width: width, height: height, data: data, color: color}), React.createElement(pie_1.default, {width: width, height: height, data: data, color: color}), React.createElement(radar_1.default, {width: width, height: height, data: data, color: color})));
+	        return (React.createElement("div", {className: "basic-charts"}, React.createElement("div", {style: style}, React.createElement("button", {onClick: this.changeSize.bind(this)}, "Change Size"), React.createElement("button", {onClick: this.changeColor.bind(this)}, "Change Color"), React.createElement("button", {onClick: this.changeDataFields.bind(this)}, "Change DataFields"), React.createElement("button", {onClick: this.refreshData.bind(this)}, "Refresh Data")), React.createElement(line_1.default, {width: width, height: height, data: data, color: color, dataFields: dataField, categoryField: "Category"}), React.createElement(pie_1.default, {width: width, height: height, data: data, color: color}), React.createElement(radar_1.default, {width: width, height: height, data: data, color: color}), React.createElement(bar_1.default, {width: width, height: height, data: data, color: color, dataFields: dataField, categoryField: "Category"}), React.createElement(column_1.default, {width: width, height: height, data: data, color: color, dataFields: dataField, categoryField: "Category"}), React.createElement(bubble_1.default, {width: width, height: height, data: data, color: color, xField: "Data2", yField: "Data1", rField: "Data3", categoryField: "Category"})));
 	    };
 	    BasicCharts.prototype.data = function () {
 	        var max = Math.random() * 1000;
@@ -894,8 +894,7 @@ webpackJsonp([0],{
 	        return (React.createElement("svg", {ref: CHART, className: "basic-chart-bar"}, React.createElement("g", {ref: SERIES, className: "series"}), React.createElement("g", {ref: AXIS_X, className: "axis axis-x"}), React.createElement("g", {ref: AXIS_Y, className: "axis axis-y"})));
 	    };
 	    Component.prototype.draw = function (props, drawTransition) {
-	        var data = props.data, duration = props.duration, delayTime = props.delay, colorScale = props.color, dataFields = props.dataFields;
-	        var categoryField = 'Category';
+	        var data = props.data, duration = props.duration, delayTime = props.delay, colorScale = props.color, dataFields = props.dataFields, categoryField = props.categoryField;
 	        var categoryScale = d3.scale.ordinal().rangeRoundBands([0, this._h]).domain(data.map(function (d) { return d[categoryField]; }));
 	        var xmax = d3.max(data, function (d) { return d3.max(dataFields, function (dataField) { return d[dataField]; }); });
 	        var xscale = d3.scale.linear().rangeRound([0, this._w]).domain([0, xmax]).nice();
@@ -980,13 +979,23 @@ webpackJsonp([0],{
 	    };
 	    Component.prototype.shouldComponentUpdate = function (nextProps, nextState, nextContext) {
 	        var currentProps = this.props;
+	        var width = currentProps.width !== nextProps.width;
+	        var height = currentProps.height !== nextProps.height;
+	        var gutterLeft = currentProps.gutterLeft !== nextProps.gutterLeft;
+	        var gutterRight = currentProps.gutterRight !== nextProps.gutterRight;
+	        var gutterTop = currentProps.gutterTop !== nextProps.gutterTop;
+	        var gutterBottom = currentProps.gutterBottom !== nextProps.gutterBottom;
+	        var color = currentProps.color !== nextProps.color;
+	        var data = currentProps.data !== nextProps.data;
+	        var dataFields = currentProps.dataFields !== nextProps.dataFields;
+	        var categoryField = currentProps.categoryField !== nextProps.categoryField;
 	        if (!this._w || !this._h
-	            || currentProps.width !== nextProps.width
-	            || currentProps.height !== nextProps.height
-	            || currentProps.gutterLeft !== nextProps.gutterLeft
-	            || currentProps.gutterRight !== nextProps.gutterRight
-	            || currentProps.gutterTop !== nextProps.gutterTop
-	            || currentProps.gutterBottom !== nextProps.gutterBottom) {
+	            || width
+	            || height
+	            || gutterLeft
+	            || gutterRight
+	            || gutterTop
+	            || gutterBottom) {
 	            this.select(CHART).attr({ width: nextProps.width, height: nextProps.height });
 	            this._w = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
 	            this._h = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
@@ -994,17 +1003,19 @@ webpackJsonp([0],{
 	            this.select(AXIS_X).attr('transform', "translate(" + nextProps.gutterLeft + ", " + (nextProps.gutterTop + this._h) + ")");
 	            this.select(AXIS_Y).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
 	        }
-	        if (currentProps.width !== nextProps.width
-	            || currentProps.height !== nextProps.height
-	            || currentProps.gutterLeft !== nextProps.gutterLeft
-	            || currentProps.gutterRight !== nextProps.gutterRight
-	            || currentProps.gutterTop !== nextProps.gutterTop
-	            || currentProps.gutterBottom !== nextProps.gutterBottom
-	            || currentProps.color !== nextProps.color
-	            || currentProps.data !== nextProps.data
-	            || currentProps.dataFields !== nextProps.dataFields) {
-	            this.draw(nextProps, currentProps.data !== nextProps.data
-	                || currentProps.dataFields !== nextProps.dataFields);
+	        if (width
+	            || height
+	            || gutterLeft
+	            || gutterRight
+	            || gutterTop
+	            || gutterBottom
+	            || color
+	            || data
+	            || dataFields
+	            || categoryField) {
+	            this.draw(nextProps, data
+	                || dataFields
+	                || categoryField);
 	        }
 	        return false;
 	    };
@@ -1056,8 +1067,7 @@ webpackJsonp([0],{
 	    };
 	    Component.prototype.draw = function (props, drawTransition) {
 	        var _this = this;
-	        var data = props.data, duration = props.duration, delayTime = props.delay, colorScale = props.color, dataFields = props.dataFields;
-	        var categoryField = 'Category';
+	        var data = props.data, duration = props.duration, delayTime = props.delay, colorScale = props.color, dataFields = props.dataFields, categoryField = props.categoryField;
 	        var categoryScale = d3.scale.ordinal().rangeRoundBands([0, this._w]).domain(data.map(function (d) { return d[categoryField]; }));
 	        var ymax = d3.max(data, function (d) { return d3.max(dataFields, function (dataField) { return d[dataField]; }); });
 	        var yscale = d3.scale.linear().rangeRound([this._h, 0]).domain([0, ymax]).nice();
@@ -1148,13 +1158,23 @@ webpackJsonp([0],{
 	    };
 	    Component.prototype.shouldComponentUpdate = function (nextProps, nextState, nextContext) {
 	        var currentProps = this.props;
+	        var width = currentProps.width !== nextProps.width;
+	        var height = currentProps.height !== nextProps.height;
+	        var gutterLeft = currentProps.gutterLeft !== nextProps.gutterLeft;
+	        var gutterRight = currentProps.gutterRight !== nextProps.gutterRight;
+	        var gutterTop = currentProps.gutterTop !== nextProps.gutterTop;
+	        var gutterBottom = currentProps.gutterBottom !== nextProps.gutterBottom;
+	        var color = currentProps.color !== nextProps.color;
+	        var data = currentProps.data !== nextProps.data;
+	        var dataFields = currentProps.dataFields !== nextProps.dataFields;
+	        var categoryField = currentProps.categoryField !== nextProps.categoryField;
 	        if (!this._w || !this._h
-	            || currentProps.width !== nextProps.width
-	            || currentProps.height !== nextProps.height
-	            || currentProps.gutterLeft !== nextProps.gutterLeft
-	            || currentProps.gutterRight !== nextProps.gutterRight
-	            || currentProps.gutterTop !== nextProps.gutterTop
-	            || currentProps.gutterBottom !== nextProps.gutterBottom) {
+	            || width
+	            || height
+	            || gutterLeft
+	            || gutterRight
+	            || gutterTop
+	            || gutterBottom) {
 	            this.select(CHART).attr({ width: nextProps.width, height: nextProps.height });
 	            this._w = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
 	            this._h = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
@@ -1162,17 +1182,19 @@ webpackJsonp([0],{
 	            this.select(AXIS_X).attr('transform', "translate(" + nextProps.gutterLeft + ", " + (nextProps.gutterTop + this._h) + ")");
 	            this.select(AXIS_Y).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
 	        }
-	        if (currentProps.width !== nextProps.width
-	            || currentProps.height !== nextProps.height
-	            || currentProps.gutterLeft !== nextProps.gutterLeft
-	            || currentProps.gutterRight !== nextProps.gutterRight
-	            || currentProps.gutterTop !== nextProps.gutterTop
-	            || currentProps.gutterBottom !== nextProps.gutterBottom
-	            || currentProps.color !== nextProps.color
-	            || currentProps.data !== nextProps.data
-	            || currentProps.dataFields !== nextProps.dataFields) {
-	            this.draw(nextProps, currentProps.data !== nextProps.data
-	                || currentProps.dataFields !== nextProps.dataFields);
+	        if (width
+	            || height
+	            || gutterLeft
+	            || gutterRight
+	            || gutterTop
+	            || gutterBottom
+	            || color
+	            || data
+	            || dataFields
+	            || categoryField) {
+	            this.draw(nextProps, data
+	                || dataFields
+	                || categoryField);
 	        }
 	        return false;
 	    };
@@ -1300,13 +1322,25 @@ webpackJsonp([0],{
 	    };
 	    Component.prototype.shouldComponentUpdate = function (nextProps, nextState, nextContext) {
 	        var currentProps = this.props;
+	        var width = currentProps.width !== nextProps.width;
+	        var height = currentProps.height !== nextProps.height;
+	        var gutterLeft = currentProps.gutterLeft !== nextProps.gutterLeft;
+	        var gutterRight = currentProps.gutterRight !== nextProps.gutterRight;
+	        var gutterTop = currentProps.gutterTop !== nextProps.gutterTop;
+	        var gutterBottom = currentProps.gutterBottom !== nextProps.gutterBottom;
+	        var color = currentProps.color !== nextProps.color;
+	        var data = currentProps.data !== nextProps.data;
+	        var xField = currentProps.xField !== nextProps.xField;
+	        var yField = currentProps.yField !== nextProps.yField;
+	        var rField = currentProps.rField !== nextProps.rField;
+	        var categoryField = currentProps.categoryField !== nextProps.categoryField;
 	        if (!this._w || !this._h
-	            || currentProps.width !== nextProps.width
-	            || currentProps.height !== nextProps.height
-	            || currentProps.gutterLeft !== nextProps.gutterLeft
-	            || currentProps.gutterRight !== nextProps.gutterRight
-	            || currentProps.gutterTop !== nextProps.gutterTop
-	            || currentProps.gutterBottom !== nextProps.gutterBottom) {
+	            || width
+	            || height
+	            || gutterLeft
+	            || gutterRight
+	            || gutterTop
+	            || gutterBottom) {
 	            this.select(CHART).attr({ width: nextProps.width, height: nextProps.height });
 	            this._w = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
 	            this._h = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
@@ -1314,19 +1348,23 @@ webpackJsonp([0],{
 	            this.select(AXIS_X).attr('transform', "translate(" + nextProps.gutterLeft + ", " + (nextProps.gutterTop + this._h) + ")");
 	            this.select(AXIS_Y).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
 	        }
-	        if (currentProps.width !== nextProps.width
-	            || currentProps.height !== nextProps.height
-	            || currentProps.gutterLeft !== nextProps.gutterLeft
-	            || currentProps.gutterRight !== nextProps.gutterRight
-	            || currentProps.gutterTop !== nextProps.gutterTop
-	            || currentProps.gutterBottom !== nextProps.gutterBottom
-	            || currentProps.color !== nextProps.color
-	            || currentProps.data !== nextProps.data) {
-	            this.draw(nextProps, currentProps.data !== nextProps.data
-	                || currentProps.xField !== nextProps.xField
-	                || currentProps.yField !== nextProps.yField
-	                || currentProps.rField !== nextProps.rField
-	                || currentProps.categoryField !== nextProps.categoryField);
+	        if (width
+	            || height
+	            || gutterLeft
+	            || gutterRight
+	            || gutterTop
+	            || gutterBottom
+	            || color
+	            || data
+	            || xField
+	            || yField
+	            || rField
+	            || categoryField) {
+	            this.draw(nextProps, data
+	                || xField
+	                || yField
+	                || rField
+	                || categoryField);
 	        }
 	        return false;
 	    };
@@ -1364,11 +1402,7 @@ webpackJsonp([0],{
 	var React = __webpack_require__(3);
 	var d3 = __webpack_require__(349);
 	var CHART = 'chart';
-	var BAR_SERIES = 'canvas';
-	var LINE_SERIES1 = 'line1';
-	var LINE_SERIES2 = 'line2';
-	var LINE_SERIES3 = 'line3';
-	var LINE_SERIES4 = 'line4';
+	var SERIES = 'series';
 	var AXIS_X = 'axisX';
 	var AXIS_Y = 'axisY';
 	var Component = (function (_super) {
@@ -1377,37 +1411,73 @@ webpackJsonp([0],{
 	        _super.call(this, props, context);
 	    }
 	    Component.prototype.render = function () {
-	        return (React.createElement("svg", {ref: CHART, className: "basic-chart-line"}, React.createElement("g", {ref: BAR_SERIES, className: "canvas"}, React.createElement("path", {ref: LINE_SERIES1, className: "line1"}), React.createElement("path", {ref: LINE_SERIES2, className: "line2"}), React.createElement("path", {ref: LINE_SERIES3, className: "line3"}), React.createElement("path", {ref: LINE_SERIES4, className: "line4"})), React.createElement("g", {ref: AXIS_X, className: "axis axis-x"}), React.createElement("g", {ref: AXIS_Y, className: "axis axis-y"})));
-	    };
-	    Component.prototype.drawLineSeries = function (props, drawTransition, dataField, categoryField, dataScale, categoryScale, ref) {
-	        var path = this.select(ref);
-	        var line = d3.svg.line()
-	            .x(function (d, i) { return categoryScale(d[categoryField]) + (categoryScale.rangeBand() / 2); })
-	            .y(function (d, i) { return dataScale(d[dataField]); });
-	        //noinspection TypeScriptValidateTypes
-	        (!drawTransition ? path.datum(props.data) : path.datum(props.data)
-	            .transition())
-	            .attr({
-	            d: line,
-	            fill: 'none',
-	            stroke: props.color(ref),
-	            'stroke-width': '4px',
-	            'stroke-linecap': 'round',
-	            'stroke-linejoin': 'round'
-	        });
+	        return (React.createElement("svg", {ref: CHART, className: "basic-chart-line"}, React.createElement("g", {ref: SERIES, className: "series"}), React.createElement("g", {ref: AXIS_X, className: "axis axis-x"}), React.createElement("g", {ref: AXIS_Y, className: "axis axis-y"})));
 	    };
 	    Component.prototype.draw = function (props, drawTransition) {
-	        var data = props.data;
-	        var categoryScale = d3.scale.ordinal().rangeRoundBands([0, this._w]).domain(data.map(function (d) { return d.Category; }));
-	        var dataMax = Math.max(d3.max(data, function (d) { return d.Data1; }), d3.max(data, function (d) { return d.Data2; }), d3.max(data, function (d) { return d.Data3; }), d3.max(data, function (d) { return d.Data4; }));
-	        var dataScale = d3.scale.linear().rangeRound([this._h, 0]).domain([0, dataMax]).nice();
-	        this.drawLineSeries(props, drawTransition, 'Data1', 'Category', dataScale, categoryScale, LINE_SERIES1);
-	        this.drawLineSeries(props, drawTransition, 'Data2', 'Category', dataScale, categoryScale, LINE_SERIES2);
-	        this.drawLineSeries(props, drawTransition, 'Data3', 'Category', dataScale, categoryScale, LINE_SERIES3);
-	        this.drawLineSeries(props, drawTransition, 'Data4', 'Category', dataScale, categoryScale, LINE_SERIES4);
+	        var data = props.data, duration = props.duration, delayTime = props.delay, colorScale = props.color, dataFields = props.dataFields, categoryField = props.categoryField;
+	        var categoryScale = d3.scale.ordinal().rangeRoundBands([0, this._w]).domain(data.map(function (d) { return d[categoryField]; }));
+	        var ymax = d3.max(data, function (d) { return d3.max(dataFields, function (dataField) { return d[dataField]; }); });
+	        var yscale = d3.scale.linear().rangeRound([this._h, 0]).domain([0, ymax]).nice();
+	        var line = d3.svg.line()
+	            .x(function (d) { return categoryScale(d[categoryField]) + (categoryScale.rangeBand() / 2); });
+	        var paths = dataFields.map(function (dataField, s) {
+	            var path = line.y(function (d) { return yscale(d[dataField]); })(data);
+	            var delay = delayTime * s;
+	            var color = colorScale(dataField);
+	            return { delay: delay, path: path, color: color, dataField: dataField };
+	        });
+	        var delay = function (l) { return l.delay; };
+	        var color = function (l) { return l.color; };
+	        var path = function (l) { return l.path; };
+	        var offset = function (l) { return l.offset; };
+	        if (this._paths) {
+	            (!drawTransition ? this._paths : this._paths
+	                .transition()
+	                .duration(duration / 3)
+	                .delay(delay)
+	                .ease(this._easeIn)
+	                .attr({
+	                opacity: 0
+	            })) // end transition
+	                .remove();
+	        }
+	        this._paths = this.select(SERIES)
+	            .selectAll('.path')
+	            .data(paths)
+	            .enter()
+	            .append('path')
+	            .attr({
+	            d: path,
+	            fill: 'none',
+	            stroke: color,
+	            'stroke-width': 4,
+	            'stroke-linecap': 'round',
+	            'stroke-linejoin': 'round'
+	        })
+	            .each(function (l) {
+	            l.offset = this.getTotalLength();
+	        });
+	        //noinspection TypeScriptValidateTypes
+	        (!drawTransition ? this._paths : this._paths
+	            .attr({
+	            opacity: 0,
+	            'stroke-dasharray': offset,
+	            'stroke-dashoffset': offset
+	        })
+	            .transition()
+	            .duration(duration)
+	            .delay(delay)
+	            .ease(this._easeOut)) // end transition
+	            .attr({
+	            opacity: 1,
+	            'stroke-dasharray': offset,
+	            'stroke-dashoffset': 0
+	        });
+	        //---------------------------------------------
 	        // draw axis
+	        //---------------------------------------------
 	        var xaxis = d3.svg.axis().scale(categoryScale).orient('bottom');
-	        var yaxis = d3.svg.axis().scale(dataScale).orient('left');
+	        var yaxis = d3.svg.axis().scale(yscale).orient('left');
 	        this.select(AXIS_X).call(xaxis);
 	        this.select(AXIS_Y).call(yaxis);
 	    };
@@ -1417,29 +1487,43 @@ webpackJsonp([0],{
 	    };
 	    Component.prototype.shouldComponentUpdate = function (nextProps, nextState, nextContext) {
 	        var currentProps = this.props;
+	        var width = currentProps.width !== nextProps.width;
+	        var height = currentProps.height !== nextProps.height;
+	        var gutterLeft = currentProps.gutterLeft !== nextProps.gutterLeft;
+	        var gutterRight = currentProps.gutterRight !== nextProps.gutterRight;
+	        var gutterTop = currentProps.gutterTop !== nextProps.gutterTop;
+	        var gutterBottom = currentProps.gutterBottom !== nextProps.gutterBottom;
+	        var color = currentProps.color !== nextProps.color;
+	        var data = currentProps.data !== nextProps.data;
+	        var dataFields = currentProps.dataFields !== nextProps.dataFields;
+	        var categoryField = currentProps.categoryField !== nextProps.categoryField;
 	        if (!this._w || !this._h
-	            || currentProps.width !== nextProps.width
-	            || currentProps.height !== nextProps.height
-	            || currentProps.gutterLeft !== nextProps.gutterLeft
-	            || currentProps.gutterRight !== nextProps.gutterRight
-	            || currentProps.gutterTop !== nextProps.gutterTop
-	            || currentProps.gutterBottom !== nextProps.gutterBottom) {
+	            || width
+	            || height
+	            || gutterLeft
+	            || gutterRight
+	            || gutterTop
+	            || gutterBottom) {
 	            this.select(CHART).attr({ width: nextProps.width, height: nextProps.height });
 	            this._w = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
 	            this._h = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
-	            this.select(BAR_SERIES).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
+	            this.select(SERIES).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
 	            this.select(AXIS_X).attr('transform', "translate(" + nextProps.gutterLeft + ", " + (nextProps.gutterTop + this._h) + ")");
 	            this.select(AXIS_Y).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
 	        }
-	        if (currentProps.width !== nextProps.width
-	            || currentProps.height !== nextProps.height
-	            || currentProps.gutterLeft !== nextProps.gutterLeft
-	            || currentProps.gutterRight !== nextProps.gutterRight
-	            || currentProps.gutterTop !== nextProps.gutterTop
-	            || currentProps.gutterBottom !== nextProps.gutterBottom
-	            || currentProps.color !== nextProps.color
-	            || currentProps.data !== nextProps.data) {
-	            this.draw(nextProps, currentProps.data !== nextProps.data);
+	        if (width
+	            || height
+	            || gutterLeft
+	            || gutterRight
+	            || gutterTop
+	            || gutterBottom
+	            || color
+	            || data
+	            || dataFields
+	            || categoryField) {
+	            this.draw(nextProps, data
+	                || dataFields
+	                || categoryField);
 	        }
 	        return false;
 	    };
@@ -1447,8 +1531,8 @@ webpackJsonp([0],{
 	        return d3.select(this.refs[ref]);
 	    };
 	    Component.defaultProps = {
-	        duration: 300,
-	        delay: 40,
+	        duration: 700,
+	        delay: 300,
 	        width: 540,
 	        height: 320,
 	        gutterLeft: 50,
