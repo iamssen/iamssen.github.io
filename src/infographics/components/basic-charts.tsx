@@ -52,7 +52,7 @@ export default class BasicCharts extends React.Component<any, any> {
           <button onClick={this.refreshData.bind(this)}>Refresh Data</button>
         </div>
         <Bar width={width} height={height} data={data} color={color} dataFields={dataField}/>
-        <Bubble width={width} height={height} data={data} color={color}/>
+        <Bubble width={width} height={height} data={data} color={color} xField="Data2" yField="Data1" rField="Data3" categoryField="Category"/>
         <Column width={width} height={height} data={data} color={color} dataFields={dataField}/>
         <Line width={width} height={height} data={data} color={color}/>
         <Pie width={width} height={height} data={data} color={color}/>

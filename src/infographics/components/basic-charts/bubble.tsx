@@ -5,7 +5,7 @@ import d3tip from 'd3tip';
 import {Data} from '../../types';
 
 const CHART:string = 'chart';
-const BUBBLE_SERIES:string = 'canvas';
+const SERIES:string = 'series';
 const AXIS_X:string = 'axisX';
 const AXIS_Y:string = 'axisY';
 
@@ -20,6 +20,10 @@ interface Props {
   gutterBottom?:number;
   color?:d3.scale.Ordinal<string, string>;
   data?:Data[];
+  xField?:string;
+  yField?:string;
+  rField?:string;
+  categoryField?:string;
 }
 
 export default class Component extends React.Component<Props, any> {
@@ -47,29 +51,59 @@ export default class Component extends React.Component<Props, any> {
 
   render() {
     return (
-    <svg ref={CHART} className="basic-chart-bubble">
-      <g ref={BUBBLE_SERIES} className="canvas"/>
-      <g ref={AXIS_X} className="axis axis-x"/>
-      <g ref={AXIS_Y} className="axis axis-y"/>
-    </svg>
+      <svg ref={CHART} className="basic-chart-bubble">
+        <g ref={SERIES} className="series"/>
+        <g ref={AXIS_X} className="axis axis-x"/>
+        <g ref={AXIS_Y} className="axis axis-y"/>
+      </svg>
     );
   }
 
   draw(props:Props, drawTransition:boolean) {
-    const data:Data[] = props.data;
-    const xmax:number = d3.max(data, d => d.Data2);
-    const ymax:number = d3.max(data, d => d.Data1);
-    const rmax:number = d3.max(data, d => d.Data3);
+    const {data, duration, delay: delayTime, color: colorScale, xField, yField, rField, categoryField} = props;
+
+    const xmax:number = d3.max(data, d => d[xField]);
+    const ymax:number = d3.max(data, d => d[yField]);
+    const rmin:number = d3.min(data, d => d[rField]);
+    const rmax:number = d3.max(data, d => d[rField]);
     const xscale = d3.scale.linear().rangeRound([0, this._w]).domain([0, xmax]).nice();
     const yscale = d3.scale.linear().rangeRound([this._h, 0]).domain([0, ymax]).nice();
-    const rscale = d3.scale.linear().rangeRound([5, 20]).domain([0, rmax]).nice();
+    const rscale = d3.scale.linear().rangeRound([3, 14]).domain([rmin, rmax]).nice();
+    const strokeWidthScale = d3.scale.linear().range([2, 6]).domain([3, 14]);
 
-    // remove ramaining nodes
+    //---------------------------------------------
+    // draw bubble series
+    //---------------------------------------------
+    interface Circle {
+      delay:number;
+      color:string;
+      x:number;
+      y:number;
+      r:number;
+      data:Data;
+    }
+
+    const circles:Circle[] = data.map((d, f) => {
+      const delay:number = delayTime * f;
+      const color:string = colorScale(d[categoryField]);
+      const x:number = xscale(d[xField]);
+      const y:number = yscale(d[yField]);
+      const r:number = rscale(d[rField]);
+      return {delay, color, x, y, r, data: d};
+    });
+
+    const delay = (c:Circle) => c.delay;
+    const color = (c:Circle) => c.color;
+    const x = (c:Circle) => c.x;
+    const y = (c:Circle) => c.y;
+    const r = (c:Circle) => c.r;
+    const strokeWidth = (c:Circle) => strokeWidthScale(c.r);
+
     if (this._bubbles) {
       (!drawTransition ? this._bubbles : this._bubbles
         .transition()
-        .duration(props.duration)
-        .delay((d, i) => props.delay * i)
+        .duration(duration)
+        .delay(delay)
         .ease(this._easeIn)
         .attr({
           opacity: 0,
@@ -78,37 +112,42 @@ export default class Component extends React.Component<Props, any> {
         .remove()
     }
 
-    // create additional nodes
-    this._bubbles = this.select(BUBBLE_SERIES)
+    this._bubbles = this.select(SERIES)
       .selectAll('.circle')
-      .data(data)
+      .data(circles)
       .enter()
       .append('circle')
+      .attr({
+        stroke: color,
+        'stroke-width': strokeWidth,
+        fill: 'rgba(0, 0, 0, 0)',
+        cx: x,
+        cy: y
+      })
       .call(d3tip({
-        html: (d:Data) => `<h5>${d.Category}</h5>${d.Data1}<br/>${d.Data2}<br/>${d.Data3}`
+        html: (c:Circle) => `<h5>${c.data[categoryField]}</h5>
+        x: ${c.data[xField]}<br/>
+        y: ${c.data[yField]}<br/>
+        r: ${c.data[rField]}`
       }));
 
     //noinspection TypeScriptValidateTypes
     (!drawTransition ? this._bubbles : this._bubbles
       .attr({
-        fill: d => props.color(d.Category),
-        cx: d => xscale(d.Data2),
-        cy: d => yscale(d.Data1),
         r: 0,
         opacity: 0
       })
       .transition()
-      .delay((d, i) => props.delay * i)
+      .delay(delay)
       .ease(this._easeOut)) // end transition
       .attr({
-        fill: d => props.color(d.Category),
-        cx: d => xscale(d.Data2),
-        cy: d => yscale(d.Data1),
-        r: d => rscale(d.Data3),
+        r,
         opacity: 1
       });
 
+    //---------------------------------------------
     // draw axis
+    //---------------------------------------------
     const xaxis = d3.svg.axis().scale(xscale).orient('bottom');
     const yaxis = d3.svg.axis().scale(yscale).orient('left');
 
@@ -120,10 +159,6 @@ export default class Component extends React.Component<Props, any> {
     this._easeIn = d3.ease('quad-in');
     this._easeOut = d3.ease('quad-out');
   }
-
-  //componentWillUnmount():void {
-  //  this.chart = null;
-  //}
 
   shouldComponentUpdate(nextProps:Props, nextState:any, nextContext:any):boolean {
     const currentProps:Props = this.props;
@@ -140,7 +175,7 @@ export default class Component extends React.Component<Props, any> {
       this._w = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
       this._h = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
 
-      this.select(BUBBLE_SERIES).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop})`);
+      this.select(SERIES).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop})`);
       this.select(AXIS_X).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop + this._h})`);
       this.select(AXIS_Y).attr('transform', `translate(${nextProps.gutterLeft}, ${nextProps.gutterTop})`);
     }
@@ -153,7 +188,12 @@ export default class Component extends React.Component<Props, any> {
       || currentProps.gutterBottom !== nextProps.gutterBottom
       || currentProps.color !== nextProps.color
       || currentProps.data !== nextProps.data) {
-      this.draw(nextProps, currentProps.data !== nextProps.data);
+      this.draw(nextProps,
+        currentProps.data !== nextProps.data
+        || currentProps.xField !== nextProps.xField
+        || currentProps.yField !== nextProps.yField
+        || currentProps.rField !== nextProps.rField
+        || currentProps.categoryField !== nextProps.categoryField);
     }
     return false;
   }

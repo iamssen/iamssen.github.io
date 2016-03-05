@@ -820,7 +820,7 @@ webpackJsonp([0],{
 	        var style = { textAlign: 'right' };
 	        var _a = this.state, data = _a.data, color = _a.color, dataField = _a.dataField, size = _a.size;
 	        var width = size[0], height = size[1];
-	        return (React.createElement("div", {className: "basic-charts"}, React.createElement("div", {style: style}, React.createElement("button", {onClick: this.changeSize.bind(this)}, "Change Size"), React.createElement("button", {onClick: this.changeColor.bind(this)}, "Change Color"), React.createElement("button", {onClick: this.changeDataFields.bind(this)}, "Change DataFields"), React.createElement("button", {onClick: this.refreshData.bind(this)}, "Refresh Data")), React.createElement(bar_1.default, {width: width, height: height, data: data, color: color, dataFields: dataField}), React.createElement(bubble_1.default, {width: width, height: height, data: data, color: color}), React.createElement(column_1.default, {width: width, height: height, data: data, color: color, dataFields: dataField}), React.createElement(line_1.default, {width: width, height: height, data: data, color: color}), React.createElement(pie_1.default, {width: width, height: height, data: data, color: color}), React.createElement(radar_1.default, {width: width, height: height, data: data, color: color})));
+	        return (React.createElement("div", {className: "basic-charts"}, React.createElement("div", {style: style}, React.createElement("button", {onClick: this.changeSize.bind(this)}, "Change Size"), React.createElement("button", {onClick: this.changeColor.bind(this)}, "Change Color"), React.createElement("button", {onClick: this.changeDataFields.bind(this)}, "Change DataFields"), React.createElement("button", {onClick: this.refreshData.bind(this)}, "Refresh Data")), React.createElement(bar_1.default, {width: width, height: height, data: data, color: color, dataFields: dataField}), React.createElement(bubble_1.default, {width: width, height: height, data: data, color: color, xField: "Data2", yField: "Data1", rField: "Data3", categoryField: "Category"}), React.createElement(column_1.default, {width: width, height: height, data: data, color: color, dataFields: dataField}), React.createElement(line_1.default, {width: width, height: height, data: data, color: color}), React.createElement(pie_1.default, {width: width, height: height, data: data, color: color}), React.createElement(radar_1.default, {width: width, height: height, data: data, color: color})));
 	    };
 	    BasicCharts.prototype.data = function () {
 	        var max = Math.random() * 1000;
@@ -894,22 +894,22 @@ webpackJsonp([0],{
 	        return (React.createElement("svg", {ref: CHART, className: "basic-chart-bar"}, React.createElement("g", {ref: SERIES, className: "series"}), React.createElement("g", {ref: AXIS_X, className: "axis axis-x"}), React.createElement("g", {ref: AXIS_Y, className: "axis axis-y"})));
 	    };
 	    Component.prototype.draw = function (props, drawTransition) {
-	        var data = props.data, duration = props.duration, delayTime = props.delay, color = props.color, dataFields = props.dataFields;
+	        var data = props.data, duration = props.duration, delayTime = props.delay, colorScale = props.color, dataFields = props.dataFields;
 	        var categoryField = 'Category';
 	        var categoryScale = d3.scale.ordinal().rangeRoundBands([0, this._h]).domain(data.map(function (d) { return d[categoryField]; }));
 	        var xmax = d3.max(data, function (d) { return d3.max(dataFields, function (dataField) { return d[dataField]; }); });
 	        var xscale = d3.scale.linear().rangeRound([0, this._w]).domain([0, xmax]).nice();
 	        var dataFieldsLength = dataFields.length;
 	        var rects = data.map(function (d, f) { return dataFields.map(function (dataField, s) {
-	            var fill = dataFieldsLength === 1 ? color(d[categoryField]) : color(s.toString());
+	            var color = dataFieldsLength === 1 ? colorScale(d[categoryField]) : colorScale(s.toString());
 	            var delay = delayTime * f;
 	            var width = xscale(d[dataField]);
 	            var height = categoryScale.rangeBand() / dataFieldsLength;
 	            var y = categoryScale(d[categoryField]) + (height * s);
-	            return { fill: fill, delay: delay, width: width, height: height, y: y, data: d, dataField: dataField };
+	            return { color: color, delay: delay, width: width, height: height, y: y, data: d, dataField: dataField };
 	        }); });
 	        var delay = function (r) { return r.delay; };
-	        var fill = function (r) { return r.fill; };
+	        var color = function (r) { return r.color; };
 	        var y = function (r) { return r.y; };
 	        var width = function (r) { return r.width; };
 	        var height = function (r) { return r.height; };
@@ -924,7 +924,10 @@ webpackJsonp([0],{
 	            .ease(this._easeOut)) // end transition
 	            .attr({
 	            opacity: 1,
-	            fill: fill, y: y, width: width, height: height
+	            fill: color,
+	            y: y,
+	            width: width,
+	            height: height
 	        });
 	        (!drawTransition ? update.exit() : update.exit()
 	            .transition()
@@ -940,9 +943,13 @@ webpackJsonp([0],{
 	            .remove();
 	        var enter = update.enter()
 	            .append('rect')
-	            .attr({ fill: fill, y: y, height: height })
+	            .attr({
+	            fill: color,
+	            y: y,
+	            height: height
+	        })
 	            .call(d3tip_1.default({
-	            html: function (r) { return ("<h5>" + r.data[categoryField] + "</h5>" + r.data[r.dataField]); }
+	            html: function (r) { return ("<h5>" + r.data[categoryField] + "</h5>\n        " + r.data[r.dataField]); }
 	        }));
 	        //noinspection TypeScriptValidateTypes
 	        (!drawTransition ? enter : enter
@@ -996,7 +1003,8 @@ webpackJsonp([0],{
 	            || currentProps.color !== nextProps.color
 	            || currentProps.data !== nextProps.data
 	            || currentProps.dataFields !== nextProps.dataFields) {
-	            this.draw(nextProps, currentProps.data !== nextProps.data || currentProps.dataFields !== nextProps.dataFields);
+	            this.draw(nextProps, currentProps.data !== nextProps.data
+	                || currentProps.dataFields !== nextProps.dataFields);
 	        }
 	        return false;
 	    };
@@ -1048,23 +1056,23 @@ webpackJsonp([0],{
 	    };
 	    Component.prototype.draw = function (props, drawTransition) {
 	        var _this = this;
-	        var data = props.data, duration = props.duration, delayTime = props.delay, color = props.color, dataFields = props.dataFields;
+	        var data = props.data, duration = props.duration, delayTime = props.delay, colorScale = props.color, dataFields = props.dataFields;
 	        var categoryField = 'Category';
 	        var categoryScale = d3.scale.ordinal().rangeRoundBands([0, this._w]).domain(data.map(function (d) { return d[categoryField]; }));
 	        var ymax = d3.max(data, function (d) { return d3.max(dataFields, function (dataField) { return d[dataField]; }); });
 	        var yscale = d3.scale.linear().rangeRound([this._h, 0]).domain([0, ymax]).nice();
 	        var dataFieldsLength = dataFields.length;
 	        var rects = data.map(function (d, f) { return dataFields.map(function (dataField, s) {
-	            var fill = dataFieldsLength === 1 ? color(d[categoryField]) : color(s.toString());
+	            var color = dataFieldsLength === 1 ? colorScale(d[categoryField]) : colorScale(s.toString());
 	            var delay = delayTime * f;
 	            var width = categoryScale.rangeBand() / dataFieldsLength;
 	            var height = _this._h - yscale(d[dataField]);
 	            var x = categoryScale(d[categoryField]) + (width * s);
 	            var y = yscale(d[dataField]);
-	            return { fill: fill, delay: delay, width: width, height: height, x: x, y: y, data: d, dataField: dataField };
+	            return { color: color, delay: delay, width: width, height: height, x: x, y: y, data: d, dataField: dataField };
 	        }); });
 	        var delay = function (r) { return r.delay; };
-	        var fill = function (r) { return r.fill; };
+	        var color = function (r) { return r.color; };
 	        var x = function (r) { return r.x; };
 	        var y = function (r) { return r.y; };
 	        var width = function (r) { return r.width; };
@@ -1080,7 +1088,11 @@ webpackJsonp([0],{
 	            .ease(this._easeOut)) // end transition
 	            .attr({
 	            opacity: 1,
-	            fill: fill, x: x, y: y, width: width, height: height
+	            fill: color,
+	            x: x,
+	            y: y,
+	            width: width,
+	            height: height
 	        });
 	        (!drawTransition ? update.exit() : update.exit()
 	            .transition()
@@ -1097,9 +1109,13 @@ webpackJsonp([0],{
 	            .remove();
 	        var enter = update.enter()
 	            .append('rect')
-	            .attr({ fill: fill, x: x, width: width })
+	            .attr({
+	            fill: color,
+	            x: x,
+	            width: width
+	        })
 	            .call(d3tip_1.default({
-	            html: function (r) { return ("<h5>" + r.data[categoryField] + "</h5>" + r.data[r.dataField]); }
+	            html: function (r) { return ("<h5>" + r.data[categoryField] + "</h5>\n        " + r.data[r.dataField]); }
 	        }));
 	        //noinspection TypeScriptValidateTypes
 	        (!drawTransition ? enter : enter
@@ -1155,7 +1171,8 @@ webpackJsonp([0],{
 	            || currentProps.color !== nextProps.color
 	            || currentProps.data !== nextProps.data
 	            || currentProps.dataFields !== nextProps.dataFields) {
-	            this.draw(nextProps, currentProps.data !== nextProps.data || currentProps.dataFields !== nextProps.dataFields);
+	            this.draw(nextProps, currentProps.data !== nextProps.data
+	                || currentProps.dataFields !== nextProps.dataFields);
 	        }
 	        return false;
 	    };
@@ -1194,7 +1211,7 @@ webpackJsonp([0],{
 	var d3 = __webpack_require__(349);
 	var d3tip_1 = __webpack_require__(351);
 	var CHART = 'chart';
-	var BUBBLE_SERIES = 'canvas';
+	var SERIES = 'series';
 	var AXIS_X = 'axisX';
 	var AXIS_Y = 'axisY';
 	var Component = (function (_super) {
@@ -1203,22 +1220,37 @@ webpackJsonp([0],{
 	        _super.call(this, props, context);
 	    }
 	    Component.prototype.render = function () {
-	        return (React.createElement("svg", {ref: CHART, className: "basic-chart-bubble"}, React.createElement("g", {ref: BUBBLE_SERIES, className: "canvas"}), React.createElement("g", {ref: AXIS_X, className: "axis axis-x"}), React.createElement("g", {ref: AXIS_Y, className: "axis axis-y"})));
+	        return (React.createElement("svg", {ref: CHART, className: "basic-chart-bubble"}, React.createElement("g", {ref: SERIES, className: "series"}), React.createElement("g", {ref: AXIS_X, className: "axis axis-x"}), React.createElement("g", {ref: AXIS_Y, className: "axis axis-y"})));
 	    };
 	    Component.prototype.draw = function (props, drawTransition) {
-	        var data = props.data;
-	        var xmax = d3.max(data, function (d) { return d.Data2; });
-	        var ymax = d3.max(data, function (d) { return d.Data1; });
-	        var rmax = d3.max(data, function (d) { return d.Data3; });
+	        var data = props.data, duration = props.duration, delayTime = props.delay, colorScale = props.color, xField = props.xField, yField = props.yField, rField = props.rField, categoryField = props.categoryField;
+	        var xmax = d3.max(data, function (d) { return d[xField]; });
+	        var ymax = d3.max(data, function (d) { return d[yField]; });
+	        var rmin = d3.min(data, function (d) { return d[rField]; });
+	        var rmax = d3.max(data, function (d) { return d[rField]; });
 	        var xscale = d3.scale.linear().rangeRound([0, this._w]).domain([0, xmax]).nice();
 	        var yscale = d3.scale.linear().rangeRound([this._h, 0]).domain([0, ymax]).nice();
-	        var rscale = d3.scale.linear().rangeRound([5, 20]).domain([0, rmax]).nice();
-	        // remove ramaining nodes
+	        var rscale = d3.scale.linear().rangeRound([3, 14]).domain([rmin, rmax]).nice();
+	        var strokeWidthScale = d3.scale.linear().range([2, 6]).domain([3, 14]);
+	        var circles = data.map(function (d, f) {
+	            var delay = delayTime * f;
+	            var color = colorScale(d[categoryField]);
+	            var x = xscale(d[xField]);
+	            var y = yscale(d[yField]);
+	            var r = rscale(d[rField]);
+	            return { delay: delay, color: color, x: x, y: y, r: r, data: d };
+	        });
+	        var delay = function (c) { return c.delay; };
+	        var color = function (c) { return c.color; };
+	        var x = function (c) { return c.x; };
+	        var y = function (c) { return c.y; };
+	        var r = function (c) { return c.r; };
+	        var strokeWidth = function (c) { return strokeWidthScale(c.r); };
 	        if (this._bubbles) {
 	            (!drawTransition ? this._bubbles : this._bubbles
 	                .transition()
-	                .duration(props.duration)
-	                .delay(function (d, i) { return props.delay * i; })
+	                .duration(duration)
+	                .delay(delay)
 	                .ease(this._easeIn)
 	                .attr({
 	                opacity: 0,
@@ -1226,35 +1258,37 @@ webpackJsonp([0],{
 	            })) // end transition
 	                .remove();
 	        }
-	        // create additional nodes
-	        this._bubbles = this.select(BUBBLE_SERIES)
+	        this._bubbles = this.select(SERIES)
 	            .selectAll('.circle')
-	            .data(data)
+	            .data(circles)
 	            .enter()
 	            .append('circle')
+	            .attr({
+	            stroke: color,
+	            'stroke-width': strokeWidth,
+	            fill: 'rgba(0, 0, 0, 0)',
+	            cx: x,
+	            cy: y
+	        })
 	            .call(d3tip_1.default({
-	            html: function (d) { return ("<h5>" + d.Category + "</h5>" + d.Data1 + "<br/>" + d.Data2 + "<br/>" + d.Data3); }
+	            html: function (c) { return ("<h5>" + c.data[categoryField] + "</h5>\n        x: " + c.data[xField] + "<br/>\n        y: " + c.data[yField] + "<br/>\n        r: " + c.data[rField]); }
 	        }));
 	        //noinspection TypeScriptValidateTypes
 	        (!drawTransition ? this._bubbles : this._bubbles
 	            .attr({
-	            fill: function (d) { return props.color(d.Category); },
-	            cx: function (d) { return xscale(d.Data2); },
-	            cy: function (d) { return yscale(d.Data1); },
 	            r: 0,
 	            opacity: 0
 	        })
 	            .transition()
-	            .delay(function (d, i) { return props.delay * i; })
+	            .delay(delay)
 	            .ease(this._easeOut)) // end transition
 	            .attr({
-	            fill: function (d) { return props.color(d.Category); },
-	            cx: function (d) { return xscale(d.Data2); },
-	            cy: function (d) { return yscale(d.Data1); },
-	            r: function (d) { return rscale(d.Data3); },
+	            r: r,
 	            opacity: 1
 	        });
+	        //---------------------------------------------
 	        // draw axis
+	        //---------------------------------------------
 	        var xaxis = d3.svg.axis().scale(xscale).orient('bottom');
 	        var yaxis = d3.svg.axis().scale(yscale).orient('left');
 	        this.select(AXIS_X).call(xaxis);
@@ -1264,9 +1298,6 @@ webpackJsonp([0],{
 	        this._easeIn = d3.ease('quad-in');
 	        this._easeOut = d3.ease('quad-out');
 	    };
-	    //componentWillUnmount():void {
-	    //  this.chart = null;
-	    //}
 	    Component.prototype.shouldComponentUpdate = function (nextProps, nextState, nextContext) {
 	        var currentProps = this.props;
 	        if (!this._w || !this._h
@@ -1279,7 +1310,7 @@ webpackJsonp([0],{
 	            this.select(CHART).attr({ width: nextProps.width, height: nextProps.height });
 	            this._w = nextProps.width - nextProps.gutterLeft - nextProps.gutterRight;
 	            this._h = nextProps.height - nextProps.gutterTop - nextProps.gutterBottom;
-	            this.select(BUBBLE_SERIES).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
+	            this.select(SERIES).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
 	            this.select(AXIS_X).attr('transform', "translate(" + nextProps.gutterLeft + ", " + (nextProps.gutterTop + this._h) + ")");
 	            this.select(AXIS_Y).attr('transform', "translate(" + nextProps.gutterLeft + ", " + nextProps.gutterTop + ")");
 	        }
@@ -1291,7 +1322,11 @@ webpackJsonp([0],{
 	            || currentProps.gutterBottom !== nextProps.gutterBottom
 	            || currentProps.color !== nextProps.color
 	            || currentProps.data !== nextProps.data) {
-	            this.draw(nextProps, currentProps.data !== nextProps.data);
+	            this.draw(nextProps, currentProps.data !== nextProps.data
+	                || currentProps.xField !== nextProps.xField
+	                || currentProps.yField !== nextProps.yField
+	                || currentProps.rField !== nextProps.rField
+	                || currentProps.categoryField !== nextProps.categoryField);
 	        }
 	        return false;
 	    };

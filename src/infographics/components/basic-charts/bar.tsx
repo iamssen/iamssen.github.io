@@ -56,7 +56,7 @@ export default class Component extends React.Component<Props, any> {
   }
 
   draw(props:Props, drawTransition:boolean) {
-    const {data, duration, delay: delayTime, color, dataFields} = props;
+    const {data, duration, delay: delayTime, color: colorScale, dataFields} = props;
     const categoryField:string = 'Category';
     const categoryScale:d3.scale.Ordinal<any, any> = d3.scale.ordinal().rangeRoundBands([0, this._h]).domain(data.map(d => d[categoryField]));
 
@@ -68,7 +68,7 @@ export default class Component extends React.Component<Props, any> {
     //---------------------------------------------
     interface Rect {
       delay: number;
-      fill: string;
+      color: string;
       y: number;
       width: number;
       height: number;
@@ -78,16 +78,16 @@ export default class Component extends React.Component<Props, any> {
 
     const dataFieldsLength:number = dataFields.length;
     const rects:Rect[][] = data.map((d, f) => dataFields.map((dataField, s) => {
-      const fill:string = dataFieldsLength === 1 ? color(d[categoryField]) : color(s.toString());
+      const color:string = dataFieldsLength === 1 ? colorScale(d[categoryField]) : colorScale(s.toString());
       const delay:number = delayTime * f;
       const width:number = xscale(d[dataField]);
       const height:number = categoryScale.rangeBand() / dataFieldsLength;
       const y:number = categoryScale(d[categoryField]) + (height * s);
-      return {fill, delay, width, height, y, data: d, dataField};
+      return {color, delay, width, height, y, data: d, dataField};
     }));
 
     const delay = (r:Rect) => r.delay;
-    const fill = (r:Rect) => r.fill;
+    const color = (r:Rect) => r.color;
     const y = (r:Rect) => r.y;
     const width = (r:Rect) => r.width;
     const height = (r:Rect) => r.height;
@@ -104,7 +104,10 @@ export default class Component extends React.Component<Props, any> {
       .ease(this._easeOut)) // end transition
       .attr({
         opacity: 1,
-        fill, y, width, height
+        fill: color,
+        y,
+        width,
+        height
       });
 
     (!drawTransition ? update.exit() : update.exit()
@@ -122,9 +125,14 @@ export default class Component extends React.Component<Props, any> {
 
     const enter:d3.Selection<any> = update.enter()
       .append('rect')
-      .attr({fill, y, height})
+      .attr({
+        fill: color,
+        y,
+        height
+      })
       .call(d3tip({
-        html: (r:Rect) => `<h5>${r.data[categoryField]}</h5>${r.data[r.dataField]}`
+        html: (r:Rect) => `<h5>${r.data[categoryField]}</h5>
+        ${r.data[r.dataField]}`
       }));
 
     //noinspection TypeScriptValidateTypes
@@ -186,7 +194,9 @@ export default class Component extends React.Component<Props, any> {
       || currentProps.color !== nextProps.color
       || currentProps.data !== nextProps.data
       || currentProps.dataFields !== nextProps.dataFields) {
-      this.draw(nextProps, currentProps.data !== nextProps.data || currentProps.dataFields !== nextProps.dataFields);
+      this.draw(nextProps,
+        currentProps.data !== nextProps.data
+        || currentProps.dataFields !== nextProps.dataFields);
     }
     return false;
   }
